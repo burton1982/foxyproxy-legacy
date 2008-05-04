@@ -129,8 +129,8 @@
 						<row><label value="&foxyproxy.swedish;"/><label value="StiffeL" style="font-weight: bold;"/></row>
 						<row><label value="&foxyproxy.ukrainian;"/><label value="MozUA" style="font-weight: bold;"/></row>
 			      <row><label value="&foxyproxy.your.language;"/>
-			        <label value="&foxyproxy.your.name.here;" onclick="foxyproxy_common.openAndReuseOneTabPerURL('http://www.babelzilla.org/');"
-			          class="text-link" style="font-weight: bold;" tooltiptext="http://www.babelzilla.org/"/></row>
+			        <label value="&foxyproxy.your.name.here;" onclick="foxyproxy_common.openAndReuseOneTabPerURL('http://www.babelzilla.org/forum/index.php?showtopic=1932');"
+			          class="text-link" style="font-weight: bold;" tooltiptext="http://www.babelzilla.org/forum/index.php?showtopic=1932"/></row>
 			    </rows>
 			    </grid>
 			  </row>

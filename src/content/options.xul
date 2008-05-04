@@ -70,21 +70,20 @@
 		</toolbox>
 	</vbox>
 
-	<separator />
+	<separator class="thin"/>
 	<hbox style="margin-left: 1em;" align="center">
 		<label value="&foxyproxy.mode.label;:"
 			tooltiptext="&foxyproxy.mode.tooltip;"
 			accesskey="&foxyproxy.mode.accesskey;" command="modeMenuPopup" />
 		<menulist id="modeMenu" oncommand="onEnableTypeChanged(this);"
-			tooltiptext="&foxyproxy.mode.tooltip;"
-			style="margin: 0em 1em 0em 1em; min-height: 1.8em;">
+			tooltiptext="&foxyproxy.mode.tooltip;">
 			<menupopup id="modeMenuPopup" />
 		</menulist>
 	</hbox>
 
-	<separator class="thin" />
+	<separator class="thin"/>
 
-	<tabbox flex="1" style="margin: 1em;">
+	<tabbox flex="1" style="margin: .5em;">
 		<tabs id="tabs"
 			onselect="foxyproxy.selectedTabIndex=this.selectedIndex;">
 			<tab label="&foxyproxy.tab.proxies.label;"
