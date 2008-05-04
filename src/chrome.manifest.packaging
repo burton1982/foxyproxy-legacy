@@ -18,7 +18,7 @@ locale	foxyproxy	pt-BR	jar:chrome/foxyproxy.jar!/locale/pt-BR/
 locale	foxyproxy	pt-PT	jar:chrome/foxyproxy.jar!/locale/pt-PT/
 locale	foxyproxy	ru-RU	jar:chrome/foxyproxy.jar!/locale/ru-RU/
 locale	foxyproxy	sk	jar:chrome/foxyproxy.jar!/locale/sk/
-locale	foxyproxy	sr	jar:chrome/foxyproxy.jar!/locale/sr/
+locale	foxyproxy	sr-RS	jar:chrome/foxyproxy.jar!/locale/sr-RS/
 locale	foxyproxy	sv-SE	jar:chrome/foxyproxy.jar!/locale/sv-SE/
 locale	foxyproxy	th-TH	jar:chrome/foxyproxy.jar!/locale/th-TH/
 locale	foxyproxy	tr-TR	jar:chrome/foxyproxy.jar!/locale/tr-TR/
