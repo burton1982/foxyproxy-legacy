@@ -487,7 +487,7 @@ biesi>	passing it the appropriate proxyinfo
       foStream.close();
     }
     catch(ex) {
-      this.alert(null, this.getMessage("settings.error.3", [o]));    
+      this.alert(null, this.getMessage("settings.error.3", o instanceof CI.nsIFile ? [o.path] : [o]));    
     }
   },
 
