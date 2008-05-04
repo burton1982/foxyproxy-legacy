@@ -69,7 +69,7 @@ function onLoad() {
   document.getElementById("quickAddTemplateExample1").value = mrw ? mrw.content.document.location.href : "";
   updateTemplateExample("quickAddUrlTemplate", "quickAddTemplateExample", fp.quickadd);  
   updateView();  
-  sizeToContent();  
+  setTimeout(function(){sizeToContent();}, 0);  
 }
 
 function updateTemplateExample(controlName, exampleControlName, saObj) {

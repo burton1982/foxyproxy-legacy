@@ -6,5 +6,5 @@ function onLoad() {
   if (!overlay)
     overlay = foxyproxy_common.getMostRecentWindow();
   document.getElementById("ver").value += " " + foxyproxy_common.getVersion();
-	sizeToContent();      
+	setTimeout(function(){sizeToContent();}, 0);     
 }

@@ -33,5 +33,5 @@ function onLoad() {
   document.getElementById("whiteblacktype").selectedIndex = window.arguments[0].inn.black ? 1 : 0;
   document.getElementById("enabled").checked = window.arguments[0].inn.enabled;
   document.getElementById("caseSensitive").checked = window.arguments[0].inn.caseSensitive;
-  sizeToContent();
+  setTimeout(function(){sizeToContent();}, 0);
 }
