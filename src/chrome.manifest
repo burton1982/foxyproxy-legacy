@@ -18,11 +18,10 @@ locale	foxyproxy	pt-BR	locale/pt-BR/
 locale	foxyproxy	pt-PT	locale/pt-PT/
 locale	foxyproxy	ru-RU	locale/ru-RU/
 locale	foxyproxy	sk	locale/sk/
-locale	foxyproxy	sr-YU	locale/sr-YU/
-locale	foxyproxy	sv-SE	locale/sv-SE/
+locale	foxyproxy	sr	locale/sr/
 locale	foxyproxy	th-TH	locale/th-TH/
 locale	foxyproxy	tr-TR	locale/tr-TR/
-locale	foxyproxy	uk-UA	locale/uk-UA/
+locale	foxyproxy	uk	locale/uk/
 locale	foxyproxy	zh-CN	locale/zh-CN/
 locale	foxyproxy	zh-TW	locale/zh-TW/
 

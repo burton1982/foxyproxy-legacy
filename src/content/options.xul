@@ -445,7 +445,7 @@
 					&foxyproxy.quickadd.desc1;
 					<html:a
 						style="color: blue; text-decoration: underline; cursor: pointer;"
-						onclick="foxyproxy_common.openAndReuseOneTabPerURL('http://mozilla.dorando.at/readme.html');">
+						onclick="foxyproxy_common.openAndReuseOneTabPerURL('http://forums.mozillazine.org/viewtopic.php?t=72994');">
 						&foxyproxy.keyconfig.label;
 					</html:a>
 					&foxyproxy.quickadd.desc2;
@@ -569,7 +569,7 @@
 									<label
 										value="&foxyproxy.wildcard.label;"
 										style="margin-left: -0.5em;" class="text-link"
-										onclick="foxyproxy_common.openAndReuseOneTabPerURL('http://foxyproxy.mozdev.org/quickstart.html#wildcards');"
+										onclick="foxyproxy_common.openAndReuseOneTabPerURL('http://foxyproxy.mozdev.org/patterns.html#wildcards');"
 										tooltiptext="&foxyproxy.wildcard.tooltip;" />
 									<label
 										value="&foxyproxy.wildcard.example.label;" />
@@ -583,7 +583,7 @@
 									<label
 										value="&foxyproxy.regex.label;" style="margin-left: -0.5em;"
 										class="text-link"
-										onclick="foxyproxy_common.openAndReuseOneTabPerURL('http://foxyproxy.mozdev.org/quickstart.html#regex');"
+										onclick="foxyproxy_common.openAndReuseOneTabPerURL('http://foxyproxy.mozdev.org/patterns.html#regex');"
 										tooltiptext="&foxyproxy.regex.tooltip;" />
 									<label
 										value="&foxyproxy.regex.example.label;" />
@@ -660,7 +660,7 @@
                                                 <label
                                                     value="&foxyproxy.wildcard.label;"
                                                     style="margin-left: -0.5em;" class="text-link"
-                                                    onclick="foxyproxy_common.openAndReuseOneTabPerURL('http://foxyproxy.mozdev.org/quickstart.html#wildcards');"
+                                                    onclick="foxyproxy_common.openAndReuseOneTabPerURL('http://foxyproxy.mozdev.org/patterns.html#wildcards');"
                                                     tooltiptext="&foxyproxy.wildcard.tooltip;" />
                                                 <label
                                                     value="&foxyproxy.autoadd.wildcard.example.label;" />
@@ -672,7 +672,7 @@
                                                 <label
                                                     value="&foxyproxy.regex.label;"
                                                     style="margin-left: -0.5em;" class="text-link"
-                                                    onclick="foxyproxy_common.openAndReuseOneTabPerURL('http://foxyproxy.mozdev.org/quickstart.html#regex');"
+                                                    onclick="foxyproxy_common.openAndReuseOneTabPerURL('http://foxyproxy.mozdev.org/patterns.html#regex');"
                                                     tooltiptext="&foxyproxy.regex.tooltip;" />
                                                 <label
                                                     value="&foxyproxy.autoadd.regex.example.label;" />
@@ -988,7 +988,7 @@
 	<command id="helpCmd" label="&foxyproxy.help.label;"
 		accesskey="&foxyproxy.help.accesskey;"
 		tooltiptext="&foxyproxy.help.tooltip;"
-		oncommand="foxyproxy_common.openAndReuseOneTabPerURL('http://foxyproxy.mozdev.org/quickstart.html');" />
+		oncommand="foxyproxy_common.openAndReuseOneTabPerURL('http://foxyproxy.mozdev.org/configuring.html');" />
 
 	<command id="torWizardCmd" label="&foxyproxy.tor.label;"
 		accesskey="&foxyproxy.tor.accesskey;"

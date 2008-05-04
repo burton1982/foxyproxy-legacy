@@ -150,7 +150,7 @@
 <!ENTITY foxyproxy.addnewproxy.accesskey "x">
 <!ENTITY foxyproxy.addnewproxy.tooltip "Aggiungi un nuovo proxy">
 <!ENTITY foxyproxy.whitelist.label "Modello permesso">
-<!ENTITY foxyproxy.whitelist.accesskey "B">
+<!ENTITY foxyproxy.whitelist.accesskey "e">
 <!ENTITY foxyproxy.whitelist.tooltip "Gli indirizzi web corrispondenti a questo modello verranno caricati attraverso questo proxy">
 <!ENTITY foxyproxy.whitelist.description.label "Gli indirizzi web corrispondenti a questo modello verranno caricati attraverso questo proxy">
 <!ENTITY foxyproxy.blacklist.label "Modello non permesso">
@@ -234,7 +234,7 @@
 <!ENTITY foxyproxy.random.settings.accesskey "R">
 <!ENTITY foxyproxy.random.settings.tooltip "Gestione della selezione casuale dei proxy">
 <!ENTITY foxyproxy.tab.autoadd.label "Aggiunta automatica">
-<!ENTITY foxyproxy.tab.autoadd.accesskey "c">
+<!ENTITY foxyproxy.tab.autoadd.accesskey "u">
 <!ENTITY foxyproxy.tab.autoadd.tooltip "Gestione delle opzioni di aggiunta automatica">
 <!ENTITY foxyproxy.autoadd.description "Specificare un modello per identificare i siti bloccati. Quando tale modello viene trovato in un sito, il modello corrispondente all&apos;indirizzo web di quel sito viene automaticamente aggiunto ai proxy e facoltativamente ricaricato. Questo permette di non dovere identificare anticipatamente tutti i siti bloccati">
 <!ENTITY foxyproxy.autoadd.pattern.label "Modello per identificare siti bloccati">
@@ -246,7 +246,7 @@
 <!ENTITY foxyproxy.autoadd.proxy.accesskey "P">
 <!ENTITY foxyproxy.autoadd.proxy.tooltip "Specifica i proxy ai quali gli indirizzi web vengono aggiunti automaticamente">
 <!ENTITY foxyproxy.pattern.template.label "Modello URL">
-<!ENTITY foxyproxy.pattern.template.accesskey "U">
+<!ENTITY foxyproxy.pattern.template.accesskey "L">
 <!ENTITY foxyproxy.pattern.template.tooltip "Modello URL">
 <!ENTITY foxyproxy.pattern.template.example.label1 "Esempio per">
 <!ENTITY foxyproxy.pattern.template.example.label2 "http://fred:secret@mail.foo.com:8080/inbox/msg102.htm#subject?style=elegant">
@@ -259,9 +259,12 @@
 <!ENTITY foxyproxy.autoadd.reload.label "Ricarica la pagina dopo che il sito viene aggiunto al proxy">
 <!ENTITY foxyproxy.autoadd.reload.accesskey "R">
 <!ENTITY foxyproxy.autoadd.reload.tooltip "Ricarica automaticamente la pagina dopo essere stata aggiunta ad un proxy">
-<!ENTITY foxyproxy.autoadd.notify.label "Notifica quando l&apos;opzione &apos;Aggiunta automatica&apos; è attivata">
-<!ENTITY foxyproxy.autoadd.notify.accesskey "N">
+<!ENTITY foxyproxy.autoadd.notify.label "Notifica quando l&apos;aggiunta automatica è attivata">
 <!ENTITY foxyproxy.autoadd.notify.tooltip "Informa quando una pagina è bloccata ed il modello URL viene aggiunto ad un proxy">
+<!ENTITY foxyproxy.autoadd.notify.tooltip2 "Un pop-up verrà visualizzato quando verrà attivata l&apos;aggiunta automatica">
+<!ENTITY foxyproxy.autoadd.notify.whencanceled.label "Notifica quando l&apos;aggiunta automatica viene annullata">
+<!ENTITY foxyproxy.autoadd.notify.whencanceled.label2 "L&apos;aggiunta automatica viene annullata automaticamente quando l&apos;URL nella barra degli indirizzi corrisponde ad un modello permesso nel proxy di aggiunta automatica. In questo modo verrà evitato l&apos;uso di modelli duplicati, che potrebbero creare confusione nella propria configurazione. Questa impostazione non attiva/disattiva l&apos;annullamento, bensì la notifica quando questo avviene">
+<!ENTITY foxyproxy.autoadd.notify.whencanceled.tooltip "Un pop-up verrà visualizzato quando l&apos;aggiunta automatica verrà attivata ma annullata">
 <!ENTITY foxyproxy.graphics "Grafica ed immagini di:">
 <!ENTITY foxyproxy.website "Sito web di:">
 <!ENTITY foxyproxy.contributions "Collaboratori:">
@@ -444,3 +447,9 @@
 <!ENTITY foxyproxy.statusbarwidth.tooltip "Larghezza dell&apos;area nella barra di stato dove verrà mostrato il testo">
 <!ENTITY foxyproxy.pixels "">
 <!ENTITY foxyproxy.unlimited.label "(0: il testo verrà mostrato per intero) ">
+<!ENTITY foxyproxy.temp.popup.label "I modelli temporanei permettono di creare modelli di URL per indirizzi che non vengono visitati spesso, senza interessare le liste di modelli dei proxy. Tali modelli non vengono salvati sul disco rigido, ma mantenuti in memoria ed eliminati alla chiusura della sessione di Firefox">
+<!ENTITY foxyproxy.temp.popup.height "140">
+<!ENTITY foxyproxy.temp.popup.width "400">
+<!ENTITY foxyproxy.temp.label "Utilizza modelli temporanei">
+<!ENTITY foxyproxy.temp.accesskey "t">
+<!ENTITY foxyproxy.temp.tooltip "Selezionare questa opzione per utilizzare il modello solo per la sessione di Firefox attuale">
