@@ -260,11 +260,8 @@
 <!ENTITY foxyproxy.autoadd.reload.accesskey "L">
 <!ENTITY foxyproxy.autoadd.reload.tooltip "Lädt die Seite automatisch neu, nachdem sie einem Proxy zugeordnet wurde">
 <!ENTITY foxyproxy.autoadd.notify.label "Benachrichtigen, wenn AutoAdd ausgeführt wird">
+<!ENTITY foxyproxy.autoadd.notify.accesskey "B">
 <!ENTITY foxyproxy.autoadd.notify.tooltip "Benachrichtigung anzeigen, wenn eine Webseite blockiert ist und das URL-Muster einem Proxy per AutoAdd zugeordnet wird">
-<!ENTITY foxyproxy.autoadd.notify.tooltip2 "Display a popup when AutoAdd is activated">
-<!ENTITY foxyproxy.autoadd.notify.whencanceled.label "Notify me when AutoAdd is canceled">
-<!ENTITY foxyproxy.autoadd.notify.whencanceled.label2 "AutoAdd is automatically canceled when the URL in the address bar already matches a whitelist pattern in the AutoAdd proxy. In this way duplicate patterns, which can clutter your configuration, are prevented. This setting does not enable/disable cancelation; rather, it toggles notification when cancelation occurs.">
-<!ENTITY foxyproxy.autoadd.notify.whencanceled.tooltip "Display a popup when AutoAdd is activated but canceled">
 <!ENTITY foxyproxy.graphics "Grafikdesign und Bilder von">
 <!ENTITY foxyproxy.website "Website von">
 <!ENTITY foxyproxy.contributions "Beiträge von">
@@ -447,9 +444,3 @@
 <!ENTITY foxyproxy.statusbarwidth.tooltip "Fixiert die Breite in der Statuszeile">
 <!ENTITY foxyproxy.pixels "Pixel">
 <!ENTITY foxyproxy.unlimited.label "[0: automatisch anpassen]">
-<!ENTITY foxyproxy.temp.popup.label "Temporäre Muster erlauben die zeitweise Aufnahme selten besuchter URLs, ohne die Musterliste für einen Proxy zu überfrachten. Temporäre Muster werden nicht permanent gespeichert - sie werden nur für diese Firefox-Session im Speicher gehalten.">
-<!ENTITY foxyproxy.temp.popup.height "120">
-<!ENTITY foxyproxy.temp.popup.width "400">
-<!ENTITY foxyproxy.temp.label "Temporär">
-<!ENTITY foxyproxy.temp.accesskey "T">
-<!ENTITY foxyproxy.temp.tooltip "Muster wird nur in dieser Firefox-Session verwendet">

@@ -260,11 +260,8 @@
 <!ENTITY foxyproxy.autoadd.reload.accesskey "R">
 <!ENTITY foxyproxy.autoadd.reload.tooltip "Recarga la página automáticamente una vez que el patrón se haya añadido al proxy">
 <!ENTITY foxyproxy.autoadd.notify.label "Notificarme cuando se active AutoAdd">
+<!ENTITY foxyproxy.autoadd.notify.accesskey "N">
 <!ENTITY foxyproxy.autoadd.notify.tooltip "Informa cuando una página es bloqueada &amp; y el patrón de la dirección se añade al proxy">
-<!ENTITY foxyproxy.autoadd.notify.tooltip2 "Display a popup when AutoAdd is activated">
-<!ENTITY foxyproxy.autoadd.notify.whencanceled.label "Avisarme cuando se cancele AutoAdd">
-<!ENTITY foxyproxy.autoadd.notify.whencanceled.label2 "AutoAdd se cancela automáticamente si la dirección de la página coincide con un patrón de la lista blanca del proxy AutoAdd. De este modo se evitan patrones duplicados que pueden estropear la configuración. Esta opción no habilita/deshabilita la cancelación, sino que avisa cuando ocurre.">
-<!ENTITY foxyproxy.autoadd.notify.whencanceled.tooltip "Mostrar una ventana emergente si AutoAdd está activo pero se cancela">
 <!ENTITY foxyproxy.graphics "Diseño gráfico e imágenes de">
 <!ENTITY foxyproxy.website "Página web por">
 <!ENTITY foxyproxy.contributions "Colaboración de">
@@ -447,9 +444,3 @@
 <!ENTITY foxyproxy.statusbarwidth.tooltip "Previene el redimensionado de la barra de estados">
 <!ENTITY foxyproxy.pixels "pixels">
 <!ENTITY foxyproxy.unlimited.label "[0: Ajustar al ancho]">
-<!ENTITY foxyproxy.temp.popup.label "Los patrones temporales le permiten crear plantillas para direcciones que no visite con frecuencia. Los patrones temporales no se guardan en el disco, sino que permanecen en memoria durante la sesión actual de Firefox.">
-<!ENTITY foxyproxy.temp.popup.height "120">
-<!ENTITY foxyproxy.temp.popup.width "400">
-<!ENTITY foxyproxy.temp.label "Temporales">
-<!ENTITY foxyproxy.temp.accesskey "T">
-<!ENTITY foxyproxy.temp.tooltip "Los patrones se usarán sólamente en esta sesión de Firefox">

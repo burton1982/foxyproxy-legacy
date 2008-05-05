@@ -260,11 +260,8 @@
 <!ENTITY foxyproxy.autoadd.reload.accesskey "ا">
 <!ENTITY foxyproxy.autoadd.reload.tooltip "بارگذاری دوباره صفحه وقتی به یک پروکسی اضافه می شود">
 <!ENTITY foxyproxy.autoadd.notify.label "هنگام راه اندازی افزودن خودکار به من اطلاع بده">
+<!ENTITY foxyproxy.autoadd.notify.accesskey "ا">
 <!ENTITY foxyproxy.autoadd.notify.tooltip "وقتی صفحه ای متوقف می شود به شما اطلاع می دهد.">
-<!ENTITY foxyproxy.autoadd.notify.tooltip2 "Display a popup when AutoAdd is activated">
-<!ENTITY foxyproxy.autoadd.notify.whencanceled.label "Notify me when AutoAdd is canceled">
-<!ENTITY foxyproxy.autoadd.notify.whencanceled.label2 "AutoAdd is automatically canceled when the URL in the address bar already matches a whitelist pattern in the AutoAdd proxy. In this way duplicate patterns, which can clutter your configuration, are prevented. This setting does not enable/disable cancelation; rather, it toggles notification when cancelation occurs.">
-<!ENTITY foxyproxy.autoadd.notify.whencanceled.tooltip "Display a popup when AutoAdd is activated but canceled">
 <!ENTITY foxyproxy.graphics "طراحی گرافیک و عکس ها :">
 <!ENTITY foxyproxy.website "ساخت وب سایت :">
 <!ENTITY foxyproxy.contributions "همکاران :">
@@ -447,9 +444,3 @@
 <!ENTITY foxyproxy.statusbarwidth.tooltip "Prevents statusbar resizing">
 <!ENTITY foxyproxy.pixels "pixels">
 <!ENTITY foxyproxy.unlimited.label "[0: shrink to fit] ">
-<!ENTITY foxyproxy.temp.popup.label "Temporary patterns allow you to create patterns for URLs that you don&apos;t visit often without cluttering the pattern list for a proxy. Temporary patterns are not saved to disk. They are kept in-memory and used for this Firefox session only.">
-<!ENTITY foxyproxy.temp.popup.height "120">
-<!ENTITY foxyproxy.temp.popup.width "400">
-<!ENTITY foxyproxy.temp.label "Temporary">
-<!ENTITY foxyproxy.temp.accesskey "T">
-<!ENTITY foxyproxy.temp.tooltip "Pattern is used only for this Firefox session">
