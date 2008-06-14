@@ -377,7 +377,6 @@
 										<menulist id="sbMiddleClickMenu" oncommand="foxyproxy.statusbar.middleClick=this.value;"
 											tooltiptext="&foxyproxy.middleclicksb.tooltip;" style="width: 15em;" sizetopopup="none">
 											<menupopup>
-											<menuitem label="&foxyproxy.click.options;" value="options"/>
 												<menuitem label="&foxyproxy.click.options;" value="options"/>
 												<menuitem label="&foxyproxy.click.cycle;" value="cycle"/>
 												<menuitem label="&foxyproxy.click.contextmenu;" value="contextmenu"/>
@@ -396,7 +395,6 @@
 											<menulist id="sbRightClickMenu" oncommand="foxyproxy.statusbar.rightClick=this.value;"
 											tooltiptext="&foxyproxy.rightclicksb.tooltip;" style="width: 15em;" sizetopopup="none">
 											<menupopup>
-											<menuitem label="&foxyproxy.click.options;" value="options"/>
 												<menuitem label="&foxyproxy.click.options;" value="options"/>
 												<menuitem label="&foxyproxy.click.cycle;" value="cycle"/>
 												<menuitem label="&foxyproxy.click.contextmenu;" value="contextmenu"/>
