@@ -229,6 +229,10 @@ Proxy.prototype = {
   },
 
 	resolve : function(spec, host, mp) {
+    if (spec == this.autoconf.url) {
+      dump("FoxyProxy: Preventing cyclical PAC error; using no proxy to load PAC file.\n");
+      return this.direct;
+    }
 	  function _notifyUserOfError(spec) {
 			this.pacErrorNotification && this.fp.notifier.alert(this.fp.getMessage("foxyproxy"), this.fp.getMessage("proxy.error.for.url") + spec);
 			return null;

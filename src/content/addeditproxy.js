@@ -94,7 +94,8 @@ function onOK() {
   }
 
 	if (!hasWhite() &&
-		!overlay.ask(this, foxyproxy.getMessage((window.arguments[0].inn.torwiz ? "torwiz.nopatterns.2" : "no.white.patterns.2")))) return false;
+		!overlay.ask(this, foxyproxy.getMessage((window.arguments[0].inn.torwiz ?
+		    "torwiz.nopatterns.3" : "no.white.patterns.3"), [name]))) return false;
 
   proxy.name = name;
   proxy.notes = document.getElementById("proxynotes").value;
@@ -238,22 +239,23 @@ function onHelp() {
 
 function onViewAutoConf() {
   var w, p = _checkUri();
-	p &&
-		(w=open("view-source:" + p.spec, "", "scrollbars,resizable,modal,chrome,dialog=no,width=450,height=425").focus());
-  w && (w.windowtype="foxyproxy-options"); // set windowtype so it's forced to close when last browser closes
+  if (p) {
+    var url = p.spec + (p.spec.match(/\?/) == null ? "?" : "&") + (new Date()).getTime(); // bypass cache
+		w = open("view-source:" + url, "", "scrollbars,resizable,modal,chrome,dialog=no,width=450,height=425").focus();
+    if (w) w.windowtype="foxyproxy-options"; // set windowtype so it's forced to close when last browser closes
+  }
 }
 
 function onTestAutoConf() {
 	if (_checkUri()) {
-		var autoConf = CC["@leahscape.org/foxyproxy/autoconf;1"].createInstance().wrappedJSObject;
-		autoConf.owner = {name: "Test", enabled: true};
-		autoConf.url = autoconfurl.value;
-    autoConf.loadPAC();
-    var none=foxyproxy.getMessage("none");
-    foxyproxy.alert(this, autoConf.owner.enabled ?
-    	foxyproxy.getMessage("autoconfurl.test.success") :
-    	foxyproxy.getMessage("autoconfurl.test.fail", [autoConf.status, autoConf.error?autoConf.error:none]));
-	}
+	  try {
+		  CC["@leahscape.org/foxyproxy/autoconf;1"].createInstance().wrappedJSObject.testPAC(autoconfurl.value);
+      foxyproxy.alert(this, foxyproxy.getMessage("autoconfurl.test.success"));
+	  }
+	  catch (e) {
+	    foxyproxy.alert(this, foxyproxy.getMessage("autoconfurl.test.fail2", [e.message]));
+	  }
+  }
 }
 
 function onAutoConfUrlInput() {
