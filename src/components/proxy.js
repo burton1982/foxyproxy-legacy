@@ -229,10 +229,6 @@ Proxy.prototype = {
   },
 
 	resolve : function(spec, host, mp) {
-    if (spec == this.autoconf.url) {
-      dump("FoxyProxy: Preventing cyclical PAC error; using no proxy to load PAC file.\n");
-      return this.direct;
-    }
 	  function _notifyUserOfError(spec) {
 			this.pacErrorNotification && this.fp.notifier.alert(this.fp.getMessage("foxyproxy"), this.fp.getMessage("proxy.error.for.url") + spec);
 			return null;
@@ -268,7 +264,7 @@ Proxy.prototype = {
 	          return this._notifyUserOfError(spec);
 	      }
 	    }
-	    // Chain the proxies
+	    // Build a proxy list for proxy for failover support
 	    for (var i=1; i<=proxies.length-1; i++) {
 	      proxies[i-1].failoverTimeout = 1800;
 	      proxies[i-1].failoverProxy = proxies[i];

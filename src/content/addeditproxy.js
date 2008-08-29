@@ -240,6 +240,8 @@ function onHelp() {
 function onViewAutoConf() {
   var w, p = _checkUri();
   if (p) {
+    // This goes through currently configured proxies, unlike actually loading the PAC.
+    // In that case, DIRECT (no proxy) is used.
     var url = p.spec + (p.spec.match(/\?/) == null ? "?" : "&") + (new Date()).getTime(); // bypass cache
 		w = open("view-source:" + url, "", "scrollbars,resizable,modal,chrome,dialog=no,width=450,height=425").focus();
     if (w) w.windowtype="foxyproxy-options"; // set windowtype so it's forced to close when last browser closes
