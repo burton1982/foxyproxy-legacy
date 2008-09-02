@@ -64,7 +64,8 @@
       <hbox align="center">    
         <checkbox id="caseSensitive" label="&foxyproxy.casesensitive.label;" accesskey="&foxyproxy.casesensitive.accesskey;"
           tooltiptext="&foxyproxy.casesensitive.tooltip;"/>
-        <toolbarbutton class="foxyproxy-ref" popup="patternTemplatePopup" tooltiptext="&foxyproxy.pattern.template.reference.tooltip;"/>
+        <toolbarbutton observes="superadd" class="foxyproxy-ref" popup="patternTemplatePopup" tooltiptext="&foxyproxy.pattern.template.reference.tooltip;"/>
+        <toolbarbutton observes="not-superadd" class="foxyproxy-ref" popup="wildcardReferencePopup" tooltiptext="&foxyproxy.pattern.template.reference.tooltip;"/>        
         </hbox>
     </row>
 
