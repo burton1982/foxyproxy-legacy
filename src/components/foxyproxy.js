@@ -83,7 +83,7 @@ var gLoggEntryFactory = function(proxy, aMatch, uri, type, errMsg) {
 
 // load js files
 var self;
-var fileProtocolHandler = CC["@mozilla.org/network/protocol;1?name=file"].createInstance(CI["nsIFileProtocolHandler"]);
+var fileProtocolHandler = CC["@mozilla.org/network/protocol;1?name=file"].getService(CI["nsIFileProtocolHandler"]);
 if ("undefined" != typeof(__LOCATION__)) {
   // preferred way
   self = __LOCATION__;
@@ -96,7 +96,7 @@ var settingsDir = componentDir.clone();
 settingsDir = settingsDir.parent.parent.parent;
 dump("FoxyProxy settingsDir = " + settingsDir.path + "\n");
 
-var loader = CC["@mozilla.org/moz/jssubscript-loader;1"].createInstance(CI["mozIJSSubScriptLoader"]);
+var loader = CC["@mozilla.org/moz/jssubscript-loader;1"].getService(CI["mozIJSSubScriptLoader"]);
 loadComponentScript("proxy.js");
 loadComponentScript("match.js");
 loadModuleScript("superadd.js");
@@ -210,11 +210,11 @@ biesi>	passing it the appropriate proxyinfo
 	},
 
   loadSettings : function() {
-    var req = CC["@mozilla.org/xmlextras/xmlhttprequest;1"].createInstance(CI.nsIXMLHttpRequest);
-    var settingsURI = this.getSettingsURI("uri-string");
-    req.open("GET", settingsURI, false);
-    req.send(null);
-    var doc = req.responseXML;
+    var f = this.getSettingsURI(CI.nsIFile);
+    var s = CC["@mozilla.org/network/file-input-stream;1"].createInstance(CI.nsIFileInputStream);
+    s.init(f, -1, -1, CI.nsIFileInputStream.CLOSE_ON_EOF);
+    var p = CC["@mozilla.org/xmlextras/domparser;1"].createInstance(CI.nsIDOMParser);
+    var doc = p.parseFromStream(s, null, f.fileSize, "text/xml");
     if (!doc || doc.documentElement.nodeName == "parsererror") {
       this.alert(null, this.getMessage("settings.error.2", [settingsURI, settingsURI]));
       this.writeSettings(settingsURI);
@@ -578,16 +578,6 @@ biesi>	passing it the appropriate proxyinfo
         break;
     }
     return loggEntry;
-  },
-
-  getIPAddresses : function() {
-    // Thanks, PasteIP extension
-    var DNSService = CC['@mozilla.org/network/dns-service;1'].getService(CI.nsIDNSService);
-    var DNSRecord = DNSService.resolve(DNSService.myHostName, true);
-    var allIPs = [];
-    for (var i=0; DNSRecord.hasMore(); i++)
-      allIPs[i] = DNSRecord.getNextAddrAsString();
-    return allIPs;
   },
 
   restart : function() {

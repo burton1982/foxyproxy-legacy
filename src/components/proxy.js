@@ -15,9 +15,9 @@
 if (!CI) {
   // XPCOM module initialization
   var NSGetModule = function() { return ProxyModule; }
-  
+
   var CI = Components.interfaces, CC = Components.classes, CR = Components.results, self,
-    fileProtocolHandler = CC["@mozilla.org/network/protocol;1?name=file"].createInstance(CI["nsIFileProtocolHandler"]);
+    fileProtocolHandler = CC["@mozilla.org/network/protocol;1?name=file"].getService(CI["nsIFileProtocolHandler"]);
   if ("undefined" != typeof(__LOCATION__)) {
     // preferred way
     self = __LOCATION__;
@@ -48,10 +48,10 @@ if (!CI) {
     catch (e) {
       dump("Error loading component " + filename + ": " + e + "\n" + e.stack + "\n");
       throw(e);
-    }  
+    }
   }
   var self,
-    fileProtocolHandler = CC["@mozilla.org/network/protocol;1?name=file"].createInstance(CI["nsIFileProtocolHandler"]);
+    fileProtocolHandler = CC["@mozilla.org/network/protocol;1?name=file"].getService(CI["nsIFileProtocolHandler"]);
   if ("undefined" != typeof(__LOCATION__)) {
     // preferred way
     self = __LOCATION__;
@@ -60,7 +60,7 @@ if (!CI) {
     self = fileProtocolHandler.getFileFromURLSpec(Components.Exception().filename);
   }
   var dir = self.parent, // the directory this file is in
-    loader = CC["@mozilla.org/moz/jssubscript-loader;1"].createInstance(CI["mozIJSSubScriptLoader"]);
+    loader = CC["@mozilla.org/moz/jssubscript-loader;1"].getService(CI["mozIJSSubScriptLoader"]);
 }
 
 loadComponentScript("autoconf.js");
@@ -71,7 +71,7 @@ var proxyService = CC["@mozilla.org/network/protocol-proxy-service;1"].getServic
 function Proxy(fp) {
   this.wrappedJSObject = this;
   this.fp = fp || CC["@leahscape.org/foxyproxy/service;1"].getService().wrappedJSObject;
-  this.matches = new Array();
+  this.matches = [];
   this.name = this.notes = "";
   this.manualconf = new ManualConf(this.fp);
   this.autoconf = new AutoConf(this, this.fp);
@@ -93,7 +93,7 @@ Proxy.prototype = {
       throw CR.NS_ERROR_NO_INTERFACE;
     return this;
   },
-  
+
   fromDOM : function(node, fpMode) {
     this.name = node.getAttribute("name");
     this.id = node.getAttribute("id") || this.fp.proxies.uniqueRandom();
@@ -194,7 +194,7 @@ Proxy.prototype = {
    * before performing regular expression matches.
    *
    * Black pattern matches take precendence over white pattern matches.
-   * 
+   *
    * Note patStr is sometimes null when this method is called.
    */
   isWhiteMatch : function(patStr, uriStr) {
@@ -202,14 +202,14 @@ Proxy.prototype = {
     for (var i=0,sz=this.matches.length; i<sz; i++) {
       var m = this.matches[i];
       if (m.enabled) {
-        if ((!patStr && m.pattern == patStr) || m.regex.test(uriStr)) {
+        if ((patStr && m.pattern == patStr) || m.regex.test(uriStr)) {
           if (m.isBlackList) {
             // Black takes priority over white
             return false;
-          }          
+          }
           else if (white == -1) {
             white = i; // continue checking for blacklist matches!
-          }          
+          }
         }
       }
     }
@@ -224,7 +224,7 @@ Proxy.prototype = {
     }
   },
 
-  removeMatch : function(removeMe) {
+  removeURLPattern : function(removeMe) {
     this.matches = this.matches.filter(function(e) {return e != removeMe;});
   },
 
@@ -304,36 +304,36 @@ ManualConf.prototype = {
   _socksversion: "5",
   _isSocks: false,
   fp : null,
-          
+
   fromDOM : function(n) {
-    this._host = gGetSafeAttr(n, "host", null) || gGetSafeAttr(n, "http", null) ||  
+    this._host = gGetSafeAttr(n, "host", null) || gGetSafeAttr(n, "http", null) ||
       gGetSafeAttr(n, "socks", null) || gGetSafeAttr(n, "ssl", null) ||
       gGetSafeAttr(n, "ftp", null) || gGetSafeAttr(n, "gopher", ""); //"host" is new for 2.5
 
     this._port = gGetSafeAttr(n, "port", null) || gGetSafeAttr(n, "httpport", null) ||
       gGetSafeAttr(n, "socksport", null) || gGetSafeAttr(n, "sslport", null) ||
       gGetSafeAttr(n, "ftpport", null) || gGetSafeAttr(n, "gopherport", ""); // "port" is new for 2.5
-      
+
     this._socksversion = gGetSafeAttr(n, "socksversion", "5");
-      
+
     this._isSocks = n.hasAttribute("isSocks") ? n.getAttribute("isSocks") == "true" :
-      n.getAttribute("http") ? false: 
+      n.getAttribute("http") ? false:
       n.getAttribute("ssl") ? false:
-      n.getAttribute("ftp") ? false:       
+      n.getAttribute("ftp") ? false:
       n.getAttribute("gopher") ? false:
       n.getAttribute("socks") ? true : false; // new for 2.5
-      
+
     this._makeProxy();
   },
 
   toDOM : function(doc)  {
-    var e = doc.createElement("manualconf"); 
-    e.setAttribute("host", this._host);      
+    var e = doc.createElement("manualconf");
+    e.setAttribute("host", this._host);
     e.setAttribute("port", this._port);
     e.setAttribute("socksversion", this._socksversion);
-    e.setAttribute("isSocks", this._isSocks);    
+    e.setAttribute("isSocks", this._isSocks);
     return e;
-  },  
+  },
 
   _makeProxy : function() {
     if (!this._host || !this._port) {
@@ -348,14 +348,14 @@ ManualConf.prototype = {
   set host(e) {
     this._host = e;
     this._makeProxy();
-  },  
+  },
 
   get port() {return this._port;},
   set port(e) {
     this._port = e;
     this._makeProxy();
   },
-     
+
   get isSocks() {return this._isSocks;},
   set isSocks(e) {
     this._isSocks = e;
@@ -389,9 +389,9 @@ var ProxyModule = {
 
   unregisterSelf: function(aCompMgr, aLocation, aType) {
     aCompMgr = aCompMgr.QueryInterface(CI.nsIComponentRegistrar);
-    aCompMgr.unregisterFactoryLocation(this.CLASS_ID, aLocation);        
+    aCompMgr.unregisterFactoryLocation(this.CLASS_ID, aLocation);
   },
-  
+
   getClassObject: function(aCompMgr, aCID, aIID) {
     if (!aIID.equals(CI.nsIFactory))
       throw Components.results.NS_ERROR_NOT_IMPLEMENTED;

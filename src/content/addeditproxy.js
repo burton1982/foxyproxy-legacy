@@ -45,7 +45,7 @@ function onLoad() {
     document.getElementById("default-proxy-broadcaster").setAttribute("disabled", "true");
 	  document.getElementById("proxyname").disabled =
 	  	document.getElementById("proxynotes").disabled = true;
-    document.getElementById("patternstab").hidden = true;
+    document.getElementById("urlpatternstab").hidden = true;
   }
   document.getElementById("pacLoadNotificationEnabled").checked = proxy.autoconf.loadNotification;
   document.getElementById("pacErrorNotificationEnabled").checked = proxy.autoconf.errorNotification;
@@ -144,7 +144,7 @@ function _checkUri() {
   }
 }
 
-function onAddEdit(isNew) {
+function onAddEditURLPattern(isNew) {
   var idx = urlsTree.currentIndex, m;
   if (isNew) {
     m = CC["@leahscape.org/foxyproxy/match;1"].createInstance().wrappedJSObject;
@@ -152,62 +152,66 @@ function onAddEdit(isNew) {
   }
   else if (idx == -1) return; // safety; may not be necessary anymore
 
-  var params = {inn:{match: (isNew ? m : proxy.matches[idx]), superadd:false}, out:null};
+  var params = {inn:{pattern: (isNew ? m : proxy.matches[idx]), superadd:false}, out:null};
 
   window.openDialog("chrome://foxyproxy/content/pattern.xul", "",
     "chrome, dialog, modal, resizable=yes", params).focus();
 
   if (params.out) {
-    proxy.matches[idx] = params.out.match;	    
+    proxy.matches[idx] = params.out.pattern;
     _updateView();
     // Select item
 	  urlsTree.view.selection.select(isNew?urlsTree.view.rowCount-1 : urlsTree.currentIndex);
   }
 }
 
-function setButtons() {
-  document.getElementById("tree-row-selected").setAttribute("disabled", urlsTree.currentIndex == -1);
+function setButtons(observerId, tree) {
+  document.getElementById(observerId).setAttribute("disabled", tree.currentIndex == -1);
   onAutoConfUrlInput();
 }
 
 function _updateView() {
-  // Redraw the tree
-  urlsTree.view = {
-    rowCount : proxy.matches.length,
-    getCellText : function(row, column) {
-      var s = column.id ? column.id : column;
-      switch(s) {
-        case "nameCol":return proxy.matches[row].name;
-        case "patternCol":return proxy.matches[row].pattern;
-        case "patternTypeCol":return foxyproxy.getMessage(proxy.matches[row].isRegEx ? "foxyproxy.regex.label" : "foxyproxy.wildcard.label");
-        case "blackCol":return foxyproxy.getMessage(proxy.matches[row].isBlackList ? "foxyproxy.blacklist.label" : "foxyproxy.whitelist.label");
-        case "caseSensitiveCol":return foxyproxy.getMessage(proxy.matches[row].caseSensitive ? "yes" : "no");
-        case "tempCol":return foxyproxy.getMessage(proxy.matches[row].temp ? "yes" : "no");
-      }
-    },
-    setCellValue: function(row, col, val) {proxy.matches[row].enabled = val;},
-    getCellValue: function(row, col) {return proxy.matches[row].enabled;},
-    isSeparator: function(aIndex) { return false; },
-    isSorted: function() { return false; },
-    isEditable: function(row, col) { return false; },
-    isContainer: function(aIndex) { return false; },
-    setTree: function(aTree){},
-    getImageSrc: function(aRow, aColumn) {return null;},
-    getProgressMode: function(aRow, aColumn) {},
-    cycleHeader: function(aColId, aElt) {},
-    getRowProperties: function(aRow, aColumn, aProperty) {},
-    getColumnProperties: function(aColumn, aColumnElement, aProperty) {},
-    getCellProperties: function(aRow, aProperty) {},
-    getLevel: function(row){ return 0; }
+  // Redraw the trees
+  urlsTree.view = makeView(proxy.matches);
 
-  };
-  setButtons();
+  function makeView(pats) {
+    return {
+      rowCount : pats.length,
+      getCellText : function(row, column) {
+        var s = column.id ? column.id : column;
+        switch(s) {
+          case "nameCol":return pats[row].name;
+          case "patternCol":return pats[row].pattern;
+          case "patternTypeCol":return foxyproxy.getMessage(pats[row].isRegEx ? "foxyproxy.regex.label" : "foxyproxy.wildcard.label");
+          case "blackCol":return foxyproxy.getMessage(pats[row].isBlackList ? "foxyproxy.blacklist.label" : "foxyproxy.whitelist.label");
+          case "caseSensitiveCol":return foxyproxy.getMessage(pats[row].caseSensitive ? "yes" : "no");
+          case "tempCol":return foxyproxy.getMessage(pats[row].temp ? "yes" : "no");
+        }
+      },
+      setCellValue: function(row, col, val) {pats[row].enabled = val;},
+      getCellValue: function(row, col) {return pats[row].enabled;},
+      isSeparator: function(aIndex) { return false; },
+      isSorted: function() { return false; },
+      isEditable: function(row, col) { return false; },
+      isContainer: function(aIndex) { return false; },
+      setTree: function(aTree){},
+      getImageSrc: function(aRow, aColumn) {return null;},
+      getProgressMode: function(aRow, aColumn) {},
+      cycleHeader: function(aColId, aElt) {},
+      getRowProperties: function(aRow, aColumn, aProperty) {},
+      getColumnProperties: function(aColumn, aColumnElement, aProperty) {},
+      getCellProperties: function(aRow, aProperty) {},
+      getLevel: function(row){ return 0; }
+
+    };
+  }
+  setButtons("urls-tree-row-selected", urlsTree);
 }
 
-function onRemove() {
+function onRemoveURLPattern() {
   // Store cur selection
   var sel = urlsTree.currentIndex;
-  proxy.removeMatch(proxy.matches[sel]);
+  proxy.removeURLPattern(proxy.matches[sel]);
   _updateView();
   // Reselect the next appropriate item
 	urlsTree.view.selection.select(sel+1>urlsTree.view.rowCount ? urlsTree.view.rowCount-1:sel);
@@ -257,7 +261,7 @@ function onTestAutoConf() {
 	  catch (e) {
 	    foxyproxy.alert(this, foxyproxy.getMessage("autoconfurl.test.fail2", [e.message]));
 	  }
-  }
+	}
 }
 
 function onAutoConfUrlInput() {
@@ -283,17 +287,18 @@ function onSelectAutoConf() {
   }
 }
 
-function onUrlsTreeMenuPopupShowing() {
-	document.getElementById("enabledPopUpMenuItem").setAttribute("checked", proxy.matches[urlsTree.currentIndex].enabled);
+function onTreeMenuPopupShowing(enabledMenuItem, pats, tree) {
+  if (tree.currentIndex == -1) return;
+	enabledMenuItem.setAttribute("checked", pats[tree.currentIndex].enabled);
 }
 
-function toggleEnabled() {
-	proxy.matches[urlsTree.currentIndex].enabled = !proxy.matches[urlsTree.currentIndex].enabled;
+function toggleEnabled(pats, tree) {
+	pats[tree.currentIndex].enabled = !pats[tree.currentIndex].enabled;
   _updateView();
 }
 
-function onWildcardReference() {
-	document.getElementById('wildcardReferencePopup').showPopup(document.getElementById('wildcardRefBtn'), -1, -1, 'popup', 'bottomleft', 'topleft');
+function onWildcardReference(popupId, btnId) {
+	document.getElementById(popupId).showPopup(document.getElementById(btnId), -1, -1, 'popup', 'bottomleft', 'topleft');
 }
 
 function onIsSocks(checked) {

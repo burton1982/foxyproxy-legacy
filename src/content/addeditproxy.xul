@@ -31,13 +31,13 @@
 <vbox observes="torwiz-broadcaster" flex="1">
   <tabbox flex="1">
   	<tabs id="tabs" style="-moz-appearance: none;">
-  		<tab id="generaltab" label="&foxyproxy.tab.general.label;" accesskey="&foxyproxy.tab.general.accesskey;"
+  		<tab label="&foxyproxy.tab.general.label;" accesskey="&foxyproxy.tab.general.accesskey;"
   		  tooltiptext="&foxyproxy.tab.general.tooltip;" selected="true"/>
   		<tab label="&foxyproxy.tab.proxy.label;" accesskey="&foxyproxy.tab.proxy.accesskey;"
   		  tooltiptext="&foxyproxy.tab.proxy.tooltip;"/>
-  		<tab id="patternstab" label="&foxyproxy.tab.patterns.label;" accesskey="&foxyproxy.tab.patterns.accesskey;"
-  		  tooltiptext="&foxyproxy.tab.patterns.tooltip;"/>
-  	</tabs>
+  		<tab id="urlpatternstab" label="&foxyproxy.urlpatterns.label;" accesskey="&foxyproxy.urlpatterns.accesskey;"
+  		  tooltiptext="&foxyproxy.urlpatterns.tooltip;"/>
+   	</tabs>
 
 	<tabpanels style="-moz-appearance: none;" flex="1">
 	  <tabpanel flex="1" orient="vertical">
@@ -132,7 +132,6 @@
               <column flex="1"/>
               <column/>
             </columns>
-
              <rows>
                <row align="center">
 	          	  <textbox id="autoconfurl" size="50" observes="autoconf-broadcaster1"
@@ -146,7 +145,6 @@
 									popup="pacTipsPopup"
 									tooltiptext="&foxyproxy.tip.label;"
 									observes="autoconf-broadcaster2"/>
-
          	    </row>
               <row align="center">
               	<hbox align="center">
@@ -194,29 +192,30 @@
       <description>&foxyproxy.pattern.description;</description>
       <separator class="thin"/>
       <hbox>
-        <button command="addCmd" flex="1"/>
-        <button command="editSelectionCmd" flex="1"/>
-        <button command="deleteSelectionCmd" flex="1"/>
-        <button command="helpCmd" flex="1"/>
-				<button id="wildcardRefBtn" command="wildcardReferenceCmd" flex="1"/>
+        <button command="addURLPatternCmd" flex="1"/>
+        <button command="editURLPatternSelectionCmd" flex="1"/>
+        <button command="deleteURLPatternSelectionCmd" flex="1"/>
+        <button command="helpURLPatternCmd" flex="1"/>
+				<button id="wildcardURLPatternRefBtn" command="wildcardURLPatternReferenceCmd" flex="1"/>
       </hbox>
       <separator class="thin"/>
       <hbox flex="1">
-        <tree id="urlsTree" flex="1" align="stretch" enableColumnDrag="true" seltype="single" onselect="setButtons();"
-	        	onclick="overlay.onTreeClick(event, this);">
-          <treecols id="treeCols" pickertooltiptext="&foxyproxy.tree.pickertooltiptext.label;">
-            <treecol id="enabledCol" label="&foxyproxy.enabled.label;" type="checkbox" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
-            <treecol id="nameCol" label="&foxyproxy.pattern.name.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
-            <treecol id="patternCol" label="&foxyproxy.url.pattern.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
-            <treecol id="patternTypeCol" label="&foxyproxy.pattern.type.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
-            <treecol id="blackCol" label="&foxyproxy.whitelist.blacklist.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
-            <treecol id="caseSensitiveCol" label="&foxyproxy.casesensitive.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>            
-            <treecol id="tempCol" label="&foxyproxy.temp.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>            
-          </treecols>
-          <treechildren context="urlsTreeContext" ondblclick="onAddEdit(false);"/>
-         </tree>
-      </hbox>
-    </tabpanel>
+        <tree id="urlsTree" flex="1" align="stretch" enableColumnDrag="true" seltype="single" onselect="setButtons('urls-tree-row-selected', urlsTree);"
+       	onclick="overlay.onTreeClick(event, this);">
+        <treecols id="treeCols" pickertooltiptext="&foxyproxy.tree.pickertooltiptext.label;">
+          <treecol id="enabledCol" label="&foxyproxy.enabled.label;" type="checkbox" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+          <treecol id="nameCol" label="&foxyproxy.pattern.name.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+          <treecol id="patternCol" label="&foxyproxy.url.pattern.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+          <treecol id="patternTypeCol" label="&foxyproxy.pattern.type.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+          <treecol id="blackCol" label="&foxyproxy.whitelist.blacklist.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+          <treecol id="caseSensitiveCol" label="&foxyproxy.casesensitive.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>            
+          <treecol id="tempCol" label="&foxyproxy.temp.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>            
+        </treecols>
+          <treechildren context="urlsTreeContext" ondblclick="onAddEditURLPattern(false);"/>
+    </tree>
+    </hbox>
+
+    </tabpanel>    
   </tabpanels>
   </tabbox>
 </vbox>
@@ -227,15 +226,15 @@
   <description>&foxyproxy.pattern.description;</description>
   <separator class="thin"/>
   <hbox>
-    <button command="addCmd" flex="1"/>
-    <button command="editSelectionCmd" flex="1"/>
-    <button command="deleteSelectionCmd" flex="1"/>
-    <button command="helpCmd" flex="1"/>
-		<button id="wildcardRefBtn" command="wildcardReferenceCmd" flex="1"/>
+    <button command="addURLPatternCmd" flex="1"/>
+    <button command="editURLPatternSelectionCmd" flex="1"/>
+    <button command="deleteURLPatternSelectionCmd" flex="1"/>
+    <button command="helpURLPatternCmd" flex="1"/>
+		<button id="wildcardURLPatternRefBtn" command="wildcardURLPatternReferenceCmd" flex="1"/>
   </hbox>
   <separator/>
   <hbox flex="1">
-    <tree id="torWizUrlsTree" flex="1" align="stretch" enableColumnDrag="true" seltype="single" onselect="setButtons();">
+    <tree id="torWizUrlsTree" flex="1" align="stretch" enableColumnDrag="true" seltype="single" onselect="setButtons('urls-tree-row-selected', urlsTree);">
       <treecols id="treeCols" pickertooltiptext="&foxyproxy.tree.pickertooltiptext.label;">
         <treecol id="enabledCol" label="&foxyproxy.enabled.label;" type="checkbox" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
         <treecol id="nameCol" label="&foxyproxy.pattern.name.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
@@ -245,13 +244,13 @@
         <treecol id="caseSensitiveCol" label="&foxyproxy.casesensitive.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>            
         <treecol id="tempCol" label="&foxyproxy.temp.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>        
       </treecols>
-      <treechildren context="urlsTreeContext" ondblclick="onAddEdit(false);"/>
+      <treechildren context="urlsTreeContext" ondblclick="onAddEditURLPattern(false);"/>
      </tree>
   </hbox>
 </vbox>
 
 <popupset>
-  <popup id="wildcardReferencePopup"/>
+  <popup id="wildcardURLPatternReferencePopup"/>
 	<popup id="newGUIPopup">
 		<vbox class="foxyproxy-border" style="height: &foxyproxy.newGUI.popup.height;; width: &foxyproxy.newGUI.popup.width;; padding: .5em;">
 			<description class="foxyproxy-tooltip">
@@ -280,55 +279,58 @@
       &foxyproxy.pactip8.label;</description>
 		</vbox>
 	</popup>
-  <popup id="urlsTreeContext" onpopupshowing="onUrlsTreeMenuPopupShowing();">
-		<menuitem id="enabledPopUpMenuItem" command="toggleEnabledCmd" type="checkbox"/>
+  <popup id="urlsTreeContext" onpopupshowing="onTreeMenuPopupShowing(this.firstChild, proxy.matches, urlsTree);">
+		<menuitem id="enabledPopUpMenuItem" command="toggleURLPatternEnabledCmd" type="checkbox"/>
     <menuseparator/>
-    <menuitem class="menuitem-non-iconic" command="addCmd"/>
-    <menuitem class="menuitem-non-iconic" command="editSelectionCmd"/>
-    <menuitem class="menuitem-non-iconic" command="deleteSelectionCmd"/>
+    <menuitem class="menuitem-non-iconic" command="addURLPatternCmd"/>
+    <menuitem class="menuitem-non-iconic" command="editURLPatternSelectionCmd"/>
+    <menuitem class="menuitem-non-iconic" command="deleteURLPatternSelectionCmd"/>
     <menuseparator/>
-    <menuitem class="menuitem-non-iconic" command="helpCmd"/>
+    <menuitem class="menuitem-non-iconic" command="helpURLPatternCmd"/>
     <menuitem class="menuitem-non-iconic" command="closeCmd"/>
   </popup>
+
 </popupset>
 
-<command id="toggleEnabledCmd"
+<command id="toggleURLPatternEnabledCmd"
   label="&foxyproxy.enabled.label;"
   tooltiptext="&foxyproxy.enabled.tooltip;"
   accesskey="&foxyproxy.enabled.accesskey;"
-  oncommand="toggleEnabled();"/>
+  observes="urls-tree-row-selected"
+  oncommand="toggleEnabled(proxy.matches, urlsTree);"/>
 
-<command id="addCmd"
+<command id="addURLPatternCmd"
   label="&foxyproxy.add.new.pattern.label;"
-  oncommand="onAddEdit(true);"
+  oncommand="onAddEditURLPattern(true);"
   accesskey="&foxyproxy.add.new.pattern.accesskey;"
   tooltiptext="&foxyproxy.add.new.pattern.tooltip;"/>
 
-<command id="deleteSelectionCmd"
+<command id="deleteURLPatternSelectionCmd"
   label="&foxyproxy.delete.selection.label;"
   accesskey="&foxyproxy.delete.selection.accesskey;"
   tooltiptext="&foxyproxy.delete.selection.tooltip;"
-  observes="tree-row-selected"
-  oncommand="onRemove();"/>
+  observes="urls-tree-row-selected"
+  oncommand="onRemoveURLPattern();"/>
 
-<command id="editSelectionCmd"
+<command id="editURLPatternSelectionCmd"
   label="&foxyproxy.edit.selection.label;"
   accesskey="&foxyproxy.edit.selection.accesskey;"
   tooltiptext="&foxyproxy.edit.selection.tooltip;"
-  observes="tree-row-selected"
-  oncommand="onAddEdit(false);"/>
+  observes="urls-tree-row-selected"
+  oncommand="onAddEditURLPattern(false);"/>
 
-<command id="helpCmd"
+<command id="helpURLPatternCmd"
   label="&foxyproxy.help.label;"
   accesskey="&foxyproxy.help.accesskey;"
   tooltiptext="&foxyproxy.help.tooltip;"
-  oncommand="onHelp();"/>
+  oncommand="fpc.openAndReuseOneTabPerURL('http://foxyproxy.mozdev.org/patterns.html');"/>
 
-<command id="wildcardReferenceCmd"
+<command id="wildcardURLPatternReferenceCmd"
   label="&foxyproxy.wildcard.reference.label;"
   accesskey="&foxyproxy.wildcard.reference.accesskey;"
   tooltiptext="&foxyproxy.wildcard.reference.tooltip;"
-  oncommand="onWildcardReference();"/>
+  oncommand="onWildcardReference('wildcardURLPatternReferencePopup', 'wildcardURLPatternRefBtn');"/>
+
 
 <command id="closeCmd"
   label="&foxyproxy.close.label;"
@@ -355,7 +357,7 @@
 <broadcasterset>
   <broadcaster id="autoconf-broadcaster1" disabled="true"/>
   <broadcaster id="autoconf-broadcaster2" disabled="true"/>
-  <broadcaster id="tree-row-selected" disabled="true"/>
+  <broadcaster id="urls-tree-row-selected" disabled="true"/>
   <broadcaster id="torwiz-broadcaster" hidden="false"/>
   <broadcaster id="not-torwiz-broadcaster" hidden="true"/>
   <broadcaster id="disabled-broadcaster" disabled="false"/>

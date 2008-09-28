@@ -116,26 +116,26 @@ AutoConf.prototype = {
       req.open("GET", this.url, false); // false means synchronous
       req.channel.loadFlags |= CI.nsIRequest.LOAD_BYPASS_CACHE;      
       req.send(null);
-    }
-    catch(e) {
+        }
+        catch(e) {
       this.badPAC("pac.status.loadfailure", e);
       return;
-    }      
+      }
     if (req.status == 200 ||
       (req.status == 0 && (this.url.indexOf("file://") == 0 || this.url.indexOf("ftp://") == 0 || this.url.indexOf("relative://") == 0))) {
         try {
           this._resolver.init(this.url, req.responseText);
-        }
-        catch (e) {
+    }
+    catch(e) {
           this.badPAC("pac.status.error", e);
           return;
-        }
+    }
         this.loadNotification && fp.notifier.alert(fp.getMessage("pac.status"), fp.getMessage("pac.status.success", [this.owner.name]));
         this.owner._enabled = true; // Use _enabled so we don't loop infinitely
-    }
-    else {
+      }
+      else {
       this.badPAC("pac.status.loadfailure", new Error(fp.getMessage("http.error", [req.status])));
-    }   
+    }
   },
 
   badPAC : function(r, e) {
@@ -205,25 +205,25 @@ function fpProxyAutoConfig(owner) {
 fpProxyAutoConfig.prototype = {
     // sandbox in which we eval loaded autoconfig js file
     sandbox : null,
-    owner : null,
+    owner: null,
 
     /** throws a localized Error object on error */
-    init : function(pacURI, pacText) {
-    	if (pacURI == "" || pacText == "") {
+    init: function(pacURI, pacText) {
+      if (pacURI == "" || pacText == "") {
         dump("FoxyProxy: init(), pacURI or pacText empty\n");    
         throw new Error(fp.getMessage("pac.empty"));
-    	}
+      }
       this.sandbox = new Components.utils.Sandbox(pacURI);
       Components.utils.evalInSandbox(pacUtils, this.sandbox);
-
+  
       // add predefined functions to pac
       this.sandbox.importFunction(myIpAddress);
       this.sandbox.importFunction(dnsResolve);
       this.sandbox.importFunction(proxyAlert, "alert");
-
+  
       // evaluate loaded js file
       Components.utils.evalInSandbox(pacText, this.sandbox);
-
+  
       // We can no longer trust this.sandbox. Touching it directly can
       // cause all sorts of pain, so wrap it in an XPCSafeJSObjectWrapper
       // and do all of our work through there.
