@@ -493,6 +493,9 @@ var foxyproxy = {
           // Toggle between current mode and disabled
           fp.setMode(fp.mode == "disabled" ? "previous" : "disabled");
           break;
+        case "quickadd":
+            foxyproxy.onQuickAddDialog(e);
+            break;          
 			}
 		}
 	},
@@ -713,7 +716,7 @@ var foxyproxy = {
 
 	      _createMenuItem(submenupopup,
 	        this.fp.getMessage("foxyproxy.help.label"),
-	        "foxyproxy.fpc.openAndReuseOneTabPerURL('http://foxyproxy.mozdev.org/quickstart.html');",
+	        "foxyproxy.fpc.openAndReuseOneTabPerURL('http://foxyproxy.mozdev.org/help.html');",
 	        this.fp.getMessage("foxyproxy.help.accesskey"),
 	        this.fp.getMessage("foxyproxy.help.tooltip"));
 
