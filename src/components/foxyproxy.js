@@ -103,16 +103,7 @@ loadModuleScript("superadd.js");
 
 // l is for lulu...
 function foxyproxy() {
-  try {
-    SuperAdd.prototype.fp = gFP = this.wrappedJSObject = this;
-    this._loadStrings();
-    this.autoadd = new AutoAdd(this.getMessage("autoadd.pattern.label"));
-    this.quickadd = new QuickAdd(this.getMessage("quickadd.pattern.label"));
-    LoggEntry.prototype.init();
-  }
-  catch (e) {
-    dumpp(e);
-  }
+  SuperAdd.prototype.fp = gFP = this.wrappedJSObject = this; 
 }
 foxyproxy.prototype = {
 	PFF : " ",
@@ -133,14 +124,27 @@ foxyproxy.prototype = {
 		return this;
 	},
 
+	init : function() {
+	  try {
+	    this._loadStrings();
+		this.autoadd = new AutoAdd(this.getMessage("autoadd.pattern.label"));
+	    this.quickadd = new QuickAdd(this.getMessage("quickadd.pattern.label"));
+	    LoggEntry.prototype.init();
+	  }
+	  catch (e) {
+	    dumpp(e);
+	  }		
+	},
+	
 	observe: function(subj, topic, data) {
 		switch(topic) {
       case "profile-after-change":
         try {
+          this.init();
           this.loadSettings();
         }
         catch (e) {
-          dump("observe: " + e + "\n" + e.stack + "\n");
+          dump("*** profile-after-change: " + e + " \n\n\n");dump ("\n" + e.stack + "\n")
         }
         break;
 			case "app-startup":
@@ -216,8 +220,8 @@ biesi>	passing it the appropriate proxyinfo
     var p = CC["@mozilla.org/xmlextras/domparser;1"].createInstance(CI.nsIDOMParser);
     var doc = p.parseFromStream(s, null, f.fileSize, "text/xml");
     if (!doc || doc.documentElement.nodeName == "parsererror") {
-      this.alert(null, this.getMessage("settings.error.2", [settingsURI, settingsURI]));
-      this.writeSettings(settingsURI);
+      this.alert(null, this.getMessage("settings.error.2", [f.path, f.path]));
+      this.writeSettings(f);
     }
     else
       this.fromDOM(doc, doc.documentElement);
@@ -341,59 +345,53 @@ biesi>	passing it the appropriate proxyinfo
     }
   },
 
-	getPrefsService : function(str) {
+  getPrefsService : function(str) {
     return CC["@mozilla.org/preferences-service;1"].
       getService(CI.nsIPrefService).getBranch(str);
   },
 
-  // Returns settings URI in desired form
+  clearSettingsPref : function(p) {
+    p = p || this.getPrefsService("extensions.foxyproxy.");
+    p.clearUserPref("settings");
+  },
+  
+  // Returns settings URI in desired form. Creates the file if it doesn't exist.
   getSettingsURI : function(type) {
-    var o = null;
     try {
-      o = this.getPrefsService("extensions.foxyproxy.").getCharPref("settings");
-    }
-    catch(e) {
-      dump("FoxyProxy: Unable to read preference extensions.foxyproxy.settings in getSettingsURI(). Checking for new installation.\n");
-      try {
-	    // The first time FP runs, "firstrun" does not exist (i.e., null || false). Subsequent times, "firstrun" == true.
-	    // In other words, this pref is improperly named for its purpose. Better name is "notfirstrun".
-        var f = this.getPrefsService("extensions.foxyproxy.").getBoolPref("firstrun");
-        if (f)
-          dump("First run of FoxyProxy\n");
-        else {
-          this.alert(null, this.getMessage("preferences.read.error.warning", ["extensions.foxyproxy.settings", "getSettingsURI()"]) + " " +
-            this.getMessage("preferences.read.error.fatal"));
-          // TODO: prompt user for path to old file or create new
-        }
-      }
-      catch(ex) {}
-    }
-    if (o) {
-      o == this.PFF && (o = this.getDefaultPath());
-      var file = this.transformer(o, CI.nsIFile);
-      // Does it exist?
-      if (!file.exists()) {
-        this.writeSettings(file);
+      var p = this.getPrefsService("extensions.foxyproxy.");
+      var o = p.getCharPref("settings");
+      if (o == this.PFF) {
+	    o = this.getDefaultPath();
+  	    // Remove the pref since we don't use it anymore
+    	// unless it points outside the profile
+	    this.clearSettingsPref(p);
       }
     }
-    else {
-      // Default settings file/path
-  	  o = this.setSettingsURI(this.getDefaultPath());
-    }
+    catch(e) {}
+    if (!o)
+	  o = this.getDefaultPath();
+    var file = this.transformer(o, CI.nsIFile);
+    // Does it exist?
+    if (!file.exists())
+      this.writeSettings(file);  
     return this.transformer(o, type);
   },
 
   setSettingsURI : function(o) {
+	var file = this.transformer(o, CI.nsIFile);
+	if (this.getDefaultPath().equals(file)) {
+	  this.clearSettingsPref();
+	  return;
+	}
     var o2 = this.transformer(o, "uri-string");
     try {
   	  this.writeSettings(o2);
   	  // Only update the preference if writeSettings() succeeded
-      this.getPrefsService("extensions.foxyproxy.").setCharPref("settings", o==this.PFF ? this.PFF : o2);
+      this.getPrefsService("extensions.foxyproxy.").setCharPref("settings", o2);
     }
     catch(e) {
       this.alert(this, this.getMessage("error") + ":\n\n" + e);
     }
-    return o==this.PFF ? this.PFF : o2;
   },
 
   alert : function(wnd, str) {
@@ -488,18 +486,9 @@ biesi>	passing it the appropriate proxyinfo
       //dump("*** writeSettings\n");
       //throw new Error("e");
     //}
-    //catch (e) {catch (e) {dump("*** " + e + " \n\n\n");dump ("\n" + e.stack + "\n");} }
-    if (!o) {
-      try {
-        o = gFP.getPrefsService("extensions.foxyproxy.").getCharPref("settings");
-      }
-      catch(e) {
-        this.alert(null, this.getMessage("preferences.read.error.warning", ["extensions.foxyproxy.settings", "writeSettings()"]));
-        o = this.getDefaultPath();
-      }
-    }
-    try {
-      var o2 = gFP.transformer(o, CI.nsIFile);
+    //catch (e) {catch (e) {dump("*** " + e + " \n\n\n");dump ("\n" + e.stack + "\n");} }    
+	try {
+      var o2 = o ? gFP.transformer(o, CI.nsIFile) : gFP.getSettingsURI(CI.nsIFile);
       var foStream = CC["@mozilla.org/network/file-output-stream;1"].
         createInstance(CI.nsIFileOutputStream);
       foStream.init(o2, 0x02 | 0x08 | 0x20, 0664, 0); // write, create, truncate

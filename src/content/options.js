@@ -64,12 +64,6 @@ function _initSettings() {
   toggleStatusBarText(foxyproxy.statusbar.textEnabled);
 }
 
-function onUsingPFF(usingPFF) {
-  document.getElementById("settingsURLBtn").disabled = usingPFF;
-	foxyproxy.setSettingsURI(usingPFF?foxyproxy.PFF:foxyproxy.getDefaultPath());
-  _initSettings();
-}
-
 function _updateLogView() {
 	saveLogCmd.setAttribute("disabled", foxyproxy.logg.length == 0);
 	clearLogCmd.setAttribute("disabled", foxyproxy.logg.length == 0);
@@ -172,19 +166,14 @@ function onSettingsURLBtn() {
   fp.init(window, foxyproxy.getMessage("file.select"), nsIFilePicker.modeSave);
   fp.defaultString = "foxyproxy.xml";
   fp.appendFilters(nsIFilePicker.filterAll|nsIFilePicker.filterXML);
+  fp.displayDirectory = foxyproxy.getSettingsURI(CI.nsIFile);
   if (fp.show() != nsIFilePicker.returnCancel) {
+    if (!foxyproxy.getDefaultPath().equals(fp.file) &&
+      !overlay.ask(this, foxyproxy.getMessage("settings.warning"), null, null, "read more about it")) {
+        return;
+    }
   	foxyproxy.setSettingsURI(fp.file);
     _initSettings();
-  }
-}
-
-function isUsingPortableFirefox() {
-  try {
-    return foxyproxy.getPrefsService("extensions.foxyproxy.").getCharPref("settings") == foxyproxy.PFF;
-  }
-  catch(e) {
-    overlay.alert(this, foxyproxy.getMessage("preferences.read.error.warning", ["extensions.foxyproxy.settings", "isUsingPortableFirefox()"]) + " " +
-      foxyproxy.getMessage("preferences.read.error.fatal"));
   }
 }
 
@@ -195,8 +184,6 @@ function _updateView(writeSettings, updateLogView) {
   document.getElementById("enableLogging").checked = foxyproxy.logging;
   //document.getElementById("randomIncludeDirect").checked = foxyproxy.random.includeDirect;
   //document.getElementById("randomIncludeDisabled").checked = foxyproxy.random.includeDisabled;
-  document.getElementById("usingPFF").checked =
-    document.getElementById("settingsURLBtn").disabled = isUsingPortableFirefox();
 
   _updateSuperAdd(foxyproxy.autoadd, "autoAdd");
   _updateSuperAdd(foxyproxy.quickadd, "quickAdd");
