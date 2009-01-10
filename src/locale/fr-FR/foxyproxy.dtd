@@ -1,5 +1,6 @@
 <!ENTITY foxyproxy.label "FoxyProxy">
 <!ENTITY foxyproxy.accesskey "F">
+<!ENTITY foxyproxy.tooltip "FoxyProxy">
 <!ENTITY foxyproxy.optionsdialog.label "Options de FoxyProxy">
 <!ENTITY foxyproxy.options.label "Options">
 <!ENTITY foxyproxy.options.accesskey "O">
@@ -12,6 +13,8 @@
 <!ENTITY foxyproxy.proxy.notes.accesskey "t">
 <!ENTITY foxyproxy.proxy.notes.tooltip "Notes concernant le proxy">
 <!ENTITY foxyproxy.pattern.label "Motif de correspondance">
+<!ENTITY foxyproxy.pattern.accesskey "P">
+<!ENTITY foxyproxy.pattern.tooltip "URL pattern">
 <!ENTITY foxyproxy.urlpatterns.label "Motifs d&apos;URL">
 <!ENTITY foxyproxy.urlpatterns.accesskey "M">
 <!ENTITY foxyproxy.urlpatterns.tooltip "Motifs d&apos;URL">
@@ -59,6 +62,9 @@
 <!ENTITY foxyproxy.port.label "Port">
 <!ENTITY foxyproxy.port.accesskey "P">
 <!ENTITY foxyproxy.port.tooltip "Port">
+<!ENTITY foxyproxy.socks.proxy.label "SOCKS Proxy">
+<!ENTITY foxyproxy.socks.proxy.accesskey "C">
+<!ENTITY foxyproxy.socks.proxy.tooltip "URL of SOCKS Proxy">
 <!ENTITY foxyproxy.socks.v4 "SOCKS v4/4a">
 <!ENTITY foxyproxy.socks.v5 "SOCKS v5">
 <!ENTITY foxyproxy.addeditpattern.title "Ajouter/Éditer un motif de correspondance">
@@ -87,6 +93,8 @@
 <!ENTITY foxyproxy.add.title "Paramètres du proxy">
 <!ENTITY foxyproxy.pattern.description "Vous pouvez ici ajouter ou retirer les URL pour lesquelles ce proxy est utilisé">
 <!ENTITY foxyproxy.pattern.matchtype.label "Format du motif">
+<!ENTITY foxyproxy.pattern.matchtype2.label "Pattern To Identify Blocked Websites Contains">
+<!ENTITY foxyproxy.pattern.template.matchtype.label "Pattern Template Contains">
 <!ENTITY foxyproxy.pattern.whiteblack.label "URL autorisées/exclues">
 <!ENTITY foxyproxy.add.option.direct.label "Connexion Internet directe (sans proxy)">
 <!ENTITY foxyproxy.add.option.direct.accesskey "D">
@@ -124,7 +132,7 @@
 <!ENTITY foxyproxy.showstatusbarmode.label "Afficher le mode (texte) dans la barre d&apos;état">
 <!ENTITY foxyproxy.showstatusbarmode.accesskey "x">
 <!ENTITY foxyproxy.showstatusbarmode.tooltip "Si cette case est cochée, le mode utilisé par Foxyproxy est affiché dans la barre d&apos;état">
-<!ENTITY foxyproxy.storagelocation.label "Emplacement de stockage des paramètres">
+<!ENTITY foxyproxy.storagelocation.label.2 "Settings Location">
 <!ENTITY foxyproxy.storagelocation.accesskey "S">
 <!ENTITY foxyproxy.storagelocation.tooltip "Emplacement dans lequel sont stockés les paramètres de FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Horloge">
@@ -153,10 +161,6 @@
 <!ENTITY foxyproxy.blacklist.tooltip "Les URL correspondant à ce motif NE sont PAS chargées en utilisant ce proxy">
 <!ENTITY foxyproxy.blacklist.description.label "Les URL correspondant à ce motif NE sont PAS chargées en utilisant ce proxy">
 <!ENTITY foxyproxy.whiteblack.description.label "les motifs dans la liste noire (refusés) sont prioritaires par rapport aux motifs dans la liste blanche (autorisés) : Si une URL correspond à un motif contenu à la fois dans la liste blanche et la liste noire, elle Ne sera PAS chargée en utilisant ce proxy.">
-<!ENTITY foxyproxy.usingPFF.label1 "J&apos;utilise">
-<!ENTITY foxyproxy.usingPFF.label2 "Portable Firefox">
-<!ENTITY foxyproxy.usingPFF.accesskey "P">
-<!ENTITY foxyproxy.usingPFF.tooltip "Cochez la case si vous utilisez Portable Firefox">
 <!ENTITY foxyproxy.socks.version.label "Version SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "URL Auto PAC">
 <!ENTITY foxyproxy.issocks.label "Proxy SOCKS ?">
@@ -237,6 +241,8 @@
 <!ENTITY foxyproxy.toolsmenu.accesskey "t">
 <!ENTITY foxyproxy.toolsmenu.tooltip "Affiche l&apos;icône dans le menu &apos;Outils&apos; de Firefox">
 <!ENTITY foxyproxy.tip.label "Astuce">
+<!ENTITY foxyproxy.pactips.popup.height "250px">
+<!ENTITY foxyproxy.pactips.popup.width "400px">
 <!ENTITY foxyproxy.pactip1.label "Pour des fichiers PAC stockés sur le disque dur, veuillez les faire débuter par file://. Par exemple, file://c:/chemin/proxy.pac sur Windows ou file:///home/users/joe/proxy.pac sur Unix/Linux/Mac">
 <!ENTITY foxyproxy.pactip2.label "Pour des fichiers PAC sur un serveur FTP, veuillez les faire débuter par ftp://. Par exemple, ftp://leahscape.com/path/proxy.pac">
 <!ENTITY foxyproxy.pactip3.label "Vous pouvez également utiliser http://, https:// et tout autre protocole pris en charge.">
@@ -261,6 +267,8 @@
 <!ENTITY foxyproxy.quickadd.notify.whencanceled.label2 "L&apos;AjoutExpress est automatiquement annulé lorsque cette fonctionanlité a été activée par la combinaison Alt-F2 et lorsque l&apos;URL courante dans la barre d&apos;adresse correspond déjà à un motif de proxy de la liste blanche. de cette manière, on évite la duplication de motifs qui peut bouleverser votre configuration. Ce paramètre n&apos;active/ne désactive pas l&apos;annulation mais permet d&apos;activer/désactiver la notification en cas d&apos;annulation.">
 <!ENTITY foxyproxy.quickadd.notify.whencanceled.accesskey "A">
 <!ENTITY foxyproxy.quickadd.notify.whencanceled.tooltip "Afficher une fenêtre popup lorsque l&apos;AjoutExpress est activé mais annulé">
+<!ENTITY foxyproxy.quickadd.notify.whencanceled.popup.width "400px">
+<!ENTITY foxyproxy.quickadd.notify.whencanceled.popup.height "120px">
 <!ENTITY foxyproxy.whatsthis "Qu&apos;est-ce que c&apos;est ?">
 <!ENTITY foxyproxy.quickadd.prompt.label "Afficher une fenêtre d&apos;édition et de confirmation avant d&apos;ajouter le motif pour le proxy">
 <!ENTITY foxyproxy.quickadd.prompt.accesskey "f">
@@ -268,6 +276,9 @@
 <!ENTITY foxyproxy.quickadd.proxy.label "Proxy auquel est ajouté le motif">
 <!ENTITY foxyproxy.quickadd.proxy.accesskey "P">
 <!ENTITY foxyproxy.quickadd.proxy.tooltip "choisissez le proxy auquel le motif sera ajouté">
+<!ENTITY foxyproxy.bypasscache.label "Bypass Firefox cache when loading">
+<!ENTITY foxyproxy.bypasscache.accesskey "B">
+<!ENTITY foxyproxy.bypasscache.tooltip "Firefox cache is ignored">
 <!ENTITY foxyproxy.advancedmenus.label "Utiliser les menus avancés">
 <!ENTITY foxyproxy.advancedmenus.accesskey "M">
 <!ENTITY foxyproxy.advancedmenus.tooltip "Utiliser les menus avancés (style Foxyproxy 2.2)">
@@ -284,6 +295,7 @@
 <!ENTITY foxyproxy.wildcard.reference.accesskey "k">
 <!ENTITY foxyproxy.wildcard.reference.tooltip "Informations sur les jokers">
 <!ENTITY foxyproxy.wildcard.reference.subtitle.label "L&apos;astérisque (*) correspond à zéro ou plusieurs caractères et le point d&apos;interrogation (?) correspond à un seul caractère">
+<!ENTITY foxyproxy.wildcard.reference.mistakes "Common Mistakes When Writing Wildcard Patterns">
 <!ENTITY foxyproxy.wildcard.reference.goal.label "But">
 <!ENTITY foxyproxy.wildcard.reference.goal1.label "Correspond à toutes les pages du sous-domaine www de MySpace&apos;s">
 <!ENTITY foxyproxy.wildcard.reference.goal2.label "Correspond au PC local">
@@ -297,11 +309,17 @@
 <!ENTITY foxyproxy.wildcard.reference.incorrect.reason2.label "FoxyProxy ne prend pas en charge ce genre de syntaxe">
 <!ENTITY foxyproxy.wildcard.reference.incorrect.reason3.label "Il n&apos;y a pas de jokers">
 <!ENTITY foxyproxy.wildcard.reference.incorrect.reason4.label "Il n&apos;y a pas de jokers">
+<!ENTITY foxyproxy.wildcard.reference.popup.height "350px">
 <!ENTITY foxyproxy.logging.noURLs.label "Ne pas stocker ou afficher les URL">
 <!ENTITY foxyproxy.logging.noURLs.accesskey "U">
 <!ENTITY foxyproxy.logging.noURLs.tooltip "Les URL ne sont pas stockées dans la mémoire vive (RAM) ou sur le disque">
+<!ENTITY foxyproxy.ok.label "OK">
+<!ENTITY foxyproxy.ok.accesskey "O">
+<!ENTITY foxyproxy.ok.tooltip "Close Window">
 <!ENTITY foxyproxy.pattern.template.reference.label "Informations sur les modèles de motif">
+<!ENTITY foxyproxy.pattern.template.reference.accesskey "T">
 <!ENTITY foxyproxy.pattern.template.reference.tooltip "Informations sur les modèles de motif">
+<!ENTITY foxyproxy.pattern.template.reference.subtitle.label "URL pattern templates define the format with which URLs are QuickAdded or AutoAdded to proxies. Templates support the following special strings which, when QuickAdd or AutoAdd are activated, are substituted with the corresponding URL component in the address bar.">
 <!ENTITY foxyproxy.pattern.template.reference.specialstring.label "Chaîne de caractères">
 <!ENTITY foxyproxy.pattern.template.reference.subststring.label "Substituée par">
 <!ENTITY foxyproxy.pattern.template.reference.example.label "Exemple">
@@ -321,18 +339,25 @@
 <!ENTITY foxyproxy.pattern.template.reference.ref.label "partie après le &quot;#&quot;">
 <!ENTITY foxyproxy.pattern.template.reference.query.label "partie après le&quot;?&quot;">
 <!ENTITY foxyproxy.pattern.template.reference.spec.label "URL complète">
+<!ENTITY foxyproxy.pattern.template.reference.popup.height "400px">
+<!ENTITY foxyproxy.pattern.template.reference.popup.width "800px">
 <!ENTITY foxyproxy.notifications.label "Notifications">
+<!ENTITY foxyproxy.notifications.accesskey "N">
 <!ENTITY foxyproxy.notifications.tooltip "Paramètres de notification">
 <!ENTITY foxyproxy.indicators.label "Indicateurs">
+<!ENTITY foxyproxy.indicators.accesskey "I">
 <!ENTITY foxyproxy.indicators.tooltip "Paramètres d&apos;indicateur">
 <!ENTITY foxyproxy.misc.label "Divers">
+<!ENTITY foxyproxy.misc.accesskey "M">
 <!ENTITY foxyproxy.misc.tooltip "Paramètres divers">
 <!ENTITY foxyproxy.animatedicons.label "Animer les icônes lorsque ce proxies est utilisé">
 <!ENTITY foxyproxy.animatedicons.accesskey "A">
 <!ENTITY foxyproxy.animatedicons.tooltip "Animer les icônes lorsque ce proxy est actif (Paramètres généraux-&gt;Animations doit également être cochée)">
 <!ENTITY foxyproxy.statusbaractivation.label "Activation de la barre d&apos;état">
+<!ENTITY foxyproxy.statusbaractivation.accesskey "S">
 <!ENTITY foxyproxy.statusbaractivation.tooltip "Paramètres d&apos;activation de la barre d&apos;état">
 <!ENTITY foxyproxy.toolbaractivation.label "Activation de la barre d&apos;outils">
+<!ENTITY foxyproxy.toolbaractivation.accesskey "T">
 <!ENTITY foxyproxy.toolbaractivation.tooltip "Paramètres d&apos;activation de la barre d&apos;outils">
 <!ENTITY foxyproxy.leftclicksb.label "Clic sur FoxyProxy dans la barre d&apos;état">
 <!ENTITY foxyproxy.leftclicksb.accesskey "c">
@@ -371,8 +396,12 @@
 <!ENTITY foxyproxy.newGUI4.label "Cliquez ici pour davantage d&apos;informations">
 <!ENTITY foxyproxy.error.msg.label "Message d&apos;errreur">
 <!ENTITY foxyproxy.pac.result.label "Résultat PAC">
+<!ENTITY foxyproxy.options.width "666">
+<!ENTITY foxyproxy.options.height "477">
 <!ENTITY foxyproxy.torwiz.width "720">
 <!ENTITY foxyproxy.torwiz.height "420">
+<!ENTITY foxyproxy.addeditproxy.width "660">
+<!ENTITY foxyproxy.addeditproxy.height "470">
 <!ENTITY foxyproxy.casesensitive.label "Respect de la casse">
 <!ENTITY foxyproxy.casesensitive.accesskey "C">
 <!ENTITY foxyproxy.casesensitive.tooltip "Active/désactive le respect de la casse pour la concordance d&apos;URL">
@@ -382,6 +411,8 @@
 <!ENTITY foxyproxy.pixels "pixels">
 <!ENTITY foxyproxy.unlimited.label "[0: réduire pour ajuster]">
 <!ENTITY foxyproxy.temp.popup.label "Les motifs temporaires vous permettent de créer des motifs d&apos;URLs que vous ne consultez que rarement et évite ainsi de &quot;polluer&quot; la liste de motifs pour un proxy. Les motifs temporaires ne sont pas enregistrés sur le disque. Ils sont conservés en mémoire et uniquement utilisés par cette session de Firefox.">
+<!ENTITY foxyproxy.temp.popup.height "120">
+<!ENTITY foxyproxy.temp.popup.width "400">
 <!ENTITY foxyproxy.temp.label "Temporaire">
 <!ENTITY foxyproxy.temp.accesskey "T">
 <!ENTITY foxyproxy.temp.tooltip "Le motif n&apos;est utilisé que pour cette session de Firefox">
@@ -393,8 +424,13 @@
 <!ENTITY foxyproxy.home "Accueil">
 <!ENTITY foxyproxy.support "Support">
 <!ENTITY foxyproxy.credits "Crédits">
+<!ENTITY foxyproxy.donations "Donations">
 <!ENTITY foxyproxy.please.donate.label "Veuillez faire un don">
 <!ENTITY foxyproxy.please.donate.accesskey "D">
 <!ENTITY foxyproxy.keep.free "Permettre à Foxyproxy de rester gratuite">
 <!ENTITY foxyproxy.donation.list.label "Liste des dons">
 <!ENTITY foxyproxy.donation.list.accesskey "L">
+<!ENTITY foxyproxy.importantnote.label "Read Important Note">
+<!ENTITY foxyproxy.resetlocation.label "Reset Location">
+<!ENTITY foxyproxy.resetlocation.accesskey "R">
+<!ENTITY foxyproxy.resetlocation.tooltip "Store settings in Firefox profile">
