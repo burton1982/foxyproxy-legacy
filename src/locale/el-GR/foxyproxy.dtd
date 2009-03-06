@@ -14,7 +14,7 @@
 <!ENTITY foxyproxy.proxy.notes.tooltip "Σημειώσεις διαμεσολαβητή">
 <!ENTITY foxyproxy.pattern.label "Πρότυπο">
 <!ENTITY foxyproxy.pattern.accesskey "P">
-<!ENTITY foxyproxy.pattern.tooltip "URL pattern">
+<!ENTITY foxyproxy.pattern.tooltip "Πρότυπο URL">
 <!ENTITY foxyproxy.urlpatterns.label "Πρότυπα URL">
 <!ENTITY foxyproxy.urlpatterns.accesskey "Π">
 <!ENTITY foxyproxy.urlpatterns.tooltip "Πρότυπα URL">
@@ -62,9 +62,9 @@
 <!ENTITY foxyproxy.port.label "Θύρα">
 <!ENTITY foxyproxy.port.accesskey "Θ">
 <!ENTITY foxyproxy.port.tooltip "Θύρα">
-<!ENTITY foxyproxy.socks.proxy.label "SOCKS Proxy">
-<!ENTITY foxyproxy.socks.proxy.accesskey "C">
-<!ENTITY foxyproxy.socks.proxy.tooltip "URL of SOCKS Proxy">
+<!ENTITY foxyproxy.socks.proxy.label "Διαμεσολαβητής SOCKS">
+<!ENTITY foxyproxy.socks.proxy.accesskey "ο">
+<!ENTITY foxyproxy.socks.proxy.tooltip "URL διαμεσολαβητή SOCKS">
 <!ENTITY foxyproxy.socks.v4 "SOCKS v4/4a">
 <!ENTITY foxyproxy.socks.v5 "SOCKS v5">
 <!ENTITY foxyproxy.addeditpattern.title "Προσθήκη/Επεξεργασία προτύπου">
@@ -93,13 +93,13 @@
 <!ENTITY foxyproxy.add.title "Ρυθμίσεις διαμεσολαβητή">
 <!ENTITY foxyproxy.pattern.description "Εδώ μπορείτε να ορίσετε το πότε θα γίνεται χρήση αυτού του διαμεσολαβητή και πότε όχι.">
 <!ENTITY foxyproxy.pattern.matchtype.label "Το πρότυπο περιέχει :">
-<!ENTITY foxyproxy.pattern.matchtype2.label "Pattern To Identify Blocked Websites Contains">
-<!ENTITY foxyproxy.pattern.template.matchtype.label "Pattern Template Contains">
+<!ENTITY foxyproxy.pattern.matchtype2.label "Το πρότυπο αναγνώρισης μπλοκαρισμένων ιστότοπων περιέχει">
+<!ENTITY foxyproxy.pattern.template.matchtype.label "Το σχέδιο προτύπου περιέχει">
 <!ENTITY foxyproxy.pattern.whiteblack.label "Συμπερίληψη/Απόρριψη URL">
 <!ENTITY foxyproxy.add.option.direct.label "Άμεση σύνδεση με το διαδύκτιο (χωρίς διαμεσολαβητή)">
 <!ENTITY foxyproxy.add.option.direct.accesskey "Α">
 <!ENTITY foxyproxy.add.option.direct.tooltip "Να μη γίνεται χρήση διαμεσολαβητή - χρήση υπάρχουσας άμεσης σύνδεσης με το διαδίκτυο">
-<!ENTITY foxyproxy.add.option.manual.label "Χειρονακτικές ρυθμίσεις διαμεσολαβητή">
+<!ENTITY foxyproxy.add.option.manual.label "Χειρωνακτικές ρυθμίσεις διαμεσολαβητή">
 <!ENTITY foxyproxy.add.option.manual.accesskey "Χ">
 <!ENTITY foxyproxy.add.option.manual.tooltip "Ορίστε τις ρυθμίσεις του διαμεσολαβητή χειρωνακτικά">
 <!ENTITY foxyproxy.add.new.pattern.label "Προσθήκη νέου πρότυπου">
@@ -132,7 +132,7 @@
 <!ENTITY foxyproxy.showstatusbarmode.label "Προβολή κείμενου στη γραμμή κάταστασης">
 <!ENTITY foxyproxy.showstatusbarmode.accesskey "γ">
 <!ENTITY foxyproxy.showstatusbarmode.tooltip "Αν επιλεγεί, θα εμφανίζεται η κατάσταση λειτουργίας του FoxyProxy με κείμενο στη γραμμή κατάστασης">
-<!ENTITY foxyproxy.storagelocation.label.2 "Settings Location">
+<!ENTITY foxyproxy.storagelocation.label.2 "Τοποθεσία αρχείου ρυθμίσεων">
 <!ENTITY foxyproxy.storagelocation.accesskey "θ">
 <!ENTITY foxyproxy.storagelocation.tooltip "Η τοποθεσία αποθήκευσης των ρυθμίσεων του FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Χρονoσήμανση">
@@ -295,7 +295,7 @@
 <!ENTITY foxyproxy.wildcard.reference.accesskey "μ">
 <!ENTITY foxyproxy.wildcard.reference.tooltip "Πίνακας αναφοράς χαρακτήρων μπαλαντέρ">
 <!ENTITY foxyproxy.wildcard.reference.subtitle.label "Ο αστερίσκος (*) υποκαθιστά πολλούς χαρακτήρες (ή μηδέν χαρακτήρες) και το λατινικό ερωτηματικό (?) υποκαθιστά ένα μόνο χαρακτήρα">
-<!ENTITY foxyproxy.wildcard.reference.mistakes "Common Mistakes When Writing Wildcard Patterns">
+<!ENTITY foxyproxy.wildcard.reference.mistakes "Συχνά σφάλματα δημιουργίας πρότυπων με χαρακτήρες μπαλαντέρ">
 <!ENTITY foxyproxy.wildcard.reference.goal.label "Σκοπός">
 <!ENTITY foxyproxy.wildcard.reference.goal1.label "Η συμπερίληψη όλων των σελίδων στον υποτομέα www του Myspace">
 <!ENTITY foxyproxy.wildcard.reference.goal2.label "Η συμπερίληψη του τοπικού υπολογιστή">
@@ -313,13 +313,13 @@
 <!ENTITY foxyproxy.logging.noURLs.label "Να μην γίνεται αποθήκευση ή εμφάνιση URL">
 <!ENTITY foxyproxy.logging.noURLs.accesskey "τ">
 <!ENTITY foxyproxy.logging.noURLs.tooltip "Δεν θα γίνεται αποθήκευση των URL στη μνήμη RAM ή στον δίσκο">
-<!ENTITY foxyproxy.ok.label "OK">
-<!ENTITY foxyproxy.ok.accesskey "O">
-<!ENTITY foxyproxy.ok.tooltip "Close Window">
+<!ENTITY foxyproxy.ok.label "Εντάξει">
+<!ENTITY foxyproxy.ok.accesskey "τ">
+<!ENTITY foxyproxy.ok.tooltip "Κλείσιμο παραθύρου">
 <!ENTITY foxyproxy.pattern.template.reference.label "Πίνακας αναφοράς σχεδίων προτύπων">
-<!ENTITY foxyproxy.pattern.template.reference.accesskey "T">
+<!ENTITY foxyproxy.pattern.template.reference.accesskey "φ">
 <!ENTITY foxyproxy.pattern.template.reference.tooltip "Πίνακας αναφοράς σχεδίων προτύπων">
-<!ENTITY foxyproxy.pattern.template.reference.subtitle.label "URL pattern templates define the format with which URLs are QuickAdded or AutoAdded to proxies. Templates support the following special strings which, when QuickAdd or AutoAdd are activated, are substituted with the corresponding URL component in the address bar.">
+<!ENTITY foxyproxy.pattern.template.reference.subtitle.label "Τα σχέδια προτύπων URL καθορίζουν τη μορφή με την οποία τα URL προστίθενται μέσω της γρήγορης ή της άμεσης πρόσθήκη στους διαμεσολαβητές. Τα σχέδια υποστηρίζουν τα παρακάτω ειδικά αλφαριθμητικά, τα οποία, όταν ενεργοποιηθεί η γρήγορη ή άμεση προσθήκη, αντικαθιστώνται με το αντίστοιχο στοιχείο URL της εργαλειοθήκης διευθύνσεων.">
 <!ENTITY foxyproxy.pattern.template.reference.specialstring.label "Ειδικό αλφαριθμητικό">
 <!ENTITY foxyproxy.pattern.template.reference.subststring.label "Αντικαθίσταται με">
 <!ENTITY foxyproxy.pattern.template.reference.example.label "Παράδειγμα">
@@ -430,7 +430,7 @@
 <!ENTITY foxyproxy.keep.free "Διατηρήστε το FoxyProxy  ελεύθερο">
 <!ENTITY foxyproxy.donation.list.label "Λίστα δωρεών">
 <!ENTITY foxyproxy.donation.list.accesskey "α">
-<!ENTITY foxyproxy.importantnote.label "Read Important Note">
-<!ENTITY foxyproxy.resetlocation.label "Reset Location">
-<!ENTITY foxyproxy.resetlocation.accesskey "R">
-<!ENTITY foxyproxy.resetlocation.tooltip "Store settings in Firefox profile">
+<!ENTITY foxyproxy.importantnote.label "Διαβάστε μια σημαντική σημείωση">
+<!ENTITY foxyproxy.resetlocation.label "Επαναφορά τοποθεσίας">
+<!ENTITY foxyproxy.resetlocation.accesskey "π">
+<!ENTITY foxyproxy.resetlocation.tooltip "Αποθήκευση ρυθμίσεων στο προφίλ χρήστη του Firefox">

@@ -161,6 +161,10 @@
 <!ENTITY foxyproxy.blacklist.tooltip "URLs matching this pattern are NOT loaded through this proxy">
 <!ENTITY foxyproxy.blacklist.description.label "URLs matching this pattern are NOT loaded through this proxy">
 <!ENTITY foxyproxy.whiteblack.description.label "Blacklist (exclusion) patterns have precedence over whitelist (inclusion) patterns: if a URL matches both a whitelisted pattern and a blacklisted pattern for the same proxy, the URL is excluded from being loaded by that proxy.">
+<!ENTITY foxyproxy.usingPFF.label1 "I am using">
+<!ENTITY foxyproxy.usingPFF.label2 "Portable Firefox">
+<!ENTITY foxyproxy.usingPFF.accesskey "P">
+<!ENTITY foxyproxy.usingPFF.tooltip "Check here if you are using Portable Firefox">
 <!ENTITY foxyproxy.socks.version.label "SOCKS Version">
 <!ENTITY foxyproxy.autopacurl.label "Auto PAC URL">
 <!ENTITY foxyproxy.issocks.label "SOCKS proxy?">

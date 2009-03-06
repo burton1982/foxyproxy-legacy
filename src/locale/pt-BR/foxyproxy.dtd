@@ -161,6 +161,10 @@
 <!ENTITY foxyproxy.blacklist.tooltip "URLs que combinem com esse padrão NÃO serão abertos através deste Proxy">
 <!ENTITY foxyproxy.blacklist.description.label "URLs que combinem com esse padrão NÃO serão abertos através deste Proxy">
 <!ENTITY foxyproxy.whiteblack.description.label "Padrões de Blacklist (exclusão) têm precedência sobre padrões de Whitelist: Se uma URL combinar com ambos os padrões no mesmo proxy, a URL será excluida do carregamento neste proxy.">
+<!ENTITY foxyproxy.usingPFF.label1 "Eu estou usando">
+<!ENTITY foxyproxy.usingPFF.label2 "Portable Firefox">
+<!ENTITY foxyproxy.usingPFF.accesskey "P">
+<!ENTITY foxyproxy.usingPFF.tooltip "Selecione aqui caso você esteja usando Portable Firefox">
 <!ENTITY foxyproxy.socks.version.label "Versão do SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "URL do Auto PAC">
 <!ENTITY foxyproxy.issocks.label "Proxy SOCKS?">

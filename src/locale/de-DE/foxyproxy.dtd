@@ -161,6 +161,10 @@
 <!ENTITY foxyproxy.blacklist.tooltip "URLs, die dieses Muster akzeptiert, werden NICHT über diesen Proxy geladen">
 <!ENTITY foxyproxy.blacklist.description.label "URLs, die dieses Muster akzeptiert, werden NICHT über diesen Proxy geladen">
 <!ENTITY foxyproxy.whiteblack.description.label "Muster der Blacklist (exklusiv) haben Vorrang vor Mustern der Whitelist (inklusiv): Falls eine URL sowohl von einem Muster der Whitelist als auch von einem Muster der Blacklist für denselben Proxy akzeptiert wird, wird die URL nicht über dieses Proxy geladen.">
+<!ENTITY foxyproxy.usingPFF.label1 "Ich benutze">
+<!ENTITY foxyproxy.usingPFF.label2 "Portable Firefox">
+<!ENTITY foxyproxy.usingPFF.accesskey "P">
+<!ENTITY foxyproxy.usingPFF.tooltip "Hier ankreuzen, falls Portable Firefox verwendet wird">
 <!ENTITY foxyproxy.socks.version.label "SOCKS Version">
 <!ENTITY foxyproxy.autopacurl.label "Auto PAC URL">
 <!ENTITY foxyproxy.issocks.label "SOCKS-Proxy?">

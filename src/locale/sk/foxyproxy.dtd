@@ -161,6 +161,10 @@
 <!ENTITY foxyproxy.blacklist.tooltip "URL adresy zhodujúce sa s týmto vzorom NEbudú načítané cez toto Proxy">
 <!ENTITY foxyproxy.blacklist.description.label "URL adresy zhodujúce sa s týmto vzorom NEbudú načítané cez toto Proxy">
 <!ENTITY foxyproxy.whiteblack.description.label "Čierna listina (vylúčenie) vzorov má prednosť pred bielou listinou (zahrnutie) vzorov: ak sa URL nachádza na bielej aj čiernej listine pre rovnaké Proxy, tak URL nebude načítaná pomocou tohto Proxy.">
+<!ENTITY foxyproxy.usingPFF.label1 "Používam">
+<!ENTITY foxyproxy.usingPFF.label2 "Portable Firefox">
+<!ENTITY foxyproxy.usingPFF.accesskey "P">
+<!ENTITY foxyproxy.usingPFF.tooltip "Označte, ak používate Portable Firefox">
 <!ENTITY foxyproxy.socks.version.label "Verzia SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "Auto PAC URL">
 <!ENTITY foxyproxy.issocks.label "SOCKS proxy server">

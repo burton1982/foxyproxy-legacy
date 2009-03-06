@@ -161,6 +161,10 @@
 <!ENTITY foxyproxy.blacklist.tooltip "匹配此模板的 URL 将不通过这个代理服务器加载">
 <!ENTITY foxyproxy.blacklist.description.label "匹配此模板的 URL 将不通过这个代理服务器加载">
 <!ENTITY foxyproxy.whiteblack.description.label "黑名单中模板的优先级高于白名单中模板的优先级：如果一个 URL 同时匹配同一个代理服务器黑名单中的模板和白名单中的模板，这个 URL 将不使用该代理服务器加载。">
+<!ENTITY foxyproxy.usingPFF.label1 "我正在使用">
+<!ENTITY foxyproxy.usingPFF.label2 "Portable Firefox">
+<!ENTITY foxyproxy.usingPFF.accesskey "P">
+<!ENTITY foxyproxy.usingPFF.tooltip "如果您正在使用 Portable Firefox，请选中此项">
 <!ENTITY foxyproxy.socks.version.label "SOCKS 版本">
 <!ENTITY foxyproxy.autopacurl.label "自动 PAC URL">
 <!ENTITY foxyproxy.issocks.label "SOCKS proxy?">

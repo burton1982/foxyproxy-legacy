@@ -161,6 +161,10 @@
 <!ENTITY foxyproxy.blacklist.tooltip "URL-адреси, що відповідають цьому зразку НЕ завантажуються через цей проксі">
 <!ENTITY foxyproxy.blacklist.description.label "URL-адреси, що відповідають цьому зразку НЕ завантажуються через цей проксі">
 <!ENTITY foxyproxy.whiteblack.description.label "Чорний список (виключення) зразків має перевагу над Білим списком (включення) зразків: якщо URL-адреса відповідає обом зразкам з білого списку і зразкам з чорного списку  для такого проксі,URL-адреса виключається з початком завантаження цього проксі.">
+<!ENTITY foxyproxy.usingPFF.label1 "Я використовую">
+<!ENTITY foxyproxy.usingPFF.label2 "Portable Firefox">
+<!ENTITY foxyproxy.usingPFF.accesskey "P">
+<!ENTITY foxyproxy.usingPFF.tooltip "Оберіть тут, якщо ви використовуєте Portable Firefox">
 <!ENTITY foxyproxy.socks.version.label "Версія SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "Автоматична URL-адреса PAC ">
 <!ENTITY foxyproxy.issocks.label "SOCKS proxy?">

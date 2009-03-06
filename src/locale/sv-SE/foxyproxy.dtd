@@ -161,6 +161,10 @@
 <!ENTITY foxyproxy.blacklist.tooltip "URL matchande detta mönster laddas INTE genom proxy">
 <!ENTITY foxyproxy.blacklist.description.label "URL matchande detta mönster laddas INTE genom proxy">
 <!ENTITY foxyproxy.whiteblack.description.label "Svartlistade (exkludering) mönster har företräde över vitlistade (inkludering): om en URL matchar både vit- och svart-listning kommer URLen exkluderas från att laddas genom proxy.">
+<!ENTITY foxyproxy.usingPFF.label1 "Jag använder">
+<!ENTITY foxyproxy.usingPFF.label2 "Portable Firefox">
+<!ENTITY foxyproxy.usingPFF.accesskey "P">
+<!ENTITY foxyproxy.usingPFF.tooltip "Markera här om du använder Portable Firefox">
 <!ENTITY foxyproxy.socks.version.label "SOCKS-version">
 <!ENTITY foxyproxy.autopacurl.label "Auto PAC URL">
 <!ENTITY foxyproxy.issocks.label "SOCKS proxy?">
