@@ -124,7 +124,7 @@
               <treecol id="modeCol" label="&foxyproxy.mode.label;"
                 hidden="true" flex="1" persist="width ordinal hidden" />
               <splitter class="tree-splitter" />
-              <treecol id="hostCol" label="&foxyproxy.host.label;"
+              <treecol id="hostCol" label="&foxyproxy.host.label.2;"
                 hidden="true" flex="1" persist="width ordinal hidden" />
               <splitter class="tree-splitter" />
               <treecol id="portCol" label="&foxyproxy.port.label;"

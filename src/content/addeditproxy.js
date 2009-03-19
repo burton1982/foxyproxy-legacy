@@ -62,10 +62,8 @@ function trim(s) {
 
 function onOK() {
   var name = trim(document.getElementById("proxyname").value);
-  if (!name) {
-    foxyproxy.alert(this, foxyproxy.getMessage("proxy.name.required"));
-    return false;
-  }
+  if (!name)
+    name = foxyproxy.getMessage("new.proxy");
   var enabled = document.getElementById("proxyenabled").checked,
     host = trim(document.getElementById("host").value),
     port = document.getElementById("port").value,
@@ -80,14 +78,14 @@ function onOK() {
     else if (mode == "manual") {
     	if (!host) {
     		if (!port) {
-			    foxyproxy.alert(this, foxyproxy.getMessage("nohostport"));
+			    foxyproxy.alert(this, foxyproxy.getMessage("nohostport.3"));
 			    return false;
     		}
-		    foxyproxy.alert(this, foxyproxy.getMessage("nohost2"));
+		    foxyproxy.alert(this, foxyproxy.getMessage("nohost.3"));
 		    return false;
     	}
     	else if (!port) {
-		    foxyproxy.alert(this, foxyproxy.getMessage("noport2"));
+		    foxyproxy.alert(this, foxyproxy.getMessage("noport.3"));
 		    return false;
 		  }
 		}
