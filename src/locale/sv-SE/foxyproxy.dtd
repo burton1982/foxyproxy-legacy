@@ -58,7 +58,7 @@
 <!ENTITY foxyproxy.auto.url.accesskey "u">
 <!ENTITY foxyproxy.auto.url.tooltip "Ange URL för PAC-filen">
 <!ENTITY foxyproxy.auto.url.note.label "http(s)://   ftp://   file://   relative://">
-<!ENTITY foxyproxy.auto.url.note.tooltip "Click the info icon for information on relative://">
+<!ENTITY foxyproxy.auto.url.note.tooltip "Klicka på info-ikonen för information om relative://">
 <!ENTITY foxyproxy.port.label "Port">
 <!ENTITY foxyproxy.port.accesskey "P">
 <!ENTITY foxyproxy.port.tooltip "Port">
@@ -137,9 +137,8 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "Plats att lagra inställningar för FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Tidsmärkning">
 <!ENTITY foxyproxy.tab.logging.url.label "URL">
-<!ENTITY foxyproxy.host.label "Värdnamn">
+<!ENTITY foxyproxy.host.label.2 "Host eller IP-adress">
 <!ENTITY foxyproxy.host.accesskey "ä">
-<!ENTITY foxyproxy.host.tooltip "Värndnamn">
 <!ENTITY foxyproxy.clear.label "Rensa">
 <!ENTITY foxyproxy.clear.accesskey "R">
 <!ENTITY foxyproxy.clear.tooltip "Rensar">
@@ -161,10 +160,6 @@
 <!ENTITY foxyproxy.blacklist.tooltip "URL matchande detta mönster laddas INTE genom proxy">
 <!ENTITY foxyproxy.blacklist.description.label "URL matchande detta mönster laddas INTE genom proxy">
 <!ENTITY foxyproxy.whiteblack.description.label "Svartlistade (exkludering) mönster har företräde över vitlistade (inkludering): om en URL matchar både vit- och svart-listning kommer URLen exkluderas från att laddas genom proxy.">
-<!ENTITY foxyproxy.usingPFF.label1 "Jag använder">
-<!ENTITY foxyproxy.usingPFF.label2 "Portable Firefox">
-<!ENTITY foxyproxy.usingPFF.accesskey "P">
-<!ENTITY foxyproxy.usingPFF.tooltip "Markera här om du använder Portable Firefox">
 <!ENTITY foxyproxy.socks.version.label "SOCKS-version">
 <!ENTITY foxyproxy.autopacurl.label "Auto PAC URL">
 <!ENTITY foxyproxy.issocks.label "SOCKS proxy?">
@@ -280,9 +275,9 @@
 <!ENTITY foxyproxy.quickadd.proxy.label "Proxy dit mönster laddas">
 <!ENTITY foxyproxy.quickadd.proxy.accesskey "P">
 <!ENTITY foxyproxy.quickadd.proxy.tooltip "Ange proxy dit mönster skall laddas">
-<!ENTITY foxyproxy.bypasscache.label "Bypass Firefox cache when loading">
+<!ENTITY foxyproxy.bypasscache.label "Använd inte Firefox buffert vid laddning">
 <!ENTITY foxyproxy.bypasscache.accesskey "B">
-<!ENTITY foxyproxy.bypasscache.tooltip "Firefox cache is ignored">
+<!ENTITY foxyproxy.bypasscache.tooltip "Firefox buffert ignoreras">
 <!ENTITY foxyproxy.advancedmenus.label "Använd avancerad meny">
 <!ENTITY foxyproxy.advancedmenus.accesskey "c">
 <!ENTITY foxyproxy.advancedmenus.tooltip "Använd avancerad meny (FoxyProxy 2.2-stil)">
@@ -299,7 +294,7 @@
 <!ENTITY foxyproxy.wildcard.reference.accesskey "e">
 <!ENTITY foxyproxy.wildcard.reference.tooltip "Hänvisning ersättningstecken">
 <!ENTITY foxyproxy.wildcard.reference.subtitle.label "Stjärna (*) matchar noll eller fler tecken och frågetecken (?) matchar ett enstaka tecken">
-<!ENTITY foxyproxy.wildcard.reference.mistakes "Common Mistakes When Writing Wildcard Patterns">
+<!ENTITY foxyproxy.wildcard.reference.mistakes "Vanliga misstag när man skriver mönster med ersättningstecken">
 <!ENTITY foxyproxy.wildcard.reference.goal.label "Mål">
 <!ENTITY foxyproxy.wildcard.reference.goal1.label "Matchar alla sidor i MySpace underdomän">
 <!ENTITY foxyproxy.wildcard.reference.goal2.label "Matchar den lokala PCn">
@@ -406,8 +401,8 @@
 <!ENTITY foxyproxy.torwiz.height "375">
 <!ENTITY foxyproxy.addeditproxy.width "660">
 <!ENTITY foxyproxy.addeditproxy.height "470">
-<!ENTITY foxyproxy.casesensitive.label "Case sensitive">
-<!ENTITY foxyproxy.casesensitive.accesskey "C">
+<!ENTITY foxyproxy.casesensitive.label "Känslig för stora och små bokstäver">
+<!ENTITY foxyproxy.casesensitive.accesskey "K">
 <!ENTITY foxyproxy.casesensitive.tooltip "Enables/disables case-sensitivity for URL matching">
 <!ENTITY foxyproxy.statusbarwidth.label "Fast bredd">
 <!ENTITY foxyproxy.statusbarwidth.accesskey "b">
@@ -431,10 +426,10 @@
 <!ENTITY foxyproxy.donations "Donations">
 <!ENTITY foxyproxy.please.donate.label "Donera gärna">
 <!ENTITY foxyproxy.please.donate.accesskey "D">
-<!ENTITY foxyproxy.keep.free "Fortsätt göra FoxyProxy gratis">
+<!ENTITY foxyproxy.keep.free "Fortsätt med FoxyProxy gratis">
 <!ENTITY foxyproxy.donation.list.label "Donatörer">
 <!ENTITY foxyproxy.donation.list.accesskey "ö">
 <!ENTITY foxyproxy.importantnote.label "Read Important Note">
-<!ENTITY foxyproxy.resetlocation.label "Reset Location">
-<!ENTITY foxyproxy.resetlocation.accesskey "R">
-<!ENTITY foxyproxy.resetlocation.tooltip "Store settings in Firefox profile">
+<!ENTITY foxyproxy.resetlocation.label "Återställ plats">
+<!ENTITY foxyproxy.resetlocation.accesskey "r">
+<!ENTITY foxyproxy.resetlocation.tooltip "Lagra inställningar i Firefoxprofilen">

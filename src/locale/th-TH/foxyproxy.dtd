@@ -137,9 +137,8 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "ตำแหน่งเก็บการตั้งค่า FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Timestamp">
 <!ENTITY foxyproxy.tab.logging.url.label "ยูอาร์แอล">
-<!ENTITY foxyproxy.host.label "ชื่อโฮสต์">
+<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
 <!ENTITY foxyproxy.host.accesskey "ฮ">
-<!ENTITY foxyproxy.host.tooltip "ชื่อโฮสต์">
 <!ENTITY foxyproxy.clear.label "ล้าง">
 <!ENTITY foxyproxy.clear.accesskey "ล">
 <!ENTITY foxyproxy.clear.tooltip "ล้าง">
@@ -161,10 +160,6 @@
 <!ENTITY foxyproxy.blacklist.tooltip "ยูอาร์แอลที่เข้าคู่กับแบบรูปจะไม่โหลดผ่านพร็อกซีนี้">
 <!ENTITY foxyproxy.blacklist.description.label "ยูอาร์แอลที่เข้าคู่กับแบบรูปจะไม่โหลดผ่านพร็อกซีนี้">
 <!ENTITY foxyproxy.whiteblack.description.label "แบบรูปรายชื่อสีดำ (โดดเดี่ยว) มีลำดับเหนือกว่าแบบรูปรายชื่อสีขาว (รวมอยู่): ถ้ายูอาร์แอลเข้าคู่ทั้งคู่กับพร็อกซีเดียวกัน ยูอาร์แอลจะถูกแยกออกจากการโหลดพร็อกซี">
-<!ENTITY foxyproxy.usingPFF.label1 "ฉันกำลังใช้">
-<!ENTITY foxyproxy.usingPFF.label2 "ไฟร์ฟอกซ์พกพา">
-<!ENTITY foxyproxy.usingPFF.accesskey "พ">
-<!ENTITY foxyproxy.usingPFF.tooltip "คลิกที่นี่หากคุณกำลังใช้ไฟร์ฟอกซ์พกพา">
 <!ENTITY foxyproxy.socks.version.label "รุ่นซอกส์">
 <!ENTITY foxyproxy.autopacurl.label "ยูอาร์แอล PAC อัตโนมัติ">
 <!ENTITY foxyproxy.issocks.label "พร็อกซีซอกส์?">

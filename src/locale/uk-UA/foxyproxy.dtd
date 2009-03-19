@@ -137,9 +137,8 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "Розміщення збережених параметрів FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Час">
 <!ENTITY foxyproxy.tab.logging.url.label "URL-адреса">
-<!ENTITY foxyproxy.host.label "Host Name">
+<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
 <!ENTITY foxyproxy.host.accesskey "H">
-<!ENTITY foxyproxy.host.tooltip "Host Name">
 <!ENTITY foxyproxy.clear.label "Очистити">
 <!ENTITY foxyproxy.clear.accesskey "ч">
 <!ENTITY foxyproxy.clear.tooltip "Очистити">
@@ -161,10 +160,6 @@
 <!ENTITY foxyproxy.blacklist.tooltip "URL-адреси, що відповідають цьому зразку НЕ завантажуються через цей проксі">
 <!ENTITY foxyproxy.blacklist.description.label "URL-адреси, що відповідають цьому зразку НЕ завантажуються через цей проксі">
 <!ENTITY foxyproxy.whiteblack.description.label "Чорний список (виключення) зразків має перевагу над Білим списком (включення) зразків: якщо URL-адреса відповідає обом зразкам з білого списку і зразкам з чорного списку  для такого проксі,URL-адреса виключається з початком завантаження цього проксі.">
-<!ENTITY foxyproxy.usingPFF.label1 "Я використовую">
-<!ENTITY foxyproxy.usingPFF.label2 "Portable Firefox">
-<!ENTITY foxyproxy.usingPFF.accesskey "P">
-<!ENTITY foxyproxy.usingPFF.tooltip "Оберіть тут, якщо ви використовуєте Portable Firefox">
 <!ENTITY foxyproxy.socks.version.label "Версія SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "Автоматична URL-адреса PAC ">
 <!ENTITY foxyproxy.issocks.label "SOCKS proxy?">

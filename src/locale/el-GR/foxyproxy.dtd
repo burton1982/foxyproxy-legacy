@@ -137,9 +137,8 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "Η τοποθεσία αποθήκευσης των ρυθμίσεων του FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Χρονoσήμανση">
 <!ENTITY foxyproxy.tab.logging.url.label "URL">
-<!ENTITY foxyproxy.host.label "Όνομα κεντρικού υπολογιστή">
+<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
 <!ENTITY foxyproxy.host.accesskey "κ">
-<!ENTITY foxyproxy.host.tooltip "Κεντρικός υπολογιστής">
 <!ENTITY foxyproxy.clear.label "Καθαρισμός">
 <!ENTITY foxyproxy.clear.accesskey "Κ">
 <!ENTITY foxyproxy.clear.tooltip "Καθαρισμός">

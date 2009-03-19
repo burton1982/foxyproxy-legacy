@@ -137,9 +137,8 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "File .xml dove verranno salvate le impostazioni di FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Data/ora">
 <!ENTITY foxyproxy.tab.logging.url.label "URL">
-<!ENTITY foxyproxy.host.label "Nome del server">
+<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
 <!ENTITY foxyproxy.host.accesskey "N">
-<!ENTITY foxyproxy.host.tooltip "Nome del server">
 <!ENTITY foxyproxy.clear.label "Svuota">
 <!ENTITY foxyproxy.clear.accesskey "u">
 <!ENTITY foxyproxy.clear.tooltip "Svuota">

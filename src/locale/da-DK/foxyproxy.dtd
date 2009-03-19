@@ -137,9 +137,8 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "Placering af FoxyProxys indstillinger">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Tidsstempel">
 <!ENTITY foxyproxy.tab.logging.url.label "URL">
-<!ENTITY foxyproxy.host.label "Værtsnavn">
+<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
 <!ENTITY foxyproxy.host.accesskey "V">
-<!ENTITY foxyproxy.host.tooltip "Værtsnavn">
 <!ENTITY foxyproxy.clear.label "Ryd">
 <!ENTITY foxyproxy.clear.accesskey "R">
 <!ENTITY foxyproxy.clear.tooltip "Ryd">

@@ -137,9 +137,8 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "Tutaj określ katalog przechowywania ustawień FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Czas">
 <!ENTITY foxyproxy.tab.logging.url.label "URL">
-<!ENTITY foxyproxy.host.label "Nazwa serwera">
+<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
 <!ENTITY foxyproxy.host.accesskey "N">
-<!ENTITY foxyproxy.host.tooltip "W polu obok podaj nazwę serwera">
 <!ENTITY foxyproxy.clear.label "Wyczyść">
 <!ENTITY foxyproxy.clear.accesskey "W">
 <!ENTITY foxyproxy.clear.tooltip "Wyczyść">
@@ -161,10 +160,6 @@
 <!ENTITY foxyproxy.blacklist.tooltip "Adresy URL pasujące do tego wzorca nie będą pobierane przez to proxy">
 <!ENTITY foxyproxy.blacklist.description.label "Adresy URL pasujące do tego wzorca nie będą pobierane przez to proxy">
 <!ENTITY foxyproxy.whiteblack.description.label "Precedensy wzorców dozwolonych i niedozwolonych. Jeśli adres URL pasuje do wzorca dozwolonego i niedozwolonego dla tego samego proxy, zostanie wykluczony lub nie (w zależności od wyboru) z pobierania przez to proxy.">
-<!ENTITY foxyproxy.usingPFF.label1 "Używam">
-<!ENTITY foxyproxy.usingPFF.label2 "Portable Firefox">
-<!ENTITY foxyproxy.usingPFF.accesskey "A">
-<!ENTITY foxyproxy.usingPFF.tooltip "Zaznacz tę opcję jeśli używasz Portable Firefox">
 <!ENTITY foxyproxy.socks.version.label "Wersja SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "Adres URL pliku *.pac">
 <!ENTITY foxyproxy.issocks.label "Proxy SOCKS">

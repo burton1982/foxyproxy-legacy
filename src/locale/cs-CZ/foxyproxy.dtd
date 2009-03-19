@@ -137,9 +137,8 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "Místo kde je uložené nastavení FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Časová známka">
 <!ENTITY foxyproxy.tab.logging.url.label "URL">
-<!ENTITY foxyproxy.host.label "Název serveru">
+<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
 <!ENTITY foxyproxy.host.accesskey "N">
-<!ENTITY foxyproxy.host.tooltip "Název serveru">
 <!ENTITY foxyproxy.clear.label "Vymazat">
 <!ENTITY foxyproxy.clear.accesskey "V">
 <!ENTITY foxyproxy.clear.tooltip "Vymazat">

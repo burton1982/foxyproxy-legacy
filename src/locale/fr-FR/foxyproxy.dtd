@@ -137,9 +137,8 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "Emplacement dans lequel sont stockés les paramètres de FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Horloge">
 <!ENTITY foxyproxy.tab.logging.url.label "URL">
-<!ENTITY foxyproxy.host.label "Nom d&apos;hôte">
+<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
 <!ENTITY foxyproxy.host.accesskey "h">
-<!ENTITY foxyproxy.host.tooltip "Nom d&apos;hôte">
 <!ENTITY foxyproxy.clear.label "Effacer">
 <!ENTITY foxyproxy.clear.accesskey "c">
 <!ENTITY foxyproxy.clear.tooltip "Effacer">

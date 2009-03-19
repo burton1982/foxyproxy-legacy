@@ -137,9 +137,8 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "儲存 FoxyProxy 設定的資料夾">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "時間">
 <!ENTITY foxyproxy.tab.logging.url.label "網址">
-<!ENTITY foxyproxy.host.label "主機名稱(H)">
+<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
 <!ENTITY foxyproxy.host.accesskey "H">
-<!ENTITY foxyproxy.host.tooltip "主機名稱">
 <!ENTITY foxyproxy.clear.label "清除(C)">
 <!ENTITY foxyproxy.clear.accesskey "C">
 <!ENTITY foxyproxy.clear.tooltip "清除">
@@ -161,10 +160,6 @@
 <!ENTITY foxyproxy.blacklist.tooltip "『不』透過此代理伺服器存取符合此樣式的網址">
 <!ENTITY foxyproxy.blacklist.description.label "『不』透過此代理伺服器存取符合此樣式的網址">
 <!ENTITY foxyproxy.whiteblack.description.label "黑名單比白名單有更高的優先權，如果同一網址同時符合黑/白名單的樣式，則『不』透過此代理伺服器存取這個網址。">
-<!ENTITY foxyproxy.usingPFF.label1 "我正使用">
-<!ENTITY foxyproxy.usingPFF.label2 "Portable Firefox">
-<!ENTITY foxyproxy.usingPFF.accesskey "P">
-<!ENTITY foxyproxy.usingPFF.tooltip "如果你使用 Portable Firefox，請勾選此選項">
 <!ENTITY foxyproxy.socks.version.label "SOCKS 版本">
 <!ENTITY foxyproxy.autopacurl.label "自動組態指命碼（PAC）的檔案網址">
 <!ENTITY foxyproxy.issocks.label "SOCKS 代理伺服器？">

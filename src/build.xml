@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="foxyproxy-2.8.13" default="build-xpi">
+<project name="foxyproxy-2.8.14" default="build-xpi">
 
   <!-- version property is appended to XPI filename; e.g., foxyproxy-1.0.xpi -->
-  <property name="version" value="2.8.13" />
+  <property name="version" value="2.8.14" />
   <property name="temp-path" value="../temp" />
   <property name="src-base" value="."/>
   <property name="target-path" value="../targets"/>

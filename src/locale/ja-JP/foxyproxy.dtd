@@ -137,9 +137,8 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "FoxyProxy の設定を保存する場所">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "タイムスタンプ">
 <!ENTITY foxyproxy.tab.logging.url.label "URL">
-<!ENTITY foxyproxy.host.label "ホスト名">
+<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
 <!ENTITY foxyproxy.host.accesskey "H">
-<!ENTITY foxyproxy.host.tooltip "ホスト名">
 <!ENTITY foxyproxy.clear.label "一掃">
 <!ENTITY foxyproxy.clear.accesskey "C">
 <!ENTITY foxyproxy.clear.tooltip "クリアします">
@@ -161,10 +160,6 @@
 <!ENTITY foxyproxy.blacklist.tooltip "このパターンに一致する URL は、このプロキシを通して読み込みません">
 <!ENTITY foxyproxy.blacklist.description.label "このパターンに一致する URL は、このプロキシを通して読み込みません">
 <!ENTITY foxyproxy.whiteblack.description.label "ブラックリスト (排他的) パターンはホワイトリスト (包含的) パターンよりも優先されます: もし URL が同じプロキシのホワイトリストとブラックリストそれぞれに一致した場合、URL はそのプロキシから読み込みを除外されます。">
-<!ENTITY foxyproxy.usingPFF.label1 "私は">
-<!ENTITY foxyproxy.usingPFF.label2 "Portable Firefox を利用している">
-<!ENTITY foxyproxy.usingPFF.accesskey "P">
-<!ENTITY foxyproxy.usingPFF.tooltip "Portable Firefox を使っている場合はここをチェックします">
 <!ENTITY foxyproxy.socks.version.label "SOCKS バージョン">
 <!ENTITY foxyproxy.autopacurl.label "自動 PAC URL">
 <!ENTITY foxyproxy.issocks.label "SOCKS プロキシ？">

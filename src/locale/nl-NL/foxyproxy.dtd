@@ -137,9 +137,8 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "Locatie waar de instellingen van FoxyProxy worden opgeslagen">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Tijdsaanduiding">
 <!ENTITY foxyproxy.tab.logging.url.label "URL">
-<!ENTITY foxyproxy.host.label "Hostnaam">
+<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
 <!ENTITY foxyproxy.host.accesskey "o">
-<!ENTITY foxyproxy.host.tooltip "Hostnaam">
 <!ENTITY foxyproxy.clear.label "Wissen">
 <!ENTITY foxyproxy.clear.accesskey "W">
 <!ENTITY foxyproxy.clear.tooltip "Wissen">

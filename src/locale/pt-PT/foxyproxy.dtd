@@ -137,9 +137,8 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "Onde guardar as configurações do FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Timestamp">
 <!ENTITY foxyproxy.tab.logging.url.label "URL">
-<!ENTITY foxyproxy.host.label "Nome do Servidor">
+<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
 <!ENTITY foxyproxy.host.accesskey "H">
-<!ENTITY foxyproxy.host.tooltip "Nome do Servidor">
 <!ENTITY foxyproxy.clear.label "Apagar">
 <!ENTITY foxyproxy.clear.accesskey "C">
 <!ENTITY foxyproxy.clear.tooltip "Apagar">
@@ -161,10 +160,6 @@
 <!ENTITY foxyproxy.blacklist.tooltip "Os URL que coincidam com este padrão NÃO são carregados através deste proxy">
 <!ENTITY foxyproxy.blacklist.description.label "Os URL que coincidam com este padrão NÃO são carregados através deste proxy">
 <!ENTITY foxyproxy.whiteblack.description.label "Os padrões da Lista Negra (exclusão) têm precedência sobre os padrões da Lista Branca (inclusão): Se um URL coincidir com um padrão da Lista Branca e um da Lista Negra para o mesmo proxy, o URL é excluído de ser carregado por este proxy.">
-<!ENTITY foxyproxy.usingPFF.label1 "Eu estou a usar">
-<!ENTITY foxyproxy.usingPFF.label2 "Firefox Portátil">
-<!ENTITY foxyproxy.usingPFF.accesskey "P">
-<!ENTITY foxyproxy.usingPFF.tooltip "Verifique aqui se esté a usar o Firefox Portátil">
 <!ENTITY foxyproxy.socks.version.label "Versão SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "URL PAC automático">
 <!ENTITY foxyproxy.issocks.label "Proxy de SOCKS">

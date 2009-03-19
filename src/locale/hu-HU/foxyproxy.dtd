@@ -137,9 +137,8 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "Location to store FoxyProxy&apos;s settings">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Timestamp">
 <!ENTITY foxyproxy.tab.logging.url.label "URL">
-<!ENTITY foxyproxy.host.label "Kiszolgáló:">
+<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
 <!ENTITY foxyproxy.host.accesskey "K">
-<!ENTITY foxyproxy.host.tooltip "Kiszolgáló:">
 <!ENTITY foxyproxy.clear.label "Törlés">
 <!ENTITY foxyproxy.clear.accesskey "T">
 <!ENTITY foxyproxy.clear.tooltip "Törlés">

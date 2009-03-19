@@ -137,9 +137,8 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "Mjesto za spremanje postavki FoxyProxy-a">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Vremenska oznaka">
 <!ENTITY foxyproxy.tab.logging.url.label "Web adresa">
-<!ENTITY foxyproxy.host.label "Naziv glavnog računala">
+<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
 <!ENTITY foxyproxy.host.accesskey "g">
-<!ENTITY foxyproxy.host.tooltip "Naziv glavnog računala">
 <!ENTITY foxyproxy.clear.label "Očisti">
 <!ENTITY foxyproxy.clear.accesskey "č">
 <!ENTITY foxyproxy.clear.tooltip "Očisti">

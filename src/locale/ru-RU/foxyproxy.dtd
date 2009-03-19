@@ -137,9 +137,8 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "Местоположение файла настроек FoxyProxy на диске ПК">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Время">
 <!ENTITY foxyproxy.tab.logging.url.label "URL">
-<!ENTITY foxyproxy.host.label "Хост">
+<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
 <!ENTITY foxyproxy.host.accesskey "И">
-<!ENTITY foxyproxy.host.tooltip "Имя хоста">
 <!ENTITY foxyproxy.clear.label "Очистить">
 <!ENTITY foxyproxy.clear.accesskey "О">
 <!ENTITY foxyproxy.clear.tooltip "Очистить журнал">
@@ -161,10 +160,6 @@
 <!ENTITY foxyproxy.blacklist.tooltip "Адреса, НЕ соответствующие этому шаблону, будут загружаться через данный прокси">
 <!ENTITY foxyproxy.blacklist.description.label "Адреса, НЕ соответствующие этому шаблону, будут загружаться через данный прокси">
 <!ENTITY foxyproxy.whiteblack.description.label "Шаблоны из &quot;чёрного&quot; списка имеют более высокий приоритет по сравнению с шаблонами из &quot;белого&quot; списка. Т.е. если URL-адрес совпадает как с шаблоном из &quot;белого&quot; списка, так и с шаблоном из &quot;чёрного&quot; списка для того же прокси, тогда URL исключается из разрешённых к загрузке через данный прокси.">
-<!ENTITY foxyproxy.usingPFF.label1 "Используется с">
-<!ENTITY foxyproxy.usingPFF.label2 "Portable Firefox">
-<!ENTITY foxyproxy.usingPFF.accesskey "P">
-<!ENTITY foxyproxy.usingPFF.tooltip "Отметьте, если расширение используется с Portable Firefox">
 <!ENTITY foxyproxy.socks.version.label "Версия SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "Автоматически определять настройки прокси">
 <!ENTITY foxyproxy.issocks.label "SOCKS-прокси?">
