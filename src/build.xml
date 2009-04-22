@@ -2,19 +2,15 @@
 <project name="foxyproxy" default="build-xpi">
 
   <!-- version property is appended to XPI filename; e.g., foxyproxy-1.0.xpi -->
-  <property name="version" value="2.8.10" />
-  <property name="temp-path" value="../temp" />
+  <property name="version" value="2.9" />
+  <property name="temp-path" value="/tmp/foxyproxy" />
   <property name="src-base" value="."/>
   <property name="target-path" value="../targets"/>
-
-
-  <!-- guid of your extension -->
-  <property name="guid" value="{foxyproxy@eric.h.jung}" />
 
   <target name="copy">
     <copy todir="${temp-path}" overwrite="true">
       <!-- ignore timestamps -->
-      <fileset dir="${src-base}" excludes="**/*.xpi/**,**/*.jar/**,**/build.xml/**,**/chrome.manifest/**,**/*.project/**,**/tbird*.*/**,
+      <fileset dir="${src-base}" excludes="**/*.xpi/**,**/*.jar/**,**/build.xml/**,**/chrome.manifest/**,**/*.project/**,
         **/foxyproxyplus.*/**" />
     </copy>
   </target>

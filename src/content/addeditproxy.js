@@ -1,6 +1,6 @@
 /**
   FoxyProxy
-  Copyright (C) 2006-2008 Eric H. Jung and LeahScape, Inc.
+  Copyright (C) 2006-2009 Eric H. Jung and LeahScape, Inc.
   http://foxyproxy.mozdev.org/
   eric.jung@yahoo.com
 
@@ -45,7 +45,7 @@ function onLoad() {
     document.getElementById("default-proxy-broadcaster").setAttribute("disabled", "true");
 	  document.getElementById("proxyname").disabled =
 	  	document.getElementById("proxynotes").disabled = true;
-    document.getElementById("urlpatternstab").hidden = true;
+      document.getElementById("urlpatternstab").hidden = true;
   }
   document.getElementById("pacLoadNotificationEnabled").checked = proxy.autoconf.loadNotification;
   document.getElementById("pacErrorNotificationEnabled").checked = proxy.autoconf.errorNotification;
@@ -62,10 +62,8 @@ function trim(s) {
 
 function onOK() {
   var name = trim(document.getElementById("proxyname").value);
-  if (!name) {
-    foxyproxy.alert(this, foxyproxy.getMessage("proxy.name.required"));
-    return false;
-  }
+  if (!name)
+    name = foxyproxy.getMessage("new.proxy");
   var enabled = document.getElementById("proxyenabled").checked,
     host = trim(document.getElementById("host").value),
     port = document.getElementById("port").value,
@@ -80,14 +78,14 @@ function onOK() {
     else if (mode == "manual") {
     	if (!host) {
     		if (!port) {
-			    foxyproxy.alert(this, foxyproxy.getMessage("nohostport"));
+			    foxyproxy.alert(this, foxyproxy.getMessage("nohostport.3"));
 			    return false;
     		}
-		    foxyproxy.alert(this, foxyproxy.getMessage("nohost2"));
+		    foxyproxy.alert(this, foxyproxy.getMessage("nohost.3"));
 		    return false;
     	}
     	else if (!port) {
-		    foxyproxy.alert(this, foxyproxy.getMessage("noport2"));
+		    foxyproxy.alert(this, foxyproxy.getMessage("noport.3"));
 		    return false;
 		  }
 		}
@@ -96,6 +94,16 @@ function onOK() {
 	if (!hasWhite() &&
 		!overlay.ask(this, foxyproxy.getMessage((window.arguments[0].inn.torwiz ?
 		    "torwiz.nopatterns.3" : "no.white.patterns.3"), [name]))) return false;
+	
+	var isSocks = document.getElementById("isSocks").checked;
+	
+	if (fpc.isThunderbird() && !foxyproxy.warnings.noSocksWarning && !isSocks && mode == "manual") {
+	  var cb = {}, ret =
+	    CC["@mozilla.org/embedcomp/prompt-service;1"].getService(CI.nsIPromptService)
+	      .confirmCheck(window, foxyproxy.getMessage("foxyproxy"), foxyproxy.getMessage("socksWarning"), foxyproxy.getMessage("message.stop"), cb);
+	  foxyproxy.warnings.noSocksWarning = cb.value;	  
+	  if (!ret) return false;
+	}
 
   proxy.name = name;
   proxy.notes = document.getElementById("proxynotes").value;
@@ -110,7 +118,7 @@ function onOK() {
   proxy.enabled = enabled;
   proxy.manualconf.host = host;
   proxy.manualconf.port = port;
-  proxy.manualconf.isSocks = document.getElementById("isSocks").checked;
+  proxy.manualconf.isSocks = isSocks;
   proxy.manualconf.socksversion = document.getElementById("socksversion").value;
   proxy.animatedIcons = document.getElementById("animatedIcons").checked;
   proxy.includeInCycle = document.getElementById("cycleEnabled").checked;

@@ -1,6 +1,5 @@
 <!ENTITY foxyproxy.label "FoxyProxy">
 <!ENTITY foxyproxy.accesskey "F">
-<!ENTITY foxyproxy.tooltip "FoxyProxy">
 <!ENTITY foxyproxy.optionsdialog.label "Opciones para FoxyProxy">
 <!ENTITY foxyproxy.options.label "Opciones">
 <!ENTITY foxyproxy.options.accesskey "O">
@@ -13,8 +12,6 @@
 <!ENTITY foxyproxy.proxy.notes.accesskey "N">
 <!ENTITY foxyproxy.proxy.notes.tooltip "Notas del Proxy">
 <!ENTITY foxyproxy.pattern.label "Patrón">
-<!ENTITY foxyproxy.pattern.accesskey "P">
-<!ENTITY foxyproxy.pattern.tooltip "Patrón URL">
 <!ENTITY foxyproxy.urlpatterns.label "Patrones de URL">
 <!ENTITY foxyproxy.urlpatterns.accesskey "P">
 <!ENTITY foxyproxy.urlpatterns.tooltip "Patrones de URL">
@@ -58,13 +55,10 @@
 <!ENTITY foxyproxy.auto.url.accesskey "A">
 <!ENTITY foxyproxy.auto.url.tooltip "Ingrese la URL del archivo PAC">
 <!ENTITY foxyproxy.auto.url.note.label "http(s)://   ftp://   file://   relative://">
-<!ENTITY foxyproxy.auto.url.note.tooltip "Click the info icon for information on relative://">
+<!ENTITY foxyproxy.auto.url.note.tooltip "Hacer click en el ícono de información para obtener información en relative://">
 <!ENTITY foxyproxy.port.label "Puerto">
 <!ENTITY foxyproxy.port.accesskey "P">
 <!ENTITY foxyproxy.port.tooltip "Puerto">
-<!ENTITY foxyproxy.socks.proxy.label "Proxy SOCKS">
-<!ENTITY foxyproxy.socks.proxy.accesskey "C">
-<!ENTITY foxyproxy.socks.proxy.tooltip "URL del Proxy SOCKS">
 <!ENTITY foxyproxy.socks.v4 "SOCKS v4/4a">
 <!ENTITY foxyproxy.socks.v5 "SOCKS v5">
 <!ENTITY foxyproxy.addeditpattern.title "Agregar/Editar Patrón">
@@ -93,8 +87,6 @@
 <!ENTITY foxyproxy.add.title "Configuración del Proxy">
 <!ENTITY foxyproxy.pattern.description "Aquí usted puede indicar cuando se utilizará o no éste proxy">
 <!ENTITY foxyproxy.pattern.matchtype.label "Contenidos del Patrón">
-<!ENTITY foxyproxy.pattern.matchtype2.label "Pattern To Identify Blocked Websites Contains">
-<!ENTITY foxyproxy.pattern.template.matchtype.label "Pattern Template Contains">
 <!ENTITY foxyproxy.pattern.whiteblack.label "Inclusión/Exclusión de URL">
 <!ENTITY foxyproxy.add.option.direct.label "Conexión Directa a Internet">
 <!ENTITY foxyproxy.add.option.direct.accesskey "D">
@@ -132,14 +124,13 @@
 <!ENTITY foxyproxy.showstatusbarmode.label "Mostrar el modo (texto) en la barra de estado">
 <!ENTITY foxyproxy.showstatusbarmode.accesskey "S">
 <!ENTITY foxyproxy.showstatusbarmode.tooltip "Si está marcado, el modo de FoxyProxy se mostrará en la barra de estado">
-<!ENTITY foxyproxy.storagelocation.label "Ubicación de Almacenamiento de la Configuración">
+<!ENTITY foxyproxy.storagelocation.label.2 "Ubicación de la Configuración">
 <!ENTITY foxyproxy.storagelocation.accesskey "S">
 <!ENTITY foxyproxy.storagelocation.tooltip "Ubicación donde almacenar la configuración de FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Marcas de tiempo">
 <!ENTITY foxyproxy.tab.logging.url.label "URL">
-<!ENTITY foxyproxy.host.label "Nombre de Equipo">
+<!ENTITY foxyproxy.host.label.2 "Equipo o Dirección IP">
 <!ENTITY foxyproxy.host.accesskey "H">
-<!ENTITY foxyproxy.host.tooltip "Nombre de Equipo">
 <!ENTITY foxyproxy.clear.label "Borrar">
 <!ENTITY foxyproxy.clear.accesskey "C">
 <!ENTITY foxyproxy.clear.tooltip "Borrar">
@@ -161,10 +152,6 @@
 <!ENTITY foxyproxy.blacklist.tooltip "Las URLs que coincidan con éste patrón NO serán cargadas con éste proxy">
 <!ENTITY foxyproxy.blacklist.description.label "Las URLs que coincidan con éste patrón NO serán cargadas con éste proxy">
 <!ENTITY foxyproxy.whiteblack.description.label "Los patrones de Listas Negras (exclusiones) tienen precedencia sobre los patrones de Listas Blancas (inclusiones): si una URL coincide con ambas listas para el mismo proxy, la URL será excluída de ser cargada por éste proxy.">
-<!ENTITY foxyproxy.usingPFF.label1 "Estoy utilizando">
-<!ENTITY foxyproxy.usingPFF.label2 "Firefox Portátil">
-<!ENTITY foxyproxy.usingPFF.accesskey "P">
-<!ENTITY foxyproxy.usingPFF.tooltip "Seleccione aquí si está utilizando Firefox Portátil (Portable Firefox)">
 <!ENTITY foxyproxy.socks.version.label "Versión de SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "URL de Auto PAC">
 <!ENTITY foxyproxy.issocks.label "Proxy SOCKS?">
@@ -245,8 +232,6 @@
 <!ENTITY foxyproxy.toolsmenu.accesskey "T">
 <!ENTITY foxyproxy.toolsmenu.tooltip "Mostrar a FoxyProxy en el menú de herramientas de Firefox">
 <!ENTITY foxyproxy.tip.label "Pista">
-<!ENTITY foxyproxy.pactips.popup.height "165px">
-<!ENTITY foxyproxy.pactips.popup.width "400px">
 <!ENTITY foxyproxy.pactip1.label "Para archivos PAC almacenados en el disco local, utilizar el esquema file://. Por ejemplo, para Windows: file://c:/ubicación/proxy.pac   , o para Unix/Linux/Mac: file:///home/users/proxy.pac">
 <!ENTITY foxyproxy.pactip2.label "Para archivos PAC en un servidor ftp, utilizar el esquema ftp://. Por ejemplo, ftp://leahscape.com/path/proxy.pac">
 <!ENTITY foxyproxy.pactip3.label "También puede utilizar http://, https://, y cualquier otro esquema soportado.">
@@ -271,8 +256,6 @@
 <!ENTITY foxyproxy.quickadd.notify.whencanceled.label2 "QuickAdd es cancelado automáticamente cuando QuickAdd es activado por Alt-F2, y la URL actual en la barra de direcciones ya coincide con una pauta existente de whitelist para el proxy. De ésta manera se evita que se dupliquen pautas existentes en su configuración. Este seteo no habilita/deshabilita las cancelaciones; sino, activa la notificación cuando ocurre la cancelación.">
 <!ENTITY foxyproxy.quickadd.notify.whencanceled.accesskey "C">
 <!ENTITY foxyproxy.quickadd.notify.whencanceled.tooltip "Mostrar un mensaje emergente cuando QuickAdd está activado pero de canceló">
-<!ENTITY foxyproxy.quickadd.notify.whencanceled.popup.width "400px">
-<!ENTITY foxyproxy.quickadd.notify.whencanceled.popup.height "130px">
 <!ENTITY foxyproxy.whatsthis "Qué es Ésto?">
 <!ENTITY foxyproxy.quickadd.prompt.label "Preguntar para editar y confirmar antes de agregar un patrón al proxy">
 <!ENTITY foxyproxy.quickadd.prompt.accesskey "P">
@@ -280,9 +263,6 @@
 <!ENTITY foxyproxy.quickadd.proxy.label "Proxy al que se agregará el patrón">
 <!ENTITY foxyproxy.quickadd.proxy.accesskey "P">
 <!ENTITY foxyproxy.quickadd.proxy.tooltip "Elija un proxy al que se agregará el patrón">
-<!ENTITY foxyproxy.bypasscache.label "No cargar los caches de Firefox durante la carga.">
-<!ENTITY foxyproxy.bypasscache.accesskey "B">
-<!ENTITY foxyproxy.bypasscache.tooltip "El caché de Firefox es ignorado">
 <!ENTITY foxyproxy.advancedmenus.label "Utilizar Menúes Avanzados">
 <!ENTITY foxyproxy.advancedmenus.accesskey "M">
 <!ENTITY foxyproxy.advancedmenus.tooltip "Utilizar Menúes Avanzados (estilo FoxyProxy 2.2)">
@@ -299,7 +279,6 @@
 <!ENTITY foxyproxy.wildcard.reference.accesskey "W">
 <!ENTITY foxyproxy.wildcard.reference.tooltip "Referencia de Comodines">
 <!ENTITY foxyproxy.wildcard.reference.subtitle.label "El arterisco (*) equivale a ninguno o más caracteres, el símbolo de interrogación (?) equivale a cualquier caracter simple">
-<!ENTITY foxyproxy.wildcard.reference.mistakes "Errores Comunes Al Escribir Patrones de Comodines">
 <!ENTITY foxyproxy.wildcard.reference.goal.label "Objetivo">
 <!ENTITY foxyproxy.wildcard.reference.goal1.label "Encontrar todas las páginas en el subdominio de www de MySpace">
 <!ENTITY foxyproxy.wildcard.reference.goal2.label "Encontrar el PC local">
@@ -313,17 +292,11 @@
 <!ENTITY foxyproxy.wildcard.reference.incorrect.reason2.label "FoxyProxy no entiende éste tipo de sintaxis">
 <!ENTITY foxyproxy.wildcard.reference.incorrect.reason3.label "No hay comodines">
 <!ENTITY foxyproxy.wildcard.reference.incorrect.reason4.label "No hay comodines">
-<!ENTITY foxyproxy.wildcard.reference.popup.height "350px">
 <!ENTITY foxyproxy.logging.noURLs.label "No mostrar o almacenar las URLs">
 <!ENTITY foxyproxy.logging.noURLs.accesskey "U">
 <!ENTITY foxyproxy.logging.noURLs.tooltip "Las URLs no se guardarán en la memoria RAM ni en el disco">
-<!ENTITY foxyproxy.ok.label "Ok">
-<!ENTITY foxyproxy.ok.accesskey "O">
-<!ENTITY foxyproxy.ok.tooltip "Cerrar la Ventana">
 <!ENTITY foxyproxy.pattern.template.reference.label "Referencia para Plantillas de Patrones">
-<!ENTITY foxyproxy.pattern.template.reference.accesskey "T">
 <!ENTITY foxyproxy.pattern.template.reference.tooltip "Referencia para Plantillas de Patrones">
-<!ENTITY foxyproxy.pattern.template.reference.subtitle.label "Las plantillas de patrones de URL definen el formato con que las URLs son QuickAgregadas o AutoAgregadas a los proxies. Las plantillas soportan las siguientes cadenas especiales que, cuando QuickAdded o AutoAdded están activados, son substituídas con el componente correspondiente de URL en la barra de la dirección.">
 <!ENTITY foxyproxy.pattern.template.reference.specialstring.label "La Cadena Especial">
 <!ENTITY foxyproxy.pattern.template.reference.subststring.label "Se Substituye Con">
 <!ENTITY foxyproxy.pattern.template.reference.example.label "Ejemplo">
@@ -333,7 +306,7 @@
 <!ENTITY foxyproxy.pattern.template.reference.userpass.label "usuario y clave con &quot;:&quot; y &quot;@&quot;">
 <!ENTITY foxyproxy.pattern.template.reference.host.label "host">
 <!ENTITY foxyproxy.pattern.template.reference.port.label "puerto">
-<!ENTITY foxyproxy.pattern.template.reference.hostport.label "host y puerto con &quot;:&quot;">
+<!ENTITY foxyproxy.pattern.template.reference.hostport.label "equipo y puerto con &quot;:&quot;">
 <!ENTITY foxyproxy.pattern.template.reference.prepath.label "cadena antes del &quot;path&quot;">
 <!ENTITY foxyproxy.pattern.template.reference.path.label "path (incluye el nombre del archivo)">
 <!ENTITY foxyproxy.pattern.template.reference.directory.label "directorio">
@@ -343,25 +316,18 @@
 <!ENTITY foxyproxy.pattern.template.reference.ref.label "porción posterior al &quot;#&quot;">
 <!ENTITY foxyproxy.pattern.template.reference.query.label "porción posterior al &quot;?&quot;">
 <!ENTITY foxyproxy.pattern.template.reference.spec.label "URL completa">
-<!ENTITY foxyproxy.pattern.template.reference.popup.height "400px">
-<!ENTITY foxyproxy.pattern.template.reference.popup.width "800px">
 <!ENTITY foxyproxy.notifications.label "Notificaciones">
-<!ENTITY foxyproxy.notifications.accesskey "N">
 <!ENTITY foxyproxy.notifications.tooltip "Configuración de las Notificaciones">
 <!ENTITY foxyproxy.indicators.label "Indicadores">
-<!ENTITY foxyproxy.indicators.accesskey "I">
 <!ENTITY foxyproxy.indicators.tooltip "Configuración de los Indicadores">
 <!ENTITY foxyproxy.misc.label "Misceláneas">
-<!ENTITY foxyproxy.misc.accesskey "M">
 <!ENTITY foxyproxy.misc.tooltip "Configuración de las Misceláneas">
 <!ENTITY foxyproxy.animatedicons.label "Animar el ícono de la barra de estado cuando se utilicen proxies">
 <!ENTITY foxyproxy.animatedicons.accesskey "A">
 <!ENTITY foxyproxy.animatedicons.tooltip "Anima el ícono de la barra de estado cuando se utilizan proxies">
 <!ENTITY foxyproxy.statusbaractivation.label "Activación de la Barra de Estado">
-<!ENTITY foxyproxy.statusbaractivation.accesskey "S">
 <!ENTITY foxyproxy.statusbaractivation.tooltip "Configuración de la Activación de la Barra de Estado">
 <!ENTITY foxyproxy.toolbaractivation.label "Activación de la Barra de Herramientas">
-<!ENTITY foxyproxy.toolbaractivation.accesskey "T">
 <!ENTITY foxyproxy.toolbaractivation.tooltip "Configuración de la Activación de la Barra de Herramientas">
 <!ENTITY foxyproxy.leftclicksb.label "Click Izquierdo FoxyProxy en la barra de estado">
 <!ENTITY foxyproxy.leftclicksb.accesskey "L">
@@ -400,12 +366,8 @@
 <!ENTITY foxyproxy.newGUI4.label "Haga click aquí para obtener mayor información.">
 <!ENTITY foxyproxy.error.msg.label "Mensaje de Error">
 <!ENTITY foxyproxy.pac.result.label "Resultado del PAC">
-<!ENTITY foxyproxy.options.width "666">
-<!ENTITY foxyproxy.options.height "477">
 <!ENTITY foxyproxy.torwiz.width "660">
 <!ENTITY foxyproxy.torwiz.height "375">
-<!ENTITY foxyproxy.addeditproxy.width "660">
-<!ENTITY foxyproxy.addeditproxy.height "470">
 <!ENTITY foxyproxy.casesensitive.label "Sensible a mayúsculas">
 <!ENTITY foxyproxy.casesensitive.accesskey "C">
 <!ENTITY foxyproxy.casesensitive.tooltip "Habilitar/Deshabilitar sensible a mayúsculas para la comparación de URL">
@@ -415,8 +377,6 @@
 <!ENTITY foxyproxy.pixels "Pixels">
 <!ENTITY foxyproxy.unlimited.label "[0: encoger hasta ajustar]">
 <!ENTITY foxyproxy.temp.popup.label "Los patrones temporales le permiten crear pautas para URL que usted no visita a menudo sin llenar la lista de patrones para un proxy. Los patrones temporales no son guardadas en el disco. Son mantenidos en la memoria y utilizados sólo para esta sesión de Firefox.">
-<!ENTITY foxyproxy.temp.popup.height "120">
-<!ENTITY foxyproxy.temp.popup.width "400">
 <!ENTITY foxyproxy.temp.label "Temporales">
 <!ENTITY foxyproxy.temp.accesskey "T">
 <!ENTITY foxyproxy.temp.tooltip "Patrones utilizados solamente para esta sesión de Firefox.">
@@ -434,3 +394,53 @@
 <!ENTITY foxyproxy.keep.free "Mantenga a FoxyProxy Libre">
 <!ENTITY foxyproxy.donation.list.label "Lista de Donaciones">
 <!ENTITY foxyproxy.donation.list.accesskey "L">
+<!ENTITY foxyproxy.importantnote.label "Leer Nota importante">
+<!ENTITY foxyproxy.resetlocation.label "Restablecer Ubicación">
+<!ENTITY foxyproxy.resetlocation.accesskey "R">
+<!ENTITY foxyproxy.resetlocation.tooltip "Almacenar la configuración en el perfil de Firefox">
+<!ENTITY foxyproxy.settings.not.default "Las configuraciones no se encuentran en la ubicación por defecto.">
+<!ENTITY foxyproxy.change.host.reload "Establecer un nuevo equipo:puerto y luego recargar la página actual">
+<!ENTITY foxyproxy.proxyservice.label "Adquirir un Servicio de Proxy">
+<!ENTITY foxyproxy.proxyservice.accesskey "P">
+<!ENTITY foxyproxy.proxyservice.tooltip "Regístrese para obtener los servicios de proxy">
+<!ENTITY foxyproxy.proxyservice2.label "Necesita proxies rápidos, confiables en US, UK u otros países?">
+<!ENTITY foxyproxy.getfoxyproxyplus.label "Obtenga FoxyProxy Plus">
+<!--    begin foxyproxyplus    -->
+<!ENTITY foxyproxy.ip.pattern.addedit.title "Agregar/Editar los Patrones de Direcciones IP Locales">
+<!ENTITY foxyproxy.tempip.popup.label "Los patrones temporales le permiten crear patrones para las direcciones IP locales que no utilice a menudo sin engrosar la lista de patrones de direcciones IP locales del proxy . Los patrones temporales no se guardan en el disco. Ellos se mantienen en memoria y en uso para la sesión Firefox en curso solamente.">
+<!ENTITY foxyproxy.ip.pattern.label "Patrón de Direcciones IP Locales">
+<!ENTITY foxyproxy.ip.pattern.accesskey "I">
+<!ENTITY foxyproxy.ip.pattern.tooltip "Patrón de Direcciones IP Locales">
+<!ENTITY foxyproxy.ip.patterns.label "Patrón de Direcciones IP Locales">
+<!ENTITY foxyproxy.ip.patterns.accesskey "I">
+<!ENTITY foxyproxy.ip.patterns.tooltip "Patrón de Direcciones IP Locales">
+<!ENTITY foxyproxy.ip.wildcard.reference.matches.label "Coincide">
+<!ENTITY foxyproxy.ip.wildcard.reference.nomatch.label "No Coincide">
+<!ENTITY foxyproxy.ip.whiteblack.label "Inclusión/Exclusión">
+<!ENTITY foxyproxy.ip.whitelist.description.label "Las URLs se cargarán por medio de éste proxy cuando una de sus direcciones IP coincida con éste patrón">
+<!ENTITY foxyproxy.ip.blacklist.description.label "Las URLs NO se cargarán por medio de éste proxy cuando una de sus direcciones IP coincida con éste patrón">
+<!ENTITY foxyproxy.ip.wildcard.reference.subtitle.label "El asterisco (*) coincide con cero o más caracteres.">
+<!ENTITY foxyproxy.ip.current.local.label "Dirección IP Local Actual">
+<!ENTITY foxyproxy.copyip.label "Copiar a un Patrón">
+<!ENTITY foxyproxy.copyip.tooltip "Copiar la dirección a un Patrón">
+<!ENTITY foxyproxy.copyip.accesskey "C">
+<!ENTITY foxyproxy.ip.wildcard.example.label "Ejemplo: 192.168.1.*">
+<!ENTITY foxyproxy.ip.regex.example.label "Ejemplo: 172\.\d+\.1\.10">
+<!ENTITY foxyproxy.ip.pattern.match "Los Patrones coinciden con una o más direcciones IP locales actuales">
+<!ENTITY foxyproxy.ip.pattern.no.match "Los Patrones NO coinciden con ninguna dirección IP local actual">
+<!ENTITY foxyproxy.refreshlocalips "Refrescar la dirección IP local">
+<!ENTITY foxyproxy.refreshlocalips.accesskey "R">
+<!ENTITY foxyproxy.enterlicense.label "Ingrese el código de licencia">
+<!ENTITY foxyproxy.enteremail.label "Ingrese la dirección de correo electrónico">
+<!ENTITY foxyproxy.licenseinfo.label "Información de la Licencia">
+<!ENTITY foxyproxy.licensevalid.label "Licencia válida. Gracias por adquirir FoxyProxy Plus.">
+<!ENTITY foxyproxy.licenseinvalid.label "Licencia no válida. Usted no recibirá actualizaciones de FoxyProxyPlus. Por favor compre FoxyProxy Plus.">
+<!ENTITY foxyproxy.buynow.label "Comprar Ahora">
+<!ENTITY foxyproxy.checklicense.label "Verificar Licencia">
+<!ENTITY foxyproxy.checkinglicense.label "Verificando...por favor aguarde">
+<!ENTITY foxyproxy.routetoleahscape.label "Asegúrese que Firefox puede alcanzar https://leahscape.com/fpplus/license_check.php con o sin un proxy. Puede configurar patrones para ésta URL en FoxyProxy Plus de ser necesario.">
+<!ENTITY foxyproxy.everything.label "Todo">
+<!ENTITY foxyproxy.nothing.label "Nada">
+<!ENTITY foxyproxy.ippatterndeletefinal.label "Este es el último patrón de direcciones IP local. Si lo borra, este proxy no podrá ser utilizado. Continúa de todos modos?">
+<!ENTITY foxyproxy.licenseplea.label "FoxyProxy Plus cuenta con un mínimo de medidas de lucha contra la piratería. Si utiliza FoxyProxy Plus, por favor adquiera una licencia. Ha tomado muchos años de trabajo para su desarrollo y mantenimiento, y su compra me alienta a seguir.">
+<!--    end foxyproxyplus    -->

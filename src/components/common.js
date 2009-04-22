@@ -1,6 +1,6 @@
 /**
   FoxyProxy
-  Copyright (C) 2006-2008 Eric H. Jung and LeahScape, Inc.
+  Copyright (C) 2006-2009 Eric H. Jung and LeahScape, Inc.
   http://foxyproxy.mozdev.org/
   eric.jung@yahoo.com
 
@@ -20,30 +20,34 @@ function Common() {
 
 Common.prototype = {
   _ios : CC["@mozilla.org/network/io-service;1"].getService(CI.nsIIOService),
-
+  
   QueryInterface: function(aIID) {
     if (!aIID.equals(CI.nsISupports))
         throw Components.results.NS_ERROR_NO_INTERFACE;
     return this;
   },
-
+  
   // Application-independent version of getMostRecentWindow()
   getMostRecentWindow : function(wm) {
     var tmp = wm || CC["@mozilla.org/appshell/window-mediator;1"].getService(CI.nsIWindowMediator);
-    return tmp.getMostRecentWindow("navigator:browser") || tmp.getMostRecentWindow("Songbird:Main");
+    return tmp.getMostRecentWindow("navigator:browser") || tmp.getMostRecentWindow("Songbird:Main") || tmp.getMostRecentWindow("mail:3pane");
   },
-
+  
   // Application-independent version of getEnumerator()
   getEnumerator : function() {
     var wm = CC["@mozilla.org/appshell/window-mediator;1"].getService(CI.nsIWindowMediator);
     // The next line always returns an object, even if the enum has no elements, so we can't use it to determine between applications
     //var e = wm.getEnumerator("navigator:browser") || wm.getEnumerator("Songbird:Main")
-    return wm.getMostRecentWindow("navigator:browser") ? wm.getEnumerator("navigator:browser") : wm.getEnumerator("Songbird:Main");
+    return wm.getMostRecentWindow("navigator:browser") ? wm.getEnumerator("navigator:browser") : (wm.getEnumerator("Songbird:Main") ? wm.getEnumerator("Songbird:Main") : wm.getEnumerator("mail:3pane"));
   },
 
   openAndReuseOneTabPerURL : function(aURL) {
     var wm = CC["@mozilla.org/appshell/window-mediator;1"].getService(CI.nsIWindowMediator);
-    var winEnum = wm.getEnumerator("navigator:browser") || wm.getEnumerator("Songbird:Main");
+    var winEnum = wm.getEnumerator("navigator:browser");
+    if (!winEnum.hasMoreElements())
+      winEnum = wm.getEnumerator("Songbird:Main");
+    if (!winEnum.hasMoreElements())
+      winEnm = wm.getEnumerator("mail:3pane");
     while (winEnum.hasMoreElements()) {
       var win = winEnum.getNext();
       var browser = win.getBrowser();
@@ -59,15 +63,18 @@ Common.prototype = {
     // Our URL isn't open. Open it now.
     var w = this.getMostRecentWindow(wm);
     if (w) {
+      // Note: Since TB doesn't support tabs and trunk isn't the same
       // Use an existing browser window
-      if (!w.delayedOpenTab) // SongBird
+      if(w.messenger) // Thunderbird
+        w.messenger.launchExternalURL(aURL);
+      else if (!w.delayedOpenTab) // SongBird
         setTimeout(function(aTabElt) { w.gBrowser.selectedTab = aTabElt; }, 0, w.gBrowser.addTab(aURL, null, null, null));
-      else // FF
+      else // FF, SM, Flock, etc.
         w.delayedOpenTab(aURL, null, null, null, null);
       w.focus();
     }
   },
-
+  
   validatePattern : function(win, isRegEx, p, msgPrefix) {
     var origPat = p, fp = CC["@leahscape.org/foxyproxy/service;1"].getService().wrappedJSObject;
     p = p.replace(/^\s*|\s*$/g,"");
@@ -111,7 +118,7 @@ Common.prototype = {
     args["name"] && e.setAttribute("name", args["name"]);
     return e;
   },
-
+  
   getVersion : function() {
     return CC["@mozilla.org/extensions/manager;1"]
               .getService(CI.nsIExtensionManager)
@@ -122,22 +129,22 @@ Common.prototype = {
     var flags = caseSensitive ? "gi" : "g";
     try {
       var parsedUrl = this._ios.newURI(url, "UTF-8", null).QueryInterface(CI.nsIURL);
-      var ret = strTemplate.replace("${0}", parsedUrl.scheme?parsedUrl.scheme:"", flags);
-      ret = ret.replace("${1}", parsedUrl.username?parsedUrl.username:"", flags);
-      ret = ret.replace("${2}", parsedUrl.password?parsedUrl.password:"", flags);
-      ret = ret.replace("${3}", parsedUrl.userPass?(parsedUrl.userPass+"@"):"", flags);
-      ret = ret.replace("${4}", parsedUrl.host?parsedUrl.host:"", flags);
-      ret = ret.replace("${5}", parsedUrl.port == -1?"":parsedUrl.port, flags);
-      ret = ret.replace("${6}", parsedUrl.hostPort?parsedUrl.hostPort:"", flags);
-      ret = ret.replace("${7}", parsedUrl.prePath?parsedUrl.prePath:"", flags);
-      ret = ret.replace("${8}", parsedUrl.directory?parsedUrl.directory:"", flags);
-      ret = ret.replace("${9}", parsedUrl.fileBaseName?parsedUrl.fileBaseName:"", flags);
-      ret = ret.replace("${10}", parsedUrl.fileExtension?parsedUrl.fileExtension:"", flags);
-      ret = ret.replace("${11}", parsedUrl.fileName?parsedUrl.fileName:"", flags);
-      ret = ret.replace("${12}", parsedUrl.path?parsedUrl.path:"", flags);
-      ret = ret.replace("${13}", parsedUrl.ref?parsedUrl.ref:"", flags);
+      var ret = strTemplate.replace("${0}", parsedUrl.scheme?parsedUrl.scheme:"", flags);    
+      ret = ret.replace("${1}", parsedUrl.username?parsedUrl.username:"", flags);    
+      ret = ret.replace("${2}", parsedUrl.password?parsedUrl.password:"", flags); 
+      ret = ret.replace("${3}", parsedUrl.userPass?(parsedUrl.userPass+"@"):"", flags); 
+      ret = ret.replace("${4}", parsedUrl.host?parsedUrl.host:"", flags); 
+      ret = ret.replace("${5}", parsedUrl.port == -1?"":parsedUrl.port, flags); 
+      ret = ret.replace("${6}", parsedUrl.hostPort?parsedUrl.hostPort:"", flags); 
+      ret = ret.replace("${7}", parsedUrl.prePath?parsedUrl.prePath:"", flags);                 
+      ret = ret.replace("${8}", parsedUrl.directory?parsedUrl.directory:"", flags); 
+      ret = ret.replace("${9}", parsedUrl.fileBaseName?parsedUrl.fileBaseName:"", flags); 
+      ret = ret.replace("${10}", parsedUrl.fileExtension?parsedUrl.fileExtension:"", flags); 
+      ret = ret.replace("${11}", parsedUrl.fileName?parsedUrl.fileName:"", flags); 
+      ret = ret.replace("${12}", parsedUrl.path?parsedUrl.path:"", flags); 
+      ret = ret.replace("${13}", parsedUrl.ref?parsedUrl.ref:"", flags);                
       ret = ret.replace("${14}", parsedUrl.query?parsedUrl.query:"", flags);
-      ret = ret.replace("${14}", parsedUrl.query?parsedUrl.query:"", flags);
+      ret = ret.replace("${14}", parsedUrl.query?parsedUrl.query:"", flags);       
       ret = ret.replace("${15}", parsedUrl.spec?parsedUrl.spec:"", flags);
       /*ret = ret.replace(/\^|\$|\+|\\|\||\*|\{|\}|\(|\)|\[|\]/g,
         function(s) {
@@ -162,8 +169,8 @@ Common.prototype = {
     }
     catch(e) {/*happens for about:blank, about:config, etc.*/}
     return url;
-  },
-
+  },    
+  
   onSuperAdd : function(wnd, url, superadd) {
     var fp = CC["@leahscape.org/foxyproxy/service;1"].getService().wrappedJSObject;
     var p = {inn:{url:url || this.getMostRecentWindow().content.location.href, superadd:superadd}, out:null};
@@ -183,6 +190,45 @@ Common.prototype = {
       fp.writeSettings();
       return p.match;
     }
+  },
+  
+  makeProxyTreeView : function(fp) {
+    return {
+        rowCount : fp.proxies.length,
+        getCellText : function(row, column) {
+          var i = fp.proxies.item(row);    
+          switch(column.id) {
+            case "nameCol":return i.name;
+            case "descriptionCol":return i.notes;   
+            case "modeCol":return fp.getMessage(i.mode);
+            case "hostCol":return i.manualconf.host;           
+            case "isSocksCol":return i.manualconf.isSocks?fp.getMessage("yes"):fp.getMessage("no");        
+            case "portCol":return i.manualconf.port;                   
+            case "socksverCol":return i.manualconf.socksversion == "5" ? "5" : "4/4a";                           
+            case "autopacCol":return i.autoconf.url;   
+            case "animatedIconsCol":return i.animatedIcons?fp.getMessage("yes"):fp.getMessage("no");
+            case "cycleCol":return i.includeInCycle?fp.getMessage("yes"):fp.getMessage("no");
+          }
+        },
+        setCellValue: function(row, col, val) {fp.proxies.item(row).enabled = val;},
+        getCellValue: function(row, col) {return fp.proxies.item(row).enabled;},    
+        isSeparator: function(aIndex) { return false; },
+        isSorted: function() { return false; },
+        isEditable: function(row, col) { return false; },
+        isContainer: function(aIndex) { return false; },
+        setTree: function(aTree){},
+        getImageSrc: function(aRow, aColumn) {return null;},
+        getProgressMode: function(aRow, aColumn) {},
+        cycleHeader: function(aColId, aElt) {},
+        getRowProperties: function(aRow, aColumn, aProperty) {},
+        getColumnProperties: function(aColumn, aColumnElement, aProperty) {},
+        getCellProperties: function(aRow, aProperty) {},
+        getLevel: function(row){ return 0; }
+      };  
+  },
+  
+  isThunderbird : function() {
+    return CC["@mozilla.org/xre/app-info;1"].getService(CI.nsIXULAppInfo).ID == "{3550f703-e582-4d05-9a08-453d09bdfdc6}";
   }
 }
 // Factory
@@ -209,9 +255,9 @@ var CommonModule = {
 
   unregisterSelf: function(aCompMgr, aLocation, aType) {
     aCompMgr = aCompMgr.QueryInterface(CI.nsIComponentRegistrar);
-    aCompMgr.unregisterFactoryLocation(CLASS_ID, aLocation);
+    aCompMgr.unregisterFactoryLocation(CLASS_ID, aLocation);        
   },
-
+  
   getClassObject: function(aCompMgr, aCID, aIID) {
     if (!aIID.equals(CI.nsIFactory))
       throw Components.results.NS_ERROR_NOT_IMPLEMENTED;

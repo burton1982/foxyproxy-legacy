@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   FoxyProxy
-  Copyright (C) 2006-2008 Eric H. Jung and LeahScape, Inc.
+  Copyright (C) 2006-2009 Eric H. Jung and LeahScape, Inc.
   http://foxyproxy.mozdev.org/
   eric.jung@yahoo.com
 
@@ -26,7 +26,6 @@
   persist="screenX screenY">
 
 <script src="addeditproxy.js"/>
-<script src="../modules/nsProxyAutoConfig.js"/>
 
 <vbox observes="torwiz-broadcaster" flex="1">
   <tabbox flex="1">
@@ -37,7 +36,7 @@
   		  tooltiptext="&foxyproxy.tab.proxy.tooltip;"/>
   		<tab id="urlpatternstab" label="&foxyproxy.urlpatterns.label;" accesskey="&foxyproxy.urlpatterns.accesskey;"
   		  tooltiptext="&foxyproxy.urlpatterns.tooltip;"/>
-   	</tabs>
+  	</tabs>
 
 	<tabpanels style="-moz-appearance: none;" flex="1">
 	  <tabpanel flex="1" orient="vertical">
@@ -93,12 +92,16 @@
               <hbox align="center" class="indent">
 				        <label value="&foxyproxy.changes.msg1;" class="text-link" popup="newGUIPopup" tooltiptext="&foxyproxy.changes.msg1;"/>
 				      </hbox>
+              <hbox align="center" class="indent">
+                <label value="&foxyproxy.proxyservice2.label;" class="text-link" tooltiptext="&foxyproxy.proxyservice2.label;"
+                  onclick="fpc.openAndReuseOneTabPerURL('http://foxyproxy.mozdev.org/proxyservice/');"/>
+              </hbox>          
 							<separator class="thin"/>
               <hbox align="center" class="indent">
-	              <label value="&foxyproxy.host.label;" accesskey="&foxyproxy.host.accesskey;"
-	              	tooltiptext="&foxyproxy.host.tooltip;"
+	              <label value="&foxyproxy.host.label.2;" accesskey="&foxyproxy.host.accesskey;"
+	              	tooltiptext="&foxyproxy.host.label.2;"
 	              	control="host"/>
-	              <textbox id="host" flex="1" observes="disabled-broadcaster" tooltiptext="&foxyproxy.host.tooltip;"/>
+	              <textbox id="host" flex="1" observes="disabled-broadcaster" tooltiptext="&foxyproxy.host.label.2;"/>
 	              <label value="&foxyproxy.port.label;" control="port" accesskey="&foxyproxy.port.accesskey;" tooltiptext="&foxyproxy.port.tooltip;"/>
 	              <textbox id="port" size="5" oninput="if (/\D/.test(this.value)) this.value='';" observes="disabled-broadcaster" tooltiptext="&foxyproxy.port.tooltip;"/>
               </hbox>
@@ -201,21 +204,21 @@
       <separator class="thin"/>
       <hbox flex="1">
         <tree id="urlsTree" flex="1" align="stretch" enableColumnDrag="true" seltype="single" onselect="setButtons('urls-tree-row-selected', urlsTree);"
-       	onclick="overlay.onTreeClick(event, this);">
-        <treecols id="treeCols" pickertooltiptext="&foxyproxy.tree.pickertooltiptext.label;">
-          <treecol id="enabledCol" label="&foxyproxy.enabled.label;" type="checkbox" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
-          <treecol id="nameCol" label="&foxyproxy.pattern.name.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
-          <treecol id="patternCol" label="&foxyproxy.url.pattern.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
-          <treecol id="patternTypeCol" label="&foxyproxy.pattern.type.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
-          <treecol id="blackCol" label="&foxyproxy.whitelist.blacklist.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
-          <treecol id="caseSensitiveCol" label="&foxyproxy.casesensitive.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>            
-          <treecol id="tempCol" label="&foxyproxy.temp.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>            
-        </treecols>
+	        	onclick="overlay.onTreeClick(event, this);">
+          <treecols id="treeCols" pickertooltiptext="&foxyproxy.tree.pickertooltiptext.label;">
+            <treecol id="enabledCol" label="&foxyproxy.enabled.label;" type="checkbox" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+            <treecol id="nameCol" label="&foxyproxy.pattern.name.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+            <treecol id="patternCol" label="&foxyproxy.url.pattern.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+            <treecol id="patternTypeCol" label="&foxyproxy.pattern.type.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+            <treecol id="blackCol" label="&foxyproxy.whitelist.blacklist.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>
+            <treecol id="caseSensitiveCol" label="&foxyproxy.casesensitive.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>            
+            <treecol id="tempCol" label="&foxyproxy.temp.label;" flex="1" persist="width ordinal hidden"/><splitter class="tree-splitter"/>            
+          </treecols>
           <treechildren context="urlsTreeContext" ondblclick="onAddEditURLPattern(false);"/>
-    </tree>
-    </hbox>
-
-    </tabpanel>    
+         </tree>
+      </hbox>
+      
+    </tabpanel>   
   </tabpanels>
   </tabbox>
 </vbox>

@@ -1,6 +1,5 @@
 <!ENTITY foxyproxy.label "FoxyProxy">
 <!ENTITY foxyproxy.accesskey "F">
-<!ENTITY foxyproxy.tooltip "FoxyProxy">
 <!ENTITY foxyproxy.optionsdialog.label "FoxyProxy - Možnosti">
 <!ENTITY foxyproxy.options.label "Možnosti">
 <!ENTITY foxyproxy.options.accesskey "M">
@@ -13,8 +12,6 @@
 <!ENTITY foxyproxy.proxy.notes.accesskey "P">
 <!ENTITY foxyproxy.proxy.notes.tooltip "Poznámky proxy servera">
 <!ENTITY foxyproxy.pattern.label "Vzor">
-<!ENTITY foxyproxy.pattern.accesskey "P">
-<!ENTITY foxyproxy.pattern.tooltip "URL pattern">
 <!ENTITY foxyproxy.urlpatterns.label "URL Patterns">
 <!ENTITY foxyproxy.urlpatterns.accesskey "P">
 <!ENTITY foxyproxy.urlpatterns.tooltip "URL patterns">
@@ -62,9 +59,6 @@
 <!ENTITY foxyproxy.port.label "Port">
 <!ENTITY foxyproxy.port.accesskey "P">
 <!ENTITY foxyproxy.port.tooltip "Port">
-<!ENTITY foxyproxy.socks.proxy.label "SOCKS Proxy">
-<!ENTITY foxyproxy.socks.proxy.accesskey "C">
-<!ENTITY foxyproxy.socks.proxy.tooltip "URL SOCKS Proxy">
 <!ENTITY foxyproxy.socks.v4 "SOCKS v4/4a">
 <!ENTITY foxyproxy.socks.v5 "SOCKS v5">
 <!ENTITY foxyproxy.addeditpattern.title "Pridať/upraviť vzor">
@@ -93,8 +87,6 @@
 <!ENTITY foxyproxy.add.title "Nastavenia Proxy">
 <!ENTITY foxyproxy.pattern.description "Tu môžete pridať alebo odstrániť URL, pre ktoré je toto Proxy použité.">
 <!ENTITY foxyproxy.pattern.matchtype.label "Vzor obsahuje">
-<!ENTITY foxyproxy.pattern.matchtype2.label "Vzor na určenie blokovaných stránok obsahuje">
-<!ENTITY foxyproxy.pattern.template.matchtype.label "Šablóna vzoru obsahuje">
 <!ENTITY foxyproxy.pattern.whiteblack.label "Zahrnuté/vylúčené URL">
 <!ENTITY foxyproxy.add.option.direct.label "Priame pripojenie na Internet">
 <!ENTITY foxyproxy.add.option.direct.accesskey "P">
@@ -132,14 +124,13 @@
 <!ENTITY foxyproxy.showstatusbarmode.label "Zobraziť režim (text) v stavovom riadku">
 <!ENTITY foxyproxy.showstatusbarmode.accesskey "Z">
 <!ENTITY foxyproxy.showstatusbarmode.tooltip "Ak je táto voľba začiarknutá, v stavovom riadku je zobrazený režim FoxyProxy">
-<!ENTITY foxyproxy.storagelocation.label "Umiestnenie nastavení">
+<!ENTITY foxyproxy.storagelocation.label.2 "Settings Location">
 <!ENTITY foxyproxy.storagelocation.accesskey "S">
 <!ENTITY foxyproxy.storagelocation.tooltip "Miesto, kde sú uložené nastavenia FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Časová známka">
 <!ENTITY foxyproxy.tab.logging.url.label "URL">
-<!ENTITY foxyproxy.host.label "Názov servera">
+<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
 <!ENTITY foxyproxy.host.accesskey "N">
-<!ENTITY foxyproxy.host.tooltip "Názov servera">
 <!ENTITY foxyproxy.clear.label "Vymazať">
 <!ENTITY foxyproxy.clear.accesskey "V">
 <!ENTITY foxyproxy.clear.tooltip "Vymazať">
@@ -161,10 +152,6 @@
 <!ENTITY foxyproxy.blacklist.tooltip "URL adresy zhodujúce sa s týmto vzorom NEbudú načítané cez toto Proxy">
 <!ENTITY foxyproxy.blacklist.description.label "URL adresy zhodujúce sa s týmto vzorom NEbudú načítané cez toto Proxy">
 <!ENTITY foxyproxy.whiteblack.description.label "Čierna listina (vylúčenie) vzorov má prednosť pred bielou listinou (zahrnutie) vzorov: ak sa URL nachádza na bielej aj čiernej listine pre rovnaké Proxy, tak URL nebude načítaná pomocou tohto Proxy.">
-<!ENTITY foxyproxy.usingPFF.label1 "Používam">
-<!ENTITY foxyproxy.usingPFF.label2 "Portable Firefox">
-<!ENTITY foxyproxy.usingPFF.accesskey "P">
-<!ENTITY foxyproxy.usingPFF.tooltip "Označte, ak používate Portable Firefox">
 <!ENTITY foxyproxy.socks.version.label "Verzia SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "Auto PAC URL">
 <!ENTITY foxyproxy.issocks.label "SOCKS proxy server">
@@ -245,8 +232,6 @@
 <!ENTITY foxyproxy.toolsmenu.accesskey "N">
 <!ENTITY foxyproxy.toolsmenu.tooltip "Zobrazí FoxyProxy v ponuke Nástroje">
 <!ENTITY foxyproxy.tip.label "Tip">
-<!ENTITY foxyproxy.pactips.popup.height "165px">
-<!ENTITY foxyproxy.pactips.popup.width "400px">
 <!ENTITY foxyproxy.pactip1.label "Ak chcete použiť súbory PAC uložené na disku počítača, použite predponu file://. Na príklad file://c:/path/proxy.pac pre Windows alebo file:///home/users/joe/proxy.pac pre Unix/Linux/Mac.">
 <!ENTITY foxyproxy.pactip2.label "Ak chcete použiť súbory PAC uložené na ftp serveri, použite predponu ftp://. Napríklad ftp://leahscape.com/path/proxy.pac.">
 <!ENTITY foxyproxy.pactip3.label "Môžete tiež použiť http://, https://, prípadne ďalšie.">
@@ -271,8 +256,6 @@
 <!ENTITY foxyproxy.quickadd.notify.whencanceled.label2 "Rýchle priradenie je automaticky zrušené, ak je aktivované prostredníctvom klávesovej skratky Alt-F2 a aktuálna adresa zadaná v paneli Adresa súhlasí so vzorom na bielej listine proxy serverov. V tomto prípade je zabránené duplikácii vzorov a poškodeniu vašej konfigurácie. Toto nastavenie nezapína/nevypína zrušenie, len nastavuje notifikáciu v prípade, že Rýchle priradenie bolo zrušené.">
 <!ENTITY foxyproxy.quickadd.notify.whencanceled.accesskey "c">
 <!ENTITY foxyproxy.quickadd.notify.whencanceled.tooltip "Zobraziť vyskakovacie okno, ak je Rýchle priradenie aktivované, ale bolo zrušené">
-<!ENTITY foxyproxy.quickadd.notify.whencanceled.popup.width "400px">
-<!ENTITY foxyproxy.quickadd.notify.whencanceled.popup.height "130px">
 <!ENTITY foxyproxy.whatsthis "Čo je toto?">
 <!ENTITY foxyproxy.quickadd.prompt.label "Opýtať sa pri úprave alebo pred pridaním vzoru pre proxy">
 <!ENTITY foxyproxy.quickadd.prompt.accesskey "p">
@@ -280,9 +263,6 @@
 <!ENTITY foxyproxy.quickadd.proxy.label "Proxy, ku ktorému bude vzor priradený">
 <!ENTITY foxyproxy.quickadd.proxy.accesskey "P">
 <!ENTITY foxyproxy.quickadd.proxy.tooltip "Vyberte proxy server, ktorému bude vzor priradený">
-<!ENTITY foxyproxy.bypasscache.label "Obísť vyrovnávaciu pamäť Firefoxu pri načítavaní">
-<!ENTITY foxyproxy.bypasscache.accesskey "b">
-<!ENTITY foxyproxy.bypasscache.tooltip "Vyrovnávacia pamäť Firefoxu je ignorovaná">
 <!ENTITY foxyproxy.advancedmenus.label "Použiť rozšírené ponuky">
 <!ENTITY foxyproxy.advancedmenus.accesskey "p">
 <!ENTITY foxyproxy.advancedmenus.tooltip "Použije rozšírené ponuky (štýl FoxyProxy 2.2)">
@@ -299,7 +279,6 @@
 <!ENTITY foxyproxy.wildcard.reference.accesskey "Z">
 <!ENTITY foxyproxy.wildcard.reference.tooltip "Príručka pre zástupné znaky">
 <!ENTITY foxyproxy.wildcard.reference.subtitle.label "Hviezdička (*) zastupuje žiadny alebo niekoľko znakov, otáznik (?) práve jeden znak">
-<!ENTITY foxyproxy.wildcard.reference.mistakes "Časté chyby pri písaní vzorov pomocou zástupných znakov">
 <!ENTITY foxyproxy.wildcard.reference.goal.label "Cieľ">
 <!ENTITY foxyproxy.wildcard.reference.goal1.label "Zahrnúť všetky stránky v poddoméne MySpace">
 <!ENTITY foxyproxy.wildcard.reference.goal2.label "Zahrnúť lokálne PC">
@@ -313,17 +292,11 @@
 <!ENTITY foxyproxy.wildcard.reference.incorrect.reason2.label "FoxyProxy nerozumie tomuto typu syntaxe">
 <!ENTITY foxyproxy.wildcard.reference.incorrect.reason3.label "Chýbajú zástupné znaky">
 <!ENTITY foxyproxy.wildcard.reference.incorrect.reason4.label "Chýbajú zástupné znaky">
-<!ENTITY foxyproxy.wildcard.reference.popup.height "400px">
 <!ENTITY foxyproxy.logging.noURLs.label "Neukladať alebo nezobrazovať URL adresy">
 <!ENTITY foxyproxy.logging.noURLs.accesskey "U">
 <!ENTITY foxyproxy.logging.noURLs.tooltip "URL adresy nie sú uložené v RAM alebo na disku">
-<!ENTITY foxyproxy.ok.label "OK">
-<!ENTITY foxyproxy.ok.accesskey "O">
-<!ENTITY foxyproxy.ok.tooltip "Zavrieť okno">
 <!ENTITY foxyproxy.pattern.template.reference.label "Príručka pre šablónu vzoru">
-<!ENTITY foxyproxy.pattern.template.reference.accesskey "a">
 <!ENTITY foxyproxy.pattern.template.reference.tooltip "Príručka pre šablónu vzoru">
-<!ENTITY foxyproxy.pattern.template.reference.subtitle.label "Šablóny pre URL vzory definujú formát, v ktorom sú adresy priraďované proxy serverom. Šablóny podporujú nasledujúce špeciálne znaky, ktoré sú pri aktivovaní Rýchleho alebo Automatického priradenia nahradené v adresnom riadku príslušným komponentom.">
 <!ENTITY foxyproxy.pattern.template.reference.specialstring.label "Špeciálny reťazec">
 <!ENTITY foxyproxy.pattern.template.reference.subststring.label "Nahradený s">
 <!ENTITY foxyproxy.pattern.template.reference.example.label "Príklad">
@@ -343,25 +316,18 @@
 <!ENTITY foxyproxy.pattern.template.reference.ref.label "časť po znaku &quot;#&quot;">
 <!ENTITY foxyproxy.pattern.template.reference.query.label "časť po znaku &quot;?&quot;">
 <!ENTITY foxyproxy.pattern.template.reference.spec.label "kompletná URL adresa">
-<!ENTITY foxyproxy.pattern.template.reference.popup.height "400px">
-<!ENTITY foxyproxy.pattern.template.reference.popup.width "800px">
 <!ENTITY foxyproxy.notifications.label "Notifikácie">
-<!ENTITY foxyproxy.notifications.accesskey "N">
 <!ENTITY foxyproxy.notifications.tooltip "Nastavenie notifikácie">
 <!ENTITY foxyproxy.indicators.label "Indikátory">
-<!ENTITY foxyproxy.indicators.accesskey "I">
 <!ENTITY foxyproxy.indicators.tooltip "Nastavenia indikátora">
 <!ENTITY foxyproxy.misc.label "Rôzne">
-<!ENTITY foxyproxy.misc.accesskey "R">
 <!ENTITY foxyproxy.misc.tooltip "Rôzne nastavenia">
 <!ENTITY foxyproxy.animatedicons.label "Animovať ikony, ak sa tento proxy server práve používa">
 <!ENTITY foxyproxy.animatedicons.accesskey "A">
 <!ENTITY foxyproxy.animatedicons.tooltip "Animovať ikony, ak je tento proxy server aktívny (voľba Globálne nastavenia-&gt;Animácie musí byť začiarknutá)">
 <!ENTITY foxyproxy.statusbaractivation.label "Aktivácia stavového riadku">
-<!ENTITY foxyproxy.statusbaractivation.accesskey "s">
 <!ENTITY foxyproxy.statusbaractivation.tooltip "Nastavenia aktivácie stavového riadku">
 <!ENTITY foxyproxy.toolbaractivation.label "Aktivácia panela s nástrojmi">
-<!ENTITY foxyproxy.toolbaractivation.accesskey "p">
 <!ENTITY foxyproxy.toolbaractivation.tooltip "Nastavenia aktivácie panela s nástrojmi">
 <!ENTITY foxyproxy.leftclicksb.label "Kliknutie ľavým tlačidlom myši na ikonu FoxyProxy v stavovom riadku">
 <!ENTITY foxyproxy.leftclicksb.accesskey "l">
@@ -400,12 +366,8 @@
 <!ENTITY foxyproxy.newGUI4.label "Ak chcete viac informácií, kliknite sem.">
 <!ENTITY foxyproxy.error.msg.label "Chybová správa">
 <!ENTITY foxyproxy.pac.result.label "Výsledok PAC">
-<!ENTITY foxyproxy.options.width "1000">
-<!ENTITY foxyproxy.options.height "477">
 <!ENTITY foxyproxy.torwiz.width "660">
 <!ENTITY foxyproxy.torwiz.height "375">
-<!ENTITY foxyproxy.addeditproxy.width "660">
-<!ENTITY foxyproxy.addeditproxy.height "470">
 <!ENTITY foxyproxy.casesensitive.label "Case sensitive">
 <!ENTITY foxyproxy.casesensitive.accesskey "C">
 <!ENTITY foxyproxy.casesensitive.tooltip "Enables/disables case-sensitivity for URL matching">
@@ -415,8 +377,6 @@
 <!ENTITY foxyproxy.pixels "pixels">
 <!ENTITY foxyproxy.unlimited.label "[0: shrink to fit] ">
 <!ENTITY foxyproxy.temp.popup.label "Temporary patterns allow you to create patterns for URLs that you don&apos;t visit often without cluttering the pattern list for a proxy. Temporary patterns are not saved to disk. They are kept in-memory and used for this Firefox session only.">
-<!ENTITY foxyproxy.temp.popup.height "120">
-<!ENTITY foxyproxy.temp.popup.width "400">
 <!ENTITY foxyproxy.temp.label "Temporary">
 <!ENTITY foxyproxy.temp.accesskey "T">
 <!ENTITY foxyproxy.temp.tooltip "Pattern is used only for this Firefox session">
@@ -434,3 +394,53 @@
 <!ENTITY foxyproxy.keep.free "Keep FoxyProxy Free">
 <!ENTITY foxyproxy.donation.list.label "Donation List">
 <!ENTITY foxyproxy.donation.list.accesskey "L">
+<!ENTITY foxyproxy.importantnote.label "Read Important Note">
+<!ENTITY foxyproxy.resetlocation.label "Reset Location">
+<!ENTITY foxyproxy.resetlocation.accesskey "R">
+<!ENTITY foxyproxy.resetlocation.tooltip "Store settings in Firefox profile">
+<!ENTITY foxyproxy.settings.not.default "Settings aren&apos;t in the default location.">
+<!ENTITY foxyproxy.change.host.reload "Set new host:port and then reload current page">
+<!ENTITY foxyproxy.proxyservice.label "Buy Proxy Service">
+<!ENTITY foxyproxy.proxyservice.accesskey "P">
+<!ENTITY foxyproxy.proxyservice.tooltip "Sign up for proxy services">
+<!ENTITY foxyproxy.proxyservice2.label "Need fast, reliable proxies in the US, UK, or other countries?">
+<!ENTITY foxyproxy.getfoxyproxyplus.label "Get FoxyProxy Plus">
+<!--    begin foxyproxyplus    -->
+<!ENTITY foxyproxy.ip.pattern.addedit.title "Add/Edit Local IP Address Pattern">
+<!ENTITY foxyproxy.tempip.popup.label "Temporary patterns allow you to create patterns for local IP addresses that you don&apos;t use often without cluttering the IP address pattern list for a proxy. Temporary patterns are not saved to disk. They are kept in-memory and used for this Firefox session only.">
+<!ENTITY foxyproxy.ip.pattern.label "Local IP address pattern">
+<!ENTITY foxyproxy.ip.pattern.accesskey "I">
+<!ENTITY foxyproxy.ip.pattern.tooltip "Local IP address pattern">
+<!ENTITY foxyproxy.ip.patterns.label "Local IP Address Patterns">
+<!ENTITY foxyproxy.ip.patterns.accesskey "I">
+<!ENTITY foxyproxy.ip.patterns.tooltip "Local IP address patterns">
+<!ENTITY foxyproxy.ip.wildcard.reference.matches.label "Matches">
+<!ENTITY foxyproxy.ip.wildcard.reference.nomatch.label "Doesn&apos;t Match">
+<!ENTITY foxyproxy.ip.whiteblack.label "Inclusion/Exclusion">
+<!ENTITY foxyproxy.ip.whitelist.description.label "URLs load through this proxy when one of your IP addresses matches this pattern">
+<!ENTITY foxyproxy.ip.blacklist.description.label "URLs do NOT load through this proxy when one of your IP addresses matches this pattern">
+<!ENTITY foxyproxy.ip.wildcard.reference.subtitle.label "The asterisk (*) matches zero or more characters.">
+<!ENTITY foxyproxy.ip.current.local.label "Current Local IP addresses">
+<!ENTITY foxyproxy.copyip.label "Copy to Pattern">
+<!ENTITY foxyproxy.copyip.tooltip "Copy address to pattern">
+<!ENTITY foxyproxy.copyip.accesskey "C">
+<!ENTITY foxyproxy.ip.wildcard.example.label "Example: 192.168.1.*">
+<!ENTITY foxyproxy.ip.regex.example.label "Example: 172\.\d+\.1\.10">
+<!ENTITY foxyproxy.ip.pattern.match "Pattern matches one or more or current local IP addresses">
+<!ENTITY foxyproxy.ip.pattern.no.match "Pattern doesn&apos;t match any current local IP address">
+<!ENTITY foxyproxy.refreshlocalips "Refresh local IP addresses">
+<!ENTITY foxyproxy.refreshlocalips.accesskey "R">
+<!ENTITY foxyproxy.enterlicense.label "Enter license key">
+<!ENTITY foxyproxy.enteremail.label "Enter email address">
+<!ENTITY foxyproxy.licenseinfo.label "License Info">
+<!ENTITY foxyproxy.licensevalid.label "License valid. Thank you for purchasing FoxyProxy Plus.">
+<!ENTITY foxyproxy.licenseinvalid.label "License invalid. You won&apos;t receive FoxyProxyPlus updates. Please purchase FoxyProxy Plus.">
+<!ENTITY foxyproxy.buynow.label "Buy Now">
+<!ENTITY foxyproxy.checklicense.label "Check License">
+<!ENTITY foxyproxy.checkinglicense.label "Checking...please wait">
+<!ENTITY foxyproxy.routetoleahscape.label "Please make sure Firefox can reach https://leahscape.com/fpplus/license_check.php either with or without a proxy. You can configure patterns for this URL in FoxyProxy Plus if necessary.">
+<!ENTITY foxyproxy.everything.label "Everything">
+<!ENTITY foxyproxy.nothing.label "Nothing">
+<!ENTITY foxyproxy.ippatterndeletefinal.label "This is the last local IP address pattern. If you delete it, this proxy has no possibility of being used. Continue anyway?">
+<!ENTITY foxyproxy.licenseplea.label "FoxyProxy Plus has minimal anti-piracy measures. If you use FoxyProxy Plus, please purchase a license. It&apos;s taken many years of work to develop and maintain, and your purchase encourages me to continue.">
+<!--    end foxyproxyplus    -->
