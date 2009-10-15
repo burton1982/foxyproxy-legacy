@@ -1,0 +1,230 @@
+@import url(chrome://global/skin/);
+
+tree[id="urlsTree"], tree[id="torWizUrlsTree"], tree[id="proxyTree"], tree[id="logTree"]
+  {min-height: 50px;}
+/*treechildren::-moz-tree-row(grey) {
+  background-color: rgb(80%, 80%, 80%);
+}*/
+
+#foxyproxy-button-1[mode="patterns"],
+#foxyproxy-context-menu-1[mode="patterns"],
+#foxyproxy-tools-menu-1[mode="patterns"],
+#foxyproxy-status-icon[mode="patterns"]
+  {list-style-image: url("chrome://foxyproxy/content/images/patterns.gif");}
+
+#foxyproxy-button-1[mode="static"],
+#foxyproxy-context-menu-1[mode="static"],
+#foxyproxy-tools-menu-1[mode="static"],
+#foxyproxy-status-icon[mode="static"]
+	{list-style-image: url("chrome://foxyproxy/content/images/static.gif");}
+
+#foxyproxy-button-1[mode="disabled"],
+#foxyproxy-context-menu-1[mode="disabled"],
+#foxyproxy-tools-menu-1[mode="disabled"],
+#foxyproxy-status-icon[mode="disabled"]
+  {list-style-image: url("chrome://foxyproxy/content/images/disabled.gif");}
+
+#foxyproxy-button-1[mode="random"],
+#foxyproxy-context-menu-1[mode="random"],
+#foxyproxy-tools-menu-1[mode="random"],
+#foxyproxy-status-icon[mode="random"]
+  {list-style-image: url("chrome://foxyproxy/content/images/random.gif");}
+
+#foxyproxy-button-1[mode="patterns"][animated="true"],
+#foxyproxy-context-menu-1[mode="patterns"][animated="true"],
+#foxyproxy-tools-menu-1[mode="patterns"][animated="true"],
+#foxyproxy-status-icon[mode="patterns"][animated="true"]
+  {list-style-image: url("chrome://foxyproxy/content/images/patterns-ani.gif");}
+
+#foxyproxy-button-1[mode="static"][animated="true"],
+#foxyproxy-context-menu-1[mode="static"][animated="true"],
+#foxyproxy-tools-menu-1[mode="static"][animated="true"],
+#foxyproxy-status-icon[mode="static"][animated="true"]
+  {list-style-image: url("chrome://foxyproxy/content/images/static-ani.gif");}
+
+#foxyproxy-button-1[mode="random"][animated="true"],
+#foxyproxy-context-menu-1[mode="random"][animated="true"],
+#foxyproxy-tools-menu-1[mode="random"][animated="true"],
+#foxyproxy-status-icon[mode="random"][animated="true"]
+  {list-style-image: url("chrome://foxyproxy/content/images/random-ani.gif");}
+
+.foxyproxybutton
+  {-moz-image-region: rect(0px 24px 24px 0px);}
+
+.foxyproxybutton:hover
+  {-moz-image-region: rect(24px 24px 48px 0px);}
+
+[iconsize="small"] .foxyproxybutton
+  {-moz-image-region: rect(0px 40px 16px 24px);}
+
+[iconsize="small"] .foxyproxybutton:hover
+  {-moz-image-region: rect(16px 40px 32px 24px);}
+
+.foxyproxybutton-small
+  {-moz-image-region: rect(0px 40px 16px 24px);}
+
+.foxyproxybutton-small:hover
+  {-moz-image-region: rect(16px 40px 32px 24px);}
+
+treechildren::-moz-tree-checkbox(checked) {
+  /* css for checked cells */
+  list-style-image: url("chrome://global/skin/checkbox/cbox-check.gif");
+}
+
+#up-button {
+  list-style-image: url("chrome://foxyproxy/content/images/up.gif");
+}
+#down-button {
+  list-style-image: url("chrome://foxyproxy/content/images/down.gif");
+}
+
+#foxyproxy-image {
+  cursor: pointer;
+  list-style-image: url("chrome://foxyproxy/content/images/foxyproxy-with-copy.gif");
+}
+
+.heading {text-decoration: underline; font-weight:bold;}
+
+.foxyproxy-ref {
+	list-style-image: url("chrome://foxyproxy/content/images/info.png");
+	max-width: 32px;
+	padding-left: 6px;
+}
+.foxyproxy-ref-border {
+  border: thin black solid;
+  margin: .1em;
+}
+.red,.invalidcolor,#foxyproxy-status-text[mode="disabled"] { color: red; }
+
+.purple, #foxyproxy-status-text[mode="roundrobin"] { color: purple; }
+.blue { color: blue; /* or #46B8DA or #65BAD7 */}
+.orange, #foxyproxy-status-text[mode="patterns"] {
+   color: #E78500;
+ }
+.grey { color: #959899; }
+.green, .validcolor, #foxyproxy-status-text[mode="random"] { color: green; /* or #69B832 */ }
+
+.foxyproxy-tooltip {
+	text-align: justify;
+	padding: .4em;
+}
+.foxyproxy-border {
+	border: thin black solid;
+}
+
+.popcolumn {
+  width: 10em;
+  margin-right: 1em;
+}
+.link {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* This style MUST come before treechildren::-moz-tree-checkbox(checked)
+   otherwise it won't take effect (last tested FF 3.0 on XP). Must specify
+   this style in order for checks to disappear when specifying
+   treechildren::-moz-tree-checkbox(checked) */
+treechildren::-moz-tree-checkbox {
+  list-style-image: none;
+}
+
+/* Must specify because cbox-check.gif not on OS/X */
+treechildren::-moz-tree-checkbox(checked) {
+  list-style-image: url("chrome://foxyproxy/content/images/cbox-check.gif");
+}
+
+/* Begin SVG stuffs */
+*[svg="true"] path[child="1"] {
+	fill:#404141;
+	fill-opacity:1;
+	fill-rule:evenodd;
+}
+*[svg="true"] path[child="2"] {
+	fill:#ffffff;
+	fill-opacity:1;
+	fill-rule:evenodd;
+}
+*[svg="true"] path[child="3"][mode="disabled"] {
+  fill:#e78500;
+  fill-opacity:1;
+  fill-rule:evenodd;
+}
+*[svg="true"] path[child="3"][mode="patterns"] {
+  fill:#e78500;
+  fill-opacity:1;
+  fill-rule:evenodd;
+}
+*[svg="true"] path[child="3"][mode="random"] {
+  fill: green;
+  fill-opacity:1;
+  fill-rule:evenodd;
+}
+
+*[svg="true"] path[child="3"][mode="roundrobin"] {
+  fill: purple;
+  fill-opacity:1;
+  fill-rule:evenodd;
+}
+
+*[svg="true"] path[child="3"]{
+	fill:#e78500;
+	fill-opacity:1;
+	fill-rule:evenodd;
+}
+*[svg="true"] path[child="4"] {
+	fill:#ffffff;
+	fill-opacity:0.20392157;
+	fill-rule:evenodd;
+}
+
+g[wrapper="true"][mode="disabled"] {
+  visibility: visible;
+}
+g[wrapper="true"]:not([mode="disabled"]) {
+  visibility: hidden;
+}
+*[svg="true"] path[child="5"] {
+  fill: #c80000;
+  fill-opacity:1;
+  fill-rule:evenodd;
+  stroke:none;
+  stroke-width:1px;
+  stroke-linecap:butt;
+  stroke-linejoin:miter;
+  stroke-opacity:1
+}
+/* End SVG stuffs */
+/* Begin awesome colorpicker2 by Jesper Hansen */
+colorpicker2 {
+  -moz-binding: url("colorpicker2.xml#colorpicker2");
+  -moz-user-focus: normal;
+  -moz-user-select: all;
+}
+
+colorpicker2[type="button"] {
+  -moz-binding: url("colorpicker2.xml#colorpicker2-button");
+  width: 38px;
+  height: 24px;
+  border: 2px solid;
+  -moz-border-top-colors: ThreeDLightShadow ThreeDHighlight;
+  -moz-border-right-colors: ThreeDDarkShadow ThreeDShadow;
+  -moz-border-bottom-colors: ThreeDDarkShadow ThreeDShadow;
+  -moz-border-left-colors: ThreeDLightShadow ThreeDHighlight;
+  background-color: ThreeDFace;
+  padding: 3px;
+  -moz-user-focus: normal;
+}
+/* End awesome colorpicker2 by Jesper Hansen */
+
+/*! begin-foxyproxy-simple
+.hide-if-foxyproxy-simple {
+  display: none;
+}
+end-foxyproxy-simple !*/     
+
+/*! begin-foxyproxy-standard !*/
+.hide-if-foxyproxy-simple {
+}
+/*! end-foxyproxy-standard !*/ 
