@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="foxyproxy-basic-and-standard" default="build-foxyproxy-standard">
+
+  <!-- version property is appended to XPI filename; e.g., foxyproxy-1.0.xpi -->
+  <property name="temp-path" value="/tmp/foxyproxy" />
+  <property name="src-base" value="."/>
+  <property name="target-path" value="../targets"/>
+  <property file="edition.properties"/>
+
+  <target name="copy">
+    <copy todir="${temp-path}" overwrite="true">
+      <!-- ignore timestamps -->
+      <fileset dir="${src-base}" excludes="**/*.xpi/**,**/*.jar/**,**/build.xml/**,**/chrome.manifest/**,**/*.project/**,
+        **/foxyproxyplus.*/**,**/edition.properties/**,**/development.xml/**" />
+    </copy>
+  </target>
+
+  <!-- create the jar -->
+  <target name="jar">
+    <zip destfile="${temp-path}/chrome/foxyproxy.jar">
+      <zipfileset dir="${temp-path}/content" prefix="content" includes="**/**" />
+      <zipfileset dir="${temp-path}/skin" prefix="skin" includes="**/**" />
+      <zipfileset dir="${temp-path}/locale" prefix="locale" includes="**/**" />
+    </zip>
+  </target>
+
+  <!-- create foxyproxy-x.y.z.xpi in the current dir using install.rdf in the current dir-->
+  <target name="build">
+    <copy file="chrome.manifest.packaging" tofile="${temp-path}/chrome.manifest" />
+    <zip destfile="${target-path}/foxyproxy-${edition}-${version}.xpi">
+      <fileset dir="${temp-path}" includes="chrome.manifest install.rdf install.js LICENSE chrome/" />
+      <zipfileset dir="${temp-path}" prefix="chrome" includes="content/**"/>
+      <zipfileset dir="${temp-path}" prefix="chrome" includes="skin/**"/>
+      <zipfileset dir="${temp-path}" prefix="chrome" includes="locale/**"/>
+      <zipfileset dir="${temp-path}/components" prefix="components" includes="**/**" />
+      <zipfileset dir="${temp-path}/modules" prefix="modules" includes="**/**" />     
+      <zipfileset dir="${temp-path}/defaults" prefix="defaults" includes="**/**" />
+    </zip>
+  </target>
+
+  <target name="clean">
+    <delete dir="${temp-path}" failonerror="false" />
+  </target>
+
+  <target name="init">
+    <mkdir dir="${temp-path}" />
+    <mkdir dir="${target-path}" />    
+    <delete>
+      <fileset dir="${target-path}" includes="**/*.*/**"/>
+    </delete>
+  </target>
+
+  <target name="build-foxyproxy-standard" depends="init">
+    <property name="edition" value="standard" />
+    <property name="version" value="2.17" />
+    <property name="src-path" value="${temp-path}"/>
+    <antcall>
+      <target name="copy"/>
+      <param name="src-path" value="${temp-path}"/>
+    </antcall>
+    <!-- The default codebase already builds FoxyProxy Standard. We don't want to run the 
+	    any regular expression substitions when building Standard, so we skip the call to
+	    development.xml:convert-to-foxyproxy-standard -->
+    <antcall>
+      <target name="build"/>
+      <target name="clean"/>
+    </antcall>
+  </target>
+  
+  <target name="build-foxyproxy-basic" depends="init">
+    <property name="edition" value="basic" />
+    <property name="version" value="1.4" />
+    <property name="src-path" value="${temp-path}"/>
+    <antcall>
+      <target name="copy"/>
+      <param name="src-path" value="${temp-path}"/>
+    </antcall>
+    <ant antfile="development.xml" target="convert-to-foxyproxy-basic" inheritAll="true">
+      <property name="standard" value="true"/>
+    </ant>
+    <antcall>      
+      <target name="build"/>
+      <target name="clean"/>
+    </antcall>
+  </target>
+  
+</project>
