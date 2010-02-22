@@ -1,0 +1,4 @@
+* Made proxy:// warning non-modal
+* Custom foxyproxy icon for proxy:// warnings
+* Locale updates
+* Version bumps
