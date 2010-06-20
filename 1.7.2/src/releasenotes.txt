@@ -1,0 +1,2 @@
+<li>Increased Firefox version compatibilty</li>
+<li>Fixed missing icon in the Get FoxyProxy Plus button</li>
