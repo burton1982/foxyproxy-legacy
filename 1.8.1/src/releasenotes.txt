@@ -1,0 +1,2 @@
+Fixed import/export settings dialog--previously it always said "import" even when doing an export
+Updated build instructions 
