@@ -1,0 +1,2 @@
+* Added "Use Selected For All URLs" context-menu item
+* Fixed translucent context-menu popups in FF 4.
