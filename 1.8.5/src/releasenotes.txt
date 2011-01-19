@@ -1,0 +1,1 @@
+* Fix for Firefox 4.0b9 compatibility (https://bugzilla.mozilla.org/show_bug.cgi?id=622321)
