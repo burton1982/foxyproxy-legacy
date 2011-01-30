@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+  FoxyProxy - Take back your privacy!
+  Copyright (C) 2006 Eric H. Jung and LeahScape, Inc.
+  http://foxyproxy.mozdev.org/
+  eric.jung@yahoo.com
+
+  This source code is released under the GPL license,
+  available in the LICENSE file at the root of this installation
+  and also online at http://www.gnu.org/licenses/gpl.txt
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head><title>Contenuti guida di FoxyProxy</title>
+  <style type="text/css">
+    <![CDATA[
+    table {
+    	border-width: 0px 0px 0px 0px;
+    	border-spacing: 2px;
+    	border-style: none none none none;
+    	border-color: white white white white;
+    	border-collapse: separate;
+    	background-color: rgb(250, 240, 230);
+    }
+    table th {
+    	border-width: 1px 1px 1px 1px;
+    	padding: 1px 1px 1px 1px;
+    	border-style: groove groove groove groove;
+    	border-color: green green green green;
+    	background-color: rgb(250, 240, 230);
+      font-family: arial;
+    }
+    table td {
+    	border-width: 1px 1px 1px 1px;
+    	padding: 1px 1px 1px 1px;
+    	border-style: groove groove groove groove;
+    	border-color: green green green green;
+    	background-color: rgb(250, 240, 230);
+      vertical-align: top;    	
+    }
+  ]]>    
+  </style>
+  </head>
+<body style="background-color: white; font-size: small;">
+  <h3>Modelli URL</h3>
+  <p>Prima che Firefox carichi un indirizzo web, viene richiesto a FoxyProxy quale proxy usare.
+     FoxyProxy risponde tentando di abbinare l'indirizzo web attuale con tutti i modelli definiti qui sotto.
+     Il metodo pi&ugrave; semplice di specificare i modelli &egrave; usando caratteri jolly</p>        
+   <h4><a name="wildcards">Caratteri jolly</a></h4>
+   <p>I caratteri jolly sono pervasivi in tutto l'ambito dell'uso o del funzionamento dei 
+   computer. L'asterisco (*) sostituisce come carattere jolly lo zero o più caratteri insieme,
+   ed il punto interrogativo (?) sostituisce come carattere jolly qualsiasi carattere
+   </p>
+   <p>Si possono ottenere regole di corrispondenza più avanzate usando le espressioni regolari. Per ulteriori dettagli, fare clic sul pulsante "Contenuti guida" </p>
+   
+   <h4>Esempi di caratteri jolly</h4>
+   <table>
+     <thead><tr><th>Modelli URL</th><th>Alcuni abbinamenti</th><th>Alcuni non abbinamenti</th></tr></thead>
+     <tr><td>*//:*.yahoo.com/*</td><td>Ogni cosa nel dominio di Yahoo</td><td>http://mail.google.com/</td></tr>      
+     <tr><td>*//:mail.yahoo.com/*</td><td>http://mail.yahoo.com/<br/>http://mail.yahoo.com/clownshoes/<br/>http://mail.yahoo.com/inbox/123.html<br/>ftp://mail.yahoo.com</td><td>http://maps.yahoo.com</td></tr>
+     <tr><td>http://??.wikipedia.org/wiki/Clown</td><td>http://en.wikipedia.org/wiki/Clown<br/>http://de.wikipedia.org/wiki/Clown<br/>http://cs.wikipedia.org/wiki/Clown</td><td>https://en.wikipedia.org/wiki/Clown<br/>http://de.wikipedia.org/wiki/Clown/<br/>ftp://en.wikipedia.org/wiki/Clown</td></tr>
+     <tr><td>http://digg.com/</td><td>http://digg.com/</td><td>http://digg.com<br/>http://www.digg.com/</td></tr>      
+     <tr><td>*://*.asimov.???/*</td><td>ftp://ftp.asimov.net/<br/>ftp://ftp.asimov.com/theory.html<br/>http://bear.asimov.net/mom/<br/>https://isaac.asimov.org/hercules<br/>gopher://asimov.net/</td>
+       <td>ftp://ftp.asimov.co.uk<br/>http://isaac.home.com/tin.php</td></tr>     
+     <tr><td>*</td><td><i>Corrisponde tutto</i></td><td/></tr>            
+   </table>
+</body>
+</html>

@@ -1,0 +1,124 @@
+2.4
+* animated icons
+* dynamic tooltiptext for all icons (toolbar, statusbar, toolsmenu, context menu)
+* OK button is now on all tabs, not just the proxies tab
+* Fixed hyperlink address in About dialog
+* Enabling/disabling patterns in the Add/Edit Pattern dialog didn't work (introduced in version 2.3).
+Reported here: http://z9.invisionfree.com/foxyproxy/index.php?showtopic=259
+*Fixed duplicate log entries as reported here http://z9.invisionfree.com/foxyproxy/index.php?showtopic=195
+
+notes for babelzilla xlators:
+
+property value changes:
+
+<!ENTITY foxyproxy.url.pattern.label "URL or URL pattern">
+changed to
+<!ENTITY foxyproxy.url.pattern.label "URL pattern">
+
+<!ENTITY foxyproxy.url.pattern.tooltip "URL or URL pattern">
+changed to
+<!ENTITY foxyproxy.url.pattern.tooltip "URL pattern">
+
+<!ENTITY foxyproxy.wildcard.tooltip "Specifies that the URL or URL pattern uses wildcards and is not a regular expression">
+changed to
+<!ENTITY foxyproxy.wildcard.tooltip "Specifies that the URL pattern uses wildcards and is not a regular expression">
+
+<!ENTITY foxyproxy.regex.tooltip "Specifies that the URL or URL pattern is a regular expression">
+changed to
+<!ENTITY foxyproxy.regex.tooltip "Specifies that the URL pattern is a regular expression">
+
+<!ENTITY foxyproxy.quickadd.desc1 "??">
+changed to
+<!ENTITY foxyproxy.quickadd.desc1 "QuickAdd adds a dynamic URL pattern to a proxy when you press Alt-F2. It is practical alternative to AutoAdd. Customize the Alt-F2 shortcut with the ">
+
+
+<!ENTITY foxyproxy.autoadd.reload.label "Reload the page after site is added to proxy">
+changed to
+<!ENTITY foxyproxy.autoadd.reload.label "Reload the page after pattern is added to proxy">
+
+<!ENTITY foxyproxy.autoadd.reload.tooltip "Automatically reload the page after it's been added to a proxy">
+changed to
+<!ENTITY foxyproxy.autoadd.reload.tooltip "Automatically reload the page after the pattern is added to a proxy">
+
+
+<!ENTITY foxyproxy.autoadd.notify.label "Notify me when AutoAdd is triggered">
+changed to
+<!ENTITY foxyproxy.autoadd.notify.label "Notify me when AutoAdd is activated">
+
+
+Deleted:
+
+<!ENTITY foxyproxy.quickadd.label "QuickAdd">
+<!ENTITY foxyproxy.quickadd.accesskey "Q">
+<!ENTITY foxyproxy.quickadd.tooltip "QuickAdd">
+foxyproxy.autoadd.url.template.help
+
+property name changes:
+
+foxyproxy.autoadd.url.template.label
+to
+foxyproxy.pattern.template.label
+
+foxyproxy.autoadd.url.template.accesskey
+to
+foxyproxy.pattern.template.accesskey
+
+foxyproxy.autoadd.url.template.tooltip
+to
+foxyproxy.pattern.template.tooltip
+
+foxyproxy.autoadd.url.template.example.label
+to
+foxyproxy.pattern.template.example.label
+
+
+propery name changes:
+<!ENTITY foxyproxy.autoadd.pattern.name.default.label
+renamed to
+<!ENTITY foxyproxy.autoadd.pattern.label
+
+
+foxyproxy.properties:
+
+
+2.3
+
+* Fixed bug whereby toggling "Use SOCKS proxy for DNS lookups" from the statusbar, toolbar, or context-menu icons
+presented user with "Restart Now?" dialog that had only an "OK" button instead of "Yes" and "No" button.
+
+* Improved all icons
+
+* Added close button
+
+* Added option to show fp mode on statusbar in addition to icon
+
+* Added simple/advanced menu option
+
+* Save log to file
+
+* Fixed bug which permitted empty hostnames and/or empty port numbers when defining a proxy in the Proxy Settings dialog
+
+* More translations
+
+* Added context-menu item to enable/disable a proxy (requested http://z9.invisionfree.com/foxyproxy/index.php?showtopic=225)
+
+* Minor GUI fixes
+
+======================================================================================================================
+1.2   -
+      * Blacklisting
+      * Ability to view loaded PAC files
+      * i18n
+======================================================================================================================
+1.1   -
+      * Fixed auto-proxy-config bug discussed here: http://s9.invisionfree.com/foxyproxy/index.php?showtopic=6
+      * Internationalized
+      * Translations: en-US, es-ES, fr-FR, pt-BR, ru-RU, sk-SK, th-TH, zh-CN
+      * Added toolbar button with drop-down menus
+      * Added statusbar drop-down menu
+      * Expanded Tools menu
+      * License changed from LGPL to GPL
+======================================================================================================================
+1.0   - Wed, 26 Apr 2006
+      * Initial Release
+======================================================================================================================       

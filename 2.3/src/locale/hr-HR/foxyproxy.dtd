@@ -1,0 +1,323 @@
+<!ENTITY foxyproxy.label "FoxyProxy">
+<!ENTITY foxyproxy.accesskey "F">
+<!ENTITY foxyproxy.tooltip "FoxyProxy">
+<!ENTITY foxyproxy.optionsdialog.label "FoxyProxy Opcije">
+<!ENTITY foxyproxy.options.label "Opcije">
+<!ENTITY foxyproxy.options.accesskey "O">
+<!ENTITY foxyproxy.options.tooltip "Otvara prozor opcija">
+<!ENTITY foxyproxy.tree.pickertooltiptext.label "Kliknite da biste odabrali stupce koje želite prikazati">
+<!ENTITY foxyproxy.name.label "Naziv">
+<!ENTITY foxyproxy.name.accesskey "N">
+<!ENTITY foxyproxy.name.tooltip "Naziv">
+<!ENTITY foxyproxy.notes.label "Bilješka">
+<!ENTITY foxyproxy.notes.accesskey "B">
+<!ENTITY foxyproxy.notes.tooltip "Bilješka">
+<!ENTITY foxyproxy.pattern.label "Odgovarajući primjeri">
+<!ENTITY foxyproxy.pattern.name.label "Naziv primjera">
+<!ENTITY foxyproxy.pattern.type.label "Tip primjera">
+<!ENTITY foxyproxy.whitelist.blacklist.label "Dopušteni (Uključujući) ili Nedopušteni (Isključujući)">
+<!ENTITY foxyproxy.url.pattern.label "Web adresa ili primjer web adrese">
+<!ENTITY foxyproxy.url.pattern.accesskey "W">
+<!ENTITY foxyproxy.url.pattern.tooltip "Web adresa ili primjer web adrese">
+<!ENTITY foxyproxy.enabled.label "Omogućeno">
+<!ENTITY foxyproxy.enabled.accesskey "O">
+<!ENTITY foxyproxy.enabled.tooltip "Mijenja Omogućeno/Onemogućeno">
+<!ENTITY foxyproxy.delete.selection.label "Obriši odabrano">
+<!ENTITY foxyproxy.delete.selection.accesskey "b">
+<!ENTITY foxyproxy.delete.selection.tooltip "Obriši trenutno odabranu stavku">
+<!ENTITY foxyproxy.edit.selection.label "Uredi odabrano">
+<!ENTITY foxyproxy.edit.selection.accesskey "U">
+<!ENTITY foxyproxy.edit.selection.tooltip "Uredni trenutno odabranu stavku">
+<!ENTITY foxyproxy.help.label "Sadržaj pomoći">
+<!ENTITY foxyproxy.help.accesskey "p">
+<!ENTITY foxyproxy.help.tooltip "Pokaži pomoć">
+<!ENTITY foxyproxy.close.label "Zatvori">
+<!ENTITY foxyproxy.close.accesskey "Z">
+<!ENTITY foxyproxy.close.tooltip "Zatvori prozor">
+<!ENTITY foxyproxy.about.label "O">
+<!ENTITY foxyproxy.about.accesskey "O">
+<!ENTITY foxyproxy.about.tooltip "Otvara prozor O">
+<!ENTITY foxyproxy.online.label "FoxyProxy na mreži">
+<!ENTITY foxyproxy.online.accesskey "ž">
+<!ENTITY foxyproxy.online.tooltip "Posjeti FoxyProxy web stranicu">
+<!ENTITY foxyproxy.tor.label "Tor čarobnjak">
+<!ENTITY foxyproxy.tor.accesskey "č">
+<!ENTITY foxyproxy.tor.tooltip "Tor čarobnjak">
+<!ENTITY foxyproxy.copy.selection.label "Kopiraj odabrano">
+<!ENTITY foxyproxy.copy.selection.accesskey "K">
+<!ENTITY foxyproxy.copy.selection.tooltip "Kopira odabrano">
+<!ENTITY foxyproxy.mode.label "Izaberite način">
+<!ENTITY foxyproxy.auto.url.label "Web adresa za automatsko namještanje proxy-a">
+<!ENTITY foxyproxy.auto.url.accesskey "a">
+<!ENTITY foxyproxy.auto.url.tooltip "Unesite web adresu PAC datoteke">
+<!ENTITY foxyproxy.port.label "Port">
+<!ENTITY foxyproxy.port.accesskey "P">
+<!ENTITY foxyproxy.port.tooltip "Port">
+<!ENTITY foxyproxy.http.proxy.label "HTTP proxy">
+<!ENTITY foxyproxy.http.proxy.accesskey "H">
+<!ENTITY foxyproxy.http.tooltip "Web adresa HTTP proxy-a">
+<!ENTITY foxyproxy.ssl.proxy.label "SSL proxy">
+<!ENTITY foxyproxy.ssl.proxy.accesskey "S">
+<!ENTITY foxyproxy.ssl.proxy.tooltip "Web adresa SSL proxy-a">
+<!ENTITY foxyproxy.ftp.proxy.label "FTP proxy">
+<!ENTITY foxyproxy.ftp.proxy.accesskey "F">
+<!ENTITY foxyproxy.ftp.proxy.tooltip "Web adresa FTP proxy-a">
+<!ENTITY foxyproxy.gopher.proxy.label "Gopher proxy">
+<!ENTITY foxyproxy.gopher.proxy.accesskey "G">
+<!ENTITY foxyproxy.gopher.proxy.tooltip "Web adresa Gopher proxy-a">
+<!ENTITY foxyproxy.socks.proxy.label "SOCKS proxy">
+<!ENTITY foxyproxy.socks.proxy.accesskey "C">
+<!ENTITY foxyproxy.socks.proxy.tooltip "Web adresa SOCKS proxy-a">
+<!ENTITY foxyproxy.socks.v4 "SOCKS v4/4a">
+<!ENTITY foxyproxy.socks.v5 "SOCKS v5">
+<!ENTITY foxyproxy.addeditpattern.title "Dodaj/Uredi primjer">
+<!ENTITY foxyproxy.wildcard.label "Jokeri">
+<!ENTITY foxyproxy.wildcard.accesskey "J">
+<!ENTITY foxyproxy.wildcard.tooltip "Određuje da web adresa ili primjer web adrese koristi jokere i nije uobičajeni izraz">
+<!ENTITY foxyproxy.wildcard.example.label "Primjer: *mail.yahoo.com/*">
+<!ENTITY foxyproxy.regex.label "Uobičajeni izraz">
+<!ENTITY foxyproxy.regex.accesskey "U">
+<!ENTITY foxyproxy.regex.tooltip "Određuje da je web adresa ili primjer web adrese uobičajeni izraz">
+<!ENTITY foxyproxy.regex.example.label "Primjer: http?://.*\.mail\.yahoo\.com/.*">
+<!ENTITY foxyproxy.version "Inačica">
+<!ENTITY foxyproxy.createdBy "Kreirao:">
+<!ENTITY foxyproxy.copyright "Zaštita autorskih prava">
+<!ENTITY foxyproxy.rights "Sva prava pridržana.">
+<!ENTITY foxyproxy.released "Izdano pod GPL licencom.">
+<!ENTITY foxyproxy.thanks "Posebna zahvala">
+<!ENTITY foxyproxy.translations "Prijevodi">
+<!ENTITY foxyproxy.tab.general.label "Općenito">
+<!ENTITY foxyproxy.tab.general.accesskey "O">
+<!ENTITY foxyproxy.tab.general.tooltip "Upravljajte Općenitim proxy postavkama">
+<!ENTITY foxyproxy.tab.proxy.label "Proxy detalji">
+<!ENTITY foxyproxy.tab.proxy.accesskey "d">
+<!ENTITY foxyproxy.tab.proxy.tooltip "Upravljajte Proxy detaljima">
+<!ENTITY foxyproxy.tab.patterns.label "Primjeri">
+<!ENTITY foxyproxy.tab.patterns.accesskey "P">
+<!ENTITY foxyproxy.tab.patterns.tooltip "Upravljajte primjerima web adresa">
+<!ENTITY foxyproxy.add.title "Proxy postavke">
+<!ENTITY foxyproxy.pattern.description "Ovdje možete odrediti kada se upotrebljava ovaj proxy, a kada ne.">
+<!ENTITY foxyproxy.pattern.matchtype.label "Primjer sadržava">
+<!ENTITY foxyproxy.pattern.whiteblack.label "Web adresa Uključenje/Isključenje">
+<!ENTITY foxyproxy.add.option.direct.label "Direktna internet veza">
+<!ENTITY foxyproxy.add.option.direct.accesskey "D">
+<!ENTITY foxyproxy.add.option.direct.tooltip "Ne koristi proxy - koristi sadržanu direktnu internet vezu">
+<!ENTITY foxyproxy.add.option.manual.label "Ručno namještanje Proxy-a">
+<!ENTITY foxyproxy.add.option.manual.accesskey "R">
+<!ENTITY foxyproxy.add.option.manual.tooltip "Ručno odredite proxy konfiguraciju">
+<!ENTITY foxyproxy.add.new.pattern.label "Dodaj novi primjer">
+<!ENTITY foxyproxy.add.new.pattern.accesskey "D">
+<!ENTITY foxyproxy.add.new.pattern.tooltip "Dodaj novi primjer">
+<!ENTITY foxyproxy.proxy.useforall.label "Koristi ovaj proxy poslužitelj za sve protokole">
+<!ENTITY foxyproxy.proxy.useforall.accesskey "s">
+<!ENTITY foxyproxy.proxy.useforall.tooltip "Kopira ovu web adresu u druge protokole">
+<!ENTITY foxyproxy.menubar.file.label "Datoteka">
+<!ENTITY foxyproxy.menubar.file.accesskey "D">
+<!ENTITY foxyproxy.menubar.file.tooltip "Otvara izbornik datoteka">
+<!ENTITY foxyproxy.menubar.help.label "Pomoć">
+<!ENTITY foxyproxy.menubar.help.accesskey "P">
+<!ENTITY foxyproxy.menubar.help.tooltip "Otvara izbornik pomoći">
+<!ENTITY foxyproxy.mode.accesskey "i">
+<!ENTITY foxyproxy.mode.tooltip "Izabire kako omogućiti FoxyProxy">
+<!ENTITY foxyproxy.tab.proxies.label "Proxy-i">
+<!ENTITY foxyproxy.tab.proxies.accesskey "P">
+<!ENTITY foxyproxy.tab.proxies.tooltip "Uredi proxy-e">
+<!ENTITY foxyproxy.tab.global.label "Opće postavke">
+<!ENTITY foxyproxy.tab.global.accesskey "O">
+<!ENTITY foxyproxy.tab.global.tooltip "Uredi opće postavke">
+<!ENTITY foxyproxy.tab.logging.label "Zapisivanje">
+<!ENTITY foxyproxy.tab.logging.accesskey "Z">
+<!ENTITY foxyproxy.tab.logging.tooltip "Uredi postavke zapisivanja">
+<!ENTITY foxyproxy.proxydns.label "Koristi SOCKS proxy za pretrage DNS-a">
+<!ENTITY foxyproxy.proxydns.accesskey "K">
+<!ENTITY foxyproxy.proxydns.tooltip "Ako je označeno, pretrage DNS-a su preusmjerene kroz SOCKS proxy">
+<!ENTITY foxyproxy.proxydns.notice "Da bi ova promjena imala utjecaja, Firefox se mora ponovno pokrenuti. Ponovno pokrenuti sada?">
+<!ENTITY foxyproxy.showstatusbaricon.label "Prikaži ikonu u statusnoj traci">
+<!ENTITY foxyproxy.showstatusbaricon.accesskey "P">
+<!ENTITY foxyproxy.showstatusbaricon.tooltip "Ako je označeno, FoxyProxy ikona će biti prikazana u statusnoj traci">
+<!ENTITY foxyproxy.showstatusbarmode.label "Prikaži mod (tekst) u statusnoj traci">
+<!ENTITY foxyproxy.showstatusbarmode.accesskey "r">
+<!ENTITY foxyproxy.showstatusbarmode.tooltip "Ako je označeno, FoxyProxy mod će biti prikazan u statusnoj traci">
+<!ENTITY foxyproxy.storagelocation.label "Postavke mjesta spremanja">
+<!ENTITY foxyproxy.storagelocation.accesskey "s">
+<!ENTITY foxyproxy.storagelocation.tooltip "Mjesto za spremanje postavki FoxyProxy-a">
+<!ENTITY foxyproxy.tab.logging.timestamp.label "Vremenska oznaka">
+<!ENTITY foxyproxy.tab.logging.url.label "Web adresa">
+<!ENTITY foxyproxy.clear.label "Očisti">
+<!ENTITY foxyproxy.clear.accesskey "č">
+<!ENTITY foxyproxy.clear.tooltip "Očisti">
+<!ENTITY foxyproxy.refresh.label "Osvježi">
+<!ENTITY foxyproxy.refresh.accesskey "v">
+<!ENTITY foxyproxy.refresh.tooltip "Osvježi">
+<!ENTITY foxyproxy.save.label "Spremi">
+<!ENTITY foxyproxy.save.accesskey "S">
+<!ENTITY foxyproxy.save.tooltip "Spremi">
+<!ENTITY foxyproxy.addnewproxy.label "Dodaj novi Proxy">
+<!ENTITY foxyproxy.addnewproxy.accesskey "D">
+<!ENTITY foxyproxy.addnewproxy.tooltip "Dodaj novi Proxy">
+<!ENTITY foxyproxy.whitelist.label "Dozvoljeni popis">
+<!ENTITY foxyproxy.whitelist.accesskey "z">
+<!ENTITY foxyproxy.whitelist.tooltip "Web adrese koje odgovaraju ovom primjeru se učitavaju putem ovog proxy-a">
+<!ENTITY foxyproxy.whitelist.description.label "Web adrese koje odgovaraju ovom primjeru se učitavaju putem ovog proxy-a">
+<!ENTITY foxyproxy.blacklist.label "Zabranjeni popis">
+<!ENTITY foxyproxy.blacklist.accesskey "b">
+<!ENTITY foxyproxy.blacklist.tooltip "Web adrese koje odgovaraju ovom primjeru se NE učitavaju putem ovog proxy-a">
+<!ENTITY foxyproxy.blacklist.description.label "Web adrese koje odgovaraju ovom primjeru se NE učitavaju putem ovog proxy-a">
+<!ENTITY foxyproxy.whiteblack.description.label "Primjeri zabranjenog popisa (isključivanje) imaju prioritet nad primjerima dopuštenog popisa (uključivanje): ako web adresa odgovara primjeru i s dopuštenog i s zabranjenog popisa za isti proxy, web adresa je isključena od učitavanja od strane tog proxy-a.">
+<!ENTITY foxyproxy.usingPFF.label1 "Ja koristim">
+<!ENTITY foxyproxy.usingPFF.label2 "Prijenosni Firefox">
+<!ENTITY foxyproxy.usingPFF.accesskey "P">
+<!ENTITY foxyproxy.usingPFF.tooltip "Označite ovdje ako koristite Prijenosni Firefox">
+<!ENTITY foxyproxy.http.label "HTTP">
+<!ENTITY foxyproxy.http.port.label "HTTP Port">
+<!ENTITY foxyproxy.ssl.label "SSL">
+<!ENTITY foxyproxy.ssl.port.label "SSL Port">
+<!ENTITY foxyproxy.ftp.label "FTP">
+<!ENTITY foxyproxy.ftp.port.label "FTP Port">
+<!ENTITY foxyproxy.gopher.label "Gopher">
+<!ENTITY foxyproxy.gopher.port.label "Gopher Port">
+<!ENTITY foxyproxy.socks.label "SOCKS">
+<!ENTITY foxyproxy.socks.port.label "SOCKS Port">
+<!ENTITY foxyproxy.socks.version.label "SOCKS inačica">
+<!ENTITY foxyproxy.autopacurl.label "Auto PAC web adresa">
+<!ENTITY foxyproxy.chinese.simplified "Kineski (pojednostavljen)">
+<!ENTITY foxyproxy.chinese.traditional "Kineski (tradicionalni)">
+<!ENTITY foxyproxy.croatian "Hrvatski">
+<!ENTITY foxyproxy.czech "Češki">
+<!ENTITY foxyproxy.danish "Danski">
+<!ENTITY foxyproxy.dutch "Nizozemski">
+<!ENTITY foxyproxy.english "Engleski">
+<!ENTITY foxyproxy.english.british "Engleski (Britanski)">
+<!ENTITY foxyproxy.french "Francuski">
+<!ENTITY foxyproxy.german "Njemački">
+<!ENTITY foxyproxy.greek "Grčki">
+<!ENTITY foxyproxy.italian "Talijanski">
+<!ENTITY foxyproxy.persian "Perzijski">
+<!ENTITY foxyproxy.polish "Poljski">
+<!ENTITY foxyproxy.portugese.brazilian "Portugalski (Brazilski)">
+<!ENTITY foxyproxy.portugese.portugal "Portugalski (Portugal)">
+<!ENTITY foxyproxy.romanian "Rumunjski">
+<!ENTITY foxyproxy.russian "Ruski">
+<!ENTITY foxyproxy.slovak "Slovački">
+<!ENTITY foxyproxy.spanish.spain "Španjolski (Španjolska)">
+<!ENTITY foxyproxy.spanish.argentina "Španjolski (Argentina)">
+<!ENTITY foxyproxy.thai.thailand "Tajlandski (Tajland)">
+<!ENTITY foxyproxy.turkish "Turski">
+<!ENTITY foxyproxy.ukrainian "Ukrainski">
+<!ENTITY foxyproxy.your.language "Vaš jezik">
+<!ENTITY foxyproxy.your.name.here "Vaše ime ovdje!">
+<!ENTITY foxyproxy.moveup.label "Pomakni gore">
+<!ENTITY foxyproxy.moveup.tooltip "Povećaj prioritet trenutačno označenog">
+<!ENTITY foxyproxy.moveup.accesskey "r">
+<!ENTITY foxyproxy.movedown.label "Pomakni dolje">
+<!ENTITY foxyproxy.movedown.tooltip "Smanji prioritet trenutačno označenog">
+<!ENTITY foxyproxy.movedown.accesskey "d">
+<!ENTITY foxyproxy.autoconfurl.view.label "Pogledaj">
+<!ENTITY foxyproxy.autoconfurl.view.accesskey "g">
+<!ENTITY foxyproxy.autoconfurl.view.tooltip "Pogledaj datoteku automatske konfiguracije">
+<!ENTITY foxyproxy.autoconfurl.test.label "Testiraj">
+<!ENTITY foxyproxy.autoconfurl.test.accesskey "T">
+<!ENTITY foxyproxy.autoconfurl.test.tooltip "Testiraj datoteku automatske konfiguracije">
+<!ENTITY foxyproxy.logging.maxsize.label "Najveća veličina">
+<!ENTITY foxyproxy.logging.maxsize.accesskey "ć">
+<!ENTITY foxyproxy.logging.maxsize.tooltip "Najveći broj unosa u zapis prije nego li zapis ponovno počne od početka">
+<!ENTITY foxyproxy.logging.maxsize.button.label "Postavi">
+<!ENTITY foxyproxy.logging.maxsize.button.accesskey "s">
+<!ENTITY foxyproxy.logging.maxsize.button.tooltip "Postavlja najveći broj unosa u zapis prije nego li zapis ponovno počne od početka">
+<!ENTITY foxyproxy.random.label "Učitaj web adrese kroz nasumične proxy-e (ignoriraj sve primjere i prioritete)">
+<!ENTITY foxyproxy.random.accesskey "č">
+<!ENTITY foxyproxy.random.tooltip "Učitaj web adrese kroz nasumične proxy-e (ignoriraj sve primjere i prioritete)">
+<!ENTITY foxyproxy.random.includedirect.label "Uključi proxy-e konfigurirane kao direktne internet veze">
+<!ENTITY foxyproxy.random.includedirect.accesskey "i">
+<!ENTITY foxyproxy.random.includedirect.tooltip "Proxy-i konfigurirani kao direktne internet veze su uključeni u nasumce izabrane proxy-e">
+<!ENTITY foxyproxy.random.includedisabled.label "Uključi onemogučene proxy-e">
+<!ENTITY foxyproxy.random.includedisabled.accesskey "m">
+<!ENTITY foxyproxy.random.includedisabled.tooltip "Proxy-i konfigurirani kao onemogučeni su uključeni u nasumce izabrane proxy-e">
+<!ENTITY foxyproxy.random.settings.label "Nasumično odabiranje proxy-a">
+<!ENTITY foxyproxy.random.settings.accesskey "r">
+<!ENTITY foxyproxy.random.settings.tooltip "Postavke koje obuhvaćaju nasumično odabirnje proxy-a">
+<!ENTITY foxyproxy.tab.autoadd.label "Automatsko dodavanje">
+<!ENTITY foxyproxy.tab.autoadd.accesskey "A">
+<!ENTITY foxyproxy.tab.autoadd.tooltip "Upravljajte postavkama automatskog dodavanja">
+<!ENTITY foxyproxy.autoadd.description "Odredite primjer koji određuje blokirane web stranice. Kada je nađen primjer na stranici, koji odgovara web adresi te stranice, automatski je dodan u proxy i opcionalno ponovno učitan. Ovo Vas spriječava da morate proaktivno određivati sve blokirane web stranice.">
+<!ENTITY foxyproxy.autoadd.pattern.name.default.label "Primjer za određivanje blokiranih web stranica">
+<!ENTITY foxyproxy.autoadd.pattern.accesskey "P">
+<!ENTITY foxyproxy.autoadd.pattern.tooltip "Primjer koji određuje blokirane web stranice">
+<!ENTITY foxyproxy.autoadd.wildcard.example.label "Primjer: *Nemate dopuštenje da biste pogledali ovu stranicu*">
+<!ENTITY foxyproxy.autoadd.regex.example.label "Primjer: .*Stranica.*je blokirana.*">
+<!ENTITY foxyproxy.autoadd.proxy.label "Proxy-i za koje su primjeri automatski dodani">
+<!ENTITY foxyproxy.autoadd.proxy.accesskey "P">
+<!ENTITY foxyproxy.autoadd.proxy.tooltip "Odredite proxy za koji su web adrese automatski dodane">
+<!ENTITY foxyproxy.autoadd.url.template.label "Predložak primjera web adresa">
+<!ENTITY foxyproxy.autoadd.url.template.accesskey "d">
+<!ENTITY foxyproxy.autoadd.url.template.tooltip "Predložak primjera web adresa">
+<!ENTITY foxyproxy.autoadd.url.template.example.label "Primjer za http://mail.foo.com:8080/inbox/msg1024#subject">
+<!ENTITY foxyproxy.autoadd.url.template.help "Predložak primjera web adresa određuje oblik s kojim su web adrese automatski dodane proxy-ima. Posebna oznaka ${1} je zamijenjena s trenutnim nazivom poslužitelja.">
+<!ENTITY foxyproxy.autoadd.reload.label "Ponovno učitaj stranicu nakon što je stranica dodana u proxy">
+<!ENTITY foxyproxy.autoadd.reload.accesskey "č">
+<!ENTITY foxyproxy.autoadd.reload.tooltip "Ponovno učitava stranicu nakon što je dodana u proxy">
+<!ENTITY foxyproxy.autoadd.notify.label "Obavijesti me ako je pokrenuto automatsko dodavanje">
+<!ENTITY foxyproxy.autoadd.notify.accesskey "m">
+<!ENTITY foxyproxy.autoadd.notify.tooltip "Obaviještava Vas kada je stranica blokirana i primjer web stranice je dodan u proxy">
+<!ENTITY foxyproxy.graphics "Grafički dizajn i slike">
+<!ENTITY foxyproxy.website "Web stranica">
+<!ENTITY foxyproxy.contributions "Doprinosi">
+<!ENTITY foxyproxy.pacloadnotification.label "Obavijesti me o učitavanju datoteke auto konfiguracije proxy-a">
+<!ENTITY foxyproxy.pacloadnotification.accesskey "j">
+<!ENTITY foxyproxy.pacloadnotification.tooltip "Prikaži skočni prozor kada se učita PAC datoteka">
+<!ENTITY foxyproxy.pacerrornotification.label "Obavijesti me o greškama datoteke auto konfiguracije proxy-a">
+<!ENTITY foxyproxy.pacerrornotification.accesskey "e">
+<!ENTITY foxyproxy.pacerrornotification.tooltip "Prikaži skočni prozor prilikom nailaženja na greške PAC datoteke">
+<!ENTITY foxyproxy.toolsmenu.label "Prikaži FoxyProxy u Firefoxovom alatnom izborniku.">
+<!ENTITY foxyproxy.toolsmenu.accesskey "a">
+<!ENTITY foxyproxy.toolsmenu.tooltip "Prikaži FoxyProxy u Firefoxovom alatnom izborniku.">
+<!ENTITY foxyproxy.contextmenu.label "Prikaži FoxyProxy u kontekstnom izborniku.">
+<!ENTITY foxyproxy.contextmenu.accesskey "k">
+<!ENTITY foxyproxy.contextmenu.tooltip "Prikaži FoxyProxy u kontekstnom izborniku.">
+<!ENTITY foxyproxy.quickadd.desc "Brzo dodavanje dodaje trenutnu web adresu u predodređeni proxy kada pritisnete Alt-F2. o je praktična alternativa za Automatsko dodavanje">
+<!ENTITY foxyproxy.quickadd.label "Brzo dodavanje">
+<!ENTITY foxyproxy.quickadd.accesskey "B">
+<!ENTITY foxyproxy.quickadd.tooltip "Brzo dodavanje">
+<!ENTITY foxyproxy.quickadd.notify "Obvijesti me nakon što je aktivirano Brzo dodavanje">
+<!ENTITY foxyproxy.selectproxy.label "Odabetite proxy">
+<!ENTITY foxyproxy.selectproxy.accesskey "O">
+<!ENTITY foxyproxy.selectproxy.tooltip "Odaberite proxy kojem će biti dodan primjer">
+<!ENTITY foxyproxy.animatedicons.label "Animiraj ikonu statusne trake kada se koriste proxy-i">
+<!ENTITY foxyproxy.animatedicons.accesskey "A">
+<!ENTITY foxyproxy.animatedicons.tooltip "Animiraj ikonu statusne trake kada se koriste proxy-i">
+<!ENTITY foxyproxy.bypasscache.label "Zabiđi Firefox privremeni spremnik kod učitavanja">
+<!ENTITY foxyproxy.bypasscache.accesskey "b">
+<!ENTITY foxyproxy.bypasscache.tooltip "Firefox privremeni spremnik je zanemaren">
+<!ENTITY foxyproxy.advancedmenus.label "Koristi napredne izbornike">
+<!ENTITY foxyproxy.advancedmenus.accesskey "z">
+<!ENTITY foxyproxy.advancedmenus.tooltip "Koristi napredne izbornike (FoxyProxy 2.2-stil)">
+<!ENTITY foxyproxy.importsettings.label "Uvezi postavke">
+<!ENTITY foxyproxy.importsettings.accesskey "U">
+<!ENTITY foxyproxy.importsettings.tooltip "Uvezite postavke iz datoteke">
+<!ENTITY foxyproxy.exportsettings.label "Izvezi trenutne postavke">
+<!ENTITY foxyproxy.exportsettings.accesskey "I">
+<!ENTITY foxyproxy.exportsettings.tooltip "Izvezite trenutne postavke u datoteku">
+<!ENTITY foxyproxy.importlist.label "Uvezi popis proxy-a">
+<!ENTITY foxyproxy.importlist.accesskey "U">
+<!ENTITY foxyproxy.importlist.tooltip "Uvezite tekstualnu datoteku popisa proxy-a">
+<!ENTITY foxyproxy.wildcard.reference.label "Preporuka jokera">
+<!ENTITY foxyproxy.wildcard.reference.accesskey "j">
+<!ENTITY foxyproxy.wildcard.reference.tooltip "Preporuka jokera">
+<!ENTITY foxyproxy.wildcard.reference.subtitle.label "Zvjezdica (*) odgovara niti jednom ili više znakova, a upitnik (?) odgovara bilo kojem jednom znaku">
+<!ENTITY foxyproxy.wildcard.reference.mistakes "Uobičajene pogreške kod pisanja primjera jokera">
+<!ENTITY foxyproxy.wildcard.reference.goal.label "Cilj">
+<!ENTITY foxyproxy.wildcard.reference.goal1.label "Podudarnost svih stranica u MySpace www poddomeni">
+<!ENTITY foxyproxy.wildcard.reference.goal2.label "Podudarnost lokalnog računala">
+<!ENTITY foxyproxy.wildcard.reference.goal3.label "Podudarnost svih poddomena i stranica na abc.com">
+<!ENTITY foxyproxy.wildcard.reference.goal4.label "Podudarnost svih stranica na a.foo.com domeni, ali ne na b.foo.com">
+<!ENTITY foxyproxy.wildcard.reference.correct.label "Ispravno">
+<!ENTITY foxyproxy.wildcard.reference.correct2.label "Moraju biti dva primjera">
+<!ENTITY foxyproxy.wildcard.reference.incorrect.label "Neispravno">
+<!ENTITY foxyproxy.wildcard.reference.incorrect.reason.label "Razlog zašto je neispravno">
+<!ENTITY foxyproxy.wildcard.reference.incorrect.reason1.label "Pošto ne postoji niti jedan joker, podudara se samo početna stranica">
+<!ENTITY foxyproxy.wildcard.reference.incorrect.reason2.label "FoxyProxy ne razumije taj način sintakse">
+<!ENTITY foxyproxy.wildcard.reference.incorrect.reason3.label "Nema jokera">
+<!ENTITY foxyproxy.wildcard.reference.incorrect.reason4.label "Nema jokera">
+<!ENTITY foxyproxy.logging.noURLs.label "Ne spremaj ili prikazuj web adrese">
+<!ENTITY foxyproxy.logging.noURLs.accesskey "w">
+<!ENTITY foxyproxy.logging.noURLs.tooltip "Web adrese nisu spremljene u memoriji ili na disku">

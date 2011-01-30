@@ -1,0 +1,67 @@
+﻿<?xml version="1.0"?>
+<!--
+  FoxyProxy - Take back your privacy!
+  Copyright (C) 2006 Eric H. Jung and LeahScape, Inc.
+  http://foxyproxy.mozdev.org/
+  eric.jung@yahoo.com
+
+  This source code is released under the GPL license,
+  available in the LICENSE file at the root of this installation
+  and also online at http://www.gnu.org/licenses/gpl.txt
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head><title>FoxyProxy hjälp</title>
+  <style type="text/css">
+    <![CDATA[
+    table {
+    	border-width: 0px 0px 0px 0px;
+    	border-spacing: 2px;
+    	border-style: none none none none;
+    	border-color: white white white white;
+    	border-collapse: separate;
+    	background-color: rgb(250, 240, 230);
+    }
+    table th {
+    	border-width: 1px 1px 1px 1px;
+    	padding: 1px 1px 1px 1px;
+    	border-style: groove groove groove groove;
+    	border-color: green green green green;
+    	background-color: rgb(250, 240, 230);
+      font-family: arial;
+    }
+    table td {
+    	border-width: 1px 1px 1px 1px;
+    	padding: 1px 1px 1px 1px;
+    	border-style: groove groove groove groove;
+    	border-color: green green green green;
+    	background-color: rgb(250, 240, 230);
+      vertical-align: top;    	
+    }
+  ]]>    
+  </style>
+  </head>
+<body style="background-color: white; font-size: small;">
+  <h3>URL-mönster</h3>
+  <p>Innan Firefox laddar en URL frågar Firefox FoxyProxy om en proxy skall användas.
+     FoxyProxy svarar på denna fråga med att försöka matcha aktuell URL med alla URL-mönster du definierar nedan.
+     Enklaste sättet att specifiera mönster är med ersättningstecken.</p>        
+   <h4><a name="wildcards">Ersättningstecken</a></h4>
+   <p>Ersättningstecken är genomgående i datavärlden och du har förmodligen sett dom innan. Stjärna (*) ersätter noll eller flera,
+   och frågetecken (?) ersätter ett enstaka tecken.</p>
+   <p>Mer avancerade matching genom regler är möjlig användning av regelbundna uttryck. För fler detaljer klicka på knappen "Hjälpinnehåll".</p>
+   
+   <h4>Exampel med ersättningstecken</h4>
+   <table>
+     <thead><tr><th>URL-mönster</th><th>Matchar bl.a.</th><th>Matchar bl.a. inte</th></tr></thead>
+     <tr><td>*://*.yahoo.com/*</td><td>Allt i Yahoos domän</td><td>http://mail.google.com/</td></tr>      
+     <tr><td>*://mail.yahoo.com/*</td><td>http://mail.yahoo.com/<br/>http://mail.yahoo.com/clownshoes/<br/>http://mail.yahoo.com/inbox/123.html<br/>ftp://mail.yahoo.com</td><td>http://maps.yahoo.com</td></tr>
+     <tr><td>http://??.wikipedia.org/wiki/Clown</td><td>http://en.wikipedia.org/wiki/Clown<br/>http://de.wikipedia.org/wiki/Clown<br/>http://cs.wikipedia.org/wiki/Clown</td><td>https://en.wikipedia.org/wiki/Clown<br/>http://de.wikipedia.org/wiki/Clown/<br/>ftp://en.wikipedia.org/wiki/Clown</td></tr>
+     <tr><td>http://digg.com/</td><td>http://digg.com/</td><td>http://digg.com<br/>http://www.digg.com/</td></tr>      
+     <tr><td>*://*.asimov.???/*</td><td>ftp://ftp.asimov.net/<br/>ftp://ftp.asimov.com/theory.html<br/>http://bear.asimov.net/mom/<br/>https://isaac.asimov.org/hercules<br/>gopher://asimov.net/</td>
+       <td>ftp://ftp.asimov.co.uk<br/>http://isaac.home.com/tin.php</td></tr>     
+     <tr><td>*</td><td><i>Matchar allt</i></td><td/></tr>            
+   </table>
+</body>
+</html></body>
+</html></html>

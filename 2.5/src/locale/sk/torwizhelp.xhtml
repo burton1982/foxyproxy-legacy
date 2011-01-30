@@ -1,0 +1,68 @@
+﻿<?xml version="1.0"?>
+<!--
+  FoxyProxy - Take back your privacy!
+  Copyright (C) 2006 Eric H. Jung and LeahScape, Inc.
+  http://foxyproxy.mozdev.org/
+  eric.jung@yahoo.com
+
+  This source code is released under the GPL license,
+  available in the LICENSE file at the root of this installation
+  and also online at http://www.gnu.org/licenses/gpl.txt
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Pomocník rozšírenia FoxyProxy</title>
+		<style type="text/css">
+			<![CDATA[
+				table
+				{
+					border-width: 0px 0px 0px 0px;
+					border-spacing: 2px;
+					border-style: none none none none;
+					border-color: white white white white;
+					border-collapse: separate;
+					background-color: rgb(250, 240, 230);
+				}
+
+				table th
+				{
+					border-width: 1px 1px 1px 1px;
+					padding: 1px 1px 1px 1px;
+					border-style: groove groove groove groove;
+					border-color: green green green green;
+					background-color: rgb(250, 240, 230);
+					font-family: arial;
+				}
+
+				table td
+				{
+					border-width: 1px 1px 1px 1px;
+					padding: 1px 1px 1px 1px;
+					border-style: groove groove groove groove;
+					border-color: green green green green;
+					background-color: rgb(250, 240, 230);
+					vertical-align: top;    	
+				}
+			]]>    
+		</style>
+	</head>
+	<body style="background-color: white; font-size: small;">
+		<h3>Vzory URL</h3>
+		<p>Skôr ako Firefox načíta URL, opýta sa FoxyProxy, či má použiť proxy server. FoxyProxy odpovie na túto otázku s pokusom o pridelenie proxy servera k aktuálnej URL podľa všetkých nastavených vzorov URL. Tento proces je extrémne rýchly. Na pridelenie proxy servera k URL sú s FoxyProxy dva spôsoby: <a href="#wildcards">zástupné znaky</a> alebo <a href="#regex">regulárny výraz (RegEx)</a>.</p>
+		<h4><a name="wildcards">Zástupné znaky</a></h4>
+		<p><a href="http://en.wikipedia.org/wiki/Wildcard_character">Zástupné znaky</a> nás vo svete počítačov obklopujú všade; väčšina z vás sa už s nimi stretla. <a href="http://en.wikipedia.org/wiki/Asterisk">Hviezdička</a> (*) slúži ako zástupný znak za nula a viac znakov a otáznik (?) nahrádza ako zástupný znak jeden ľubovoľný znak.</p>
+		<p>Ďalšie pokročilé pravidlá sú možné vďaka regulárnym výrazom. Podrobnosti nájdete po kliknutí na tlačidlo &bdquo;Obsah Pomocníka&rdquo;.</p>
+		<h4>Príklady použitia zástupných znakov</h4>
+		<table>
+			<thead>
+				<tr>
+					<th>Vzor URL</th>
+					<th>Vyhovujúce URL</th>
+					<th>Nevyhovujúce URL</th>
+				</tr>
+			</thead>
+			<tr>
+				<td>*//:*.yahoo.com/*</td>
+				<td>Vyhovujú všetky URL v doméne Yahoo</td>
+				<td>http://mail.google.com/</td>

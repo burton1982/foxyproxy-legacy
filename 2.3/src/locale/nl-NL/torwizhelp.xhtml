@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+  FoxyProxy - Take back your privacy!
+  Copyright (C) 2006 Eric H. Jung and LeahScape, Inc.
+  http://foxyproxy.mozdev.org/
+  eric.jung@yahoo.com
+
+  This source code is released under the GPL license,
+  available in the LICENSE file at the root of this installation
+  and also online at http://www.gnu.org/licenses/gpl.txt
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head><title>FoxyProxy Help</title>
+  <style type="text/css">
+    <![CDATA[
+    table {
+    	border-width: 0px 0px 0px 0px;
+    	border-spacing: 2px;
+    	border-style: none none none none;
+    	border-color: white white white white;
+    	border-collapse: separate;
+    	background-color: rgb(250, 240, 230);
+    }
+    table th {
+    	border-width: 1px 1px 1px 1px;
+    	padding: 1px 1px 1px 1px;
+    	border-style: groove groove groove groove;
+    	border-color: green green green green;
+    	background-color: rgb(250, 240, 230);
+      font-family: arial;
+    }
+    table td {
+    	border-width: 1px 1px 1px 1px;
+    	padding: 1px 1px 1px 1px;
+    	border-style: groove groove groove groove;
+    	border-color: green green green green;
+    	background-color: rgb(250, 240, 230);
+      vertical-align: top;    	
+    }
+  ]]>    
+  </style>
+  </head>
+<body style="background-color: white; font-size: small;">
+  <h3>URL Patronen</h3>
+  <p>Voordat Firefox een URL laadt, vraagt het aan FoxyProxy of een proxy moet worden gebruikt.
+     FoxyProxy beantwoordt deze vraag door de huidige URL te vergelijken met alle URL patronen hieronder      gedefinieerd.
+     De eenvoudigste manier om een patroon te specificeren is met wildcards.</p>        
+   <h4><a name="wildcards">Wildcards</a></h4>
+   <p>Wildcards worden in de gehele computerwereld gebruikt; waarschijnlijk hebt u ze wel eens eerder
+   gezien. De asterisk (*) dient als wildcard karakter voor nul of meer karakters,
+   en het vraagteken (?) dient als wildcard karakter voor een willekeurig enkel karakter.
+   </p>
+   <p>Meer geavanceerde vergelijkingsregels zijn mogelijk door gebruik te maken van reguliere uitdrukkingen. Klik voor details op de "Help Inhoud" knop.</p>
+   
+   <h4>Wildcard voorbeelden</h4>
+   <table>
+     <thead><tr><th>URL patroon</th><th>Enkele matches</th><th>Enkele niet-matches</th></tr></thead>
+     <tr><td>*//:*.yahoo.com/*</td><td>Alles in het Yahoo-domein</td><td>http://mail.google.com/</td></tr>      
+     <tr><td>*//:mail.yahoo.com/*</td><td>http://mail.yahoo.com/<br/>http://mail.yahoo.com/clownshoes/<br/>http://mail.yahoo.com/inbox/123.html<br/>ftp://mail.yahoo.com</td><td>http://maps.yahoo.com</td></tr>
+     <tr><td>http://??.wikipedia.org/wiki/Clown</td><td>http://en.wikipedia.org/wiki/Clown<br/>http://de.wikipedia.org/wiki/Clown<br/>http://cs.wikipedia.org/wiki/Clown</td><td>https://en.wikipedia.org/wiki/Clown<br/>http://de.wikipedia.org/wiki/Clown/<br/>ftp://en.wikipedia.org/wiki/Clown</td></tr>
+     <tr><td>http://digg.com/</td><td>http://digg.com/</td><td>http://digg.com<br/>http://www.digg.com/</td></tr>      
+     <tr><td>*://*.asimov.???/*</td><td>ftp://ftp.asimov.net/<br/>ftp://ftp.asimov.com/theory.html<br/>http://bear.asimov.net/mom/<br/>https://isaac.asimov.org/hercules<br/>gopher://asimov.net/</td>
+       <td>ftp://ftp.asimov.co.uk<br/>http://isaac.home.com/tin.php</td></tr>     
+     <tr><td>*</td><td><i>Matcht alles</i></td><td/></tr>            
+   </table>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+  FoxyProxy - Take back your privacy!
+  Copyright (C) 2006 Eric H. Jung and LeahScape, Inc.
+  http://foxyproxy.mozdev.org/
+  eric.jung@yahoo.com
+
+  This source code is released under the GPL license,
+  available in the LICENSE file at the root of this installation
+  and also online at http://www.gnu.org/licenses/gpl.txt
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head><title>Ayuda de FoxyProxy</title>
+  <style type="text/css">
+    <![CDATA[
+    table {
+    	border-width: 0px 0px 0px 0px;
+    	border-spacing: 2px;
+    	border-style: none none none none;
+    	border-color: white white white white;
+    	border-collapse: separate;
+    	background-color: rgb(250, 240, 230);
+    }
+    table th {
+    	border-width: 1px 1px 1px 1px;
+    	padding: 1px 1px 1px 1px;
+    	border-style: groove groove groove groove;
+    	border-color: green green green green;
+    	background-color: rgb(250, 240, 230);
+      font-family: arial;
+    }
+    table td {
+    	border-width: 1px 1px 1px 1px;
+    	padding: 1px 1px 1px 1px;
+    	border-style: groove groove groove groove;
+    	border-color: green green green green;
+    	background-color: rgb(250, 240, 230);
+      vertical-align: top;    	
+    }
+  ]]>    
+  </style>
+  </head>
+<body style="background-color: white; font-size: small;">
+  <h3>Patrones URL</h3>
+  <p>Antes de que Firefox abra una URL, le pregunta a FoxyProxy si debe utilizar un proxy. 
+     FoxyProxy contesta esta pregunta procurando emparejar la URL actual con todos los patrones de URL que usted haya definido.
+     La manera más sencilla de especificar patrones es utilizar comodines.</p>        
+   <h4><a name="wildcards">Comodines</a></h4>
+   <p>Los comodines son profusamente utilizados en computación; usted muy 
+   probablemente los haya visto antes. El (*) asterisco sustituye como caracter comodín a cero o más caracteres,
+   y el (?) signo de interrogación sustituye como carácter comodín a cualquier caracter.
+   </p>
+   <p>Es posible definir reglas de coincidencia más avanzadas utilizando expresiones regulares. Para más detalles, haga click en el botón "Contenido de la Ayuda".</p>
+   
+   <h4>Ejemplos de Comodines</h4>
+   <table>
+     <thead><tr><th>Patrones URL</th><th>Algunos Coinciden</th><th>Algunos No Coinciden</th></tr></thead>
+     <tr><td>*://*.yahoo.com/*</td><td>Todo en el dominio de Yahoo</td><td>http://mail.google.com/</td></tr>      
+     <tr><td>*://mail.yahoo.com/*</td><td>http://mail.yahoo.com/<br/>http://mail.yahoo.com/clownshoes/<br/>http://mail.yahoo.com/inbox/123.html<br/>ftp://mail.yahoo.com</td><td>http://maps.yahoo.com</td></tr>
+     <tr><td>http://??.wikipedia.org/wiki/Clown</td><td>http://en.wikipedia.org/wiki/Clown<br/>http://de.wikipedia.org/wiki/Clown<br/>http://cs.wikipedia.org/wiki/Clown</td><td>https://en.wikipedia.org/wiki/Clown<br/>http://de.wikipedia.org/wiki/Clown/<br/>ftp://en.wikipedia.org/wiki/Clown</td></tr>
+     <tr><td>http://digg.com/</td><td>http://digg.com/</td><td>http://digg.com<br/>http://www.digg.com/</td></tr>      
+     <tr><td>*://*.asimov.???/*</td><td>ftp://ftp.asimov.net/<br/>ftp://ftp.asimov.com/theory.html<br/>http://bear.asimov.net/mom/<br/>https://isaac.asimov.org/hercules<br/>gopher://asimov.net/</td>
+       <td>ftp://ftp.asimov.co.uk<br/>http://isaac.home.com/tin.php</td></tr>     
+     <tr><td>*</td><td><i>Todos Coinciden</i></td><td/></tr>            
+   </table>
+</body>
+</html>

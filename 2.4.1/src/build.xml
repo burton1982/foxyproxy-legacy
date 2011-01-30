@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  FoxyProxy - Take back your privacy!
+  Copyright (C) 2006 Eric H. Jung and LeahScape, Inc.
+  http://foxyproxy.mozdev.org/
+  eric.jung@yahoo.com
+
+  This library is free software; you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation; either version 2.1 of the License, or (at
+  your option) any later version.
+
+  This library is distributed in the hope that it will be useful, but WITHOUT
+  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  FITNESSFOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+  for more details.
+
+  You should have received a copy of the GNU Lesser General Public License
+  along with this library; if not, write to the Free Software Foundation,
+  Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+-->
+
+<project name="foxyproxy" default="build-with-obfuscation"  basedir="c:/temp/fp-temp">
+  <taskdef name="jsmin" classname="com.leahscape.ant.JSMinTask" classpath="L:/dev/foxyproxy/jsmin-ant-task/trunk/classes" />
+
+  <!-- version property is appended to XPI filename; e.g., foxyproxy-1.0.xpi -->
+  <property name="version" value="2.4.1" />
+  <property name="temp-path" value="c:/temp/fp-temp" />
+  <property name="src-base" value="L:/dev/foxyproxy/standard/fx+flock/trunk/src"/>
+  
+
+  <!-- guid of your extension -->
+  <property name="guid" value="{foxyproxy@eric.h.jung}" />
+
+  <target name="copy">
+    <copy todir="${temp-path}" overwrite="true">
+      <!-- ignore timestamps -->
+      <fileset dir="${src-base}" excludes="**/*.xpi/**,**/*.jar/**,**/build.xml/**,**/chrome.manifest/**,**/*.project/**,**/tbird*.*/**,**/quickadd*/**" />
+    </copy>
+  </target>
+
+  <!--<target name="obfuscate">   THIS WORKS BUT HOSES SOME OF THE JS FILES!
+    <apply executable="cscript.exe">
+      <arg value="//NoLogo"/>
+      <arg value="l:/dev/packer/wsf/pack.wsf"/>
+      <srcfile/>      
+      <fileset dir="${temp-path}" includes="**/*.js/**" excludes="**/register.js/**,**/prefs.js/**"/>
+    </apply>        
+  </target>-->
+
+  <target name="min-xml-files">
+    <!-- remove comments   -->
+    <replaceregexp match="&lt;\!\-\-.*\-\-&gt;" replace="" flags="gm" byline="false">
+      <fileset dir="${temp-path}" includes="**/*.xml/**,**/*.xul/**,**/*.rdf/**" />
+    </replaceregexp>
+
+    <!-- remove newlines -->
+    <replace dir="${temp-path}" value="" includes="**/*.xml/**,**/*.xul/**,**/*.rdf/**">
+      <replacetoken>
+        <![CDATA[
+]]>
+      </replacetoken>
+    </replace>
+
+    <!-- remove extraneous whitespace -->
+    <replaceregexp match="\s+" replace=" " flags="g">
+      <fileset dir="${temp-path}" includes="**/*.xml/**,**/*.xul/**,**/*.rdf/**" />
+    </replaceregexp>
+
+    <!-- remove whitespace between elements -->
+    <replaceregexp match="&gt;\s+&lt;" replace="&gt;&lt;" flags="g">
+      <fileset dir="${temp-path}" includes="**/*.xml/**,**/*.xul/**,**/*.rdf/**" />
+    </replaceregexp>
+  </target>
+
+  <target name="min-js-files">
+    <jsmin destdir="c:/temp/eraseme2112">
+      <fileset dir="${temp-path}" includes="**/*.js/**" />
+    </jsmin>
+    <copydir dest="${temp-path}" src="c:/temp/eraseme2112" forceoverwrite="true"/>
+    <delete dir="c:/temp/eraseme2112"/>
+  </target>
+
+  <!-- create the jar -->
+  <target name="jar">
+    <zip destfile="chrome/foxyproxy.jar">
+      <zipfileset dir="${temp-path}/content" prefix="content" includes="**/**" />
+      <zipfileset dir="${temp-path}/skin" prefix="skin" includes="**/**" />
+      <zipfileset dir="${temp-path}/locale" prefix="locale" includes="**/**" />
+    </zip>
+  </target>
+
+  <!-- create foxyproxy-x.y.z.xpi in the current dir using install.rdf in the current dir -->
+  <target name="build-unsigned">
+    <move file="chrome.manifest.packaging" tofile="chrome.manifest" />
+    <zip destfile="${src-base}/foxyproxy-${version}-unsigned.xpi">
+      <fileset dir="${temp-path}" includes="chrome.manifest install.rdf LICENSE chrome/" />
+      <zipfileset dir="${temp-path}/components" prefix="components" includes="**/**" />
+      <zipfileset dir="${temp-path}/defaults" prefix="defaults" includes="**/**" />
+    </zip>
+  </target>
+  
+  <target name="sign">
+    <delete dir="${temp-path}/content" failonerror="true"/>    
+    <property name="sign-exes" value="L:/dev/xpi-signing/bin"/>    
+    <property name="certdb" value="L:/dev/xpi-signing/certdb"/>        
+    <exec executable="${sign-exes}/signtool">
+      <arg value="-d"/>
+      <arg value="${certdb}"/>
+      <arg value="-k"/>      
+      <arg value="myTestCert"/>            
+      <arg value="-p"/>            
+      <arg value="1necroma"/>    
+      <arg value="${temp-path}"/>      
+    </exec>    
+  </target>
+  
+  <target name="build-signed">
+    <copy file="${src-base}/foxyproxy-${version}-unsigned.xpi" tofile="${src-base}/foxyproxy-${version}-signed.xpi"/>    
+    <!-- must use pkzipc to maintain correct file order
+    <property name="zip-path" value="C:/progra~1/PKWARE/PKZIPC"/>
+ 
+    <exec executable="${zip-path}/pkzipc.exe">
+      <arg value="-noarchiveextension"/>            
+      <arg value="-sort=natural"/>      
+      <arg value="-add"/>
+      <arg value="-path=current"/>
+      <arg value="${src-base}/foxyproxy-${version}-signed.xpi"/> 
+      <arg value="META-INF/zigbert.rsa"/>      
+      <arg value="META-INF/zigbert.sf"/>  
+      <arg value="META-INF/manifest.mf"/>        
+  </exec>    -->
+    <zip destfile="${src-base}/foxyproxy-${version}-signed.xpi" update="true">
+      <fileset dir="${temp-path}" includes="META-INF/manifest.mf" />
+    </zip>
+    <zip destfile="${src-base}/foxyproxy-${version}-signed.xpi" update="true">
+      <fileset dir="${temp-path}" includes="META-INF/zigbert.sf" />
+    </zip>        
+    <zip destfile="${src-base}/foxyproxy-${version}-signed.xpi" update="true">
+      <fileset dir="${temp-path}" includes="META-INF/zigbert.rsa" />
+    </zip>          
+  </target> 
+
+  <target name="clean">
+    <delete dir="${temp-path}" failonerror="false" />
+    <mkdir dir="${temp-path}" />
+  </target>
+  
+  <target name="build-with-obfuscation" depends="copy,min-xml-files,min-js-files,jar,build-unsigned,sign,build-signed,clean" />
+  <target name="build-without-obfuscation" depends="copy,jar,build-unsigned,sign,build-signed,clean" />
+</project>

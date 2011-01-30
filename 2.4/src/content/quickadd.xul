@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!--
+  FoxyProxy - Take back your privacy!
+  Copyright (C) 2006 Eric H. Jung and LeahScape, Inc.
+  http://foxyproxy.mozdev.org/
+  eric.jung@yahoo.com
+
+  This source code is released under the GPL license,
+  available in the LICENSE file at the root of this installation
+  and also online at http://www.gnu.org/licenses/gpl.txt
+-->
+<?xml-stylesheet href="foxyproxy.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://foxyproxy/locale/foxyproxy.dtd">
+<dialog
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	id="foxyproxy-quickadd"
+  title="&foxyproxy.label; - &foxyproxy.quickadd.title;"
+  ondialogaccept="return onOK();"
+  onload="onLoad();"
+  persist="screenX screenY width height"
+  windowtype="foxyproxy-quickadd">
+
+<script type="application/x-javascript" src="chrome://foxyproxy/content/quickadd.js"/>
+
+<grid flex="1">
+  <columns>
+    <column/>
+    <column flex="1"/>
+  </columns>   
+  <rows>
+  <separator/>
+	  <row align="center">
+	    <label value="&foxyproxy.selectproxy.label;:"
+	    	tooltiptext="&foxyproxy.selectproxy.tooltip;"
+	    	accesskey="&foxyproxy.selectproxy.accesskey;"/>
+	    <menulist id="modeMenu" tooltiptext="&foxyproxy.selectproxy.tooltip;" style="min-height: 2em;">
+	      <menupopup id="modeMenuPopup"/>      
+	    </menulist>
+	  </row>
+	  
+    <row align="center">
+      <checkbox id="reload" label="&foxyproxy.autoadd.reload.label;" accesskey="&foxyproxy.autoadd.reload.accesskey;"
+        tooltiptext="&foxyproxy.autoadd.reload.tooltip;"/>
+      <spacer/>
+    </row>    	  
+
+    <row align="center">
+      <label value="&foxyproxy.name.label;" control="name" tooltiptext="&foxyproxy.name.tooltip;" accesskey="&foxyproxy.name.accesskey;"/>
+      <textbox id="name" tooltiptext="&foxyproxy.name.tooltip;" accesskey="&foxyproxy.name.accesskey;"/>
+    </row>
+    <row align="center">
+      <label value="&foxyproxy.url.pattern.label;" tooltiptext="&foxyproxy.url.pattern.tooltip;" accesskey="&foxyproxy.url.pattern.accesskey;" control="pattern"/>
+      <textbox id="pattern" tooltiptext="&foxyproxy.url.pattern.tooltip;" accesskey="&foxyproxy.url.pattern.accesskey;"/>
+    </row>
+      <radiogroup id="whiteblacktype" orient="vertical">
+        <groupbox>
+        <caption label="&foxyproxy.pattern.whiteblack.label;"/>
+        <vbox maxwidth="450">
+          <description>&foxyproxy.whiteblack.description.label;</description>
+        </vbox>      
+          <grid><columns><column/><column/><column/></columns>
+          <rows>
+            <row align="center">
+              <radio id="white" selected="true"
+                accesskey="&foxyproxy.whitelist.accesskey;"
+                tooltiptext="&foxyproxy.whitelist.tooltip;"/>
+              <label value="&foxyproxy.whitelist.label;"
+                style="color: blue; cursor: pointer; margin-left: -0.5em;"
+                tooltiptext="&foxyproxy.whitelist.tooltip;"
+                class="url"
+                onclick="overlay.openAndReuseOneTabPerURL('http://en.wikipedia.org/wiki/Whitelist');"/>
+              <label value="&foxyproxy.whitelist.description.label;"/>
+            </row>
+          <row align="center">
+            <radio id="black"
+              accesskey="&foxyproxy.blacklist.accesskey;"
+              tooltiptext="&foxyproxy.blacklist.tooltip;"/>
+            <label value="&foxyproxy.blacklist.label;"
+              style="color: blue; cursor: pointer; margin-left: -0.5em;"
+              tooltiptext="&foxyproxy.blacklist.tooltip;"
+              class="url"
+              onclick="overlay.openAndReuseOneTabPerURL('http://en.wikipedia.org/wiki/Blacklist');"/>
+            <label value="&foxyproxy.blacklist.description.label;"/>        
+          </row>
+        </rows>
+        </grid>
+        </groupbox>        
+      </radiogroup>    
+      <radiogroup id="matchtype" orient="horizontal">
+      <groupbox flex="1">
+          <caption label="&foxyproxy.pattern.matchtype.label;"/>
+          <grid><columns><column/><column/><column/></columns>
+          <rows>
+            <row align="center">
+              <radio id="wildcard"
+                selected="true"
+                accesskey="&foxyproxy.wildcard.accesskey;"
+                tooltiptext="&foxyproxy.wildcard.tooltip;"/>
+              <label value="&foxyproxy.wildcard.label;"
+                style="color: blue; cursor: pointer; margin-left: -0.5em;"
+                class="url"
+                onclick="overlay.openAndReuseOneTabPerURL('http://foxyproxy.mozdev.org/quickstart.html#wildcards');"
+                tooltiptext="&foxyproxy.wildcard.tooltip;"/>
+              <label value="&foxyproxy.wildcard.example.label;"/>
+            </row>
+            <row align="center">
+              <radio id="regex"
+                accesskey="&foxyproxy.regex.accesskey;"
+                tooltiptext="&foxyproxy.regex.tooltip;"/>
+              <label value="&foxyproxy.regex.label;"
+                style="color: blue; cursor: pointer; margin-left: -0.5em;"
+                class="url"
+                onclick="overlay.openAndReuseOneTabPerURL('http://foxyproxy.mozdev.org/quickstart.html#regex');"
+                tooltiptext="&foxyproxy.regex.tooltip;"/> 
+              <label value="&foxyproxy.regex.example.label;"/>             
+            </row>
+          </rows>
+          </grid>
+       </groupbox>
+      </radiogroup>
+  </rows>
+</grid>
+</dialog>

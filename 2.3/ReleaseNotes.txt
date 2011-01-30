@@ -1,0 +1,41 @@
+2.3
+
+* Fixed bug whereby toggling "Use SOCKS proxy for DNS lookups" from the statusbar, toolbar, or context-menu icons
+presented user with "Restart Now?" dialog that had only an "OK" button instead of "Yes" and "No" button.
+
+* Improved all icons
+
+* Added close button
+
+* Added option to show fp mode on statusbar in addition to icon
+
+* Added simple/advanced menu option
+
+* Save log to file
+
+* Fixed bug which permitted empty hostnames and/or empty port numbers when defining a proxy in the Proxy Settings dialog
+
+* More translations
+
+* Added context-menu item to enable/disable a proxy (requested http://z9.invisionfree.com/foxyproxy/index.php?showtopic=225)
+
+* Minor GUI fixes
+
+======================================================================================================================
+1.2   -
+      * Blacklisting
+      * Ability to view loaded PAC files
+      * i18n
+======================================================================================================================
+1.1   -
+      * Fixed auto-proxy-config bug discussed here: http://s9.invisionfree.com/foxyproxy/index.php?showtopic=6
+      * Internationalized
+      * Translations: en-US, es-ES, fr-FR, pt-BR, ru-RU, sk-SK, th-TH, zh-CN
+      * Added toolbar button with drop-down menus
+      * Added statusbar drop-down menu
+      * Expanded Tools menu
+      * License changed from LGPL to GPL
+======================================================================================================================
+1.0   - Wed, 26 Apr 2006
+      * Initial Release
+======================================================================================================================       
