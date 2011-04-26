@@ -1,1 +1,1 @@
-* Fix for Firefox 4.0b9 compatibility (https://bugzilla.mozilla.org/show_bug.cgi?id=622321)
+* Explicit support for Firefox 4.x. This needed for users who don't install FoxyProxy from addons.mozilla.org and also for Debian/Ubuntu repositories.
