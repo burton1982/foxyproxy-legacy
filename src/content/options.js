@@ -388,7 +388,7 @@ function onSettings(isNew) {
     // But only redraw the tree if we have one item selected. Otherwise enabling
     // just "Add New Pattern Subscription" if we have not selected a
     // subscription does not work properly.
-    if (selSub > -1) { 
+    if (selSub > -1) {
       subscriptionsTree.view.selection.select(selSub);
     }
   }
