@@ -1,4 +1,4 @@
-* pattern subscription feature
+* pattern subscription feature (for help see: http://getfoxyproxy.org/patternsubscriptions/help.html)
 
 * removed duplicated QuickAdd entry in advanced menus
 * Fixed problem of getting wrong enumerator in common.js for Thunderbird
