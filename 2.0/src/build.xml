@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   FoxyProxy
-  Copyright (C) 2006-2010 Eric H. Jung and LeahScape, Inc.
+  Copyright (C) 2006-2011 Eric H. Jung and LeahScape, Inc.
   http://getfoxyproxy.org/
   eric.jung@yahoo.com
   
@@ -40,7 +40,7 @@
     <!-- set the copyright date in license header blocks --> 
     <replaceregexp flags="gs">
       <regexp pattern="#%#%"/>
-      <substitution expression="2010"/>
+      <substitution expression="2011"/>
       <fileset dir="${temp-path}" includes="**/**"/>
     </replaceregexp>
     <zip destfile="${target-path}/foxyproxy-${edition}-${version}.xpi">
@@ -85,7 +85,7 @@
   
   <target name="build-foxyproxy-basic" depends="init">
     <property name="edition" value="basic" />
-    <property name="version" value="1.8.4" />
+    <property name="version" value="2.0" />
     <property name="src-path" value="${temp-path}"/>
     <antcall>
       <target name="copy"/>
