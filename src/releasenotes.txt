@@ -7,7 +7,7 @@
 * Fixed http://foxyproxy.mozdev.org/drupal/content/logging-view-milliseconds-field-wrong
 * Fixed radio button overlayed with text in the mode menu
 * Fixed Torwizard issue (button text did not fit into the buttons)
-* Fixed small issue concerning setting the TRANPARENT_PROXY_RESOLVES_HOST-flag
+* Fixed small issue concerning setting the TRANSPARENT_PROXY_RESOLVES_HOST-flag
 * Fixed radio button overlayed with text in the mode menu (Quick- and
   AutoAdd)
 * Fixed Torwizard issues (custom ports were not saved; added port check)
