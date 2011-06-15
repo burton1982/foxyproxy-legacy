@@ -2,7 +2,7 @@
 * Fixed http://foxyproxy.mozdev.org/drupal/content/no-foxy-proxy-button-browser (a toolbar button is now shown in FF4 by default on first startup)
 * Fixed radio button overlayed with text in the mode menu
 * Fixed Torwizard issue (button text did not fit into the buttons)
-* Fixed small issue concerning setting the TRANPARENT_PROXY_RESOLVES_HOST-flag
+* Fixed small issue concerning setting the TRANSPARENT_PROXY_RESOLVES_HOST-flag
 * Fixed minor typos in german language files
 * Fixed Torwizard issues (custom ports were not saved; added port check)
 * Fixed nsIFilePicker bug in options.js and enhanced triquestions.xul and .js
