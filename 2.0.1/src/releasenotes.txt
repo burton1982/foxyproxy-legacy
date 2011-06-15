@@ -7,6 +7,7 @@
 * Fixed Torwizard issues (custom ports were not saved; added port check)
 * Fixed nsIFilePicker bug in options.js and enhanced triquestions.xul and .js
 * Fixed FoxyProxy's context menu bug (see: http://foxyproxy.mozdev.org/drupal/content/foxyproxys-context-menu-bug)
+* Repaired proxy auto-configuration that failed in Firefox 5
 * Removed OCS from about window
 * Added Georg Koppen to about.xul (as a contributor)
 * added new locale (ro)
