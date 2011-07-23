@@ -23,3 +23,5 @@
   latter see: http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=101)  
 * minor code changes in JSON parsing code due to 
   https://bugzilla.mozilla.org/show_bug.cgi?id=645922 
+* fixed bug that caused PAC failures with SOCKS proxies (see:
+  http://forums.getfoxyproxy.org/viewtopic.php?f=3&t=84)
