@@ -36,9 +36,12 @@
 <!ENTITY foxyproxy.help.label "Pomoc">
 <!ENTITY foxyproxy.help.accesskey "C">
 <!ENTITY foxyproxy.help.tooltip "Wyświetla witrynę pomocy">
+<!ENTITY foxyproxy.import.pattern.label "Import">
+<!ENTITY foxyproxy.import.pattern.accesskey "I">
+<!ENTITY foxyproxy.import.pattern.tooltip "Importuj wzorce">
 <!ENTITY foxyproxy.export.pattern.label "Export">
 <!ENTITY foxyproxy.export.pattern.accesskey "X">
-<!ENTITY foxyproxy.export.pattern.tooltip "Export patterns as a pattern subscription">
+<!ENTITY foxyproxy.export.pattern.tooltip2 "Eksportuj wszystkie wzorce">
 <!ENTITY foxyproxy.close.label "Zamknij">
 <!ENTITY foxyproxy.close.accesskey "Z">
 <!ENTITY foxyproxy.close.tooltip "Zamyka okno">
@@ -55,6 +58,14 @@
 <!ENTITY foxyproxy.copy.selection.accesskey "K">
 <!ENTITY foxyproxy.copy.selection.tooltip "Kopiuje zaznaczone elementy">
 <!ENTITY foxyproxy.mode.label "Wybierz tryb">
+<!-- begin foxyproxyplus -->
+<!ENTITY foxyproxy.wpad.label "Automatycznie wykrywaj ustawienia serwerów proxy dla tej sieci">
+<!ENTITY foxyproxy.wpad.accesskey "W">
+<!ENTITY foxyproxy.wpad.tooltip "Automatycznie wykrywa ustawienia proxy używając WPAD">
+<!ENTITY foxyproxy.wpad.reload.label "Automatycznie wykrywaj ustawienia proxy co">
+<!ENTITY foxyproxy.wpad.reload.accesskey "K">
+<!ENTITY foxyproxy.wpad.reload.tooltip "Automatycznie wykrywa ustawienia proxy z określoną częstotliwością">
+<!ENTITY foxyproxy.wpad.tree.label "Wykrywaj automatycznie proxy">
 <!ENTITY foxyproxy.auto.url.label "Adres pliku automatycznej konfiguracji proxy">
 <!ENTITY foxyproxy.auto.url.accesskey "A">
 <!ENTITY foxyproxy.auto.url.tooltip "Wprowadź adres URL pliku *.pac">
@@ -91,6 +102,9 @@
 <!ENTITY foxyproxy.tab.patterns.tooltip "Zarządzanie wzorcami adresów URL">
 <!ENTITY foxyproxy.add.title "ustawienia proxy">
 <!ENTITY foxyproxy.pattern.description "Tutaj można dodać lub usunąć adres URL jaki używa to proxy">
+<!ENTITY foxyproxy.pattern.nointernal.label "Nie używaj tego proxy dla wewnętrznych adresów IP">
+<!ENTITY foxyproxy.pattern.nointernal.tooltip "Ta funkcja umożliwia ograniczenie używania proxy tylko dla zewnętrznych adresów IP">
+<!ENTITY foxyproxy.pattern.nointernal.accesskey "O">
 <!ENTITY foxyproxy.pattern.matchtype.label "Zawartość wzorca">
 <!ENTITY foxyproxy.pattern.whiteblack.label "URL dozwolone/niedozwolone">
 <!ENTITY foxyproxy.add.option.direct.label "Bezpośrednie połączenie z Internetem (bez proxy)">
@@ -427,10 +441,10 @@
 <!ENTITY foxyproxy.server.subscriptions.accesskey "S">
 <!ENTITY foxyproxy.selectproxy.label "Select Proxy">
 <!ENTITY foxyproxy.pattern.subscriptions.label "Subskrypcje wzorca">
+<!ENTITY foxyproxy.pattern.subscriptions.description "Subskrybuj wzorce publikowane przez innych. Udostępniaj swoje wzorce za pomocą kilku kliknięć.">
 <!ENTITY foxyproxy.pattern.subscriptions.tooltip "zarządzaj subskrypcjami wzorca">
 <!ENTITY foxyproxy.pattern.subscriptions.accesskey "S">
-<!ENTITY foxyproxy.pattern.subscriptions.wizard.label "Asystent">
-<!ENTITY foxyproxy.pattern.subscriptions.wizard.tooltip "Kliknij tutaj, by uruchomić asystenta subskrypcji.">
+<!ENTITY foxyproxy.pattern.subscriptions.sharing.label "Udostępniaj wzorce">
 <!ENTITY foxyproxy.pattern.subscriptions.menulist.tooltip "Wybierz, co robić ze subskrypcjami wzorca.">
 <!ENTITY foxyproxy.pattern.subscriptions.addSubscription "Dodaj nowy subskrypcję wzorca">
 <!ENTITY foxyproxy.pattern.subscriptions.editSelection "Edytuj wybrane">
@@ -479,7 +493,7 @@
 <!ENTITY foxyproxy.hosting.label1 "Podziękowania dla">
 <!ENTITY foxyproxy.ocs.label "OCS">
 <!ENTITY foxyproxy.hosting.label2 "za hosting witryny FoxyProxy. Jeśli potrzebujesz hostingu, rozważ OCS.">
-<!-- begin foxyproxyplus -->
+<!-- end foxyproxyplus -->
 <!ENTITY foxyproxy.ip.pattern.addedit.title "Dodaj/edytuj wzorzec lokalnego adresu IP">
 <!ENTITY foxyproxy.tempip.popup.label "Wzorce tymczasowe pozwalają na tworzenie wzorców lokalnego adresu IP nie używanych często. Dzięki temu lista wzorców nie jest niepotrzebnie przeładowywana. Wzorce tymczasowe nie są zapisywane na dysku. Są one trzymane w pamięci i używane tylko w aktualnej sesji Firefoksa.">
 <!ENTITY foxyproxy.ip.pattern.label "Wzorzec lokalnego adresu IP">
