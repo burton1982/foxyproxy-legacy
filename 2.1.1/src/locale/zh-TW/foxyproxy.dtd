@@ -36,12 +36,12 @@
 <!ENTITY foxyproxy.help.label "使用說明">
 <!ENTITY foxyproxy.help.accesskey "H">
 <!ENTITY foxyproxy.help.tooltip "顯示使用說明">
-<!ENTITY foxyproxy.import.pattern.label "Import">
+<!ENTITY foxyproxy.import.pattern.label "匯入">
 <!ENTITY foxyproxy.import.pattern.accesskey "I">
-<!ENTITY foxyproxy.import.pattern.tooltip "Import patterns">
+<!ENTITY foxyproxy.import.pattern.tooltip "匯入樣式">
 <!ENTITY foxyproxy.export.pattern.label "匯出">
 <!ENTITY foxyproxy.export.pattern.accesskey "X">
-<!ENTITY foxyproxy.export.pattern.tooltip2 "Export all patterns">
+<!ENTITY foxyproxy.export.pattern.tooltip2 "匯出所有樣式">
 <!ENTITY foxyproxy.close.label "關閉">
 <!ENTITY foxyproxy.close.accesskey "C">
 <!ENTITY foxyproxy.close.tooltip "關閉視窗">
@@ -59,13 +59,13 @@
 <!ENTITY foxyproxy.copy.selection.tooltip "複製選擇的項目">
 <!ENTITY foxyproxy.mode.label "選擇模式">
 <!-- begin foxyproxyplus -->
-<!ENTITY foxyproxy.wpad.label "Auto-detect proxy settings for this network">
+<!ENTITY foxyproxy.wpad.label "此網路自動偵測代理伺服器設定">
 <!ENTITY foxyproxy.wpad.accesskey "W">
-<!ENTITY foxyproxy.wpad.tooltip "Detect the proxy settings automatically using WPAD">
-<!ENTITY foxyproxy.wpad.reload.label "Detect proxy settings automatically every">
+<!ENTITY foxyproxy.wpad.tooltip "使用 WPAD 自動偵測代理伺服器設定">
+<!ENTITY foxyproxy.wpad.reload.label "自動偵測代理伺服器設定，間隔每">
 <!ENTITY foxyproxy.wpad.reload.accesskey "D">
-<!ENTITY foxyproxy.wpad.reload.tooltip "Auto-detect the proxy every specified period">
-<!ENTITY foxyproxy.wpad.tree.label "Auto-detect proxy">
+<!ENTITY foxyproxy.wpad.reload.tooltip "每隔指定的時間執行自動偵測代理伺服器設定">
+<!ENTITY foxyproxy.wpad.tree.label "自動偵測代理伺服器">
 <!ENTITY foxyproxy.auto.url.label "使用自動組態指命碼">
 <!ENTITY foxyproxy.auto.url.accesskey "A">
 <!ENTITY foxyproxy.auto.url.tooltip "輸入自動組態指命碼（PAC）的檔案網址">
@@ -102,8 +102,8 @@
 <!ENTITY foxyproxy.tab.patterns.tooltip "網址樣式設定">
 <!ENTITY foxyproxy.add.title "代理伺服器設定">
 <!ENTITY foxyproxy.pattern.description "你可以在這裏指定是否使用此代理伺服器。">
-<!ENTITY foxyproxy.pattern.nointernal.label "Do not use this proxy for internal IP addresses">
-<!ENTITY foxyproxy.pattern.nointernal.tooltip "This checkbox allows you to restrict the proxy to non-internal IP addresses">
+<!ENTITY foxyproxy.pattern.nointernal.label "內部 IP 位址不使用此代理伺服器">
+<!ENTITY foxyproxy.pattern.nointernal.tooltip "啟用此設定來限制代理伺服器只使用在非內部 IP 位址">
 <!ENTITY foxyproxy.pattern.nointernal.accesskey "N">
 <!ENTITY foxyproxy.pattern.matchtype.label "樣式內容">
 <!ENTITY foxyproxy.pattern.whiteblack.label "網址白名單/黑名單">
@@ -441,10 +441,10 @@
 <!ENTITY foxyproxy.server.subscriptions.accesskey "S">
 <!ENTITY foxyproxy.selectproxy.label "選擇代理伺服器">
 <!ENTITY foxyproxy.pattern.subscriptions.label "樣式訂閱">
-<!ENTITY foxyproxy.pattern.subscriptions.description "Subscribe to patterns published by others. Share your patterns with others in just a few clicks.">
+<!ENTITY foxyproxy.pattern.subscriptions.description "訂閱其它人發表的樣式，透過簡單的點選就可以和別人分享你的樣式。">
 <!ENTITY foxyproxy.pattern.subscriptions.tooltip "樣式訂閱">
 <!ENTITY foxyproxy.pattern.subscriptions.accesskey "S">
-<!ENTITY foxyproxy.pattern.subscriptions.sharing.label "Share Your Patterns">
+<!ENTITY foxyproxy.pattern.subscriptions.sharing.label "分享你的樣式">
 <!ENTITY foxyproxy.pattern.subscriptions.menulist.tooltip "選擇要執行的樣式訂閱動作。">
 <!ENTITY foxyproxy.pattern.subscriptions.addSubscription "新增訂閱的樣式">
 <!ENTITY foxyproxy.pattern.subscriptions.editSelection "編輯選擇的項目">
