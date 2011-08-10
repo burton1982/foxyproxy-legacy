@@ -1,2 +1,1 @@
-* fixed bug that caused an evergrowing FoxyProxy dialog 
-* updated localed
+* enhanced bugfix to avoid resizing the FoxyProxy dialog
