@@ -257,9 +257,12 @@
 <!ENTITY foxyproxy.pacerrornotification.label "Предупреждать об ошибках в файле автоконфигурации прокси">
 <!ENTITY foxyproxy.pacerrornotification.accesskey "о">
 <!ENTITY foxyproxy.pacerrornotification.tooltip "Когда PAC-файл содержит ошибки показать всплывающее окно">
-<!ENTITY foxyproxy.toolsmenu.label "Включить FoxyProxy в меню &quot;Инструменты&quot;">
+<!ENTITY foxyproxy.toolbaricon.label "Show icon on toolbar">
+<!ENTITY foxyproxy.toolbaricon.accesskey "O">
+<!ENTITY foxyproxy.toolbaricon.tooltip "Show icon on toolbar">
+<!ENTITY foxyproxy.toolsmenu.label2 "Show icon in the tools menu">
 <!ENTITY foxyproxy.toolsmenu.accesskey "И">
-<!ENTITY foxyproxy.toolsmenu.tooltip "Включить FoxyProxy в меню &quot;Инструменты&quot;">
+<!ENTITY foxyproxy.toolsmenu.tooltip2 "Show icon in the tools menu">
 <!ENTITY foxyproxy.tip.label "Подсказка">
 <!ENTITY foxyproxy.pactip1.label "Для PAC-файлов, сохранённых на локальном диске, необходимо использовать протокол file://. Например, &quot;file://c:/path/proxy.pac&quot; в Windows или &quot;file:///home/users/joe/proxy.pac&quot; в Unix/Linux/Mac.">
 <!ENTITY foxyproxy.pactip2.label "Для PAC-файлов, сохранённых на ftp-сервере, необходимо использовать протокол ftp://. Например, &quot;ftp://leahscape.com/path/proxy.pac&quot;">
@@ -554,3 +557,4 @@
 <!ENTITY foxyproxy.patternsforselected.accesskey "S">
 <!ENTITY foxyproxy.patternsforselected.tooltip "Create Patterns for Selected URLs">
 <!ENTITY foxyproxy.patterntoadd.label "Pattern to Add">
+<!-- end foxyproxyplus -->
