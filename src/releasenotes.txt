@@ -11,3 +11,4 @@
 * added checkbox (in Global Settings) to hide (and show) the toolbar button
   easily
 * updated language files
+* changed URL of GPLv2 text
