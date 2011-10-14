@@ -1,0 +1,199 @@
+<!ENTITY foxyproxy.basic.label "FoxyProxy Basic">
+<!ENTITY foxyproxy.standard.label "FoxyProxy Standard">
+<!ENTITY foxyproxy.plus.label "FoxyProxy Plus">
+<!ENTITY foxyproxy.accesskey "F">
+<!ENTITY foxyproxy.options.label "Налаштування">
+<!ENTITY foxyproxy.options.accesskey "Н">
+<!ENTITY foxyproxy.options.tooltip "Відкрити Вікно Налаштувань">
+<!ENTITY foxyproxy.tree.pickertooltiptext.label "Клацніть, щоб вибрати колонки для відображення">
+<!ENTITY foxyproxy.pattern.label "Зразок">
+<!ENTITY foxyproxy.pattern.type.label "Тип Зразка">
+<!ENTITY foxyproxy.whitelist.blacklist.label "Білий список(Вкл) або Чорний список(Викл)">
+<!ENTITY foxyproxy.pattern.name.label "Ім&apos;я Зразка">
+<!ENTITY foxyproxy.pattern.name.accesskey "P">
+<!ENTITY foxyproxy.pattern.name.tooltip "Name for the pattern">
+<!ENTITY foxyproxy.url.pattern.label "URL-адреса або зразок URL-адреси">
+<!ENTITY foxyproxy.url.pattern.accesskey "U">
+<!ENTITY foxyproxy.url.pattern.tooltip "URL-адреса або зразок URL-адреси">
+<!ENTITY foxyproxy.enabled.label "Включено">
+<!ENTITY foxyproxy.enabled.accesskey "В">
+<!ENTITY foxyproxy.enabled.tooltip "Включено/Виключено">
+<!ENTITY foxyproxy.delete.selection.label "Видалити Вибране">
+<!ENTITY foxyproxy.delete.selection.accesskey "В">
+<!ENTITY foxyproxy.delete.selection.tooltip "Видалити поточно вибраний елемент">
+<!ENTITY foxyproxy.edit.selection.label "Редагувати Вибране">
+<!ENTITY foxyproxy.edit.selection.accesskey "Р">
+<!ENTITY foxyproxy.edit.selection.tooltip "Редагувати поточно вибраний елемент">
+<!ENTITY foxyproxy.help.label "Зміст Допомоги">
+<!ENTITY foxyproxy.help.accesskey "З">
+<!ENTITY foxyproxy.help.tooltip "Показати Допомогу">
+<!ENTITY foxyproxy.export.pattern.label "Export">
+<!ENTITY foxyproxy.export.pattern.accesskey "X">
+<!ENTITY foxyproxy.close.label "Закрити">
+<!ENTITY foxyproxy.close.accesskey "к">
+<!ENTITY foxyproxy.close.tooltip "Закрити Вікно">
+<!ENTITY foxyproxy.about.label "Про">
+<!ENTITY foxyproxy.about.accesskey "о">
+<!ENTITY foxyproxy.about.tooltip "Відкрити вікно інформації">
+<!ENTITY foxyproxy.online.label "FoxyProxy Он-лайн">
+<!ENTITY foxyproxy.online.accesskey "л">
+<!ENTITY foxyproxy.online.tooltip "Відвідати Веб-сайт FoxyProxy">
+<!ENTITY foxyproxy.tor.label "Майстер Tor">
+<!ENTITY foxyproxy.tor.accesskey "М">
+<!ENTITY foxyproxy.tor.tooltip "Майстер Tor">
+<!ENTITY foxyproxy.copy.selection.label "Копіювання Вибраного">
+<!ENTITY foxyproxy.copy.selection.accesskey "К">
+<!ENTITY foxyproxy.copy.selection.tooltip "Скопіювати Вибране">
+<!ENTITY foxyproxy.mode.label "Режим Вибору">
+<!-- begin foxyproxyplus -->
+<!ENTITY foxyproxy.auto.url.label "URL-адреса автоматичної конфігурації проксі  ">
+<!ENTITY foxyproxy.auto.url.accesskey "а">
+<!ENTITY foxyproxy.auto.url.tooltip "Введіть URL або ім&apos;я PAC файлу">
+<!ENTITY foxyproxy.auto.url.note.label "http(s)://   ftp://   file://   relative://">
+<!ENTITY foxyproxy.port.label "Порт">
+<!ENTITY foxyproxy.port.accesskey "П">
+<!ENTITY foxyproxy.port.tooltip "Порт">
+<!ENTITY foxyproxy.socks.v4 "SOCKS v4/4a">
+<!ENTITY foxyproxy.socks.v5 "SOCKS v5">
+<!ENTITY foxyproxy.addeditpattern.title "Додати/Редагувати Зразок">
+<!ENTITY foxyproxy.wildcard.label "Метатеги">
+<!ENTITY foxyproxy.wildcard.accesskey "М">
+<!ENTITY foxyproxy.wildcard.tooltip "Вказує для URL-адрес або зразків URL-адрес використання метатегів і не регулярних виразів">
+<!ENTITY foxyproxy.wildcard.example.label "Приклад: *mail.yahoo.com/*">
+<!ENTITY foxyproxy.regex.label "Регулярний Вираз">
+<!ENTITY foxyproxy.regex.accesskey "Р">
+<!ENTITY foxyproxy.regex.tooltip "Вказує URL-адреси або зразки URL-адрес, як регулярні вирази">
+<!ENTITY foxyproxy.regex.example.label "Приклад: https?://.*\.mail\.yahoo\.com/.*">
+<!ENTITY foxyproxy.version "Версія">
+<!ENTITY foxyproxy.createdBy "Створено">
+<!ENTITY foxyproxy.contributionsBy "Contributions By">
+<!ENTITY foxyproxy.copyright "Авторське право">
+<!ENTITY foxyproxy.rights "Авторські права застережено.">
+<!ENTITY foxyproxy.released "Випущено під GPL ліцензією.">
+<!ENTITY foxyproxy.tab.general.label "Основні">
+<!ENTITY foxyproxy.tab.general.accesskey "О">
+<!ENTITY foxyproxy.tab.general.tooltip "Налаштувати Основні Параметри Проксі">
+<!ENTITY foxyproxy.tab.proxy.label "Деталі Проксі">
+<!ENTITY foxyproxy.tab.proxy.accesskey "Д">
+<!ENTITY foxyproxy.tab.proxy.tooltip "Налаштувати Деталі Проксі">
+<!ENTITY foxyproxy.tab.patterns.label "Зразки">
+<!ENTITY foxyproxy.tab.patterns.accesskey "З">
+<!ENTITY foxyproxy.tab.patterns.tooltip "Налаштувати Зразки URL-адрес ">
+<!ENTITY foxyproxy.add.title "Налаштування Проксі">
+<!ENTITY foxyproxy.pattern.description "Тут ви можете вказати, коли цей проксі використовується і не використовується.">
+<!ENTITY foxyproxy.pattern.matchtype.label "Зразок Містить">
+<!ENTITY foxyproxy.pattern.whiteblack.label "URL-адреса Включення/Виключення">
+<!ENTITY foxyproxy.add.option.direct.label "Пряме інтернет-з&apos;єднання">
+<!ENTITY foxyproxy.add.option.direct.accesskey "я">
+<!ENTITY foxyproxy.add.option.direct.tooltip "Не використовувати Проксі - використовувати пряме інтернет-з&apos;єднання">
+<!ENTITY foxyproxy.add.option.manual.label "Ручне Налаштування Проксі">
+<!ENTITY foxyproxy.add.option.manual.accesskey "ч">
+<!ENTITY foxyproxy.add.option.manual.tooltip "Вручну визначати налаштування проксі">
+<!ENTITY foxyproxy.add.new.pattern.label "Додати Новий Зразок">
+<!ENTITY foxyproxy.add.new.pattern.accesskey "Д">
+<!ENTITY foxyproxy.add.new.pattern.tooltip "Додати Новий Зразок">
+<!ENTITY foxyproxy.menubar.file.label "Файл">
+<!ENTITY foxyproxy.menubar.file.accesskey "Ф">
+<!ENTITY foxyproxy.menubar.file.tooltip "Відкрити Файлове Меню">
+<!ENTITY foxyproxy.menubar.help.label "Допомога">
+<!ENTITY foxyproxy.menubar.help.accesskey "Д">
+<!ENTITY foxyproxy.menubar.help.tooltip "Відкрити Меню Допомоги">
+<!ENTITY foxyproxy.mode.accesskey "б">
+<!ENTITY foxyproxy.mode.tooltip "Оберіть, як включити FoxyProxy">
+<!ENTITY foxyproxy.proxy.label "Proxy">
+<!ENTITY foxyproxy.tab.proxies.label "Проксі">
+<!ENTITY foxyproxy.tab.proxies.accesskey "П">
+<!ENTITY foxyproxy.tab.proxies.tooltip "Налаштувати Проксі">
+<!ENTITY foxyproxy.tab.global.label "Загальні Параметри">
+<!ENTITY foxyproxy.tab.global.accesskey "З">
+<!ENTITY foxyproxy.tab.global.tooltip "Налаштувати Загальні Параметри">
+<!ENTITY foxyproxy.tab.logging.label "Вхід">
+<!ENTITY foxyproxy.tab.logging.accesskey "х">
+<!ENTITY foxyproxy.tab.logging.tooltip "Налаштувати Параметри Входу">
+<!ENTITY foxyproxy.proxydns.label3 "Perform remote DNS lookups on hostnames loading through this proxy">
+<!ENTITY foxyproxy.proxydns.accesskey "В">
+<!ENTITY foxyproxy.storagelocation.accesskey "б">
+<!ENTITY foxyproxy.storagelocation.tooltip "Розміщення збережених параметрів FoxyProxy">
+<!ENTITY foxyproxy.tab.logging.timestamp.label "Час">
+<!ENTITY foxyproxy.tab.logging.url.label "URL-адреса">
+<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
+<!ENTITY foxyproxy.host.accesskey "H">
+<!ENTITY foxyproxy.clear.label "Очистити">
+<!ENTITY foxyproxy.clear.accesskey "ч">
+<!ENTITY foxyproxy.clear.tooltip "Очистити">
+<!ENTITY foxyproxy.refresh.label "Оновити">
+<!ENTITY foxyproxy.refresh.accesskey "н">
+<!ENTITY foxyproxy.refresh.tooltip "Оновити">
+<!ENTITY foxyproxy.addnewproxy.label "Додати Новий Проксі">
+<!ENTITY foxyproxy.addnewproxy.accesskey "Д">
+<!ENTITY foxyproxy.addnewproxy.tooltip "Додати Новий Проксі">
+<!ENTITY foxyproxy.whitelist.label "Білий Список">
+<!ENTITY foxyproxy.whitelist.accesskey "Б">
+<!ENTITY foxyproxy.whitelist.tooltip "URL-адреси, що відповідають цьому зразку завантажуються через цей проксі">
+<!ENTITY foxyproxy.whitelist.description.label "URL-адреси, що відповідають цьому зразку завантажуються через цей проксі">
+<!ENTITY foxyproxy.blacklist.label "Чорний Список">
+<!ENTITY foxyproxy.blacklist.accesskey "Ч">
+<!ENTITY foxyproxy.blacklist.tooltip "URL-адреси, що відповідають цьому зразку НЕ завантажуються через цей проксі">
+<!ENTITY foxyproxy.blacklist.description.label "URL-адреси, що відповідають цьому зразку НЕ завантажуються через цей проксі">
+<!ENTITY foxyproxy.whiteblack.description.label "Чорний список (виключення) зразків має перевагу над Білим списком (включення) зразків: якщо URL-адреса відповідає обом зразкам з білого списку і зразкам з чорного списку  для такого проксі,URL-адреса виключається з початком завантаження цього проксі.">
+<!ENTITY foxyproxy.socks.version.label "Версія SOCKS">
+<!ENTITY foxyproxy.autopacurl.label "Автоматична URL-адреса PAC ">
+<!ENTITY foxyproxy.moveup.label "Вгору">
+<!ENTITY foxyproxy.moveup.tooltip "Пріоритет збільшення поточного вибору">
+<!ENTITY foxyproxy.moveup.accesskey "г">
+<!ENTITY foxyproxy.movedown.label "Вниз">
+<!ENTITY foxyproxy.movedown.tooltip "Пріоритет зменшення поточного вибору">
+<!ENTITY foxyproxy.movedown.accesskey "н">
+<!ENTITY foxyproxy.autoconfurl.view.label "Переглянути">
+<!ENTITY foxyproxy.autoconfurl.view.accesskey "П">
+<!ENTITY foxyproxy.autoconfurl.view.tooltip "Переглянути файл авто-конфігурації">
+<!ENTITY foxyproxy.autoconfurl.test.label "Тестувати">
+<!ENTITY foxyproxy.autoconfurl.test.accesskey "Т">
+<!ENTITY foxyproxy.autoconfurl.test.tooltip "Тестувати файл авто-конфігурації">
+<!ENTITY foxyproxy.logging.maxsize.label "Максимальний Розмір">
+<!ENTITY foxyproxy.logging.maxsize.accesskey "М">
+<!ENTITY foxyproxy.logging.maxsize.tooltip "Максимальне число записів у лог, перед тим, як лог відновиться до початкового стану">
+<!ENTITY foxyproxy.logging.maxsize.button.label "Встановити">
+<!ENTITY foxyproxy.logging.maxsize.button.accesskey "с">
+<!ENTITY foxyproxy.logging.maxsize.button.tooltip "Встановити максимальне число записів у лог,  перед тим, як лог відновиться до початкового стану">
+<!ENTITY foxyproxy.random.label "Завантажити URL-адреси через випадкові проксі (нехтуючи всіма зразками і пріоритетами)">
+<!ENTITY foxyproxy.random.accesskey "R">
+<!ENTITY foxyproxy.random.tooltip "Завантажити URL-адреси через випадкові проксі (нехтуючи всіма зразками і пріоритетами)">
+<!ENTITY foxyproxy.random.includedirect.label "Включати проксі, налаштовані, як прямі інтернет-з&apos;єднання">
+<!ENTITY foxyproxy.random.includedirect.accesskey "я">
+<!ENTITY foxyproxy.random.includedirect.tooltip "Проксі налаштовано як прямі інтернет-з&apos;єднання, включаються при випадковому виборі проксі">
+<!ENTITY foxyproxy.random.includedisabled.label "Включити відключені проксі">
+<!ENTITY foxyproxy.random.includedisabled.accesskey "і">
+<!ENTITY foxyproxy.random.includedisabled.tooltip "Проксі налаштовано як відключені, включаються при випадковому виборі проксі">
+<!ENTITY foxyproxy.random.settings.label "Випадковий Вибір Проксі">
+<!ENTITY foxyproxy.random.settings.accesskey "п">
+<!ENTITY foxyproxy.random.settings.tooltip "Налаштування які визначають випадковий вибір Проксі">
+<!ENTITY foxyproxy.tab.autoadd.label "Авто-Додання">
+<!ENTITY foxyproxy.tab.autoadd.accesskey "А">
+<!ENTITY foxyproxy.tab.autoadd.tooltip "Налаштування Авто-Додання">
+<!ENTITY foxyproxy.autoadd.description "Вкажіть зразок, який ідентифікує заблоковані веб-сайти. Коли URL-адресу такої сторінки, зіставлено із зразком URL-адреси цього веб-сайту&apos; автоматично додається проксі і опційно перезавантажується сторінка.">
+<!ENTITY foxyproxy.autoadd.pattern.accesskey "З">
+<!ENTITY foxyproxy.autoadd.pattern.tooltip "Зразок, який ідентифікує заблоковані веб-сайти">
+<!ENTITY foxyproxy.autoadd.wildcard.example.label "Приклад: *Ви не авторизовані, щоб переглядати цю сторінку*">
+<!ENTITY foxyproxy.autoadd.regex.example.label "Приклад: .*Сайт.*був блокований.*">
+<!ENTITY foxyproxy.autoadd.proxy.label "Проксі, зразки яких автоматично додаються">
+<!ENTITY foxyproxy.autoadd.proxy.accesskey "П">
+<!ENTITY foxyproxy.autoadd.proxy.tooltip "Конкретизуйте проксі, URL-адреси якого автоматично додаються">
+<!ENTITY foxyproxy.pattern.template.example.label2 "http://fred:secret@mail.foo.com:8080/inbox/msg102.htm#subject?style=elegant">
+<!ENTITY foxyproxy.autoadd.reload.label "Перезавантажувати сторінку після того, як сайт додано до Проксі">
+<!ENTITY foxyproxy.autoadd.reload.accesskey "А">
+<!ENTITY foxyproxy.autoadd.reload.tooltip "Автоматично перезавантажувати сторінки після того, як вони були додані до Проксі">
+<!ENTITY foxyproxy.autoadd.notify.label "Повідомити мене, коли Авто-Додання запущено">
+<!ENTITY foxyproxy.autoadd.notify.accesskey "N">
+<!ENTITY foxyproxy.autoadd.notify.tooltip "Інформує вас, коли сторінка блокована &amp; зразок URL-адреси додано до Проксі">
+<!ENTITY foxyproxy.autoadd.notify.tooltip2 "Display a popup when AutoAdd is activated">
+<!ENTITY foxyproxy.pacloadnotification.label "Повідомляти мені про завантаження файлу авто-конфігурації проксі">
+<!ENTITY foxyproxy.pacloadnotification.accesskey "з">
+<!ENTITY foxyproxy.pacloadnotification.tooltip "Показувати спливаюче вікно при завантаженні PAC файлу">
+<!ENTITY foxyproxy.pacerrornotification.label "Повідомляти мені про помилки файлу авто-конфігурації проксі">
+<!ENTITY foxyproxy.pacerrornotification.accesskey "ф">
+<!ENTITY foxyproxy.pacerrornotification.tooltip "Показувати спливаюче вікно при помилках PAC файлу">
+<!ENTITY foxyproxy.toolsmenu.accesskey "с">
+<!ENTITY foxyproxy.contextmenu.label "Показувати FoxyProxy у контекстному меню">
+<!ENTITY foxyproxy.contextmenu.accesskey "н">
+<!ENTITY foxyproxy.contextmenu.tooltip "Показувати FoxyProxy у контекстному меню ">
