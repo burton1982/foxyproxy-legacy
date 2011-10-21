@@ -58,8 +58,8 @@
 <!ENTITY foxyproxy.copy.selection.accesskey "Α">
 <!ENTITY foxyproxy.copy.selection.tooltip "Αντιγράφει την επιλογή">
 <!ENTITY foxyproxy.mode.label "Επιλογή τρόπου λειτουργίας">
+<!ENTITY foxyproxy.wpad.label1 "by WPAD">
 <!-- begin foxyproxyplus -->
-<!ENTITY foxyproxy.wpad.label "Αυτόματος εντοπισμός ρυθμίσεων διαμεσολαβητή για αυτό το δίκτυο">
 <!ENTITY foxyproxy.wpad.accesskey "υ">
 <!ENTITY foxyproxy.wpad.tooltip "Αυτόματος εντοπισμός ρυθμίσεων διαμεσολαβητή με χρήση του WPAD">
 <!ENTITY foxyproxy.wpad.reload.label "Αυτόματος εντοπισμός ρυθμίσεων διαμεσολαβητή κάθε">
@@ -67,7 +67,6 @@
 <!ENTITY foxyproxy.wpad.reload.tooltip "Αυτόματος εντοπισμός διαμεσολαβητή ανά ορισμένη χρονική περίοδο">
 <!ENTITY foxyproxy.wpad.tree.label "Αυτόματος εντοπισμός διαμεσολαβητή">
 <!ENTITY foxyproxy.auto.url.label "URL αυτόματης ρύθμισης διαμεσολαβητή">
-<!ENTITY foxyproxy.auto.url.accesskey "α">
 <!ENTITY foxyproxy.auto.url.tooltip "Εισάγετε το URL του αρχείου PAC">
 <!ENTITY foxyproxy.auto.url.note.label "http(s)://   ftp://   file://   relative://">
 <!ENTITY foxyproxy.auto.url.note.tooltip "Κάντε κλικ στο εικονίδιο πληροφοριών για το σχετικό ://">
@@ -192,6 +191,12 @@
 <!ENTITY foxyproxy.movedown.label "Μετακίνηση κάτω">
 <!ENTITY foxyproxy.movedown.tooltip "Μειώνει την προτεραιότητα της τρέχουσας επιλογής">
 <!ENTITY foxyproxy.movedown.accesskey "Κ">
+<!ENTITY foxyproxy.automatic.label "Automatic Proxy Configuration">
+<!ENTITY foxyproxy.automatic.accesskey "A">
+<!ENTITY foxyproxy.automatic.tooltip "Get a proxy configuration automatically">
+<!ENTITY foxyproxy.pac.label "by PAC">
+<!ENTITY foxyproxy.pac.accesskey "P">
+<!ENTITY foxyproxy.pac.tooltip "Get the proxy settings using a PAC file">
 <!ENTITY foxyproxy.autoconfurl.view.label "Εμφάνιση">
 <!ENTITY foxyproxy.autoconfurl.view.accesskey "Ε">
 <!ENTITY foxyproxy.autoconfurl.view.tooltip "Εμφάνιση του αρχείου αυτόματων ρυθμίσεων">
@@ -557,3 +562,4 @@
 <!ENTITY foxyproxy.patternsforselected.accesskey "π">
 <!ENTITY foxyproxy.patternsforselected.tooltip "Δημιουργία προτύπων για τα επιλεγμένα URL μόνο">
 <!ENTITY foxyproxy.patterntoadd.label "Πρότυπο για προσθήκη">
+<!-- end foxyproxyplus -->

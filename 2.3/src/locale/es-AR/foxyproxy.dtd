@@ -58,8 +58,8 @@
 <!ENTITY foxyproxy.copy.selection.accesskey "C">
 <!ENTITY foxyproxy.copy.selection.tooltip "Copia la selección">
 <!ENTITY foxyproxy.mode.label "Elija el Modo">
+<!ENTITY foxyproxy.wpad.label1 "por WPAD">
 <!-- begin foxyproxyplus -->
-<!ENTITY foxyproxy.wpad.label "Detectar automáticamente la configuración del proxy para esta red">
 <!ENTITY foxyproxy.wpad.accesskey "W">
 <!ENTITY foxyproxy.wpad.tooltip "Detectar la configuración del proxy automáticamente mediante WPAD">
 <!ENTITY foxyproxy.wpad.reload.label "Detectar la configuración del proxy de forma automática cada">
@@ -67,7 +67,6 @@
 <!ENTITY foxyproxy.wpad.reload.tooltip "Detecta automáticamente el proxy cada período especificado">
 <!ENTITY foxyproxy.wpad.tree.label "Detección automática del proxy">
 <!ENTITY foxyproxy.auto.url.label "URL de configuración automática del proxy">
-<!ENTITY foxyproxy.auto.url.accesskey "A">
 <!ENTITY foxyproxy.auto.url.tooltip "Ingrese la URL del archivo PAC">
 <!ENTITY foxyproxy.auto.url.note.label "http(s)://   ftp://   file://   relative://">
 <!ENTITY foxyproxy.auto.url.note.tooltip "Hacer click en el ícono de información para obtener información en relative://">
@@ -192,6 +191,12 @@
 <!ENTITY foxyproxy.movedown.label "Mover hacia Abajo">
 <!ENTITY foxyproxy.movedown.tooltip "Disminuir la prioridad de la selección">
 <!ENTITY foxyproxy.movedown.accesskey "D">
+<!ENTITY foxyproxy.automatic.label "Configuración automática de proxy">
+<!ENTITY foxyproxy.automatic.accesskey "A">
+<!ENTITY foxyproxy.automatic.tooltip "Obtener una configuración de proxy de forma automática">
+<!ENTITY foxyproxy.pac.label "por PAC">
+<!ENTITY foxyproxy.pac.accesskey "P">
+<!ENTITY foxyproxy.pac.tooltip "Obtener la configuración del proxy usando un archivo PAC">
 <!ENTITY foxyproxy.autoconfurl.view.label "Ver">
 <!ENTITY foxyproxy.autoconfurl.view.accesskey "V">
 <!ENTITY foxyproxy.autoconfurl.view.tooltip "Ver el archivo de auto-configuración">
@@ -557,3 +562,4 @@
 <!ENTITY foxyproxy.patternsforselected.accesskey "S">
 <!ENTITY foxyproxy.patternsforselected.tooltip "Create Patterns for Selected URLs">
 <!ENTITY foxyproxy.patterntoadd.label "Pattern to Add">
+<!-- end foxyproxyplus -->
