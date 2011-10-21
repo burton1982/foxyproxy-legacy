@@ -58,8 +58,8 @@
 <!ENTITY foxyproxy.copy.selection.accesskey "C">
 <!ENTITY foxyproxy.copy.selection.tooltip "Copia la selezione">
 <!ENTITY foxyproxy.mode.label "Utilizzo">
+<!ENTITY foxyproxy.wpad.label1 "by WPAD">
 <!--For translators: The following two strings are already included into Firefox and may be found in the Preferences panel -> Advanced -> Network Settings-->
-<!ENTITY foxyproxy.wpad.label "Individua automaticamente le impostazioni dei proxy per questa rete">
 <!ENTITY foxyproxy.wpad.accesskey "x">
 <!ENTITY foxyproxy.wpad.tooltip "Individua automaticaticamente le impostazioni dei proxy con il protocollo WPAD">
 <!ENTITY foxyproxy.wpad.reload.label "Individua ogni">
@@ -67,7 +67,6 @@
 <!ENTITY foxyproxy.wpad.reload.tooltip "Individua automaticamente le impostazioni dei proxy nell'intervallo specificato">
 <!ENTITY foxyproxy.wpad.tree.label "Individua automaticamente il proxy">
 <!ENTITY foxyproxy.auto.url.label "Configurazione automatica dei proxy (URL):">
-<!ENTITY foxyproxy.auto.url.accesskey "u">
 <!ENTITY foxyproxy.auto.url.tooltip "Specificare l&apos;URL del file PAC">
 <!ENTITY foxyproxy.auto.url.note.label "http(s)://   ftp://   file://   relative://">
 <!ENTITY foxyproxy.auto.url.note.tooltip "Fare clic sull&apos;icona dei contenuti guida per informazioni sullo schema relative://">
@@ -192,6 +191,12 @@
 <!ENTITY foxyproxy.movedown.label "Sposta giù">
 <!ENTITY foxyproxy.movedown.tooltip "Diminuisci la priorità della selezione attuale">
 <!ENTITY foxyproxy.movedown.accesskey "g">
+<!ENTITY foxyproxy.automatic.label "Automatic Proxy Configuration">
+<!ENTITY foxyproxy.automatic.accesskey "A">
+<!ENTITY foxyproxy.automatic.tooltip "Get a proxy configuration automatically">
+<!ENTITY foxyproxy.pac.label "by PAC">
+<!ENTITY foxyproxy.pac.accesskey "P">
+<!ENTITY foxyproxy.pac.tooltip "Get the proxy settings using a PAC file">
 <!ENTITY foxyproxy.autoconfurl.view.label "Visualizza">
 <!ENTITY foxyproxy.autoconfurl.view.accesskey "V">
 <!ENTITY foxyproxy.autoconfurl.view.tooltip "Visualizza il file di autoconfigurazione">

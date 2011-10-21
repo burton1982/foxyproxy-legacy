@@ -58,8 +58,8 @@
 <!ENTITY foxyproxy.copy.selection.accesskey "K">
 <!ENTITY foxyproxy.copy.selection.tooltip "Kopieert selectie">
 <!ENTITY foxyproxy.mode.label "Modus selecteren">
+<!ENTITY foxyproxy.wpad.label1 "by WPAD">
 <!-- begin foxyproxyplus -->
-<!ENTITY foxyproxy.wpad.label "Proxyinstellingen voor dit netwerk automatisch detecteren">
 <!ENTITY foxyproxy.wpad.accesskey "w">
 <!ENTITY foxyproxy.wpad.tooltip "Proxyinstellingen automatisch detecteren met WPAD">
 <!ENTITY foxyproxy.wpad.reload.label "Proxyinstellingen automatisch detecteren elke">
@@ -67,7 +67,6 @@
 <!ENTITY foxyproxy.wpad.reload.tooltip "De proxy na elke opgegeven periode automatisch detecteren">
 <!ENTITY foxyproxy.wpad.tree.label "Proxy automatisch detecteren">
 <!ENTITY foxyproxy.auto.url.label "Automatische proxyconfiguratie-URL">
-<!ENTITY foxyproxy.auto.url.accesskey "A">
 <!ENTITY foxyproxy.auto.url.tooltip "Voer de URL van het PAC-bestand in">
 <!ENTITY foxyproxy.auto.url.note.label "http(s)://   ftp://   file://   relative://">
 <!ENTITY foxyproxy.auto.url.note.tooltip "Klik op het informatiepictogram voor informatie over relative://">
@@ -192,6 +191,12 @@
 <!ENTITY foxyproxy.movedown.label "Omlaag">
 <!ENTITY foxyproxy.movedown.tooltip "De voorkeurspositie van de huidige selectie verlagen">
 <!ENTITY foxyproxy.movedown.accesskey "L">
+<!ENTITY foxyproxy.automatic.label "Automatic Proxy Configuration">
+<!ENTITY foxyproxy.automatic.accesskey "A">
+<!ENTITY foxyproxy.automatic.tooltip "Get a proxy configuration automatically">
+<!ENTITY foxyproxy.pac.label "by PAC">
+<!ENTITY foxyproxy.pac.accesskey "P">
+<!ENTITY foxyproxy.pac.tooltip "Get the proxy settings using a PAC file">
 <!ENTITY foxyproxy.autoconfurl.view.label "Bekijken">
 <!ENTITY foxyproxy.autoconfurl.view.accesskey "B">
 <!ENTITY foxyproxy.autoconfurl.view.tooltip "Het autoconfiguratiebestand bekijken">
@@ -557,3 +562,4 @@
 <!ENTITY foxyproxy.patternsforselected.accesskey "S">
 <!ENTITY foxyproxy.patternsforselected.tooltip "Patronen voor geselecteerde URL’s maken">
 <!ENTITY foxyproxy.patterntoadd.label "Toe te voegen patroon">
+<!-- end foxyproxyplus -->

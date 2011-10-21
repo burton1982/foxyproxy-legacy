@@ -58,8 +58,8 @@
 <!ENTITY foxyproxy.copy.selection.accesskey "C">
 <!ENTITY foxyproxy.copy.selection.tooltip "Copies selection">
 <!ENTITY foxyproxy.mode.label "Select Mode">
+<!ENTITY foxyproxy.wpad.label1 "by WPAD">
 <!-- begin foxyproxyplus -->
-<!ENTITY foxyproxy.wpad.label "Detectează automat setările proxy pentru această rețea">
 <!ENTITY foxyproxy.wpad.accesskey "D">
 <!ENTITY foxyproxy.wpad.tooltip "Detectează automat setările proxy folosind protocolul WPAD">
 <!ENTITY foxyproxy.wpad.reload.label "Detectează automat setările proxy la fiecare">
@@ -67,7 +67,6 @@
 <!ENTITY foxyproxy.wpad.reload.tooltip "Detectează automat setările proxy la intervale regulate de timp">
 <!ENTITY foxyproxy.wpad.tree.label "Detectează automat serverul proxy">
 <!ENTITY foxyproxy.auto.url.label "Automatic proxy configuration URL">
-<!ENTITY foxyproxy.auto.url.accesskey "A">
 <!ENTITY foxyproxy.auto.url.tooltip "Enter URL of the PAC file">
 <!ENTITY foxyproxy.auto.url.note.label "http(s)://   ftp://   file://   relative://">
 <!ENTITY foxyproxy.auto.url.note.tooltip "Click the info icon for information on relative://">
@@ -192,6 +191,12 @@
 <!ENTITY foxyproxy.movedown.label "Move Down">
 <!ENTITY foxyproxy.movedown.tooltip "Decrease priority of current selection">
 <!ENTITY foxyproxy.movedown.accesskey "D">
+<!ENTITY foxyproxy.automatic.label "Automatic Proxy Configuration">
+<!ENTITY foxyproxy.automatic.accesskey "A">
+<!ENTITY foxyproxy.automatic.tooltip "Get a proxy configuration automatically">
+<!ENTITY foxyproxy.pac.label "by PAC">
+<!ENTITY foxyproxy.pac.accesskey "P">
+<!ENTITY foxyproxy.pac.tooltip "Get the proxy settings using a PAC file">
 <!ENTITY foxyproxy.autoconfurl.view.label "View">
 <!ENTITY foxyproxy.autoconfurl.view.accesskey "V">
 <!ENTITY foxyproxy.autoconfurl.view.tooltip "View the auto-configuration file">
@@ -557,3 +562,4 @@
 <!ENTITY foxyproxy.patternsforselected.accesskey "S">
 <!ENTITY foxyproxy.patternsforselected.tooltip "Create Patterns for Selected URLs">
 <!ENTITY foxyproxy.patterntoadd.label "Pattern to Add">
+<!-- end foxyproxyplus -->

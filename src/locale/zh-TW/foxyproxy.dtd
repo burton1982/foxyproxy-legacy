@@ -58,8 +58,8 @@
 <!ENTITY foxyproxy.copy.selection.accesskey "C">
 <!ENTITY foxyproxy.copy.selection.tooltip "複製選擇的項目">
 <!ENTITY foxyproxy.mode.label "選擇模式">
+<!ENTITY foxyproxy.wpad.label1 "by WPAD">
 <!-- begin foxyproxyplus -->
-<!ENTITY foxyproxy.wpad.label "此網路自動偵測代理伺服器設定">
 <!ENTITY foxyproxy.wpad.accesskey "W">
 <!ENTITY foxyproxy.wpad.tooltip "使用 WPAD 自動偵測代理伺服器設定">
 <!ENTITY foxyproxy.wpad.reload.label "自動偵測代理伺服器設定，間隔每">
@@ -67,7 +67,6 @@
 <!ENTITY foxyproxy.wpad.reload.tooltip "每隔指定的時間執行自動偵測代理伺服器設定">
 <!ENTITY foxyproxy.wpad.tree.label "自動偵測代理伺服器">
 <!ENTITY foxyproxy.auto.url.label "使用自動組態指命碼">
-<!ENTITY foxyproxy.auto.url.accesskey "A">
 <!ENTITY foxyproxy.auto.url.tooltip "輸入自動組態指命碼（PAC）的檔案網址">
 <!ENTITY foxyproxy.auto.url.note.label "http(s)://   ftp://   file://   relative://">
 <!ENTITY foxyproxy.auto.url.note.tooltip "點擊資訊圖示獲得更多有關 relative:// 的資訊">
@@ -192,6 +191,12 @@
 <!ENTITY foxyproxy.movedown.label "向下移動">
 <!ENTITY foxyproxy.movedown.tooltip "降低選擇項目的優先權">
 <!ENTITY foxyproxy.movedown.accesskey "D">
+<!ENTITY foxyproxy.automatic.label "Automatic Proxy Configuration">
+<!ENTITY foxyproxy.automatic.accesskey "A">
+<!ENTITY foxyproxy.automatic.tooltip "Get a proxy configuration automatically">
+<!ENTITY foxyproxy.pac.label "by PAC">
+<!ENTITY foxyproxy.pac.accesskey "P">
+<!ENTITY foxyproxy.pac.tooltip "Get the proxy settings using a PAC file">
 <!ENTITY foxyproxy.autoconfurl.view.label "檢視">
 <!ENTITY foxyproxy.autoconfurl.view.accesskey "V">
 <!ENTITY foxyproxy.autoconfurl.view.tooltip "檢視自動組態指命碼（PAC）檔案">
