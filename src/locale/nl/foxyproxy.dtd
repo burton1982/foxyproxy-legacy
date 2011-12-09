@@ -83,7 +83,7 @@
 <!ENTITY foxyproxy.regex.label "Reguliere uitdrukking">
 <!ENTITY foxyproxy.regex.accesskey "R">
 <!ENTITY foxyproxy.regex.tooltip "Specificeert dat de het URL-patroon een reguliere uitdrukking is">
-<!ENTITY foxyproxy.regex.example.label "Voorbeeld: https?://.*\.mail\.yahoo\.com/.*">
+<!ENTITY foxyproxy.regex.example.label2 "Example: ^https?://.*\.mail\.yahoo\.com/.*$">
 <!ENTITY foxyproxy.version "Versie">
 <!ENTITY foxyproxy.createdBy "Gemaakt door:">
 <!ENTITY foxyproxy.contributionsBy "Bijdragen van">
@@ -193,7 +193,7 @@
 <!ENTITY foxyproxy.movedown.accesskey "L">
 <!ENTITY foxyproxy.system.label "Proxy-instellingen systeem gebruiken">
 <!ENTITY foxyproxy.system.accesskey "Y">
-<!ENTITY foxyproxy.system.tooltip "Proxyconfiguratie in uw systeeminstellingen gebruiken">
+<!ENTITY foxyproxy.system.tooltip2 "Proxyconfiguratie in uw systeeminstellingen gebruiken">
 <!ENTITY foxyproxy.automatic.label "Automatische proxyconfiguratie">
 <!ENTITY foxyproxy.automatic.accesskey "A">
 <!ENTITY foxyproxy.automatic.tooltip "Automatisch proxyconfiguratie ophalen">
@@ -565,3 +565,4 @@
 <!ENTITY foxyproxy.patternsforselected.accesskey "S">
 <!ENTITY foxyproxy.patternsforselected.tooltip "Patronen voor geselecteerde URL’s maken">
 <!ENTITY foxyproxy.patterntoadd.label "Toe te voegen patroon">
+<!-- end foxyproxyplus -->

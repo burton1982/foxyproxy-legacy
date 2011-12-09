@@ -83,7 +83,7 @@
 <!ENTITY foxyproxy.regex.label "Regulární výraz">
 <!ENTITY foxyproxy.regex.accesskey "R">
 <!ENTITY foxyproxy.regex.tooltip "Udává, že URL anebo vzor URL je regulární výraz">
-<!ENTITY foxyproxy.regex.example.label "Příklad: https?://.*\.mail\.yahoo\.com/.*">
+<!ENTITY foxyproxy.regex.example.label2 "Příklad: ^https?://.*\\.mail\\.seznam.\\.cz/.*$">
 <!ENTITY foxyproxy.version "Verze">
 <!ENTITY foxyproxy.createdBy "Vytvořil:">
 <!ENTITY foxyproxy.contributionsBy "Přispěvatelé:">
@@ -553,4 +553,16 @@
 <!ENTITY foxyproxy.proxydomain.label "Doména (volitelné - pouze NTLM)">
 <!ENTITY foxyproxy.proxydomain.tooltip "Pouze NTLM autentizace">
 <!ENTITY foxyproxy.proxy.passwords.nomatch.label "Hesla k proxy se neshodují; prosím zadejte je znova.">
+<!ENTITY foxyproxy.traininglogging.label "Učení &amp; záznamy">
+<!ENTITY foxyproxy.traininglogging.tooltip "Nastavit učení a zaznamenávání">
+<!ENTITY foxyproxy.traininglogging.accesskey "L">
+<!ENTITY foxyproxy.training.start "Spustit učení">
+<!ENTITY foxyproxy.training.stop "Zastavit učení">
+<!ENTITY foxyproxy.patternsforall.label "Vytvořit vzory pro vše">
+<!ENTITY foxyproxy.patternsforall.accesskey "A">
+<!ENTITY foxyproxy.patternsforall.tooltip "Vytvořit vzory pro všechna URL">
+<!ENTITY foxyproxy.patternsforselected.label "Vytvořit vzory pro vybrané položky">
+<!ENTITY foxyproxy.patternsforselected.accesskey "S">
+<!ENTITY foxyproxy.patternsforselected.tooltip "Vytvořit vzory pro vybrané URL">
+<!ENTITY foxyproxy.patterntoadd.label "Vzory pro přidání">
 <!-- end foxyproxyplus -->

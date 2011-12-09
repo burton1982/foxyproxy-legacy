@@ -83,7 +83,7 @@
 <!ENTITY foxyproxy.regex.label "正则表达式">
 <!ENTITY foxyproxy.regex.accesskey "R">
 <!ENTITY foxyproxy.regex.tooltip "使用正则表达式来确定 URL 或 URL 模板。">
-<!ENTITY foxyproxy.regex.example.label "例如: https?://.*\.mail\.yahoo\.com/.*">
+<!ENTITY foxyproxy.regex.example.label2 "Example: ^https?://.*\.mail\.yahoo\.com/.*$">
 <!ENTITY foxyproxy.version "版本">
 <!ENTITY foxyproxy.createdBy "创建者">
 <!ENTITY foxyproxy.contributionsBy "贡献者">
@@ -191,6 +191,9 @@
 <!ENTITY foxyproxy.movedown.label "下移">
 <!ENTITY foxyproxy.movedown.tooltip "降低当前选中项的优先级">
 <!ENTITY foxyproxy.movedown.accesskey "D">
+<!ENTITY foxyproxy.system.label "Use System Proxy Settings">
+<!ENTITY foxyproxy.system.accesskey "Y">
+<!ENTITY foxyproxy.system.tooltip2 "Use the proxy configuration in your system settings">
 <!ENTITY foxyproxy.automatic.label "自动代理服务器配置">
 <!ENTITY foxyproxy.automatic.accesskey "A">
 <!ENTITY foxyproxy.automatic.tooltip "自动获取代理服务器配置">
