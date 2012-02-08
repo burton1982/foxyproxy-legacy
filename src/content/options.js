@@ -889,7 +889,15 @@ function proxyWizard() {
   window.openDialog('chrome://foxyproxy/content/proxywizard.xul', '',
     'modal, centerscreen', params).focus();
   if (params.success) {
+    let params2 = {};
+    if (document.getElementById("proxy")) {
+      params2.inn = {
+        country: document.getElementById("proxy").getAttribute("country"),
+        username: document.getElementById("proxy").getAttribute("username"),
+        password: document.getElementById("proxy").getAttribute("password")
+      };
+    }
     window.openDialog('chrome://foxyproxy/content/proxywizardcongrat.xul', '',
-      'resizable=yes').focus();
+      'resizable=yes', params2).focus();
   }
 }
