@@ -944,6 +944,7 @@
     <button id="foxyproxy-donate-button" command="donateCmd" class="uncram-btn"/>
     <button id="foxyproxy-plus-button" command="fppCmd" class="uncram-btn"/>
     <button id="foxyproxy-proxyservice-button" command="proxyServiceCmd" class="uncram-btn"/>
+    <button id="foxyproxy-getdntp-button" command="getDNTPCmd" class="uncram-btn"/>
     <toolbarbutton class="foxyproxy-ref"
       popup="commercialInfo"
       tooltiptext="&foxyproxy.whatsthis;"/>    
@@ -1206,7 +1207,11 @@
   <command id="proxyServiceCmd" label="&foxyproxy.proxyservice.label;"
     accesskey="&foxyproxy.proxyservice.accesskey;"
     tooltiptext="&foxyproxy.proxyservice.tooltip;"
-    oncommand="fpc.openAndReuseOneTabPerURL('http://getfoxyproxy.org/proxyservice/');" />
+    oncommand="fpc.openAndReuseOneTabPerURL('http://getfoxyproxy.org/proxyservice/');"/>
+
+  <command id="getDNTPCmd" label="&foxyproxy.getdntp.label;"
+    tooltiptext="&foxyproxy.getdntp.tooltip;"
+    oncommand="fpc.openAndReuseOneTabPerURL('http://abine.com/dntdetail.php?utm_source=foxyproxy');"/>
         
   <broadcasterset>
     <broadcaster id="tree-row-selected" disabled="true" />
