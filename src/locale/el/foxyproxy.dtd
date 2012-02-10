@@ -449,6 +449,8 @@
 <!ENTITY foxyproxy.proxyservice.label "Αγοράστε υπηρεσίες διαμεσολάβησης">
 <!ENTITY foxyproxy.proxyservice.accesskey "δ">
 <!ENTITY foxyproxy.proxyservice.tooltip "Εγγραφείτε για υπηρεσίες διαμεσολάβησης">
+<!ENTITY foxyproxy.getdntp.label "Βάλτε το Do Not Track Plus">
+<!ENTITY foxyproxy.getdntp.tooltip "Βάλτε το Do Not Track Plus">
 <!ENTITY foxyproxy.proxyservice2.label "Χρειάζεστε γρήγορους, αξιόπιστους διαμεσολαβητές στις ΗΠΑ, την Αγγλία ή άλλη χώρα;">
 <!ENTITY foxyproxy.getfoxyproxyplus.label "Πάρτε το FoxyProxy Plus">
 <!ENTITY foxyproxy.aboutdonate.label "Το κουμπί δωρεάς σας μεταφέρει στο PayPal απ&apos; όπου μπορείτε να κάνετε μια δωρεά στο έργο FoxyProxy για να ενθαρύνετε και να υποστηρίξετε την ανάπτυξη του. Αν χρησιμοποιείτε συχνά το FoxyProxy, κάντε μια δωρεά!">

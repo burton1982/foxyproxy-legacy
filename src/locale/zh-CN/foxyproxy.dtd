@@ -12,6 +12,16 @@
 <!ENTITY foxyproxy.proxy.notes.label "代理备注">
 <!ENTITY foxyproxy.proxy.notes.accesskey "N">
 <!ENTITY foxyproxy.proxy.notes.tooltip "代理备注">
+<!ENTITY foxyproxy.proxy.wizard.label "Proxy Wizard">
+<!ENTITY foxyproxy.proxy.wizard.accesskey "P">
+<!ENTITY foxyproxy.proxy.wizard.tooltip "Create a proxy from a proxy subscription">
+<!ENTITY foxyproxy.proxy.wizard.description1 "This wizard configures your paid proxy automatically. Please enter your subscription ID below. If you do not have a subscription ID, ">
+<!ENTITY foxyproxy.proxy.wizard.description2 "you can purchase one">
+<!ENTITY foxyproxy.proxy.wizard.subscriptionID.label "Subscription ID">
+<!ENTITY foxyproxy.proxy.wizard.subscriptionID.tooltip "Enter your proxy subscription ID">
+<!ENTITY foxyproxy.proxy.wizard.loading.label "Retrieving proxy details...">
+<!ENTITY foxyproxy.proxy.wizard.congratulation "Congratulations. FoxyProxy is configured.">
+<!ENTITY foxyproxy.proxy.wizard.whatsmyip.label "Check my location">
 <!ENTITY foxyproxy.pattern.label "匹配模板">
 <!ENTITY foxyproxy.urlpatterns.label "URL模式">
 <!ENTITY foxyproxy.urlpatterns.accesskey "P">
@@ -439,6 +449,8 @@
 <!ENTITY foxyproxy.proxyservice.label "购买代理服务">
 <!ENTITY foxyproxy.proxyservice.accesskey "P">
 <!ENTITY foxyproxy.proxyservice.tooltip "登录代理服务">
+<!ENTITY foxyproxy.getdntp.label "Get Do Not Track Plus">
+<!ENTITY foxyproxy.getdntp.tooltip "Get Do Not Track Plus">
 <!ENTITY foxyproxy.proxyservice2.label "需要美国，英国或者其他国家的快速、可靠的代理服务？">
 <!ENTITY foxyproxy.getfoxyproxyplus.label "获取 FoxyProxy Plus">
 <!ENTITY foxyproxy.aboutdonate.label "捐助按钮使你可以通过 PayPal 想 FoxyProxy 项目提供捐助以支持开发活动。">
@@ -483,7 +495,7 @@
 <!ENTITY foxyproxy.pattern.subscriptions.refreshNow.tooltip "现在更新这个模式订阅">
 <!ENTITY foxyproxy.pattern.subscriptions.refreshHelp1 "指定每多少分钟更新这个订阅。正在更新订阅">
 <!ENTITY foxyproxy.pattern.subscriptions.refreshHelp2 "移除全部已有模式">
-<!ENTITY foxyproxy.pattern.subscriptions.refreshHelp3 "然后插入订阅网址中找到的。从这里了解更多">
+<!ENTITY foxyproxy.pattern.subscriptions.refreshHelp4 "then inserts the ones found at the subscription URL. Read more">
 <!ENTITY foxyproxy.pattern.subscriptions.zeroRefresh "（0表示从不更新）">
 <!ENTITY foxyproxy.pattern.subscriptions.format.tooltip "这个模式订阅列表的格式">
 <!ENTITY foxyproxy.pattern.subscriptions.formatHelp "指定这个订阅的书写格式。一般来说，FoxyProxy 会自动检测格式。了解更多">

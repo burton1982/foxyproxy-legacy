@@ -12,6 +12,16 @@
 <!ENTITY foxyproxy.proxy.notes.label "Notas del proxy">
 <!ENTITY foxyproxy.proxy.notes.accesskey "N">
 <!ENTITY foxyproxy.proxy.notes.tooltip "Notas del proxy">
+<!ENTITY foxyproxy.proxy.wizard.label "Proxy Wizard">
+<!ENTITY foxyproxy.proxy.wizard.accesskey "P">
+<!ENTITY foxyproxy.proxy.wizard.tooltip "Create a proxy from a proxy subscription">
+<!ENTITY foxyproxy.proxy.wizard.description1 "This wizard configures your paid proxy automatically. Please enter your subscription ID below. If you do not have a subscription ID, ">
+<!ENTITY foxyproxy.proxy.wizard.description2 "you can purchase one">
+<!ENTITY foxyproxy.proxy.wizard.subscriptionID.label "Subscription ID">
+<!ENTITY foxyproxy.proxy.wizard.subscriptionID.tooltip "Enter your proxy subscription ID">
+<!ENTITY foxyproxy.proxy.wizard.loading.label "Retrieving proxy details...">
+<!ENTITY foxyproxy.proxy.wizard.congratulation "Congratulations. FoxyProxy is configured.">
+<!ENTITY foxyproxy.proxy.wizard.whatsmyip.label "Check my location">
 <!ENTITY foxyproxy.pattern.label "Correspondencia de patrones">
 <!ENTITY foxyproxy.urlpatterns.label "Patrones de direcciones">
 <!ENTITY foxyproxy.urlpatterns.accesskey "P">
@@ -439,6 +449,8 @@
 <!ENTITY foxyproxy.proxyservice.label "Comprar el servicio proxy">
 <!ENTITY foxyproxy.proxyservice.accesskey "P">
 <!ENTITY foxyproxy.proxyservice.tooltip "Conectar para el servicio proxy">
+<!ENTITY foxyproxy.getdntp.label "Get Do Not Track Plus">
+<!ENTITY foxyproxy.getdntp.tooltip "Get Do Not Track Plus">
 <!ENTITY foxyproxy.proxyservice2.label "¿Necesita proxys rápidos y confiables en US, UK o en otros países?">
 <!ENTITY foxyproxy.getfoxyproxyplus.label "Obtener FoxyProxy Plus">
 <!ENTITY foxyproxy.aboutdonate.label "El botón de donar le permite realizar una donación al proyecto FoxyProxy a través de PayPal para ayudar y soportar el desarrollo. Si usa FoxyProxy regularmente, considere hacer una donación.">
@@ -483,7 +495,7 @@
 <!ENTITY foxyproxy.pattern.subscriptions.refreshNow.tooltip "Refrescar este patrón de suscripciones ahora">
 <!ENTITY foxyproxy.pattern.subscriptions.refreshHelp1 "Especifique el número de minutos tras el que las suscripciones se actualizan. Al actualizar las suscripciones">
 <!ENTITY foxyproxy.pattern.subscriptions.refreshHelp2 "se borran todos los patrones existentes">
-<!ENTITY foxyproxy.pattern.subscriptions.refreshHelp3 "y se inserta el nuevo encontrado en la URL de suscripción. Lea más aquí">
+<!ENTITY foxyproxy.pattern.subscriptions.refreshHelp4 "then inserts the ones found at the subscription URL. Read more">
 <!ENTITY foxyproxy.pattern.subscriptions.zeroRefresh "(0 para no refrescar nunca)">
 <!ENTITY foxyproxy.pattern.subscriptions.format.tooltip "Formato de esta lista de patrón de suscripciones">
 <!ENTITY foxyproxy.pattern.subscriptions.formatHelp "Especifique el formato en que las suscripciones se escriben. Normalmente, es detectado automáticamente por FoxyProxy. Lea más">
@@ -565,3 +577,4 @@
 <!ENTITY foxyproxy.patternsforselected.accesskey "S">
 <!ENTITY foxyproxy.patternsforselected.tooltip "Crear patrones para las URL seleccionadas">
 <!ENTITY foxyproxy.patterntoadd.label "Patrón a añadir">
+<!-- end foxyproxyplus -->

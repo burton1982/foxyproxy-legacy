@@ -12,6 +12,16 @@
 <!ENTITY foxyproxy.proxy.notes.label "Nota">
 <!ENTITY foxyproxy.proxy.notes.accesskey "o">
 <!ENTITY foxyproxy.proxy.notes.tooltip "Inserire una nota">
+<!ENTITY foxyproxy.proxy.wizard.label "Proxy Wizard">
+<!ENTITY foxyproxy.proxy.wizard.accesskey "P">
+<!ENTITY foxyproxy.proxy.wizard.tooltip "Create a proxy from a proxy subscription">
+<!ENTITY foxyproxy.proxy.wizard.description1 "This wizard configures your paid proxy automatically. Please enter your subscription ID below. If you do not have a subscription ID, ">
+<!ENTITY foxyproxy.proxy.wizard.description2 "you can purchase one">
+<!ENTITY foxyproxy.proxy.wizard.subscriptionID.label "Subscription ID">
+<!ENTITY foxyproxy.proxy.wizard.subscriptionID.tooltip "Enter your proxy subscription ID">
+<!ENTITY foxyproxy.proxy.wizard.loading.label "Retrieving proxy details...">
+<!ENTITY foxyproxy.proxy.wizard.congratulation "Congratulations. FoxyProxy is configured.">
+<!ENTITY foxyproxy.proxy.wizard.whatsmyip.label "Check my location">
 <!ENTITY foxyproxy.pattern.label "Modello corrispondente">
 <!ENTITY foxyproxy.urlpatterns.label "URL o modelli URL">
 <!ENTITY foxyproxy.urlpatterns.accesskey "l">
@@ -83,6 +93,7 @@
 <!ENTITY foxyproxy.regex.label "Espressione regolare">
 <!ENTITY foxyproxy.regex.accesskey "R">
 <!ENTITY foxyproxy.regex.tooltip "L'URL o il modello URL è un'espressione regolare">
+<!ENTITY foxyproxy.regex.example.label2 "Example: ^https?://.*\.mail\.yahoo\.com/.*$">
 <!ENTITY foxyproxy.version "Versione">
 <!ENTITY foxyproxy.createdBy "Autore:">
 <!ENTITY foxyproxy.contributionsBy "Collaboratori:">
@@ -438,6 +449,8 @@
 <!ENTITY foxyproxy.proxyservice.label "Proxy a pagamento">
 <!ENTITY foxyproxy.proxyservice.accesskey "n">
 <!ENTITY foxyproxy.proxyservice.tooltip "Fare clic qui per iscriversi ad un servizio di proxy a pagamento">
+<!ENTITY foxyproxy.getdntp.label "Get Do Not Track Plus">
+<!ENTITY foxyproxy.getdntp.tooltip "Get Do Not Track Plus">
 <!ENTITY foxyproxy.proxyservice2.label "Iscrizione ad un servizio di proxy sicuri americani, inglesi o di altre nazioni a pagamento">
 <!ENTITY foxyproxy.getfoxyproxyplus.label "Ottieni FoxyProxy Plus">
 <!ENTITY foxyproxy.aboutdonate.label "Facendo clic sul pulsante 'Effettua una donazione' è possibile incoraggiare e sostenere lo sviluppo di FoxyProxy effettuando una donazione tramite PayPal">
@@ -482,7 +495,7 @@
 <!ENTITY foxyproxy.pattern.subscriptions.refreshNow.tooltip "Aggiorna ora questa sottoscrizione di modelli">
 <!ENTITY foxyproxy.pattern.subscriptions.refreshHelp1 "Specificare il numero di minuti dopo i quali la sottoscrizione verrà aggiornata. L'aggiornamento">
 <!ENTITY foxyproxy.pattern.subscriptions.refreshHelp2 "eliminerà tutti i modelli esistenti">
-<!ENTITY foxyproxy.pattern.subscriptions.refreshHelp3 "sostituendoli con quelli scaricati dall'URL della sottoscrizione. Ulteriori informazioni ">
+<!ENTITY foxyproxy.pattern.subscriptions.refreshHelp4 "then inserts the ones found at the subscription URL. Read more">
 <!ENTITY foxyproxy.pattern.subscriptions.zeroRefresh "(0: l'aggiornamento verrà disattivato)">
 <!ENTITY foxyproxy.pattern.subscriptions.format.tooltip "Formato di questa sottoscrizione di modelli">
 <!ENTITY foxyproxy.pattern.subscriptions.formatHelp "È possibile specificare il formato della sottoscrizione (opzione solitamente impostata in modo automatico da FoxyProxy). Ulteriori informazioni ">

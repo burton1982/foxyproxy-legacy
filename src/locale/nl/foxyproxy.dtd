@@ -449,6 +449,8 @@
 <!ENTITY foxyproxy.proxyservice.label "Proxydienst kopen">
 <!ENTITY foxyproxy.proxyservice.accesskey "P">
 <!ENTITY foxyproxy.proxyservice.tooltip "Aanmelden voor proxydiensten">
+<!ENTITY foxyproxy.getdntp.label "Do Not Track Plus ophalen">
+<!ENTITY foxyproxy.getdntp.tooltip "Do Not Track Plus ophalen">
 <!ENTITY foxyproxy.proxyservice2.label "Behoefte aan snelle, betrouwbare proxy’s in de VS, het VK of andere landen?">
 <!ENTITY foxyproxy.getfoxyproxyplus.label "Installeer FoxyProxy Plus">
 <!ENTITY foxyproxy.aboutdonate.label "De knop Doneren leidt u naar PayPal, waar u kunt doneren aan het FoxyProxy-project om zo de ontwikkeling aan te moedigen en te ondersteunen. Overweeg a.u.b. een donatie als u FoxyProxy regelmatig gebruikt.">
@@ -575,3 +577,4 @@
 <!ENTITY foxyproxy.patternsforselected.accesskey "S">
 <!ENTITY foxyproxy.patternsforselected.tooltip "Patronen voor geselecteerde URL’s maken">
 <!ENTITY foxyproxy.patterntoadd.label "Toe te voegen patroon">
+<!-- end foxyproxyplus -->

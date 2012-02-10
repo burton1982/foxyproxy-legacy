@@ -449,6 +449,8 @@
 <!ENTITY foxyproxy.proxyservice.label "Köp proxytjänster">
 <!ENTITY foxyproxy.proxyservice.accesskey "P">
 <!ENTITY foxyproxy.proxyservice.tooltip "Anmäl dig till proxy-tjänster">
+<!ENTITY foxyproxy.getdntp.label "Hämta Do Not Track Plus">
+<!ENTITY foxyproxy.getdntp.tooltip "Hämta tillägget Do Not Track Plus">
 <!ENTITY foxyproxy.proxyservice2.label "Behöver du snabba, pålitliga proxyservrar i USA, England eller andra länder?">
 <!ENTITY foxyproxy.getfoxyproxyplus.label "Skaffa FoxyProxy Plus">
 <!ENTITY foxyproxy.aboutdonate.label "Donera-knappen tar dig till PayPal, där du kan donera till FoxyProxy-projektet stödja fortsatt utveckling av programmet. Om du använder FoxyProxy regelbundet, överväg då gärna att göra en donation.">

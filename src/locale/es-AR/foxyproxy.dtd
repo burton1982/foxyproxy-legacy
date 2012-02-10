@@ -449,6 +449,8 @@
 <!ENTITY foxyproxy.proxyservice.label "Adquirir un Servicio de Proxy">
 <!ENTITY foxyproxy.proxyservice.accesskey "P">
 <!ENTITY foxyproxy.proxyservice.tooltip "Regístrese para obtener los servicios de proxy">
+<!ENTITY foxyproxy.getdntp.label "Obtener Do Not Track Plus">
+<!ENTITY foxyproxy.getdntp.tooltip "Obtener Do Not Track Plus">
 <!ENTITY foxyproxy.proxyservice2.label "Necesita proxies rápidos, confiables en US, UK u otros países?">
 <!ENTITY foxyproxy.getfoxyproxyplus.label "Obtenga FoxyProxy Plus">
 <!ENTITY foxyproxy.aboutdonate.label "El botón de donar te lleva a PayPal, donde usted puede donar al proyecto FoxyProxy para fomentar y apoyar su desarrollo. Si usted usa regularmente FoxyProxy, por favor, considere donar.">
