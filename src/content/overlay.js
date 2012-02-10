@@ -225,7 +225,7 @@ end-foxyproxy-simple !*/
   },
 
   createSubscribedProxy: function(e) {
-    let doc = e.target.ownerDocument, let location = doc.location;
+    let doc = e.target.ownerDocument, location = doc.location;
     // We only accept data if it is coming from TLS secured getfoxyproxy.org.
     if (location.protocol === "https:" && location.hostname ===
         "getfoxyproxy.org") {
