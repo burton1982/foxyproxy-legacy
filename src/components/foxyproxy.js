@@ -354,7 +354,7 @@ foxyproxy.prototype = {
     enabled && ps.registerFilter(this, 0);
   },
 
-  mp: null
+  mp: null,
   applyFilter : function(ps, uri, proxy) {
     function _err(fp, info, extInfo) {
       var def = fp.proxies.item(fp.proxies.length-1);
