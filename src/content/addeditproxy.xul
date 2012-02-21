@@ -28,7 +28,7 @@
   persist="screenX screenY">
 
 <script type="application/x-javascript;version=1.7" src="addeditproxy.js"/>
-<script src="colorvalidator.js"/> <!-- a simple color validator -->
+<script src="colorvalidator.js"/>
 
 <vbox observes="torwiz-broadcaster" flex="1">
   <tabbox flex="1">
@@ -85,15 +85,16 @@
           label="&foxyproxy.includeincycle.label;" style="width: 20em;"
           accesskey="&foxyproxy.includeincycle.accesskey;"
           tooltiptext="&foxyproxy.includeincycle.tooltip;"/>
-        <checkbox id="proxyDNS" class="indent" observes="direct-broadcaster"
+        <checkbox id="proxyDNS" class="indent"
           label="&foxyproxy.proxydns.label3;"
           accesskey="&foxyproxy.proxydns.accesskey;"
           tooltiptext="&foxyproxy.proxydns.tooltip3;"/>
-        <separator class="thin"/>
         <vbox>
           <hbox align="center">
-            <textbox id="color" class="indent"
-              oninput="customcolor(this.value);"/>
+            <description class="indent">
+              &foxyproxy.color.description;
+            </description>
+            <textbox id="color" oninput="customcolor(this.value);"/>
             <colorpicker2 id="colorpicker" type="button"
               onchange="pickcolor(this.color);"/>
             <label id="colorfalse" hidden="true" class="invalidcolor"
@@ -102,6 +103,39 @@
               value="&foxyproxy.validcolor.label;"/>
           </hbox>
         </vbox>
+        <separator/>
+        <hbox>
+          <groupbox>
+            <caption label="&foxyproxy.cache.label;"/>
+            <row align="center">
+              <checkbox id="clearCacheBeforeUse" class="indent"
+                label="&foxyproxy.clearcache.label;"
+                accesskey="&foxyproxy.clearcache.accesskey;"
+                tooltiptext="&foxyproxy.clearcache.tooltip;"/>
+            </row>
+            <row align="center">
+              <checkbox id="disableCache" class="indent"
+                label="&foxyproxy.disablecache.label;"
+                accesskey="&foxyproxy.disablecache.accesskey;"
+                tooltiptext="&foxyproxy.disablecache.tooltip;"/>
+            </row>
+          </groupbox>
+          <groupbox>
+            <caption label="&foxyproxy.cookies.label;"/>
+            <row align="center">
+              <checkbox id="clearCookiesBeforeUse" class="indent"
+                label="&foxyproxy.clearcookies.label;"
+                accesskey="&foxyproxy.clearcookies.accesskey;"
+                tooltiptext="&foxyproxy.clearcookies.tooltip;"/>
+            </row>
+            <row align="center">
+              <checkbox id="rejectCookies" class="indent"
+                label="&foxyproxy.rejectcookies.label;"
+                accesskey="&foxyproxy.rejectcookies.accesskey;"
+                tooltiptext="&foxyproxy.rejectcookies.tooltip;"/>
+            </row>
+          </groupbox>
+        </hbox>
       </tabpanel>
       <tabpanel flex="1" orient="vertical">
         <separator class="thin" />

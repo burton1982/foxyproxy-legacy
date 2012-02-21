@@ -8,10 +8,13 @@
   available in the LICENSE file at the root of this installation
   and also online at http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 **/
-const CI = Components.interfaces, CC = Components.classes;
+const CI = Components.interfaces, CC = Components.classes, CU = Components.
+  utils;
 var urlsTree, proxy, foxyproxy, autoconfUrl, overlay, isWindows, fpc,
   autoconfMode, reloadFreq, loadNotification, errorNotification, autoReload,
   oldMatches = [];
+
+CU.import("resource://foxyproxy/cookiesAndCache.jsm");
 
 function onLoad() {
   isWindows = CC["@mozilla.org/xre/app-info;1"].
@@ -204,9 +207,45 @@ function onOK() {
   } else {
     proxy.noInternalIPs = document.getElementById("noInternalIPs").checked;
   }
+  handleCacheAndCookies();
   proxy.afterPropertiesSet();
   window.arguments[0].out = {proxy:proxy};
   return true;
+}
+
+function handleCacheAndCookies() {
+  let fp = CC["@leahscape.org/foxyproxy/service;1"].getService().
+    wrappedJSObject;
+  if (!fp._selectedProxy) return; // We're in patterns, random, or round-robin mode
+
+  // If |proxy| is the currently selected ("in use") proxy, and the user changed
+  // the state of clearCacheBeforeUse from false to true, then we clear the
+  // cache now.
+  let newState = document.getElementById("clearCacheBeforeUse").checked;
+  if (!proxy.clearCacheBeforeUse && newState && fp._selectedProxy.id ==
+      proxy.id)
+    cacheMgr.clearCache();
+  proxy.clearCacheBeforeUse = newState;
+  // If |proxy| is the currently selected ("in use") proxy, and the user changed
+  // the state of clearCookiesBeforeUse from false to true, then we clear
+  // cookies now.
+  newState = document.getElementById("clearCookiesBeforeUse").checked;
+  if (!proxy.clearCookiesBeforeUse && newState && fp._selectedProxy.id ==
+      proxy.id)
+    cookieMgr.clearCookies();
+  proxy.clearCookiesBeforeUse = newState;
+  // If |proxy| is the currently selected ("in use") proxy, and the user changed
+  // the state of disableCache from false to true, then we disable cache now.
+  newState = document.getElementById("disableCache").checked;
+  if (!proxy.disableCache && newState && fp._selectedProxy.id == proxy.id)
+    cacheMgr.disableCache();
+  proxy.disableCache = newState;
+  // If |proxy| is the currently selected ("in use") proxy, and the user changed
+  // the state of rejectCookies from false to true, then we disable cookies now.
+  newState = document.getElementById("rejectCookies").checked;
+  if (!proxy.rejectCookies && newState && fp._selectedProxy.id == proxy.id)
+    cookieMgr.rejectCookies();
+  proxy.rejectCookies = newState;
 }
 
 function hasWhite() {

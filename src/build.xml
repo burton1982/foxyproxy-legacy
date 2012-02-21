@@ -40,7 +40,7 @@
     <!-- set the copyright date in license header blocks --> 
     <replaceregexp flags="gs">
       <regexp pattern="#%#%"/>
-      <substitution expression="2011"/>
+      <substitution expression="2012"/>
       <fileset dir="${temp-path}" includes="**/**"/>
     </replaceregexp>
     <zip destfile="${target-path}/foxyproxy-${edition}-${version}.xpi">
@@ -68,7 +68,7 @@
 
   <target name="build-foxyproxy-standard" depends="init">
     <property name="edition" value="standard" />
-    <property name="version" value="3.5" />
+    <property name="version" value="3.6a1" />
     <property name="src-path" value="${temp-path}"/>
     <antcall>
       <target name="copy"/>

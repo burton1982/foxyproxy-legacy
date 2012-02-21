@@ -126,6 +126,10 @@ Proxy.prototype = {
   // Eventually, we need one object to store the PAC settings of the proxy
   // specified in the system settings.
   systemProxyPAC: null,
+  clearCacheBeforeUse: false,
+  disableCache: false,
+  clearCookiesBeforeUse: false,
+  rejectCookies: false,
   readOnlyProperties : ["lastresort", "fp", "wrappedJSObject", "matches", /* from ManualConf */ "owner",
                         /* from AutoConf */ "timer", /* from AutoConf */  "_resolver"],
 
@@ -166,8 +170,13 @@ Proxy.prototype = {
 	  this.lastresort = node.hasAttribute("lastresort") ? node.getAttribute("lastresort") == "true" : false; // new for 2.0
     this.animatedIcons = node.hasAttribute("animatedIcons") ? node.getAttribute("animatedIcons") == "true" : !this.lastresort; // new for 2.4
     this.includeInCycle = node.hasAttribute("includeInCycle") ? node.getAttribute("includeInCycle") == "true" : !this.lastresort; // new for 2.5
-    this.color = gGetSafeAttr(node, "color", DEFAULT_COLOR);    
-    
+    this.color = gGetSafeAttr(node, "color", DEFAULT_COLOR);
+    this.clearCacheBeforeUse = gGetSafeAttrB(node, "clearCacheBeforeUse",
+      false);
+    this.disableCache = gGetSafeAttrB(node, "disableCache", false);
+    this.clearCookiesBeforeUse = gGetSafeAttrB(node, "clearCookiesBeforeUse",
+      false);
+    this.rejectCookies = gGetSafeAttrB(node, "rejectCookies", false);
     this.noInternalIPs = node.hasAttribute("noInternalIPs") ?
       node.getAttribute("noInternalIPs") == "true" : false;
     for (var i=0,temp=node.getElementsByTagName("match"); i<temp.length; i++) {
@@ -200,6 +209,10 @@ Proxy.prototype = {
     e.setAttribute("proxyDNS", this._proxyDNS);
     e.setAttribute("noInternalIPs", this.noInternalIPs);
     e.setAttribute("autoconfMode", this._autoconfMode);
+    e.setAttribute("clearCacheBeforeUse", this.clearCacheBeforeUse);
+    e.setAttribute("disableCache", this.disableCache);
+    e.setAttribute("clearCookiesBeforeUse", this.clearCookiesBeforeUse);
+    e.setAttribute("rejectCookies", this.rejectCookies);
 
     var matchesElem = doc.createElement("matches");
     e.appendChild(matchesElem);

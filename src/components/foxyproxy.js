@@ -104,6 +104,7 @@ function foxyproxy() {
   // https://developer.mozilla.org/en/JavaScript/Code_modules/Using section
   // "Custom modules and XPCOM components" 
   CU.import("resource://foxyproxy/patternSubscriptions.jsm", this);
+  CU.import("resource://foxyproxy/cookiesAndCache.jsm", this); 
 };
 foxyproxy.prototype = {
   PFF : " ",
@@ -280,6 +281,31 @@ foxyproxy.prototype = {
       this.writeSettingsAsync();
   },
 
+  handleCacheAndCookies : function(proxy, previousProxy) {
+    // TODO: performance enhancement. this only needs to be handled if the
+    // previous proxy has different settings than |proxy|
+    if (proxy) {
+      // Cache. If there is no |previousProxy| (i.e.,we just started up), then
+      // use the |proxy| settings. Otherwise, if the |previousProxy| has the
+      // same settings as |proxy|, then do not continue.
+      if (proxy.clearCacheBeforeUse && (!previousProxy || (previousProxy &&
+          !previousProxy.clearCacheBeforeUse)))
+        this.cacheMgr.clearCache();
+      if (proxy.disableCache && (!previousProxy || (previousProxy &&
+          !previousProxy.disableCache)))
+        this.cacheMgr.disableCache();
+      // Cookies. If there is no |previousProxy| (i.e.,we just started up), then
+      // use the |proxy| settings. Otherwise, if the |previousProxy| has the
+      // same settings as |proxy|, then do not continue.
+      if (proxy.clearCookiesBeforeUse && (!previousProxy || (previousProxy &&
+          !previousProxy.clearCookiesBeforeUse)))
+        this.cookieMgr.clearCookies();
+      if (proxy.rejectCookies && (!previousProxy || (previousProxy &&
+          !previousProxy.rejectCookies)))
+        this.cookieMgr.rejectCookies();
+    }
+  },
+
   /**
    * This assumes mode order is:
    * patterns, proxy1, ..., lastresort, random, roundrobin, disabled
@@ -328,6 +354,7 @@ foxyproxy.prototype = {
     enabled && ps.registerFilter(this, 0);
   },
 
+  mp: null
   applyFilter : function(ps, uri, proxy) {
     function _err(fp, info, extInfo) {
       var def = fp.proxies.item(fp.proxies.length-1);
@@ -339,18 +366,22 @@ foxyproxy.prototype = {
     try {
       var s = uri.scheme;
       if (s == "feed" || s == "sacore" || s == "dssrequest") return; /* feed schemes handled internally by browser. ignore Mcafee site advisor (http://foxyproxy.mozdev.org/drupal/content/foxyproxy-latest-mcafee-site-advisor) */
-      var spec = uri.spec;
-      var mp = this.applyMode(spec);
-      var ret = mp.proxy.getProxy(spec, uri.host, mp);
-      return ret ? ret : _err(this, this.getMessage("route.error"));
+      var spec = uri.spec, previousProxy = this.mp ? this.mp.proxy : null;
+      this.mp = this.applyMode(spec);
+      var ret = this.mp.proxy.getProxy(spec, uri.host, this.mp);
+      if (ret) {
+        this.handleCacheAndCookies(this.mp.proxy, previousProxy);
+        return ret;
+      }
+      return _err(this, this.getMessage("route.error"));
     }
     catch (e) {
       dump("applyFilter: " + e + "\n" + e.stack + "\nwith url " + uri.spec + "\n");
       return _err(this, this.getMessage("route.exception", [""]), this.getMessage("route.exception", [": " + e]));
     }
     finally {
-      gObsSvc.notifyObservers(mp.proxy, "foxyproxy-throb", null);
-      this.logg.add(mp);
+      gObsSvc.notifyObservers(this.mp.proxy, "foxyproxy-throb", null);
+      this.logg.add(this.mp);
     }
   },
 
