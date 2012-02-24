@@ -197,7 +197,6 @@ tab[id^="foxyproxy-"] /* selectall tabs whose id have the prefix "foxyproxy-" */
 
 /* begin addeditsubscription.xul CSS */
 #foxyproxySubscriptions {
-  height: 500px;
   width: 700px;
 }
 #addeditSubscriptionTitle, #lastStatusTitle {
