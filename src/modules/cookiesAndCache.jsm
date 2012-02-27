@@ -20,11 +20,8 @@ let CI = Components.interfaces, CC = Components.classes, CU = Components.utils,
 CU.import("resource://foxyproxy/utils.jsm");
 
 let cookiePrefs = utils.getPrefsService("network.cookie."),
-  networkHttpPrefs = utils.getPrefsService("network.http."),
-  diskCachePrefs = utils.getPrefsService("browser.cache.disk."),
-  memCachPrefs = utils.getPrefsService("browser.cache.memory."),
-  offlineCachePrefs = utils.getPrefsService("browser.offline."),
-  sslCachePrefs = utils.getPrefsService("browser.cache.disk_cache_ssl."),
+  cachePrefs = utils.getPrefsService("browser.cache."),
+  securityPrefs = utils.getPrefsService("security."),
 
   EXPORTED_SYMBOLS = ["cacheMgr", "cookieMgr"],
   
@@ -34,22 +31,41 @@ let cookiePrefs = utils.getPrefsService("network.cookie."),
         dump("clearing cache\n");
     	  cachService.evictEntries(CI.nsICache.STORE_ON_DISK);
     	  cachService.evictEntries(CI.nsICache.STORE_IN_MEMORY);
+        // Thanks, Torbutton
+        try {
+          // This exists in FF 3.6.x. Perhaps we can drop the catch block and
+          // the "old method".
+          CC["@mozilla.org/security/crypto;1"].getService(CI.nsIDOMCrypto).
+            logout();
+        }
+        catch(e) {
+          // Failed to use nsIDOMCrypto to clear SSL Session ids.
+          // Falling back to old method.
+          // This clears the SSL Identifier Cache.
+          // See https://bugzilla.mozilla.org/show_bug.cgi?id=448747 and
+          // http://mxr.mozilla.org/security/source/security/manager/ssl/src/nsNSSComponent.cpp#2134
+          // This results in clearSessionCache being set to true temporarily.
+          securityPrefs.setBoolPref("enable_ssl3",
+            !securityPrefs.getBoolPref("enable_ssl3"));
+          securityPrefs.setBoolPref("enable_ssl3",
+            !securityPrefs.getBoolPref("enable_ssl3"));     
+        }
       }
       catch(e) {
         let fp = CC["@leahscape.org/foxyproxy/service;1"].getService().
           wrappedJSObject;
         fp.notifier.alert(fp.getMessage("foxyproxy"),
           fp.getMessage("clearcache.error", [e]));
-      }	 
+      }
     },
 
     disableCache : function() {
+      // TODO: Should we remove/add prefs observer here as well?
       dump("disabling cache\n");    
-      networkHttpPrefs.setBoolPref("use-cache", false); // this might be enough
-      diskCachePrefs.setBoolPref("enable", false); // but let's be safe
-      memCachPrefs.setBoolPref("enable", false); // but let's be safe
-      offlineCachePrefs.setBoolPref("enable", false); // but let's be safe
-      sslCachePrefs.setBoolPref("enable", false); // but let's be safe
+      cachePrefs.setBoolPref("disk.enable", false);
+      cachePrefs.setBoolPref("memory.enable", false);
+      cachePrefs.setBoolPref("offline.enable", false);
+      cachePrefs.setBoolPref("disk_cache_ssl", false);
     }
   },
   
@@ -60,6 +76,7 @@ let cookiePrefs = utils.getPrefsService("network.cookie."),
     },
 
     rejectCookies : function() {
+      // TODO: Should we remove/add pref observer here as well?
       dump("rejecting cookies\n");
       cookiePrefs.setIntPref("cookieBehavior", 2);
     }
