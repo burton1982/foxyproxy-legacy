@@ -78,5 +78,49 @@ let CI = Components.interfaces, CC = Components.classes, gObsSvc =
           d = data.QueryInterface(CI.nsISupports);
       }
       gObsSvc.notifyObservers(bool, topic, d);
+    },
+
+    /**
+     * Load a script in the /components directory or subdirectory. If a subdir,
+     * use linux-style directory delimiters (forward-slash) even when executing
+     * on Windows. For example: api/proxyConfig.js not api\proxyConfig.js.
+     */
+    loadComponentScript : function(filename, target) {
+      // load js files
+      let self;
+      let fileProtocolHandler = CC["@mozilla.org/network/protocol;1?name=file"].
+        getService(CI["nsIFileProtocolHandler"]);
+      if ("undefined" != typeof(__LOCATION__)) {
+        // preferred way
+        self = __LOCATION__;
+      } else {
+        self = fileProtocolHandler.getFileFromURLSpec(Components.Exception().
+          filename);
+      }
+      let rootDir = self.parent.parent; // our root dir
+      let loader = CC["@mozilla.org/moz/jssubscript-loader;1"].
+        getService(CI["mozIJSSubScriptLoader"]);
+      try {
+        let filePath = rootDir.clone();
+        filePath.append("components");
+
+        // In case |filename| has a relative path, split the path and append one
+        // at a time. Appending, for example, "api/proxyConfig.js" all at once
+        // throws an exception.
+        let tmp = filename.split('/'); // split() never returns null
+        for (let i=0, len=tmp.length; i<len; i++) {
+          // tmp[i] can be "" if, for example, filePath is "/foo.js"
+          if (tmp[i] != "") {
+            filePath.append(tmp[i]);
+          }
+        }
+        loader.loadSubScript(fileProtocolHandler.getURLSpecFromFile(filePath),
+          target);
+      }
+      catch (e) {
+        dump("Error loading component " + filename + ": " + e + "\n" + e.stack +
+          "\n");
+        throw(e);
+      }
     }
   };
