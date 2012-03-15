@@ -147,6 +147,20 @@
 <!ENTITY foxyproxy.proxydns.accesskey "u">
 <!ENTITY foxyproxy.proxydns.tooltip3 "Hvis afmærket, vil adresser af URL'er som indlæses igennem denne proxy også blive opslået af denne proxy">
 <!ENTITY foxyproxy.proxydns.label4 "Proxy DNS">
+<!ENTITY foxyproxy.cache.label "Cache">
+<!ENTITY foxyproxy.clearcache.label "Clear application cache before using this proxy">
+<!ENTITY foxyproxy.clearcache.accesskey "H">
+<!ENTITY foxyproxy.clearcache.tooltip "If checked, clear cache before using this proxy">
+<!ENTITY foxyproxy.disablecache.label "Do not cache while using this proxy">
+<!ENTITY foxyproxy.disablecache.accesskey "D">
+<!ENTITY foxyproxy.disablecache.tooltip "If checked, application won't cache in the future">
+<!ENTITY foxyproxy.cookies.label "Cookies">
+<!ENTITY foxyproxy.clearcookies.label "Remove all cookies before using this proxy">
+<!ENTITY foxyproxy.clearcookies.accesskey "C">
+<!ENTITY foxyproxy.clearcookies.tooltip "If checked, remove all cookies before using this proxy">
+<!ENTITY foxyproxy.rejectcookies.label "Block all cookies when using this proxy">
+<!ENTITY foxyproxy.rejectcookies.accesskey "B">
+<!ENTITY foxyproxy.rejectcookies.tooltip "If checked, browser will reject all cookies when using this proxy">
 <!ENTITY foxyproxy.showstatusbaricon.label "Vis ikon på statuslinjen">
 <!ENTITY foxyproxy.showstatusbaricon.accesskey "s">
 <!ENTITY foxyproxy.showstatusbaricon.tooltip "Hvis markeret bliver FoxyProxy ikon ikon vist på statuslinje">
@@ -449,8 +463,6 @@
 <!ENTITY foxyproxy.proxyservice.label "Køb Proxy Service">
 <!ENTITY foxyproxy.proxyservice.accesskey "P">
 <!ENTITY foxyproxy.proxyservice.tooltip "Skriv dig op til proxy service">
-<!ENTITY foxyproxy.getdntp.label "Get Do Not Track Plus">
-<!ENTITY foxyproxy.getdntp.tooltip "Get Do Not Track Plus">
 <!ENTITY foxyproxy.proxyservice2.label "Brug for hurtig, pålidelig proxier i USA, UK eller andre lande?">
 <!ENTITY foxyproxy.getfoxyproxyplus.label "Få FoxyProxy Plus">
 <!ENTITY foxyproxy.aboutdonate.label "Donationsknappen vil føre dig til PayPal hvor du kan donere til FoxyProxy projektet til at fremme og støtte udviklingen. Hvis du bruger FoxyProxy ofte, overvej venligst at doner.">
@@ -459,6 +471,7 @@
 <!ENTITY foxyproxy.invalidcolor.label "Ugyldig farve">
 <!ENTITY foxyproxy.validcolor.label "Gyldig farve">
 <!ENTITY foxyproxy.color.label "Color">
+<!ENTITY foxyproxy.color.description "Icon color when proxy is in use">
 <!ENTITY foxyproxy.server.subscriptions.label "Server-abonnementer">
 <!ENTITY foxyproxy.server.subscriptions.tooltip "Administrer server-abonnementer">
 <!ENTITY foxyproxy.server.subscriptions.accesskey "S">
@@ -513,9 +526,6 @@
 <!ENTITY foxyproxy.status.label "Status">
 <!ENTITY foxyproxy.format.label "Format">
 <!ENTITY foxyproxy.obfuscation.label "Obfuscation">
-<!ENTITY foxyproxy.hosting.label1 "Thanks to ">
-<!ENTITY foxyproxy.ocs.label "OCS">
-<!ENTITY foxyproxy.hosting.label2 " for hosting FoxyProxy's website. If you need hosting, please consider OCS.">
 <!-- end foxyproxyplus -->
 <!ENTITY foxyproxy.ip.pattern.addedit.title "Add/Edit Local IP Address Pattern">
 <!ENTITY foxyproxy.tempip.popup.label "Temporary patterns allow you to create patterns for local IP addresses that you don&apos;t use often without cluttering the IP address pattern list for a proxy. Temporary patterns are not saved to disk. They are kept in-memory and used for this Firefox session only.">

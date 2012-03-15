@@ -147,6 +147,20 @@
 <!ENTITY foxyproxy.proxydns.accesskey "U">
 <!ENTITY foxyproxy.proxydns.tooltip3 "Si cochée, les noms d'hôte des URL chargée via ce proxy seront également résolues par ce proxy">
 <!ENTITY foxyproxy.proxydns.label4 "DNS du proxy">
+<!ENTITY foxyproxy.cache.label "Cache">
+<!ENTITY foxyproxy.clearcache.label "Nettoyer le cache de l'application avant d'utiliser ce proxy">
+<!ENTITY foxyproxy.clearcache.accesskey "y">
+<!ENTITY foxyproxy.clearcache.tooltip "Si cochée, nettoie le cache avant d'utiliser ce proxy">
+<!ENTITY foxyproxy.disablecache.label "Ne pas mettre dans le cache lors de l'utilisation de ce proxy">
+<!ENTITY foxyproxy.disablecache.accesskey "p">
+<!ENTITY foxyproxy.disablecache.tooltip "Si cochée, l'application ne placera aucune donnée en cache à l'avenir">
+<!ENTITY foxyproxy.cookies.label "Cookies">
+<!ENTITY foxyproxy.clearcookies.label "Supprimer tous les cookies avant d'utiliser ce proxy">
+<!ENTITY foxyproxy.clearcookies.accesskey "C">
+<!ENTITY foxyproxy.clearcookies.tooltip "Si cochée, supprime tous les cookies avant d'utiliser ce proxy">
+<!ENTITY foxyproxy.rejectcookies.label "Bloquer tous les cookies lors de l'utilisation de ce proxy">
+<!ENTITY foxyproxy.rejectcookies.accesskey "B">
+<!ENTITY foxyproxy.rejectcookies.tooltip "Si cochée, le navigateur refusera tous les cookies lors de l'utilisation de ce proxy">
 <!ENTITY foxyproxy.showstatusbaricon.label "Afficher l'icône dans la barre d'état">
 <!ENTITY foxyproxy.showstatusbaricon.accesskey "f">
 <!ENTITY foxyproxy.showstatusbaricon.tooltip "Si cette case est cochée, l'icône de Foxyproxy sera affichée dans la barre d'état">
@@ -449,8 +463,6 @@
 <!ENTITY foxyproxy.proxyservice.label "Acheter des services proxy">
 <!ENTITY foxyproxy.proxyservice.accesskey "H">
 <!ENTITY foxyproxy.proxyservice.tooltip "Se connecter pour des services proxy">
-<!ENTITY foxyproxy.getdntp.label "Obtenir « Do Not Track Plus »">
-<!ENTITY foxyproxy.getdntp.tooltip "Obtenir l'extension « Do Not Track Plus »">
 <!ENTITY foxyproxy.proxyservice2.label "Nécessite des proxies rapides et fiables aux États-Unis, en Angleterre ou dans d&apos;autres pays ?">
 <!ENTITY foxyproxy.getfoxyproxyplus.label "Obtenir FoxyProxy Plus">
 <!ENTITY foxyproxy.aboutdonate.label "Le bouton de don vous envoie vers PayPal où vous pourrez faire votre don au projet FoxyProxy afin d&apos;encourager et aider au développement. si vous utilisez couramment FoxyProxy, veuillez s&apos;il vous plaît faire un don.">
@@ -459,6 +471,7 @@
 <!ENTITY foxyproxy.invalidcolor.label "Couleur invalide">
 <!ENTITY foxyproxy.validcolor.label "Couleur valide">
 <!ENTITY foxyproxy.color.label "Couleur">
+<!ENTITY foxyproxy.color.description "Couleur de l'icône lors de l'utilisation du proxy">
 <!ENTITY foxyproxy.server.subscriptions.label "Abonnements serveur">
 <!ENTITY foxyproxy.server.subscriptions.tooltip "Gérer les abonnements serveur">
 <!ENTITY foxyproxy.server.subscriptions.accesskey "S">
@@ -513,9 +526,6 @@
 <!ENTITY foxyproxy.status.label "État">
 <!ENTITY foxyproxy.format.label "Format">
 <!ENTITY foxyproxy.obfuscation.label "Obfuscation">
-<!ENTITY foxyproxy.hosting.label1 "Merci à">
-<!ENTITY foxyproxy.ocs.label "OCS">
-<!ENTITY foxyproxy.hosting.label2 "pour héberger le site Web de FoxyProxy. Si vous avez besoin d'un hébergement, veuillez prendre en considération OCS.">
 <!-- end foxyproxyplus -->
 <!ENTITY foxyproxy.ip.pattern.addedit.title "Ajouter / éditer un motif d&apos;adresse IP Locale">
 <!ENTITY foxyproxy.tempip.popup.label "Les motifs temporaires vous permettent de créer des motifs  que vous n&apos;utilisez pas souvent afin d&apos;éviter de surcharger la liste des motifs d&apos;adresse IP pour un proxy. Les motifs temporaires ne sont pas enregistrés sur le disque. Ils sont conservés en mémoire et ne sont utilisés que dans cette session Firefox.">

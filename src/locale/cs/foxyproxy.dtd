@@ -147,6 +147,20 @@
 <!ENTITY foxyproxy.proxydns.accesskey "P">
 <!ENTITY foxyproxy.proxydns.tooltip3 "Při zapnutí jsou domény z URL nahrávaných přes tuto proxy vyhledávány pomocí této proxy.">
 <!ENTITY foxyproxy.proxydns.label4 "DNS proxy">
+<!ENTITY foxyproxy.cache.label "Cache">
+<!ENTITY foxyproxy.clearcache.label "Clear application cache before using this proxy">
+<!ENTITY foxyproxy.clearcache.accesskey "H">
+<!ENTITY foxyproxy.clearcache.tooltip "If checked, clear cache before using this proxy">
+<!ENTITY foxyproxy.disablecache.label "Do not cache while using this proxy">
+<!ENTITY foxyproxy.disablecache.accesskey "D">
+<!ENTITY foxyproxy.disablecache.tooltip "If checked, application won't cache in the future">
+<!ENTITY foxyproxy.cookies.label "Cookies">
+<!ENTITY foxyproxy.clearcookies.label "Remove all cookies before using this proxy">
+<!ENTITY foxyproxy.clearcookies.accesskey "C">
+<!ENTITY foxyproxy.clearcookies.tooltip "If checked, remove all cookies before using this proxy">
+<!ENTITY foxyproxy.rejectcookies.label "Block all cookies when using this proxy">
+<!ENTITY foxyproxy.rejectcookies.accesskey "B">
+<!ENTITY foxyproxy.rejectcookies.tooltip "If checked, browser will reject all cookies when using this proxy">
 <!ENTITY foxyproxy.showstatusbaricon.label "Zobrazit ikonu ve stavovém řádku">
 <!ENTITY foxyproxy.showstatusbaricon.accesskey "S">
 <!ENTITY foxyproxy.showstatusbaricon.tooltip "Pokud je zaškrtnuto, tak se zobrazuje ve stavovém řádku ikona FoxyProxy">
@@ -449,8 +463,6 @@
 <!ENTITY foxyproxy.proxyservice.label "Koupit přístup k proxy">
 <!ENTITY foxyproxy.proxyservice.accesskey "K">
 <!ENTITY foxyproxy.proxyservice.tooltip "Objednat přístup k proxy">
-<!ENTITY foxyproxy.getdntp.label "Získat Do Not Track Plus">
-<!ENTITY foxyproxy.getdntp.tooltip "Získat Do Not Track Plus">
 <!ENTITY foxyproxy.proxyservice2.label "Potřebujete rychlý a spolehlivý proxy server v USA, GB nebo dalších zemích?">
 <!ENTITY foxyproxy.getfoxyproxyplus.label "Získat FoxyProxy Plus">
 <!ENTITY foxyproxy.aboutdonate.label "Knoflík &quot;Podpořte FoxyProxy&quot; Vám zobrazí stránku služby PayPal, kde můžete finančně podpořit autora. Pokud používáte FoxyProxy pravidelně, zvažte prosím finanční podporu.">
@@ -459,6 +471,7 @@
 <!ENTITY foxyproxy.invalidcolor.label "Špatná barva">
 <!ENTITY foxyproxy.validcolor.label "Správná barva">
 <!ENTITY foxyproxy.color.label "Color">
+<!ENTITY foxyproxy.color.description "Icon color when proxy is in use">
 <!ENTITY foxyproxy.server.subscriptions.label "Server Subscriptions">
 <!ENTITY foxyproxy.server.subscriptions.tooltip "Manage Server Subscriptions">
 <!ENTITY foxyproxy.server.subscriptions.accesskey "S">
@@ -513,9 +526,6 @@
 <!ENTITY foxyproxy.status.label "Stav">
 <!ENTITY foxyproxy.format.label "Formát">
 <!ENTITY foxyproxy.obfuscation.label "Maskování">
-<!ENTITY foxyproxy.hosting.label1 "Díky">
-<!ENTITY foxyproxy.ocs.label "OCS">
-<!ENTITY foxyproxy.hosting.label2 "za hostování stránek FoxyProxy. Když potřebujete hosting, zkuste OCS.">
 <!-- end foxyproxyplus -->
 <!ENTITY foxyproxy.ip.pattern.addedit.title "Přidat/upravit vzor pro místní IP adresu">
 <!ENTITY foxyproxy.tempip.popup.label "Dočasné vzory Vám umožní vytvářet pravidla pro místní IP adresy které používáte pouze příležitostně. Dočasné vzory se neukládají na disk. Jsou uloženy v paměti jen po dobu spuštění Firefoxu.">

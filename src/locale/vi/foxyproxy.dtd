@@ -147,6 +147,20 @@
 <!ENTITY foxyproxy.proxydns.accesskey "S">
 <!ENTITY foxyproxy.proxydns.tooltip3 "Nếu được chọn, tên host của URL được nạp thông qua proxy này cũng sẽ được phân giải bởi proxy này">
 <!ENTITY foxyproxy.proxydns.label4 "Proxy DNS">
+<!ENTITY foxyproxy.cache.label "Cache">
+<!ENTITY foxyproxy.clearcache.label "Clear application cache before using this proxy">
+<!ENTITY foxyproxy.clearcache.accesskey "H">
+<!ENTITY foxyproxy.clearcache.tooltip "If checked, clear cache before using this proxy">
+<!ENTITY foxyproxy.disablecache.label "Do not cache while using this proxy">
+<!ENTITY foxyproxy.disablecache.accesskey "D">
+<!ENTITY foxyproxy.disablecache.tooltip "If checked, application won't cache in the future">
+<!ENTITY foxyproxy.cookies.label "Cookies">
+<!ENTITY foxyproxy.clearcookies.label "Remove all cookies before using this proxy">
+<!ENTITY foxyproxy.clearcookies.accesskey "C">
+<!ENTITY foxyproxy.clearcookies.tooltip "If checked, remove all cookies before using this proxy">
+<!ENTITY foxyproxy.rejectcookies.label "Block all cookies when using this proxy">
+<!ENTITY foxyproxy.rejectcookies.accesskey "B">
+<!ENTITY foxyproxy.rejectcookies.tooltip "If checked, browser will reject all cookies when using this proxy">
 <!ENTITY foxyproxy.showstatusbaricon.label "Hiện biểu tượng trên thanh trạng thái">
 <!ENTITY foxyproxy.showstatusbaricon.accesskey "i">
 <!ENTITY foxyproxy.showstatusbaricon.tooltip "Nếu chọn, biểu tượng FoxyProxy sẽ được hiện trên thanh trạng thái">
@@ -449,8 +463,6 @@
 <!ENTITY foxyproxy.proxyservice.label "Mua dịch vụ Proxy">
 <!ENTITY foxyproxy.proxyservice.accesskey "y">
 <!ENTITY foxyproxy.proxyservice.tooltip "Đăng kí dịch vụ proxy">
-<!ENTITY foxyproxy.getdntp.label "Get Do Not Track Plus">
-<!ENTITY foxyproxy.getdntp.tooltip "Get Do Not Track Plus">
 <!ENTITY foxyproxy.proxyservice2.label "Cần proxy nhanh, an toàn tại Mỹ, Anh, hoặc nước khác?">
 <!ENTITY foxyproxy.getfoxyproxyplus.label "Tải FoxyProxy Cộng">
 <!ENTITY foxyproxy.aboutdonate.label "Nút quyên góp đưa bạn đến PayPal, nơi bạn có thể quyên góp tài chính cho dự án FoxyProxy để động viên và hỗ trợ việc phát triển. Nếu bạn dùng FoxyProxy thường xuyên, xin hãy vui lòng cân nhắc đến việc quyên góp.">
@@ -459,6 +471,7 @@
 <!ENTITY foxyproxy.invalidcolor.label "Màu không hợp lệ">
 <!ENTITY foxyproxy.validcolor.label "Màu hợp lệ">
 <!ENTITY foxyproxy.color.label "Màu">
+<!ENTITY foxyproxy.color.description "Icon color when proxy is in use">
 <!ENTITY foxyproxy.server.subscriptions.label "Server Subscriptions">
 <!ENTITY foxyproxy.server.subscriptions.tooltip "Manage Server Subscriptions">
 <!ENTITY foxyproxy.server.subscriptions.accesskey "S">
@@ -513,9 +526,6 @@
 <!ENTITY foxyproxy.status.label "Status">
 <!ENTITY foxyproxy.format.label "Format">
 <!ENTITY foxyproxy.obfuscation.label "Obfuscation">
-<!ENTITY foxyproxy.hosting.label1 "Thanks to ">
-<!ENTITY foxyproxy.ocs.label "OCS">
-<!ENTITY foxyproxy.hosting.label2 " for hosting FoxyProxy's website. If you need hosting, please consider OCS.">
 <!-- end foxyproxyplus -->
 <!ENTITY foxyproxy.ip.pattern.addedit.title "Thêm/Chỉnh sửa mẫu Địa chỉ IP Nội bộ">
 <!ENTITY foxyproxy.tempip.popup.label "Các mẫu tạm thời cho phép bạn tạo ra các mẫu cho những địa chỉ IP nội bộ mà bạn không dùng thường xuyên mà không làm bới tung danh sách mẫu địa chỉ IP của một proxy. Mẫu tạm thời không được lưu vào đĩa. Chúng chỉ được giữ trong bộ nhớ cho phiên duyệt web này mà thôi.">

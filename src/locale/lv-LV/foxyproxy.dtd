@@ -147,6 +147,20 @@
 <!ENTITY foxyproxy.proxydns.accesskey "U">
 <!ENTITY foxyproxy.proxydns.tooltip3 "Ja atzīmēts, caur šo starpniekserveri ielādējamo adrešu URL DNS ierakstus arī apstrādās šis starpniekserveris">
 <!ENTITY foxyproxy.proxydns.label4 "Apstrādāt DNS">
+<!ENTITY foxyproxy.cache.label "Cache">
+<!ENTITY foxyproxy.clearcache.label "Clear application cache before using this proxy">
+<!ENTITY foxyproxy.clearcache.accesskey "H">
+<!ENTITY foxyproxy.clearcache.tooltip "If checked, clear cache before using this proxy">
+<!ENTITY foxyproxy.disablecache.label "Do not cache while using this proxy">
+<!ENTITY foxyproxy.disablecache.accesskey "D">
+<!ENTITY foxyproxy.disablecache.tooltip "If checked, application won't cache in the future">
+<!ENTITY foxyproxy.cookies.label "Cookies">
+<!ENTITY foxyproxy.clearcookies.label "Remove all cookies before using this proxy">
+<!ENTITY foxyproxy.clearcookies.accesskey "C">
+<!ENTITY foxyproxy.clearcookies.tooltip "If checked, remove all cookies before using this proxy">
+<!ENTITY foxyproxy.rejectcookies.label "Block all cookies when using this proxy">
+<!ENTITY foxyproxy.rejectcookies.accesskey "B">
+<!ENTITY foxyproxy.rejectcookies.tooltip "If checked, browser will reject all cookies when using this proxy">
 <!ENTITY foxyproxy.showstatusbaricon.label "Rādīt ikonu statusa joslā">
 <!ENTITY foxyproxy.showstatusbaricon.accesskey "S">
 <!ENTITY foxyproxy.showstatusbaricon.tooltip "Ja atzīmēts, FoxyProxy ikona tiks rādīta statusa joslā">
@@ -449,8 +463,6 @@
 <!ENTITY foxyproxy.proxyservice.label "Iegādāties starpniekserveru pakalpojumus">
 <!ENTITY foxyproxy.proxyservice.accesskey "P">
 <!ENTITY foxyproxy.proxyservice.tooltip "Pierakstīties uz starpniekserveru pakalpojumiem">
-<!ENTITY foxyproxy.getdntp.label "Get Do Not Track Plus">
-<!ENTITY foxyproxy.getdntp.tooltip "Get Do Not Track Plus">
 <!ENTITY foxyproxy.proxyservice2.label "Jums nepieciešami ātri un droši starpniekserveri ASV, Lielbritānijā vai citās valstīs?">
 <!ENTITY foxyproxy.getfoxyproxyplus.label "Izvēlieties FoxyProxy Plus">
 <!ENTITY foxyproxy.aboutdonate.label "Ziedojumu poga aizvedīs jūs uz PayPal, kur jūs varēsiet ziedot, lai atbalstītu un veicinātu FoxyProxy projektu. Ja regulāri izmantojat FoxyProxy, lūdzu apsveriet savas iespējas atbalstīt mūs.">
@@ -459,6 +471,7 @@
 <!ENTITY foxyproxy.invalidcolor.label "Nederīga krāsa">
 <!ENTITY foxyproxy.validcolor.label "Derīga krāsa">
 <!ENTITY foxyproxy.color.label "Krāsa">
+<!ENTITY foxyproxy.color.description "Icon color when proxy is in use">
 <!ENTITY foxyproxy.server.subscriptions.label "Serveru abonementi">
 <!ENTITY foxyproxy.server.subscriptions.tooltip "Pārvaldīt serveru abonementus">
 <!ENTITY foxyproxy.server.subscriptions.accesskey "S">
@@ -513,9 +526,6 @@
 <!ENTITY foxyproxy.status.label "Status">
 <!ENTITY foxyproxy.format.label "Format">
 <!ENTITY foxyproxy.obfuscation.label "Obfuscation">
-<!ENTITY foxyproxy.hosting.label1 "Liels paldies ">
-<!ENTITY foxyproxy.ocs.label "OCS">
-<!ENTITY foxyproxy.hosting.label2 " par FoxyProxy mājas lapas izvietošanu. Ja jums nepieciešama mājas lapas izvietošana, sazinieties ar OCS.">
 <!-- end foxyproxyplus -->
 <!ENTITY foxyproxy.ip.pattern.addedit.title "Pievienot/Rediģēt lokālās IP šablonu">
 <!ENTITY foxyproxy.tempip.popup.label "Pagaidu šabloni ļauj jums veidot lokālo IP šablonus, ko jūs izmantojat reti, lai nepieblīvētu IP adrešu sarakstu starpniekserverī. Pagaidu šablonus neglabā cietajā diskā. Tie tiek glabāti atmiņā un tiek izmantoti tikai tekošās sesijas ietveros.">

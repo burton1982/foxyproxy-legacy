@@ -147,6 +147,20 @@
 <!ENTITY foxyproxy.proxydns.accesskey "Ν">
 <!ENTITY foxyproxy.proxydns.tooltip3 "Αν επιλεχθεί, τα ονόματα κεντρικών υπολογιστών που βρίσκονται πίσω από τα URL και φορτώνονται από αυτό τον διαμεσολαβητή, θα ανιχνεύονται επίσης από αυτό τον διαμεσολαβητή">
 <!ENTITY foxyproxy.proxydns.label4 "DNS διαμεσολαβητή">
+<!ENTITY foxyproxy.cache.label "Cache">
+<!ENTITY foxyproxy.clearcache.label "Clear application cache before using this proxy">
+<!ENTITY foxyproxy.clearcache.accesskey "H">
+<!ENTITY foxyproxy.clearcache.tooltip "If checked, clear cache before using this proxy">
+<!ENTITY foxyproxy.disablecache.label "Do not cache while using this proxy">
+<!ENTITY foxyproxy.disablecache.accesskey "D">
+<!ENTITY foxyproxy.disablecache.tooltip "If checked, application won't cache in the future">
+<!ENTITY foxyproxy.cookies.label "Cookies">
+<!ENTITY foxyproxy.clearcookies.label "Remove all cookies before using this proxy">
+<!ENTITY foxyproxy.clearcookies.accesskey "C">
+<!ENTITY foxyproxy.clearcookies.tooltip "If checked, remove all cookies before using this proxy">
+<!ENTITY foxyproxy.rejectcookies.label "Block all cookies when using this proxy">
+<!ENTITY foxyproxy.rejectcookies.accesskey "B">
+<!ENTITY foxyproxy.rejectcookies.tooltip "If checked, browser will reject all cookies when using this proxy">
 <!ENTITY foxyproxy.showstatusbaricon.label "Προβολή εικονιδίου στη γραμμή κατάστασης">
 <!ENTITY foxyproxy.showstatusbaricon.accesskey "γ">
 <!ENTITY foxyproxy.showstatusbaricon.tooltip "Αν επιλεγεί, θα εμφανίζεται το εικονίδιο του FoxyProxy στη γραμμή κατάστασης">
@@ -449,8 +463,6 @@
 <!ENTITY foxyproxy.proxyservice.label "Αγοράστε υπηρεσίες διαμεσολάβησης">
 <!ENTITY foxyproxy.proxyservice.accesskey "δ">
 <!ENTITY foxyproxy.proxyservice.tooltip "Εγγραφείτε για υπηρεσίες διαμεσολάβησης">
-<!ENTITY foxyproxy.getdntp.label "Βάλτε το Do Not Track Plus">
-<!ENTITY foxyproxy.getdntp.tooltip "Βάλτε το Do Not Track Plus">
 <!ENTITY foxyproxy.proxyservice2.label "Χρειάζεστε γρήγορους, αξιόπιστους διαμεσολαβητές στις ΗΠΑ, την Αγγλία ή άλλη χώρα;">
 <!ENTITY foxyproxy.getfoxyproxyplus.label "Πάρτε το FoxyProxy Plus">
 <!ENTITY foxyproxy.aboutdonate.label "Το κουμπί δωρεάς σας μεταφέρει στο PayPal απ&apos; όπου μπορείτε να κάνετε μια δωρεά στο έργο FoxyProxy για να ενθαρύνετε και να υποστηρίξετε την ανάπτυξη του. Αν χρησιμοποιείτε συχνά το FoxyProxy, κάντε μια δωρεά!">
@@ -459,6 +471,7 @@
 <!ENTITY foxyproxy.invalidcolor.label "Μη έγκυρο χρώμα">
 <!ENTITY foxyproxy.validcolor.label "Έγκυρο χρώμα">
 <!ENTITY foxyproxy.color.label "Color">
+<!ENTITY foxyproxy.color.description "Icon color when proxy is in use">
 <!ENTITY foxyproxy.server.subscriptions.label "Συνδρομές διακομιστών">
 <!ENTITY foxyproxy.server.subscriptions.tooltip "Διαχείριση συνδρομών διακομιστών">
 <!ENTITY foxyproxy.server.subscriptions.accesskey "δ">
@@ -513,9 +526,6 @@
 <!ENTITY foxyproxy.status.label "Κατάσταση">
 <!ENTITY foxyproxy.format.label "Μορφή">
 <!ENTITY foxyproxy.obfuscation.label "Απόκρυψη">
-<!ENTITY foxyproxy.hosting.label1 "Ευχαριστούμε την">
-<!ENTITY foxyproxy.ocs.label "OCS">
-<!ENTITY foxyproxy.hosting.label2 "για την φιλοξενία του ιστότοπου του FoxyProxy. Αν ψάχνετε για το που θα ανεβάσετε τις σελίδες σας, έχετε την OCS υπόψιν.">
 <!-- end foxyproxyplus -->
 <!ENTITY foxyproxy.ip.pattern.addedit.title "Προσθήκη/επεξεργασία τοπικού πρότυπου διεύθυνσης IP">
 <!ENTITY foxyproxy.tempip.popup.label "Τα προσωρινά πρότυπα σας επιτρέπουν να δημιουργήσετε τοπικά πρότυπα για διευθύνσεις IP που δεν χρησιμοποιείτε συχνά, χωρίς να αυξάνετε την πολυπλοκότητα της λίστας πρότυπων κάποιου διαμεσολαβητή. Τα προσωρινά πρότυπα δεν αποθηκεύονται στο δίσκο, διατηρούνται μόνο στη μνήμη και χρησιμοποιούνται για την τρέχουσα συνεδρία του Firefox.">
