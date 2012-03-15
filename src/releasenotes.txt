@@ -14,4 +14,6 @@
     http://forums.getfoxyproxy.org/viewtopic.php?f=1&t=592)
 * removed more Flock-related cruft and locale cruft
 * removed fixed height for add/edit pattern subscription dialog
+* removed option to communicate with FoxyProxy using the "new-proxy" event
+  listener
 * updated locales
