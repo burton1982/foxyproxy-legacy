@@ -148,19 +148,19 @@
 <!ENTITY foxyproxy.proxydns.tooltip3 "Selezionando questa opzione verrà effettuata la risoluzione dei nomi dei server degli URL caricati attraverso questo proxy">
 <!ENTITY foxyproxy.proxydns.label4 "Proxy DNS">
 <!ENTITY foxyproxy.cache.label "Cache">
-<!ENTITY foxyproxy.clearcache.label "Clear application cache before using this proxy">
-<!ENTITY foxyproxy.clearcache.accesskey "H">
-<!ENTITY foxyproxy.clearcache.tooltip "If checked, clear cache before using this proxy">
-<!ENTITY foxyproxy.disablecache.label "Do not cache while using this proxy">
-<!ENTITY foxyproxy.disablecache.accesskey "D">
-<!ENTITY foxyproxy.disablecache.tooltip "If checked, application won't cache in the future">
-<!ENTITY foxyproxy.cookies.label "Cookies">
-<!ENTITY foxyproxy.clearcookies.label "Remove all cookies before using this proxy">
-<!ENTITY foxyproxy.clearcookies.accesskey "C">
-<!ENTITY foxyproxy.clearcookies.tooltip "If checked, remove all cookies before using this proxy">
-<!ENTITY foxyproxy.rejectcookies.label "Block all cookies when using this proxy">
+<!ENTITY foxyproxy.clearcache.label "Elimina i dati nella cache prima di utilizzare il proxy">
+<!ENTITY foxyproxy.clearcache.accesskey "E">
+<!ENTITY foxyproxy.clearcache.tooltip "Selezionando questa opzione i dati presenti nella cache verranno eliminati prima di utilizzare il proxy">
+<!ENTITY foxyproxy.disablecache.label "Non utilizzare la cache quando si utilizza il proxy">
+<!ENTITY foxyproxy.disablecache.accesskey "u">
+<!ENTITY foxyproxy.disablecache.tooltip "Selezionando questa opzione i dati non verranno memorizzati nella cache quando si utilizza il proxy">
+<!ENTITY foxyproxy.cookies.label "Cookie">
+<!ENTITY foxyproxy.clearcookies.label "Elimina i cookie prima di utilizzare il proxy">
+<!ENTITY foxyproxy.clearcookies.accesskey "m">
+<!ENTITY foxyproxy.clearcookies.tooltip "Selezionando questa opzione tutti i cookie verranno eliminati prima di utilizzare il proxy">
+<!ENTITY foxyproxy.rejectcookies.label "Blocca i cookie quando si utilizza il proxy">
 <!ENTITY foxyproxy.rejectcookies.accesskey "B">
-<!ENTITY foxyproxy.rejectcookies.tooltip "If checked, browser will reject all cookies when using this proxy">
+<!ENTITY foxyproxy.rejectcookies.tooltip "Selezionando questa opzione i cookie non verranno memorizzati quando si utilizza il proxy">
 <!ENTITY foxyproxy.showstatusbaricon.label "Mostra icona nella barra di stato/dei componenti aggiuntivi">
 <!ENTITY foxyproxy.showstatusbaricon.accesskey "o">
 <!ENTITY foxyproxy.showstatusbaricon.tooltip "L&apos;icona di FoxyProxy verrà visualizzata nella barra di stato/dei componenti aggiuntivi">
@@ -471,7 +471,7 @@
 <!ENTITY foxyproxy.invalidcolor.label "Il codice del colore non è valido">
 <!ENTITY foxyproxy.validcolor.label "Il codice del colore è valido">
 <!ENTITY foxyproxy.color.label "Colore">
-<!ENTITY foxyproxy.color.description "Icon color when proxy is in use">
+<!ENTITY foxyproxy.color.description "Colore associato al proxy e alla relativa icona">
 <!ENTITY foxyproxy.server.subscriptions.label "Proxy sottoscritti">
 <!ENTITY foxyproxy.server.subscriptions.tooltip "Gestione dei proxy sottoscritti">
 <!ENTITY foxyproxy.server.subscriptions.accesskey "y">
