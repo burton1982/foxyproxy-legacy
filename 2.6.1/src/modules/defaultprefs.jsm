@@ -118,6 +118,9 @@ let defaultPrefs = {
         } else {
           // Removing all of our observers on shutdown 
           this.uninit();
+          // Save the original values just in case a user changed them while
+          // FoxyProxy being active.
+          this.saveOriginals();
         }
       }
       else if (topic == "foxyproxy-mode-change") {
