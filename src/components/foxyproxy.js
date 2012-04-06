@@ -304,7 +304,11 @@ foxyproxy.prototype = {
         }
         if (proxy.disableCache !== proxy.disableCacheOld) {
           if (proxy.disableCache) {
+            // Disabling and enabling the pref observer in order to not save
+            // new default cache values.
+            this.defaultPrefs.removeCacheObserver();
             this.cacheMgr.disableCache();
+            this.defaultPrefs.addCacheObserver();
           } else {
             this.defaultPrefs.restoreOriginals("cache");
           }
@@ -316,7 +320,11 @@ foxyproxy.prototype = {
         }
         if (proxy.rejectCookies !== proxy.rejectCookiesOld) {
           if (proxy.rejectCookies) {
+            // Disabling and enabling the pref observer in order to not save
+            // new default cookie values.
+            this.defaultPrefs.removeCookieObserver();
             this.cookieMgr.rejectCookies();
+            this.defaultPrefs.addCookieObserver();
           } else {
             this.defaultPrefs.restoreOriginals("cookies");
           }
@@ -336,7 +344,11 @@ foxyproxy.prototype = {
           this.cacheMgr.clearCache();
         }
         if (proxy.disableCache) {
+          // Disabling and enabling the pref observer in order to not save
+          // new default cache values.
+          this.defaultPrefs.removeCacheObserver();
           this.cacheMgr.disableCache();
+          this.defaultPrefs.addCacheObserver();
         } else {
           this.defaultPrefs.restoreOriginals("cache");
         }
@@ -344,7 +356,11 @@ foxyproxy.prototype = {
           this.cookieMgr.clearCookies();
         }
         if (proxy.rejectCookies) {
+          // Disabling and enabling the pref observer in order to not save
+          // new default cookie values.
+          this.defaultPrefs.removeCookieObserver();
           this.cookieMgr.rejectCookies();
+          this.defaultPrefs.addCookieObserver();
         } else {
           this.defaultPrefs.restoreOriginals("cookies");
         }
@@ -519,13 +535,11 @@ foxyproxy.prototype = {
   },
 
   getDefaultPath : function() {
-    var file = CC["@mozilla.org/file/local;1"].createInstance(CI.nsILocalFile);
     /* Always use ProfD by default in order to support application-wide installations.
        http://foxyproxy.mozdev.org/drupal/content/tries-use-usrlibfirefox-304foxyproxyxml-linux#comment-974 */
-    var dir = CC["@mozilla.org/file/directory_service;1"].getService(CI.nsIProperties).get("ProfD", CI.nsILocalFile);
-    file.initWithPath(dir.path);
-    file.appendRelativePath("foxyproxy.xml");
-    return file;
+    let dir = CC["@mozilla.org/file/directory_service;1"].getService(CI.nsIProperties).get("ProfD", CI.nsILocalFile);
+    dir.appendRelativePath("foxyproxy.xml");
+    return dir;
   },
 
   // Convert |o| from:
