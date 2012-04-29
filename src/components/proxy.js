@@ -105,6 +105,8 @@ function Proxy(fp) {
   // this.systemProxyPAC would still be null.
   this.systemProxyPAC = new AutoConf(this, this.fp);
   this._mode = "manual"; // manual, auto, system, direct, random
+  // this._autoconfMode tells this Proxy instance which of the 2 AutoConf
+  // objects to use. Its value is one of "wpad" or "pac". See trac ticket 261.
   this._autoconfMode = "pac";
   this._enabled = true;
   this.selectedTabIndex = 1; /* default tab is the proxy details tab */
@@ -229,10 +231,10 @@ Proxy.prototype = {
     this.manualconf = new ManualConf(this, this.fp);
     this.manualconf.fromProxyConfig(pc.manualConfig);
     this.autoconf = new AutoConf(this, this.fp);
-    this.autoconf.fromProxyConfig(pc.autoConfig); 
-
+    this.autoconf.fromProxyConfig(pc.autoConfig);
     // An own object for the WPAD feature...
     this.wpad = new AutoConf(this, this.fp);
+    this.wpad.fromProxyConfig(pc.autoConfig);
     // We set a URL to the proxy file which cannot get changed. The rationale
     // for this is:
     // "We diverge from the WPAD spec here in that we don't walk the
@@ -292,33 +294,6 @@ Proxy.prototype = {
     return e;
   },
 
-  // Used by the FoxyProxy API to create read-only 
-  toProxyConfig : function() {
-    let pc = CC["@leahscape.org/foxyproxy/proxyconfig;1"].createInstance(CI.
-      foxyProxyProxyConfig);
-    pc.id = this.id;
-    pc.name = this.name;
-    return pc;
-/*
-    attribute long id;  // read-only
-    attribute AString name;
-    attribute AString notes;
-    attribute AString color;
-    attribute AString mode;
-    attribute boolean enabled;
-    attribute long selectedTabIndex;
-    attribute boolean animatedIcons;
-    attribute boolean includeInCycle;
-    attribute boolean clearCacheBeforeUse;
-    attribute boolean disableCache;
-    attribute boolean clearCookiesBeforeUse;
-    attribute boolean rejectCookies;
-    attribute boolean proxyDNS;
-    attribute jsval manualConfig;
-    attribute jsval autoConfig;
-  */
-  },
-  
   /**
    * If this proxy requires network.dns.disablePrefetch to be false,
    * return true. network.dns.disablePrefetch must be false when the
@@ -729,7 +704,7 @@ Proxy.prototype = {
       if (pacURI) {
         // The user wants to use a PAC file. Let's check what we have to do.
         if (!this.systemProxyPAC.url || this.systemProxyPAC.url != pacURI) {
-          // This case means the user ether changed the system proxy settings
+          // This case means the user either changed the system proxy settings
           // from direct or manual proxy to PAC mode for the first time in the
           // session. Or the PAC URI changes meanwhile in the system proxy
           // settings while still having the proxy in use. In both cases we
