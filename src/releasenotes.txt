@@ -2,4 +2,5 @@
   http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=640) 
 * fixed bugs in our FoxyProxy API code
 * fixed wrong toolbar button padding (see:
-  http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=672) 
+  http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=672)
+* updated locales
