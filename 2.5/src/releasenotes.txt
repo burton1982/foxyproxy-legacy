@@ -1,0 +1,6 @@
+* added a wizard to get FoxyProxy's proxies conveniently configured
+* fix for corner cases in the system proxy feature (fixes
+  http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=548)
+* implemented fallback for missing system proxy settings (e.g. in FF < 3.5)
+* improved proxy:// protocol processing code
+* updated locales

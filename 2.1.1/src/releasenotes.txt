@@ -1,0 +1,2 @@
+* fixed bug that caused an evergrowing FoxyProxy dialog 
+* updated localed

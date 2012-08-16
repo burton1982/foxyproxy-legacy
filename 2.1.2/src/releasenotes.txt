@@ -1,0 +1,1 @@
+* enhanced bugfix to avoid resizing the FoxyProxy dialog

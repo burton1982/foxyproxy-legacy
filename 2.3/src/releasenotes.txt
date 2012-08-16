@@ -1,0 +1,6 @@
+* enhanced UI for WPAD and PAC feature
+* added icons to context menus
+* proxy enabled/disabled and animation settings are now saved in context menus
+  as well
+* changed copyright holder from LeahScape, Inc. to FoxyProxy, Inc. 
+* updated locales
