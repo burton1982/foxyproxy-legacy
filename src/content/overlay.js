@@ -1146,7 +1146,9 @@ end-foxyproxy-simple !*/
     function _createRadioMenuItem(menupopup, id, cmd, accesskey, label, tooltip, style, clazz) {
       var e = document.createElement("menuitem");
       e.setAttribute("label", label);
-      e.setAttribute("id", id);
+      // We need to replace the "foxyproxy-" here as well as the currently
+      // deployed proxy would not be selected in the context menus otherwise.
+      e.setAttribute("value", id.replace("foxyproxy-", ""));
       e.setAttribute("value", id);
       e.setAttribute("type", "radio");
       e.setAttribute("name", "foxyproxy-enabled-type");
