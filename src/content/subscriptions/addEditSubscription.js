@@ -48,7 +48,7 @@ function onLoad(type) {
     var formatList = document.getElementById("subscriptionFormat");
     var obfuscationList = document.getElementById("subscriptionObfuscation");
     if (type === "pattern") {
-      proxyTree = document.getElementById("subscriptionProxyTree"); 
+      proxyTree = document.getElementById("subscriptionProxyTree");
     }
     if (window.arguments[0].inn !== null) {
       metadata = window.arguments[0].inn.subscription.metadata;
@@ -65,7 +65,7 @@ function onLoad(type) {
       // is constructed using those saved id's. That accomplish the following
       // five lines of code.
       if (metadata.proxies.length > 0) {
-        proxyArray = fp.proxies.getProxiesFromId(metadata.proxies);	
+        proxyArray = fp.proxies.getProxiesFromId(metadata.proxies);
 	for (var i = 0; i < proxyArray.length; i++) {
           proxies.push(proxyArray[i]);
           // We are pushing the proxies here as well and do not copy them
@@ -82,7 +82,7 @@ function onLoad(type) {
         formatList.selectedIndex = 0;
       } else {
         formatList.selectedIndex = 1;
-      } 
+      }
       // And assuming that we only have 'None' and 'Base64' so far as 
       // obfuscation methods...
       if (metadata.obfuscation === "Base64") {
@@ -102,6 +102,15 @@ function onLoad(type) {
   }
 }
 
+function generateError(type, error) {
+  let errorText = "";
+  for (let i = 0; i < error.length; i++) {
+    errorText = errorText + "\n" + error[i];
+  }
+  fp.alert(null, fp.getMessage(type +
+    "subscription.initial.import.failure") + "\n" + errorText);
+}
+
 function onOK(type) {
   try {
     var userValues = {};
@@ -113,7 +122,7 @@ function onOK(type) {
     var url = document.getElementById("subscriptionUrl").value;
     // ToDo: Do we want to check whether it is really a URL here?
     if (url === null || url === "") {
-      fp.alert(this, fp.getMessage(type + "subscription.invalid.url")); 
+      fp.alert(this, fp.getMessage(type + "subscription.invalid.url"));
       return false;
     }
     userValues.enabled = document.getElementById("subscriptionEnabled").checked;
@@ -134,7 +143,7 @@ function onOK(type) {
         // Creating the array of proxy id's for saving to disk and rebuilding
         // the proxy list on startup.
         userValues.proxies.push(proxies.item(i).id);
-      } 
+      }
     }
     userValues.refresh = document.getElementById("refresh").value;
     userValues.format = document.getElementById("subscriptionFormat").
@@ -144,33 +153,48 @@ function onOK(type) {
     if (window.arguments[0].inn === null) {
       base64Encoded = userValues.obfuscation === "Base64";
       foxyproxyFormat = userValues.format === "FoxyProxy";
+      let error;
       if (type === "pattern") {
-        parsedSubscription = patternSubscriptions.
-	  loadSubscription(userValues.url, base64Encoded);
+        error = patternSubscriptions.loadSubscription(userValues, base64Encoded,
+          function(subscription, values) {
+            // The following is kind of a trivial array test. We need that to
+            // check whether we got an array of error messages back or a
+            // subscription object. Iff the latter is the case we add a new
+            // subscription. As we do not have any subscription yet if we got an
+            // array back, we just show an import error message.
+            if (subscription && subscription.length === undefined) {
+              patternSubscriptions.addSubscription(subscription, values);
+              // Now adding the patterns to the proxies provided the user has
+              // added at least one proxy in the addeditsubscription dialog.
+              if (proxies.list.length !== 0) {
+                patternSubscriptions.addPatterns(null, proxies.list, null);
+              }
+              utils.broadcast(true, "foxyproxy-tree-update");
+            } else {
+              generateError(type, subscription);
+            }
+          }
+        );
       } else {
-        parsedSubscription = proxySubscriptions.
-	  loadSubscription(userValues.url, base64Encoded);
+        error = proxySubscriptions.loadSubscription(userValues, base64Encoded,
+          function(subscription, values) {
+            if (subscription && subscription.length === undefined) {
+              proxySubscriptions.addSubscription(subscription, values);
+              // Redrawing the proxy tree as well as we probably added new
+              // proxies. We do not have to broadcast "foxyproxy-tree-update" as
+              // well as this is handled by |_updateView()|, too. The latter is
+              // called by broadcasting "foxyproxy-proxy-change".
+              utils.broadcast(true, "foxyproxy-proxy-change");
+            } else {
+              generateError(type, subscription);
+            }
+          }
+        );
       }
-      // The following is kind of a trivial array test. We need that to check
-      // whether we got an array of error messages back or a subscription
-      // object. Iff the latter is the case we add a new subscription. As we
-      // do not have any subscription yet if we got an array back, we show
-      // an import error message and just return false.
-      if (parsedSubscription && parsedSubscription.length === undefined) {
-        window.arguments[0].out = {
-          subscription : parsedSubscription,
-          userValues : userValues,
-	  // Returning the proxies as well makes it easier to add the patterns.
-          proxies : proxies.list
-        };
-	return true;
-      } else {
-        for (i = 0; i < parsedSubscription.length; i++) {
-	  errorText = errorText + "\n" + parsedSubscription[i];
-        }
-        fp.alert(null, fp.getMessage(type +
-          "subscription.initial.import.failure") + "\n" + errorText);
+      if (error) {
+        generateError(type, error);
       }
+      return true;
     } else {
       // The user has edited the pattern subscription. Maybe she removed a proxy
       // and we have to delete the respective patterns and to restore the old
@@ -178,8 +202,8 @@ function onOK(type) {
       // edits a subscription, as there can be no patterns to remove/enable if 
       // the user adds a new subscription.
       if (helperProxies.length > 0) {
-        patternSubscriptions.deletePatterns(helperProxies); 
-      }	
+        patternSubscriptions.deletePatterns(helperProxies);
+      }
       // If a user edits a subscription it can happen that she already had
       // added proxies to it. But we want to give only those back that were
       // not yet tied to the subscription in order to avoid doubling the
@@ -197,9 +221,9 @@ function onOK(type) {
             // Now, the second use case of our herlperProxies array (the first
             // was storing the proxies that need to get removed from the 
             // subscription).
-            helperProxies.push(oldProxies[j]); 
+            helperProxies.push(oldProxies[j]);
 	  }
-	} 
+	}
 	if (!proxyFound) {
 	  newProxies.push(proxies.item(i));
         };
@@ -210,10 +234,10 @@ function onOK(type) {
       if (userValues.enabled !== window.arguments[0].inn.subscription.
 	  metadata.enabled && helperProxies.length > 0) {
         // Okay, we had proxies and we know that these are really only proxies
-        // we had when we loaded the addeditsubscriptions.xul AND are still to
-        // be used for the subscription. AND the status changed. Let's adapt 
-	// it for the patterns tied to these old proxies.
-	patternSubscriptions.changeSubStatus(helperProxies, 
+        // we had when we loaded the addEditPatternsubscriptions.xul AND are 
+        // still to be used for the subscription. AND the status changed. Let's
+        // adapt it for the patterns tied to these old proxies.
+	patternSubscriptions.changeSubStatus(helperProxies,
           userValues.enabled);
       }
       window.arguments[0].out = {
@@ -225,6 +249,9 @@ function onOK(type) {
     return false;
   } catch(e) {
     dump("There went something wrong in the onOK function: " + e + "\n");
+    // TODO: Maybe just closing the window after this exception is not the
+    // right way to cope with the situation!?
+    return true;
   }
 }
 
@@ -239,47 +266,46 @@ function onLastStatus(type) {
   }
   if (!metadata.errorMessages) {
     statusString = statusString + "   " + contentLength + " " + fp.
-      getMessage(type + "subscription.successful.retrieved"); 
-  } 
+      getMessage(type + "subscription.successful.retrieved");
+  }
   var p = {
     inn: {
       status: statusString,
-      errorMessages: metadata.errorMessages 
+      errorMessages: metadata.errorMessages
     }
   };
   window.openDialog('chrome://foxyproxy/content/subscriptions/lastStatus.xul', '', 'modal, centerscreen, resizable', p).focus();
 }
 
 function addProxy(e) {
-  if (e.type === "click" && e.button === 0) { 
+  if (e.type === "click" && e.button === 0) {
     var p = {
       inn: {
-        title: fp.getMessage("choose.proxy.patterns"), 
-        
+        title: fp.getMessage("choose.proxy.patterns"),
         pattern: true
-      }, 
+      },
       out: null
-    };          
+    };
     window.openDialog("chrome://foxyproxy/content/chooseproxy.xul", "",
-        "modal, centerscreen, resizable", p).focus(); 
+        "modal, centerscreen, resizable", p).focus();
     if (p.out) {
       proxies.push(p.out.proxy);
-      fpc.makeProxyTreeView(proxyTree, proxies, document); 
+      fpc.makeProxyTreeView(proxyTree, proxies, document);
     }
   }
 }
 
 function removeProxy(e) {
-  if (e.type === "click" && e.button === 0) { 
+  if (e.type === "click" && e.button === 0) {
     if (proxyTree.currentIndex < 0) {
-      fp.alert(this, fp.getMessage("patternsubscription.noproxy.selected")); 
+      fp.alert(this, fp.getMessage("patternsubscription.noproxy.selected"));
       return;
-    }   
+    }
     // Why does helperProxies.push(proxies.list.
     // splice(proxyTree.currentIndex,1)) not work?
     helperProxies.push(proxies.list[proxyTree.currentIndex]);
     proxies.list.splice(proxyTree.currentIndex, 1);
-    fpc.makeProxyTreeView(proxyTree, proxies, document); 
+    fpc.makeProxyTreeView(proxyTree, proxies, document);
   }
 }
 
@@ -310,12 +336,6 @@ function refreshSubscription(type, e) {
     } else {
       proxySubscriptions.refreshSubscription(window.arguments[0].inn.
         subscription, true);
-      // We need to refresh the proxy tree of the option dialog as well as the
-      // colors of the refreshed proxies would not show up otherwise (if the
-      // options dialog is not closed). The same holds for the mode menu in the
-      // options dialog as otherwise old proxy ids could cause
-      // unkown-proxy-mode-errors.
-      utils.broadcast(true /*write settings*/, "foxyproxy-proxy-change");
     }
   }
 }

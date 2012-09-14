@@ -149,15 +149,45 @@ var subscriptions = {
     }
   },
 
-  loadSubscription: function(aURLString, bBase64) {
+  loadSubscription: function(values, bBase64, callback) {
     try {
+      var that = this;
       var errorMessages = [];
       var subscriptionText;
       var parsedSubscription;
       var subscriptionContent = null;
       var req = Cc["@mozilla.org/xmlextras/xmlhttprequest;1"].
         createInstance(Ci.nsIXMLHttpRequest);
-      req.open("GET", aURLString, false);
+      req.onload = function(aEvent) {
+        subscriptionText = req.responseText;
+        // Stripping of all unnecessary whitespaces and newlines etc. before
+        // testing.
+        let base64TestString = subscriptionText.replace(/\s*/g, '');
+        let isBase64 = that.base64RegExp.test(base64TestString);
+        if (isBase64) {
+          // Decoding the Base64.
+          subscriptionText = atob(base64TestString);
+        }
+        // TODO: A more fine grained error handling. I.e. 200 is okay but
+        // (everything?) else errorMessages.push().
+        callback(that.parseSubscription(subscriptionText, errorMessages,
+          isBase64, bBase64), values);
+      };
+      req.onerror = function(aEvent) {
+        if (req.status === 0) {
+          // We did get nothing at all, not even response headers.
+          errorMessages.push(that.fp.
+            getMessage("patternsubscription.error.network.noresponse"));
+        } else {
+          // Showing the status to the user.
+          errorMessages.push(that.fp.
+            getMessage("patternsubscription.error.network.response", [req.
+              statusText]));
+        }
+        callback(that.parseSubscription(req.responseText, errorMessages, null,
+          null), values);
+      }
+      req.open("GET", values.url, true);
       if (this.type === "pattern") {
         // We do need the following line of code. Otherwise we would get
         // an error that our JSON is not well formed if we load it from a local
@@ -170,21 +200,16 @@ var subscriptions = {
         req.overrideMimeType("text/plain");
       }
       req.send(null);
-      subscriptionText = req.responseText;
-      // Stripping of all unnecessary whitespaces and newlines etc. before
-      // testing.
-      let base64TestString = subscriptionText.replace(/\s*/g, '');
-      let isBase64 = this.base64RegExp.test(base64TestString);
-      if (isBase64) {
-        // Decoding the Base64.
-        subscriptionText = atob(base64TestString);
-      } 
-      return this.parseSubscription(subscriptionText, errorMessages, isBase64,
-        bBase64);
+      // No exceptions, returning false indicating there were no such errors.
+      return false;
     } catch(e) {
+      // We are reporting these errors back immediately.
       if (e.name === "NS_ERROR_FILE_NOT_FOUND") {
+        // We do not discriminate between "patternsubscription.error.network"
+        // and "proxysubscription.error.network" as the message is not dependent
+        // on the subscription type.
         errorMessages.push(this.fp.
-          getMessage(this.type + "subscription.error.network")); 
+          getMessage("patternsubscription.error.network"));
         return errorMessages;
       } else {
         errorMessages.push(this.fp.
@@ -214,7 +239,7 @@ var subscriptions = {
         parsedSubscription.metadata.obfuscation = this.fp.getMessage("none");
       }
       return parsedSubscription;
-    } 
+    }
   },
 
   addSubscription: function(aSubscription, userValues) {
@@ -231,15 +256,15 @@ var subscriptions = {
       if (userValue !== "obfuscation" && userValue !== "format") {
         aSubscription.metadata[userValue] = userValues[userValue];
       }
-    } 
+    }
     // If the name is empty take the URL.
     if (aSubscription.metadata.name === "") {
       aSubscription.metadata.name = aSubscription.metadata.url;
     }
-    aSubscription.metadata.lastUpdate = this.fp.logg.format(Date.now()); 
+    aSubscription.metadata.lastUpdate = this.fp.logg.format(Date.now());
     aSubscription.metadata.lastStatus = this.fp.getMessage("okay");
     aSubscription.metadata.errorMessages = null;
-    if (aSubscription.metadata.refresh > 0) { 
+    if (aSubscription.metadata.refresh > 0) {
       this.setSubscriptionTimer(aSubscription, false, false);
     }
     this.subscriptionsList.push(aSubscription);
@@ -285,14 +310,29 @@ var subscriptions = {
     this.writeSubscriptions();
   },
 
+  generateError: function(type, error, currentSubscription) {
+    let errorText = "";
+    for (let i = 0; i < error.length; i++) {
+      errorText = errorText + "\n" + error[i];
+    }
+    this.fp.alert(null, this.fp.getMessage(this.type +
+      "subscription.update.failure") + "\n" + errorText);
+    currentSubscription.metadata.lastStatus = this.fp.getMessage("error");
+    // So, we really did not get a proper subscription but error
+    // messages. Make sure they are shown in the lastStatus dialog.
+    currentSubscription.metadata.errorMessages = error;
+  },
+
   refreshSubscription: function(aSubscription, showResponse) {
+    var that = this;
     var errorText = "";
+    var error, i, j;
     // We are calculating the index in this method in order to be able to
     // use it with the nsITimer instances as well. If we would get the
     // index from our caller it could happen that the index is wrong due
     // to changes in the subscription list while the timer was "sleeping".
     var aIndex = null, proxyList = [];
-    for (var i = 0; i < this.subscriptionsList.length; i++) {
+    for (i = 0; i < this.subscriptionsList.length; i++) {
       if (this.subscriptionsList[i] === aSubscription) {
 	aIndex = i;
       }
@@ -301,109 +341,127 @@ var subscriptions = {
     // Estimating whether the user wants to have the subscription base64
     // encoded. We use this as a parameter to show the proper dialog if there
     // is a mismatch between the users choice and the subscription's
-    // encoding.
+    // encoding.  
     var base64Encoded = aSubscription.metadata.obfuscation === "Base64";
-    var refreshedSubscription = this.loadSubscription(aSubscription.
-      metadata.url, base64Encoded);
-    // Our "array test" we deployed in addeditsubscription.js as well.
-    if (refreshedSubscription) {
-      // We got errors in an array back...
-      if (!refreshedSubscription.length === undefined) {
-        for (var i = 0; i < refreshedSubscription.length; i++) {
-          errorText = errorText + "\n" + refreshedSubscription[i];
-        }
-        this.fp.alert(null, this.fp.getMessage(this.type +
-          "subscription.update.failure") + "\n" + errorText);
-        aSubscription.metadata.lastStatus = this.fp.getMessage("error");
-        // So, we really did not get a proper subscription but error messages.
-        // Making sure that they are shown in the lastStatus dialog.
-        aSubscription.metadata.errorMessages = refreshedSubscription;
-      } else {
-        // We do not want to lose our metadata here as the user just
-        // refreshed the subscription to get up-to-date patterns/proxies.
-        if (this.type === "pattern") {
-           aSubscription.patterns = refreshedSubscription.patterns;
-          // And it means above all refreshing the patterns... But first we
-          // generate the proxy list.
-          if (aSubscription.metadata.proxies.length > 0) {
-            proxyList = this.fp.proxies.getProxiesFromId(aSubscription.metadata.
-              proxies);
-            // TODO: We are not distinguishing between different pattern
-            // subsciptions yet. Thus, if we refresh one all patterns get
-            // deleted and only the new ones get added afterwards.
-            // First, deleting the old subscription patterns.
-            this.deletePatterns(proxyList);
-            // Now, we add the refreshed ones...
-            this.addPatterns(null, proxyList, aIndex);
-          }
-        } else {
-          aSubscription.proxies = refreshedSubscription.proxies;
-          // Adding the proxy/proxies back to the pattern subscription if
-          // it/they was/were. How do we know we have the same proxies after a
-          // refresh? -> IP:Port! But we need to cycle through all
-          // subscriptions, right? And safe not only the IP:Port but the pattern
-          // subscriptions that had the proxy/proxies attached to it as well in
-          // order to add both the proxy/proxies to them AND add the patterns of
-          // the subscription to the former as well. Duh.
-          let length = patternSubscriptions.subscriptionsList.length;
-          let savedProxies = [];
-          let patSub, patProxyList, patProxy, proxySub;
-          for (let i = 0; i < length; ++i) {
-            patSub = patternSubscriptions.subscriptionsList[i];
-            if (patSub.metadata.proxies.length > 0) {
-              // Okay that particular pattern subscription is indeed used by at
-              // least one proxy. Let's check whether it is one from a proxy
-              // subscription.
-              patProxyList = this.fp.proxies.getProxiesFromId(patSub.metadata.
-                proxies);
-              for (let j = 0, pLength = patProxyList.length; j < pLength; ++j) {
-                patProxy = patProxyList[j];
-                if (patProxy.fromSubscription) {
-                  // We know that this proxy is from a proxy list, save it
-                  // together with its subscription.
-                  proxySub = [];
-                  proxySub.push(patProxy.manualconf.host + ":" + patProxy.
-                    manualconf.port);
-                  proxySub.push(patSub);
-                  savedProxies.push(proxySub);
+    error = this.loadSubscription(aSubscription.metadata, base64Encoded,
+      function(refreshedSubscription, userValues) {
+        if (refreshedSubscription) {
+          if (refreshedSubscription.length !== undefined) {
+            that.generateError(that.type, refreshedSubscription, aSubscription);
+          } else {
+            // We do not want to lose our metadata here as the user just
+            // refreshed the subscription to get up-to-date patterns/proxies.
+            if (that.type === "pattern") {
+              aSubscription.patterns = refreshedSubscription.patterns;
+              // And it means above all refreshing the patterns... But first we
+              // generate the proxy list.
+              if (aSubscription.metadata.proxies.length > 0) {
+                proxyList = that.fp.proxies.getProxiesFromId(aSubscription.
+                  metadata.proxies);
+                // TODO: We are not distinguishing between different pattern
+                // subsciptions yet. Thus, if we refresh one all patterns get
+                // deleted and only the new ones get added afterwards. First,
+                // deleting the old subscription patterns.
+                that.deletePatterns(proxyList);
+                // Now, we add the refreshed ones...
+                that.addPatterns(null, proxyList, aIndex);
+              }
+              that.fp.utils.broadcast(true, "foxyproxy-tree-update");
+            } else {
+              // Okay, we have a proxy subscription.
+              aSubscription.proxies = refreshedSubscription.proxies;
+              // Adding the proxy/proxies back to the pattern subscription if
+              // it/they was/were. How do we know we have the same proxies after
+              // a refresh? -> IP:Port! But we need to cycle through all
+              // subscriptions, right? And safe not only the IP:Port but the
+              // pattern subscriptions that had the proxy/proxies attached to it
+              // as well in order to add both the proxy/proxies to them AND add
+              // the patterns of the subscription to the former as well. Duh.
+              let length = patternSubscriptions.subscriptionsList.length;
+              let savedProxies = [];
+              let patSub, patProxyList, patProxy, proxySub;
+              for (let i = 0; i < length; ++i) {
+                patSub = patternSubscriptions.subscriptionsList[i];
+                if (patSub.metadata.proxies.length > 0) {
+                  // Okay that particular pattern subscription is indeed used by
+                  // at least one proxy. Let's check whether it is one from a
+                  // proxy subscription.
+                  patProxyList = that.fp.proxies.getProxiesFromId(patSub.
+                    metadata.proxies);
+                  for (let j = 0, pLength = patProxyList.length; j < pLength;
+                       ++j) {
+                    patProxy = patProxyList[j];
+                    if (patProxy.fromSubscription) {
+                      // We know that this proxy is from a proxy list, save it
+                      // together with its subscription.
+                      proxySub = [];
+                      proxySub.push(patProxy.manualconf.host + ":" + patProxy.
+                        manualconf.port);
+                      proxySub.push(patSub);
+                      savedProxies.push(proxySub);
+                    }
+                  }
                 }
               }
+              that.deleteProxies(that.fp.proxies);
+              let addedProxies = that.addProxies(refreshedSubscription.proxies);
+              // Let's add the proxies back to the respective pattern
+              // subscriptions and then the patterns of the latter back to them.
+              // But only if the old proxies are among the refreshed ones.
+              that.addProxiesBack(savedProxies, addedProxies);
+              // Redrawing all the trees involved...
+              // TODO: The color string of refreshed proxies is "nmbado" (= the
+              // default value) but restarting e.g. Firefox gives "ggmmem" as
+              // default value while the color value (#0055E5) is the same in
+              // both case. Not sure about the reason and whether it is an
+              // issue... And the mode menu needs to get updated, too. Otherwise
+              // we could get some strange unkown-proxy-mode-errors while trying
+              // to switch the proxy used as the mode menu is still populated
+              // with the old proxy ids.
+              that.fp.utils.broadcast(true, "foxyproxy-proxy-change");
             }
+            // Maybe the obfuscation changed. We should update this...
+            aSubscription.metadata.obfuscation = refreshedSubscription.
+              metadata.obfuscation;
+            aSubscription.metadata.lastStatus = that.fp.getMessage("okay");
+            // We did not get any errors. Therefore, resetting the errorMessages
+            // array to null.
+            aSubscription.metadata.errorMessages = null;
+            // If we have a timer-based update of subscriptions we deactive the
+            // success popup as it can be quite annoying to get such kinds of
+            // popups while surfing. TODO: Think about doing the same for failed
+            // updates.
+            if (showResponse) {
+              that.fp.alert(null, that.fp.getMessage(that.type +
+                "subscription.update.success"));
+            }
+            // Refreshing a subscription means refreshing the timer as well if
+            // there is any...
+            if (aSubscription.metadata.refresh > 0) {
+              that.setSubscriptionTimer(aSubscription, true, false);
+            }
+            that.subscriptionsList[aIndex] = aSubscription;
+            that.writeSubscriptions();
           }
-          this.deleteProxies(this.fp.proxies);
-          let addedProxies = this.addProxies(refreshedSubscription.proxies);
-          // Let's add the proxies back to the respective pattern subscriptions
-          // and then the patterns of the latter back to them. But only if the
-          // old proxies are among the refreshed ones.
-          this.addProxiesBack(savedProxies, addedProxies);
+        } else {
+          // We show an error at least...
+          that.fp.alert(null, that.fp.getMessage(that.type +
+            "subscription.update.failure"));
         }
-        // Maybe the obfuscation changed. We should update this...
-        aSubscription.metadata.obfuscation = refreshedSubscription.
-          metadata.obfuscation;
-        aSubscription.metadata.lastStatus = this.fp.getMessage("okay");
-        // We did not get any errors. Therefore, resetting the errorMessages
-        // array to null.
-        aSubscription.metadata.errorMessages = null;
-        // If we have a timer-based update of subscriptions we deactive the
-        // success popup as it can be quite annoying to get such kinds of popups
-        // while surfing. TODO: Think about doing the same for failed updates.
-        if (showResponse) {
-          this.fp.alert(null, this.fp.getMessage(this.type +
-            "subscription.update.success"));
-        }
+        aSubscription.metadata.lastUpdate = that.fp.logg.format(Date.now());
       }
+    );
+    if (error) {
+      this.generateError(this.type, error, aSubscription);
       aSubscription.metadata.lastUpdate = this.fp.logg.format(Date.now());
       // Refreshing a subscription means refreshing the timer as well if there
       // is any...
       if (aSubscription.metadata.refresh > 0) {
         this.setSubscriptionTimer(aSubscription, true, false);
       }
+      // TODO: Should we delete the patterns if an update failed?
       this.subscriptionsList[aIndex] = aSubscription;
       this.writeSubscriptions();
-    } else {
-      // We show an error at least...
-      this.fp.alert(null, this.fp.getMessage(this.type +
-        "subscription.update.failure"));
     }
   },
 
@@ -414,7 +472,7 @@ var subscriptions = {
     // update of her subscription.
     if (!aSubscription.metadata.timer) {
       timer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
-      aSubscription.metadata.timer = timer; 
+      aSubscription.metadata.timer = timer;
     } else {
       timer = aSubscription.metadata.timer;
     }
@@ -429,14 +487,14 @@ var subscriptions = {
       // metadata.lastUpdate here in order to calculate the next update time in
       // ms since 1969/01/01. By this we would not need metadata.nextUpdate.
       aSubscription.metadata.nextUpdate = d + aSubscription.metadata.
-        refresh * 60 * 1000; 
+        refresh * 60 * 1000;
     }
     that = this;
     var event = {
       notify : function(timer) {
         that.refreshSubscription(aSubscription, false);
 	// We just need the notification to redraw the tree...
-	that.fp.broadcast(null, "foxyproxy-tree-update", null); 
+	that.fp.broadcast(null, "foxyproxy-tree-update", null);
       }
     };
     if (bRefresh) {
@@ -447,7 +505,7 @@ var subscriptions = {
       // Just a TYPE_ONE_SHOT on startup to come into the regular update cycle.
       timer.initWithCallback(event, aSubscription.metadata.nextUpdate - d, Ci.
         nsITimer.TYPE_ONE_SHOT);
-    } else { 
+    } else {
       timer.initWithCallback(event, aSubscription.metadata.refresh * 60 * 1000,
         Ci.nsITimer.TYPE_REPEATING_SLACK);
     }
@@ -466,7 +524,7 @@ var subscriptions = {
       file.create(Ci.nsIFile.NORMAL_FILE_TYPE, 0x1E4);
     }
     return file;
-  }, 
+  },
 
   writeSubscriptions: function() {
     try {
@@ -509,16 +567,16 @@ var subscriptions = {
       if (typeof Ci.nsIJSON !== "undefined" && typeof Ci.nsIJSON.decode ===
           "function") {
         json = Cc["@mozilla.org/dom/json;1"].createInstance(Ci.nsIJSON);
-        return json.decode(aString); 
+        return json.decode(aString);
       } else {
-        return JSON.parse(aString);    
+        return JSON.parse(aString);
       }
     } catch (e) {
       errorMessages.push(this.fp.getMessage("patternsubscription.error.JSON"));
-      return errorMessages; 
+      return errorMessages;
     }
   },
- 
+
   getJSONFromObject: function(aObject) {
     try {
       let json;
@@ -546,11 +604,11 @@ var subscriptions = {
     s.init(f, -1, -1, Ci.nsIFileInputStream.CLOSE_ON_EOF);
     var p = Cc["@mozilla.org/xmlextras/domparser;1"].createInstance(Ci.
       nsIDOMParser);
-    var doc = p.parseFromStream(s, null, f.fileSize, "text/xml"); 
+    var doc = p.parseFromStream(s, null, f.fileSize, "text/xml");
     if (bPreparation) {
       // Now we are adding the subscriptions.
       doc.documentElement.appendChild(this.toDOM(aType, doc));
-    } 
+    }
     if (bImport) {
       // Importing old settings means removing the current ones first including
       // subscriptions. Therefore...
@@ -566,7 +624,7 @@ var subscriptions = {
         // susbcriptions to erase.
         bPreparation = true;
       }
-    } 
+    }
     if (!bPreparation) {
       // As we only want to export these subscriptions and have a separate file
       // to store them locally, we remove them after the file was exported in
@@ -598,11 +656,11 @@ var subscriptions = {
         subscription.metadata = {};
         attrib = metaNode.attributes;
         for (var j = 0; j < attrib.length; j++) {
-          name = attrib.item(j).name; 
-	  value = attrib.item(j).value; 
-          subscription.metadata[name] = value; 
-        }	  
-      }	
+          name = attrib.item(j).name;
+	  value = attrib.item(j).value;
+          subscription.metadata[name] = value;
+        }
+      }
       // The proxy id's are saved as a string but we need them as an array.
       if (subscription.metadata.proxies) {
         subscription.metadata.proxies = subscription.metadata.proxies.
@@ -621,9 +679,9 @@ var subscriptions = {
           helper[k] = {};
 	  attrib = content[k].attributes;
 	  for (var l = 0; l < attrib.length; l++) {
-	    name = attrib.item(l).name; 
-	    value = attrib.item(l).value; 
-            helper[k][name] = value; 
+	    name = attrib.item(l).name;
+	    value = attrib.item(l).value;
+            helper[k][name] = value;
           }
         }
         if (aType === "pattern") {
@@ -658,7 +716,7 @@ var subscriptions = {
       for (var j = 0; j < contents.length; j++) {
         pat2 = doc.createElement(aType);
         for (var a in contents[j]) {
-          pat2.setAttribute(a, contents[j][a]);  
+          pat2.setAttribute(a, contents[j][a]);
         }
         content.appendChild(pat2);
       }
@@ -691,7 +749,7 @@ var subscriptions = {
           case type + "SubscriptionsEnabled" : return i.metadata.enabled;
 	  case type + "SubscriptionsName" : return i.metadata.name;
           case type + "SubscriptionsNotes" : return i.metadata.notes;
-          case type + "SubscriptionsUri" : return i.metadata.url;           
+          case type + "SubscriptionsUri" : return i.metadata.url;
 	  // We are doing here a similar thing as in addeditsubscription.js
 	  // in the onLoad() function described: As we only saved the id's
 	  // and the id's are not really helpful for users, we just use them to
@@ -707,7 +765,7 @@ var subscriptions = {
                 proxyString = proxyString + ", ";
               }
             }
-	    return proxyString; 
+	    return proxyString;
           case type + "SubscriptionsRefresh" : return i.metadata.refresh;
           case type + "SubscriptionsStatus" : return i.metadata.lastStatus;
           case type + "SubscriptionsLastUpdate" : return i.metadata.lastUpdate;
@@ -721,7 +779,7 @@ var subscriptions = {
 		    },
       getCellValue: function(row, col) {
 		      return that.subscriptionsList[row].metadata.enabled;
-		    },    
+		    },
       isSeparator: function(aIndex) { return false; },
       isSorted: function() { return false; },
       isEditable: function(row, col) { return false; },
@@ -733,7 +791,7 @@ var subscriptions = {
       getRowProperties: function(aRow, aColumn, aProperty) {},
       getColumnProperties: function(aColumn, aColumnElement, aProperty) {},
       getCellProperties: function(row, col, props) {},
-      getLevel: function(row){ return 0; } 
+      getLevel: function(row){ return 0; }
     };
     return ret;
   }
@@ -766,6 +824,10 @@ patternSubscriptions.defaultMetaValues = {
 
 patternSubscriptions.parseSubscription = function(subscriptionText,
   errorMessages, isBase64, userBase64) {
+  if (errorMessages.length !== 0) {
+    // We've already got error messages. Let's return them immediately.
+    return errorMessages;
+  }
   try {
     // No Base64 (anymore), thus we guess we have a plain FoxyProxy
     // subscription first. If that is not true we check the AutoProxy format.
@@ -781,7 +843,7 @@ patternSubscriptions.parseSubscription = function(subscriptionText,
       } else {
         // No AutoProxy either.
         return errorMessages;
-      } 
+      }
     } else {
       parsedSubscription = this.parseSubscriptionDetails(subscriptionContent,
         errorMessages);
@@ -791,7 +853,7 @@ patternSubscriptions.parseSubscription = function(subscriptionText,
       }
       if (!parsedSubscription.metadata) {
         parsedSubscription.metadata = {};
-      } 
+      }
       // We've got a FoxyProxy subscription...
       parsedSubscription.metadata.format = "FoxyProxy";
       // Setting the name of the patterns if there is none set yet.
@@ -808,7 +870,7 @@ patternSubscriptions.parseSubscription = function(subscriptionText,
   } catch (e) {
     // TODO: Recheck proper error messages after rewriting the module!
     errorMessages.push(this.fp.
-      getMessage("patternsubscription.error.network.unspecified")); 
+      getMessage("patternsubscription.error.network.unspecified"));
     return errorMessages;
   }
 };
@@ -821,7 +883,7 @@ patternSubscriptions.parseSubscriptionDetails = function(aSubscription,
     for (subProperty in aSubscription) {
       if (subProperty !== "metadata" && subProperty !== "patterns") {
         delete aSubscription[subProperty];
-      }	  
+      }
     }
     // And maybe someone cluttered the metadata or mistyped a property...
     for (subProperty in aSubscription.metadata) {
@@ -862,7 +924,7 @@ patternSubscriptions.parseSubscriptionDetails = function(aSubscription,
         }
       }
     }
-    return aSubscription; 
+    return aSubscription;
   } catch(e) {
     this.fp.alert(null, this.fp.getMessage("patternsubscription.error.parse"));
     errorMessages.push(this.fp.getMessage("patternsubscription.error.parse"));
@@ -998,6 +1060,10 @@ proxySubscriptions.subscriptionsFile = "proxySubscriptions.json";
 
 proxySubscriptions.parseSubscription = function(subscriptionText,
   errorMessages, isBase64, userBase64) {
+  if (errorMessages.length !== 0) {
+    // We've already got errorMessages. Let's return them immediately.
+    return errorMessages;
+  }
   try {
     let parsedSubscription = this.getObjectFromText(subscriptionText,
       errorMessages);
