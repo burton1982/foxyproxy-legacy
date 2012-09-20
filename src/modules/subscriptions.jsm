@@ -1128,15 +1128,9 @@ proxySubscriptions.addProxies = function(proxies) {
       wrappedJSObject;
     proxy.name = proxies[i].ip + ":" + proxies[i].port;
     proxy.mode = "manual";
+    // Not setting SOCKS means creating an HTTP proxy.
     proxy.manualconf.host = proxies[i].ip;
     proxy.manualconf.port = proxies[i].port;
-    // TODO: How can we do a better job in identifying HTTP/SOCKS proxies
-    // If we do not have port 80, 443 or 3128 assume a SOCKS proxy.
-    if (proxies[i].port !== "80" && proxies[i].port !== "443" && proxies[i].
-        port !== "3128") {
-      proxy.manualconf.isSocks = true;
-      proxy.socksversion = "5";
-    }
     proxy.fromSubscription = true;
     this.fp.proxies.push(proxy);
     addedProxies.push(proxy);
