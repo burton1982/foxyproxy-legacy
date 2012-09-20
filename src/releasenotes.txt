@@ -8,7 +8,7 @@
 * proxy color is shown in FoxyProxy's mode menu and in the menus in the
   context menu, the toolbar and the add-on bar
 * patternModeCookieWarning can now be hidden on start-up
-* made loading of subscriptions asynchronous
+* loading and refreshing of subscriptions is done asynchronously now
 * replaced deprecated octal file permissions
 * code clean-up
 * updated locales
