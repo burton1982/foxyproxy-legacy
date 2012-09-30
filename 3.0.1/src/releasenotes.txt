@@ -1,0 +1,2 @@
+* fixed proxy selecting bug (see:
+    http://forums.getfoxyproxy.org/viewtopic.php?f=3&t=750)
