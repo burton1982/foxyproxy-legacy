@@ -1,2 +1,3 @@
-* fixed proxy selecting bug (see:
-    http://forums.getfoxyproxy.org/viewtopic.php?f=3&t=750)
+* fixed pattern import bug (see:
+  http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=764)
+* updated cs, el and nl locale
