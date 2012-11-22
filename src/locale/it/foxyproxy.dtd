@@ -141,6 +141,8 @@
 <!ENTITY foxyproxy.tab.global.label "Avanzate">
 <!ENTITY foxyproxy.tab.global.accesskey "v">
 <!ENTITY foxyproxy.tab.global.tooltip "Gestione delle opzioni avanzate">
+<!ENTITY foxyproxy.settings.advanced.label "Advanced Settings">
+<!ENTITY foxyproxy.settings.advanced.tooltip "A click on the button opens the advanced settings dialog of FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.label "Registrazioni">
 <!ENTITY foxyproxy.tab.logging.accesskey "z">
 <!ENTITY foxyproxy.tab.logging.tooltip "Gestione delle opzioni delle registrazioni">
@@ -466,9 +468,9 @@
 <!ENTITY foxyproxy.proxyservice.tooltip "Fare clic qui per iscriversi ad un servizio di proxy a pagamento">
 <!ENTITY foxyproxy.proxyservice2.label "Iscrizione ad un servizio di proxy sicuri americani, inglesi o di altre nazioni a pagamento">
 <!ENTITY foxyproxy.getfoxyproxyplus.label "Ottieni FoxyProxy Plus">
-<!ENTITY foxyproxy.aboutdonate.label "Facendo clic sul pulsante 'Effettua una donazione' è possibile incoraggiare e sostenere lo sviluppo di FoxyProxy effettuando una donazione tramite PayPal">
-<!ENTITY foxyproxy.aboutfpplus.label "Facendo clic sul pulsante 'Ottieni FoxyProxy Plus' è possibile consultare la pagina web relativa alle funzioni aggiuntive di FoxyProxy Plus ed eventualmente procedere all'acquisto">
-<!ENTITY foxyproxy.aboutproxyservice.label "Infine, facendo clic sul pulsante 'Proxy a pagamento' è possibile accedere a prezzi ragionevoli ad un servizio privato di proxy affidabili, con ampia larghezza di banda e disponibili per diversi paesi">
+<!ENTITY foxyproxy.foxyproxychrome.label "FoxyProxy for Chrome">
+<!ENTITY foxyproxy.foxyproxychrome.accesskey "F">
+<!ENTITY foxyproxy.foxyproxychrome.tooltip "Try FoxyProxy for Chrome">
 <!ENTITY foxyproxy.invalidcolor.label "Il codice del colore non è valido">
 <!ENTITY foxyproxy.validcolor.label "Il codice del colore è valido">
 <!ENTITY foxyproxy.color.label "Colore">
@@ -487,6 +489,12 @@
 <!ENTITY foxyproxy.proxy.subscriptions.viewSubscription "Visualizza proprietà della sottoscrizione selezionata">
 <!ENTITY foxyproxy.proxy.subscriptions.addedit.title "Aggiunta/modifica di una sottoscrizione di proxy">
 <!ENTITY foxyproxy.proxy.subscriptions.refreshHelp "eliminerà tutti i proxy esistenti">
+<!ENTITY foxyproxy.proxy.subscriptions.proxy.type.label "Proxy Type">
+<!ENTITY foxyproxy.proxy.subscriptions.proxy.type.tooltip "Choose the type of the proxies on the list you want to import. If you select &quot;I don't know&quot; it is assumed they are HTTP proxies.">
+<!ENTITY foxyproxy.proxy.subscriptions.unknown.label "I don't know">
+<!ENTITY foxyproxy.proxy.subscriptions.http.label "HTTP">
+<!ENTITY foxyproxy.proxy.subscriptions.socks.label "SOCKS">
+<!ENTITY foxyproxy.proxy.subscriptions.subscriptionTypeHelp "This option lets you choose the type of the proxies on your subscription. If you select &quot;I don't know&quot; the proxies are assumed to be HTTP proxies. The same holds if you select &quot;HTTP&quot;. If you choose &quot;SOCKS&quot; FoxyProxy will treat them as SOCKS5 proxies instead.">
 <!ENTITY foxyproxy.proxy.subscriptions.proxy.window.title "Proprietà della sottoscrizione di proxy">
 <!ENTITY foxyproxy.pattern.subscriptions.label "Sottoscrizioni modelli">
 <!ENTITY foxyproxy.pattern.subscriptions.description "Facendo clic sul link 'Condividi le sottoscrizioni di modelli' è possibile condividere facilmente le proprie sottoscrizioni di modelli e ottenere informazioni su come utilizzare quelle pubblicate da altri utenti">
@@ -538,6 +546,8 @@
 <!ENTITY foxyproxy.status.label "Stato">
 <!ENTITY foxyproxy.format.label "Formato">
 <!ENTITY foxyproxy.obfuscation.label "Offuscamento">
+<!ENTITY foxyproxy.compatibilitycheck.proxy.tooltip "Select the proxy you want to use for the add-on compatibility check after an application update">
+<!ENTITY foxyproxy.compatibilitycheck.proxy.help "When Firefox/Thunderbird/SeaMonkey searches for add-on updates at http://addons.mozilla.org during start-up, it is possible for this search to bypass your proxy patterns. Here you can specify which proxy to use for these rare situations.">
 <!-- begin foxyproxyplus -->
 <!ENTITY foxyproxy.ip.pattern.addedit.title "Aggiunta/modifica di modelli di indirizzi IP locali">
 <!ENTITY foxyproxy.tempip.popup.label "I modelli temporanei permettono di creare modelli di indirizzi IP locali che non vengono utilizzati spesso, senza interessare le liste di modelli di indirizzi IP dei proxy. Tali modelli non vengono salvati sul disco rigido, ma mantenuti in memoria ed eliminati alla chiusura della sessione di Firefox">
@@ -599,4 +609,6 @@
 <!ENTITY foxyproxy.patternsforselected.accesskey "z">
 <!ENTITY foxyproxy.patternsforselected.tooltip "Crea modelli per gli URL selezionati">
 <!ENTITY foxyproxy.patterntoadd.label "Modelli da aggiungere">
+<!ENTITY foxyproxyplus.released "Released under the">
+<!ENTITY foxyproxyplus.license "FoxyProxy Plus license">
 <!-- end foxyproxyplus -->

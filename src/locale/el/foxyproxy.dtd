@@ -141,6 +141,8 @@
 <!ENTITY foxyproxy.tab.global.label "Γενικές ρυθμίσεις">
 <!ENTITY foxyproxy.tab.global.accesskey "Γ">
 <!ENTITY foxyproxy.tab.global.tooltip "Διαχείριση γενικών ρυθμίσεων">
+<!ENTITY foxyproxy.settings.advanced.label "Advanced Settings">
+<!ENTITY foxyproxy.settings.advanced.tooltip "A click on the button opens the advanced settings dialog of FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.label "Συνδέσεις">
 <!ENTITY foxyproxy.tab.logging.accesskey "Σ">
 <!ENTITY foxyproxy.tab.logging.tooltip "Διαχείριση ρυθμίσεων συνδέσεων">
@@ -466,9 +468,9 @@
 <!ENTITY foxyproxy.proxyservice.tooltip "Εγγραφείτε για υπηρεσίες διαμεσολάβησης">
 <!ENTITY foxyproxy.proxyservice2.label "Χρειάζεστε γρήγορους, αξιόπιστους διαμεσολαβητές στις ΗΠΑ, την Αγγλία ή άλλη χώρα;">
 <!ENTITY foxyproxy.getfoxyproxyplus.label "Πάρτε το FoxyProxy Plus">
-<!ENTITY foxyproxy.aboutdonate.label "Το κουμπί δωρεάς σας μεταφέρει στο PayPal απ&apos; όπου μπορείτε να κάνετε μια δωρεά στο έργο FoxyProxy για να ενθαρύνετε και να υποστηρίξετε την ανάπτυξη του. Αν χρησιμοποιείτε συχνά το FoxyProxy, κάντε μια δωρεά!">
-<!ENTITY foxyproxy.aboutfpplus.label "το κουμπί FoxyProxy Plus σας μεταφέρει σε ένα ιστότοπο όπου μπορείτε να διαβάσετε για τα πρόσθετα χαρακτηριστικά της έκδοσης Plus και να την αγοράσετε αν θέλετε.">
-<!ENTITY foxyproxy.aboutproxyservice.label "Τέλος, το κουμπί υπηρεσίας διαμεσολάβησης σας μεταφέρει στον ιστότοπο υπηρεσιών διαμεσολάβησης μας όπου μπορείτε να αγοράσετε αξιόπιστες, υψηλής ταχύτητας υπηρεσίες διαμεσολάβησης για πολλές χώρες σε λογικές τιμές.">
+<!ENTITY foxyproxy.foxyproxychrome.label "FoxyProxy for Chrome">
+<!ENTITY foxyproxy.foxyproxychrome.accesskey "F">
+<!ENTITY foxyproxy.foxyproxychrome.tooltip "Try FoxyProxy for Chrome">
 <!ENTITY foxyproxy.invalidcolor.label "Μη έγκυρο χρώμα">
 <!ENTITY foxyproxy.validcolor.label "Έγκυρο χρώμα">
 <!ENTITY foxyproxy.color.label "Color">
@@ -487,6 +489,12 @@
 <!ENTITY foxyproxy.proxy.subscriptions.viewSubscription "Προβολή συνδρομής διαμεσολαβητή">
 <!ENTITY foxyproxy.proxy.subscriptions.addedit.title "Προσθήκη/επεξεργασία συνδρομής διαμεσολαβητή">
 <!ENTITY foxyproxy.proxy.subscriptions.refreshHelp "αφαιρεί όλες τις υπάρχουσες συνδρομές σε διαμεσολαβητές">
+<!ENTITY foxyproxy.proxy.subscriptions.proxy.type.label "Proxy Type">
+<!ENTITY foxyproxy.proxy.subscriptions.proxy.type.tooltip "Choose the type of the proxies on the list you want to import. If you select &quot;I don't know&quot; it is assumed they are HTTP proxies.">
+<!ENTITY foxyproxy.proxy.subscriptions.unknown.label "I don't know">
+<!ENTITY foxyproxy.proxy.subscriptions.http.label "HTTP">
+<!ENTITY foxyproxy.proxy.subscriptions.socks.label "SOCKS">
+<!ENTITY foxyproxy.proxy.subscriptions.subscriptionTypeHelp "This option lets you choose the type of the proxies on your subscription. If you select &quot;I don't know&quot; the proxies are assumed to be HTTP proxies. The same holds if you select &quot;HTTP&quot;. If you choose &quot;SOCKS&quot; FoxyProxy will treat them as SOCKS5 proxies instead.">
 <!ENTITY foxyproxy.proxy.subscriptions.proxy.window.title "Συνδρομές διαμεσολαβητών">
 <!ENTITY foxyproxy.pattern.subscriptions.label "Συνδρομές πρότυπων">
 <!ENTITY foxyproxy.pattern.subscriptions.description "Γραφτείτε συνδρομητές σε λίστες προτύπων που δημοσιεύουν άλλοι. Μοιραστείτε τα πρότυπα σας με άλλους με μερικά μόνο κλικ.">
@@ -538,6 +546,8 @@
 <!ENTITY foxyproxy.status.label "Κατάσταση">
 <!ENTITY foxyproxy.format.label "Μορφή">
 <!ENTITY foxyproxy.obfuscation.label "Απόκρυψη">
+<!ENTITY foxyproxy.compatibilitycheck.proxy.tooltip "Select the proxy you want to use for the add-on compatibility check after an application update">
+<!ENTITY foxyproxy.compatibilitycheck.proxy.help "When Firefox/Thunderbird/SeaMonkey searches for add-on updates at http://addons.mozilla.org during start-up, it is possible for this search to bypass your proxy patterns. Here you can specify which proxy to use for these rare situations.">
 <!-- end foxyproxyplus -->
 <!ENTITY foxyproxy.ip.pattern.addedit.title "Προσθήκη/επεξεργασία τοπικού πρότυπου διεύθυνσης IP">
 <!ENTITY foxyproxy.tempip.popup.label "Τα προσωρινά πρότυπα σας επιτρέπουν να δημιουργήσετε τοπικά πρότυπα για διευθύνσεις IP που δεν χρησιμοποιείτε συχνά, χωρίς να αυξάνετε την πολυπλοκότητα της λίστας πρότυπων κάποιου διαμεσολαβητή. Τα προσωρινά πρότυπα δεν αποθηκεύονται στο δίσκο, διατηρούνται μόνο στη μνήμη και χρησιμοποιούνται για την τρέχουσα συνεδρία του Firefox.">
@@ -599,4 +609,6 @@
 <!ENTITY foxyproxy.patternsforselected.accesskey "π">
 <!ENTITY foxyproxy.patternsforselected.tooltip "Δημιουργία προτύπων για τα επιλεγμένα URL μόνο">
 <!ENTITY foxyproxy.patterntoadd.label "Πρότυπο για προσθήκη">
+<!ENTITY foxyproxyplus.released "Released under the">
+<!ENTITY foxyproxyplus.license "FoxyProxy Plus license">
 <!-- end foxyproxyplus -->

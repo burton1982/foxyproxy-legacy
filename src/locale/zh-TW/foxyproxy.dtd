@@ -141,6 +141,8 @@
 <!ENTITY foxyproxy.tab.global.label "一般設定">
 <!ENTITY foxyproxy.tab.global.accesskey "G">
 <!ENTITY foxyproxy.tab.global.tooltip "一般設定">
+<!ENTITY foxyproxy.settings.advanced.label "Advanced Settings">
+<!ENTITY foxyproxy.settings.advanced.tooltip "A click on the button opens the advanced settings dialog of FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.label "記錄">
 <!ENTITY foxyproxy.tab.logging.accesskey "L">
 <!ENTITY foxyproxy.tab.logging.tooltip "記錄設定">
@@ -466,9 +468,9 @@
 <!ENTITY foxyproxy.proxyservice.tooltip "註冊代理伺服器服務">
 <!ENTITY foxyproxy.proxyservice2.label "需要在美國、英國或其它國家使用高速且可靠的代理伺服器嗎？">
 <!ENTITY foxyproxy.getfoxyproxyplus.label "取得 FoxyProxy 進階版">
-<!ENTITY foxyproxy.aboutdonate.label "按下「捐助」鈕會連線到 PayPal 網頁，你可以對 FoxyProxy 專案捐助來鼓勵並支持軟體開發，如果你定期的使用 FoxyProxy，請你考慮捐助。">
-<!ENTITY foxyproxy.aboutfpplus.label "按下「FoxyProxy 進階版」鈕會連線到另一個網頁，該網頁上說明了進階版的特別功能，也提供了購買的方法。">
-<!ENTITY foxyproxy.aboutproxyservice.label "最後，按下「代理伺服器服務」鈕會連線到我們的代理伺服器服務網站，你可以在那裏以合理的價格購買許多不同國家裏可靠且擁有高頻寬的代理伺服器服務。">
+<!ENTITY foxyproxy.foxyproxychrome.label "FoxyProxy for Chrome">
+<!ENTITY foxyproxy.foxyproxychrome.accesskey "F">
+<!ENTITY foxyproxy.foxyproxychrome.tooltip "Try FoxyProxy for Chrome">
 <!ENTITY foxyproxy.invalidcolor.label "無效的顏色">
 <!ENTITY foxyproxy.validcolor.label "有效的顏色">
 <!ENTITY foxyproxy.color.label "顏色">
@@ -487,6 +489,12 @@
 <!ENTITY foxyproxy.proxy.subscriptions.viewSubscription "檢視訂閱的代理伺服器">
 <!ENTITY foxyproxy.proxy.subscriptions.addedit.title "新增/編輯訂閱的代理伺服器">
 <!ENTITY foxyproxy.proxy.subscriptions.refreshHelp "移除所有已訂閱的代理伺服器">
+<!ENTITY foxyproxy.proxy.subscriptions.proxy.type.label "Proxy Type">
+<!ENTITY foxyproxy.proxy.subscriptions.proxy.type.tooltip "Choose the type of the proxies on the list you want to import. If you select &quot;I don't know&quot; it is assumed they are HTTP proxies.">
+<!ENTITY foxyproxy.proxy.subscriptions.unknown.label "I don't know">
+<!ENTITY foxyproxy.proxy.subscriptions.http.label "HTTP">
+<!ENTITY foxyproxy.proxy.subscriptions.socks.label "SOCKS">
+<!ENTITY foxyproxy.proxy.subscriptions.subscriptionTypeHelp "This option lets you choose the type of the proxies on your subscription. If you select &quot;I don't know&quot; the proxies are assumed to be HTTP proxies. The same holds if you select &quot;HTTP&quot;. If you choose &quot;SOCKS&quot; FoxyProxy will treat them as SOCKS5 proxies instead.">
 <!ENTITY foxyproxy.proxy.subscriptions.proxy.window.title "訂閱代理伺服器">
 <!ENTITY foxyproxy.pattern.subscriptions.label "樣式訂閱">
 <!ENTITY foxyproxy.pattern.subscriptions.description "訂閱其它人發表的樣式，透過簡單的點選就可以和別人分享你的樣式。">
@@ -538,6 +546,8 @@
 <!ENTITY foxyproxy.status.label "狀態">
 <!ENTITY foxyproxy.format.label "格式">
 <!ENTITY foxyproxy.obfuscation.label "編碼格式">
+<!ENTITY foxyproxy.compatibilitycheck.proxy.tooltip "Select the proxy you want to use for the add-on compatibility check after an application update">
+<!ENTITY foxyproxy.compatibilitycheck.proxy.help "When Firefox/Thunderbird/SeaMonkey searches for add-on updates at http://addons.mozilla.org during start-up, it is possible for this search to bypass your proxy patterns. Here you can specify which proxy to use for these rare situations.">
 <!-- end foxyproxyplus -->
 <!ENTITY foxyproxy.ip.pattern.addedit.title "新增/編輯 本機 IP 位址樣式">
 <!ENTITY foxyproxy.tempip.popup.label "臨時性樣式讓你建立不常使用的本機 IP 位址樣式，這些樣式不會儲存到設定檔中造成樣式清單紊亂，而是保留在記憶體中，只在這次執行 Firefox 有效。">
@@ -599,4 +609,6 @@
 <!ENTITY foxyproxy.patternsforselected.accesskey "S">
 <!ENTITY foxyproxy.patternsforselected.tooltip "對選擇的網址建立樣式">
 <!ENTITY foxyproxy.patterntoadd.label "要新增的樣式">
+<!ENTITY foxyproxyplus.released "Released under the">
+<!ENTITY foxyproxyplus.license "FoxyProxy Plus license">
 <!-- end foxyproxyplus -->

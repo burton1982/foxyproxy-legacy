@@ -141,6 +141,8 @@
 <!ENTITY foxyproxy.tab.global.label "Ogólne">
 <!ENTITY foxyproxy.tab.global.accesskey "G">
 <!ENTITY foxyproxy.tab.global.tooltip "Zarządzanie ustawieniami ogólnymi">
+<!ENTITY foxyproxy.settings.advanced.label "Advanced Settings">
+<!ENTITY foxyproxy.settings.advanced.tooltip "A click on the button opens the advanced settings dialog of FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.label "Dziennik">
 <!ENTITY foxyproxy.tab.logging.accesskey "D">
 <!ENTITY foxyproxy.tab.logging.tooltip "Zarządzanie ustawieniami dziennika zdarzeń">
@@ -466,9 +468,9 @@
 <!ENTITY foxyproxy.proxyservice.tooltip "Zarejestruj się w usługach proxy">
 <!ENTITY foxyproxy.proxyservice2.label "Potrzebujesz szybkich, niezawodnych proxy w USA, UK lub innych krajach?">
 <!ENTITY foxyproxy.getfoxyproxyplus.label "Skorzystaj z FoxyProxy Plus">
-<!ENTITY foxyproxy.aboutdonate.label "Przycisk dotacji przeniesie cię na stronę PayPal, gdzie możesz wykonać dotację na rzecz projektu FoxyProxy i wesprzeć jego dalszy rozwój. Jeśli jesteś stałym użytkownikiem FoxyProxy, rozważ poważnie taką możliwość.">
-<!ENTITY foxyproxy.aboutfpplus.label "Przycisk FoxyProxy Plus przeniesie cię na witrynę, gdzie możesz dowiedzieć się o dodatkowych funkcjach dostarczanych przez wersję Plus i ewentualnie dokonać jej zakupu.">
-<!ENTITY foxyproxy.aboutproxyservice.label "Przycisk usługi proxy przeniesie cię na naszą witrynę usług proxy, gdzie możesz wykupić niezawodne szerokopasmowe usługi proxy w wielu różnych krajach w rozsądnych cenach.">
+<!ENTITY foxyproxy.foxyproxychrome.label "FoxyProxy for Chrome">
+<!ENTITY foxyproxy.foxyproxychrome.accesskey "F">
+<!ENTITY foxyproxy.foxyproxychrome.tooltip "Try FoxyProxy for Chrome">
 <!ENTITY foxyproxy.invalidcolor.label "Nieprawidłowy kolor">
 <!ENTITY foxyproxy.validcolor.label "Prawidłowy kolor">
 <!ENTITY foxyproxy.color.label "Kolor">
@@ -487,6 +489,12 @@
 <!ENTITY foxyproxy.proxy.subscriptions.viewSubscription "Zobacz subskrypcję proxy">
 <!ENTITY foxyproxy.proxy.subscriptions.addedit.title "Dodaj/edytuj subskrypcję proxy">
 <!ENTITY foxyproxy.proxy.subscriptions.refreshHelp "usuwa wszystkie istniejące subskrybowane proxy">
+<!ENTITY foxyproxy.proxy.subscriptions.proxy.type.label "Proxy Type">
+<!ENTITY foxyproxy.proxy.subscriptions.proxy.type.tooltip "Choose the type of the proxies on the list you want to import. If you select &quot;I don't know&quot; it is assumed they are HTTP proxies.">
+<!ENTITY foxyproxy.proxy.subscriptions.unknown.label "I don't know">
+<!ENTITY foxyproxy.proxy.subscriptions.http.label "HTTP">
+<!ENTITY foxyproxy.proxy.subscriptions.socks.label "SOCKS">
+<!ENTITY foxyproxy.proxy.subscriptions.subscriptionTypeHelp "This option lets you choose the type of the proxies on your subscription. If you select &quot;I don't know&quot; the proxies are assumed to be HTTP proxies. The same holds if you select &quot;HTTP&quot;. If you choose &quot;SOCKS&quot; FoxyProxy will treat them as SOCKS5 proxies instead.">
 <!ENTITY foxyproxy.proxy.subscriptions.proxy.window.title "Subskrypcja proxy">
 <!ENTITY foxyproxy.pattern.subscriptions.label "Subskrypcje wzorca">
 <!ENTITY foxyproxy.pattern.subscriptions.description "Subskrybuj wzorce publikowane przez innych. Udostępniaj swoje wzorce za pomocą kilku kliknięć.">
@@ -538,6 +546,8 @@
 <!ENTITY foxyproxy.status.label "Status">
 <!ENTITY foxyproxy.format.label "Format">
 <!ENTITY foxyproxy.obfuscation.label "Zaciemnianie">
+<!ENTITY foxyproxy.compatibilitycheck.proxy.tooltip "Select the proxy you want to use for the add-on compatibility check after an application update">
+<!ENTITY foxyproxy.compatibilitycheck.proxy.help "When Firefox/Thunderbird/SeaMonkey searches for add-on updates at http://addons.mozilla.org during start-up, it is possible for this search to bypass your proxy patterns. Here you can specify which proxy to use for these rare situations.">
 <!-- end foxyproxyplus -->
 <!ENTITY foxyproxy.ip.pattern.addedit.title "Dodaj/edytuj wzorzec lokalnego adresu IP">
 <!ENTITY foxyproxy.tempip.popup.label "Wzorce tymczasowe umożliwiają tworzenie wzorców lokalnego adresu IP nie używanych często. Dzięki temu lista wzorców nie jest niepotrzebnie przeładowywana. Wzorce tymczasowe nie są zapisywane na dysku. Są one trzymane w pamięci i używane tylko w aktualnej sesji Firefoksa.">
@@ -599,4 +609,6 @@
 <!ENTITY foxyproxy.patternsforselected.accesskey "b">
 <!ENTITY foxyproxy.patternsforselected.tooltip "Utwórz wzorce dla wybranych adresów URL">
 <!ENTITY foxyproxy.patterntoadd.label "Wzorzec do dodania">
+<!ENTITY foxyproxyplus.released "Released under the">
+<!ENTITY foxyproxyplus.license "FoxyProxy Plus license">
 <!-- end foxyproxyplus -->

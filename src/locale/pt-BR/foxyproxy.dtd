@@ -69,6 +69,7 @@
 <!ENTITY foxyproxy.copy.selection.tooltip "Copia a seleção">
 <!ENTITY foxyproxy.mode.label "Seleciona Modo">
 <!ENTITY foxyproxy.wpad.label1 "por WPAD">
+<!--For translators: The following two strings are already included into Firefox and may be found in the Preferences panel -> Advanced -> Network Settings-->
 <!ENTITY foxyproxy.wpad.accesskey "W">
 <!ENTITY foxyproxy.wpad.tooltip "Detectar as configurações de proxy automaticamente usando WPAD">
 <!ENTITY foxyproxy.wpad.reload.label "Detectar todas as configurações de proxy automaticamente">
@@ -140,6 +141,8 @@
 <!ENTITY foxyproxy.tab.global.label "Configurações Globais">
 <!ENTITY foxyproxy.tab.global.accesskey "G">
 <!ENTITY foxyproxy.tab.global.tooltip "Gerencia Configurações Globais">
+<!ENTITY foxyproxy.settings.advanced.label "Advanced Settings">
+<!ENTITY foxyproxy.settings.advanced.tooltip "A click on the button opens the advanced settings dialog of FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.label "Iniciar sessão">
 <!ENTITY foxyproxy.tab.logging.accesskey "L">
 <!ENTITY foxyproxy.tab.logging.tooltip "Gerencia configurações de Log">
@@ -465,9 +468,9 @@
 <!ENTITY foxyproxy.proxyservice.tooltip "Cadastre-se para os serviços de proxy">
 <!ENTITY foxyproxy.proxyservice2.label "Precisa de proxies rápidos e confiáveis nos E.U.A., Reino Unido ou outros países?">
 <!ENTITY foxyproxy.getfoxyproxyplus.label "Obter FpxyProxy Plus">
-<!ENTITY foxyproxy.aboutdonate.label "Botão doar traz para o PayPal, onde você pode doar para o projeto FoxyProxy para incentivar e apoiar o desenvolvimento. Se você usar FoxyProxy regularmente, por favor, considere doar.">
-<!ENTITY foxyproxy.aboutfpplus.label "O botão FoxyProxy Plus traz para você a um site onde você pode ler sobre os recursos adicionais fornecidos pela edição Plus e, opcionalmente, comprá-lo.">
-<!ENTITY foxyproxy.aboutproxyservice.label "Finalmente, o botão de serviço proxy traz para o nosso site de serviço de proxy, onde você pode comprar o serviço de proxy confiável, de alta largura de banda em muitos países diferentes, a preços razoáveis.">
+<!ENTITY foxyproxy.foxyproxychrome.label "FoxyProxy for Chrome">
+<!ENTITY foxyproxy.foxyproxychrome.accesskey "F">
+<!ENTITY foxyproxy.foxyproxychrome.tooltip "Try FoxyProxy for Chrome">
 <!ENTITY foxyproxy.invalidcolor.label "Cor inválida">
 <!ENTITY foxyproxy.validcolor.label "Cor válida">
 <!ENTITY foxyproxy.color.label "Cor">
@@ -486,6 +489,12 @@
 <!ENTITY foxyproxy.proxy.subscriptions.viewSubscription "Ver assinatura de proxy">
 <!ENTITY foxyproxy.proxy.subscriptions.addedit.title "Adicionar/editar assinatura de proxy">
 <!ENTITY foxyproxy.proxy.subscriptions.refreshHelp "remover todas as assinaturas de proxy existentes">
+<!ENTITY foxyproxy.proxy.subscriptions.proxy.type.label "Proxy Type">
+<!ENTITY foxyproxy.proxy.subscriptions.proxy.type.tooltip "Choose the type of the proxies on the list you want to import. If you select &quot;I don't know&quot; it is assumed they are HTTP proxies.">
+<!ENTITY foxyproxy.proxy.subscriptions.unknown.label "I don't know">
+<!ENTITY foxyproxy.proxy.subscriptions.http.label "HTTP">
+<!ENTITY foxyproxy.proxy.subscriptions.socks.label "SOCKS">
+<!ENTITY foxyproxy.proxy.subscriptions.subscriptionTypeHelp "This option lets you choose the type of the proxies on your subscription. If you select &quot;I don't know&quot; the proxies are assumed to be HTTP proxies. The same holds if you select &quot;HTTP&quot;. If you choose &quot;SOCKS&quot; FoxyProxy will treat them as SOCKS5 proxies instead.">
 <!ENTITY foxyproxy.proxy.subscriptions.proxy.window.title "Assinatura de proxies">
 <!ENTITY foxyproxy.pattern.subscriptions.label "Assinaturas padrão">
 <!ENTITY foxyproxy.pattern.subscriptions.description "Inscrever-se para padrões publicados por outros. Compartilhe seus padrões com outras pessoas em apenas alguns cliques.">
@@ -537,6 +546,9 @@
 <!ENTITY foxyproxy.status.label "Estado">
 <!ENTITY foxyproxy.format.label "Formato">
 <!ENTITY foxyproxy.obfuscation.label "Ofuscação">
+<!ENTITY foxyproxy.compatibilitycheck.proxy.tooltip "Select the proxy you want to use for the add-on compatibility check after an application update">
+<!ENTITY foxyproxy.compatibilitycheck.proxy.help "When Firefox/Thunderbird/SeaMonkey searches for add-on updates at http://addons.mozilla.org during start-up, it is possible for this search to bypass your proxy patterns. Here you can specify which proxy to use for these rare situations.">
+<!-- begin foxyproxyplus -->
 <!ENTITY foxyproxy.ip.pattern.addedit.title "Adicionar/Editar local do endereço IP padrão">
 <!ENTITY foxyproxy.tempip.popup.label "Padrões temporários permitem criar padrões para endereços IP locais que você não usa com freqüência sem encher a lista de endereços IPpadrão para um proxy. Padrões temporários não são salvas em disco. Eles são mantidos na memória e utilizada somente nesta sessão de Firefox.">
 <!ENTITY foxyproxy.ip.pattern.label "Padrão de endereço IP local">
@@ -597,3 +609,6 @@
 <!ENTITY foxyproxy.patternsforselected.accesskey "S">
 <!ENTITY foxyproxy.patternsforselected.tooltip "Criar padrões para URL's selecionadas">
 <!ENTITY foxyproxy.patterntoadd.label "Padrão para adicionar">
+<!ENTITY foxyproxyplus.released "Released under the">
+<!ENTITY foxyproxyplus.license "FoxyProxy Plus license">
+<!-- end foxyproxyplus -->
