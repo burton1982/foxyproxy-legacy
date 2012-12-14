@@ -130,6 +130,8 @@ foxyproxy.prototype = {
   cacheOrCookiesChanged : false,
   cacheAndCookiesChecked : false,
   _proxyForVersionCheck : "",
+  // That gets set in the Common() constructor.
+  isGecko17 : false,
 
   broadcast : function(subj, topic, data) {
     gBroadcast(subj, topic, data);
@@ -154,6 +156,8 @@ foxyproxy.prototype = {
           gObsSvc.addObserver(this, "quit-application", false);
           gObsSvc.addObserver(this, "domwindowclosed", false);
           gObsSvc.addObserver(this, "domwindowopened", false);
+          CC["@mozilla.org/network/protocol-proxy-service;1"].getService().
+            wrappedJSObject.fp = this;
           try {
             this.init();
             this.patternSubscriptions.init();
@@ -295,7 +299,9 @@ foxyproxy.prototype = {
         "Unrecognized mode specified: " + mode);
     }
 
-    this.toggleFilter(this._mode != "disabled");
+    if (this.isGecko17) {
+      this.toggleFilter(this._mode != "disabled");
+    }
     // This line must come before the next one -- gBroadcast(...) Otherwise,
     // AutoAdd and QuickAdd write their settings before they've been
     // deserialized, resulting in them always getting written to disk as
@@ -444,7 +450,7 @@ foxyproxy.prototype = {
   applyFilter : function(ps, uri, proxy) {
     function _err(fp, info, extInfo) {
       var def = fp.proxies.item(fp.proxies.length-1);
-      mp = gLoggEntryFactory(def, null, spec, "err", extInfo?extInfo:info);
+      this.mp = gLoggEntryFactory(def, null, spec, "err", extInfo?extInfo:info);
       fp.notifier.alert(info, fp.getMessage("see.log"));
       return def; // Failsafe: use lastresort proxy if nothing else was chosen
     }
@@ -466,8 +472,13 @@ foxyproxy.prototype = {
       return _err(this, this.getMessage("route.exception", [""]), this.getMessage("route.exception", [": " + e]));
     }
     finally {
-      gObsSvc.notifyObservers(this.mp.proxy, "foxyproxy-throb", null);
-      this.logg.add(this.mp);
+      // Our custom return value is a string in Gecko > 17 indicating that we
+      // queue the request. Thus, we only add it to the log tab if it is really
+      // issued now (i.e. we got no string in return). 
+      if (typeof ret != "string") {
+        gObsSvc.notifyObservers(this.mp.proxy, "foxyproxy-throb", null);
+        this.logg.add(this.mp);
+      }
     }
   },
 

@@ -8,6 +8,7 @@
   available in the LICENSE file at the root of this installation
   and also online at http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 **/
+
 if (!CI) {
   // we're not being included by foxyproxy.js
   var CI = Components.interfaces, CC = Components.classes,
@@ -35,6 +36,8 @@ function AutoConf(owner, fpp) {
   fp = fpp || CC["@leahscape.org/foxyproxy/service;1"].
     getService().wrappedJSObject;
   this.timer = CC["@mozilla.org/timer;1"].createInstance(CI.nsITimer);
+  this.ppp = CC["@mozilla.org/network/protocol-proxy-service;1"].
+    getService().wrappedJSObject;
   this.owner = owner;
   this._resolver = new fpProxyAutoConfig(this);
 }
@@ -49,6 +52,7 @@ AutoConf.prototype = {
   owner: null,
   //disabledDueToBadPAC: false,
   disableOnBadPAC: true,
+  ppp: null,
   QueryInterface: XPCOMUtils.generateQI([CI.nsISupports]),
 
   set autoReload(e) {
@@ -109,7 +113,7 @@ AutoConf.prototype = {
     var req = CC["@mozilla.org/xmlextras/xmlhttprequest;1"]
       .createInstance(CI.nsIXMLHttpRequest);
     req.overrideMimeType("application/javascript");
-    req.open("GET", url, false); // false means synchronous    
+    req.open("GET", url, false); // false means synchronous
     req.channel.loadFlags |= CI.nsIRequest.LOAD_BYPASS_CACHE;
     req.send(null);
     if (req.status == 200 ||
@@ -123,13 +127,28 @@ AutoConf.prototype = {
   loadPAC : function() {
     let autoconfMode = this.owner.autoconfMode;
     let autoconfMessage = "";
+    let that = this;
     try {
       var req = CC["@mozilla.org/xmlextras/xmlhttprequest;1"]
         .createInstance(CI.nsIXMLHttpRequest);
       req.overrideMimeType("application/javascript");
-      req.open("GET", this.url, false); // false means synchronous
-      req.channel.loadFlags |= CI.nsIRequest.LOAD_BYPASS_CACHE;
-      req.send(null);
+      // We leave the sync version for Gecko < 18 as we are going to rewrite the
+      // whole PAC part anyway using the single FP generated PAC file approach.
+      if (fp.isGecko17) {
+        req.open("GET", this.url, false); // false means synchronous
+        req.channel.loadFlags |= CI.nsIRequest.LOAD_BYPASS_CACHE;
+        req.send(null);
+        that.processPACResponse(req, that, autoconfMode, autoconfMessage);
+      } else {
+        req.open("GET", this.url, true);
+        req.channel.loadFlags |= CI.nsIRequest.LOAD_BYPASS_CACHE;
+        req.onreadystatechange = function() {
+          if (req.readyState === 4) {
+            that.processPACResponse(req, that, autoconfMode, autoconfMessage);
+          }
+        };
+        req.send(null);
+      }
     }
     catch(e) {
       if (autoconfMode === "pac") {
@@ -140,11 +159,14 @@ AutoConf.prototype = {
       this.badPAC(autoconfMessage, e);
       return;
     }
+  },
+
+  processPACResponse: function(req, that, autoconfMode, autoconfMessage) {
     if (req.status == 200 || (req.status == 0 &&
-         (this.url.indexOf("file://") == 0 || this.url.indexOf("ftp://") == 0 ||
-          this.url.indexOf("relative://") == 0))) {
+         (that.url.indexOf("file://") == 0 || that.url.indexOf("ftp://") == 0 ||
+          that.url.indexOf("relative://") == 0))) {
       try {
-        this._resolver.init(this.url, req.responseText);
+        that._resolver.init(that.url, req.responseText);
       }
       catch(e) {
         if (autoconfMode === "pac") {
@@ -152,7 +174,10 @@ AutoConf.prototype = {
         } else {
           autoconfMessage = "wpad.status.error";
         }
-        this.badPAC(autoconfMessage, e);
+        that.badPAC(autoconfMessage, e);
+        if (!fp.isGecko17) {
+          that.emptyRequestQueue(that.owner);
+        }
         return;
       }
       let autoconfMessageHelper = "";
@@ -163,22 +188,31 @@ AutoConf.prototype = {
         autoconfMessage = "wpad.status";
         autoconfMessageHelper = "wpad.status.success";
       }
-      this.loadNotification && fp.notifier.alert(fp.getMessage(autoconfMessage),
-        fp.getMessage(autoconfMessageHelper, [this.owner.name]));
+      that.loadNotification && fp.notifier.alert(fp.getMessage(autoconfMessage),
+        fp.getMessage(autoconfMessageHelper, [that.owner.name]));
       // Use _enabled so we don't loop infinitely 
-      this.owner._enabled = true;
-      //if (this.disabledDueToBadPAC) {
-        //this.disabledDueToBadPAC = false; /* reset */
-        //this.owner.fp.writeSettings();
+      that.owner._enabled = true;
+      //if (that.disabledDueToBadPAC) {
+        //that.disabledDueToBadPAC = false; /* reset */
+        //that.owner.fp.writeSettings();
       //}
+      if (!fp.isGecko17) {
+        // While the PAC loading was under way we queued all requests which hit
+        // asyncOpen() meawhile. Let's dispatch them now that we have the PAC
+        // loaded.
+        that.emptyRequestQueue(that.owner);
+      }
     } else {
       if (autoconfMode === "pac") {
         autoconfMessage = "pac.status.loadfailure2";
       } else {
         autoconfMessage = "wpad.status.loadfailure";
       }
-      this.badPAC(autoconfMessage,
+      that.badPAC(autoconfMessage,
         new Error(fp.getMessage("http.error", [req.status])));
+      if (!fp.isGecko17) {
+        that.emptyRequestQueue(that.owner);
+      }
     }
   },
 
@@ -210,6 +244,26 @@ AutoConf.prototype = {
 
   cancelTimer : function() {
     this.timer.cancel();
+  },
+
+  emptyRequestQueue : function(proxy) {
+    let uri = "";
+    let queuedRequests = this.ppp.queuedRequests;
+    if (queuedRequests.length !== 0) {
+      for (let pos = queuedRequests.length - 1; pos > -1; --pos) {
+        if (queuedRequests[pos][2] != this.owner.id) {
+          // Now our business
+          continue;
+        }
+        uri = queuedRequests[pos][1];
+        pi = fp.applyFilter(null, uri, null);
+        queuedRequests[pos][0].onProxyAvailable(null, uri, pi, 0);
+        // TODO: Can we be sure that there are no race conditions here? Can't it
+        // be that two proxies are trying to dispatch requests in our queue
+        // almost simulateneously!?
+        queuedRequests.splice(pos, 1);
+      }
+    }
   },
 
   classDescription: "FoxyProxy AutoConfiguration Component",
@@ -280,21 +334,34 @@ fpProxyAutoConfig.prototype = {
         }
         throw new Error(fp.getMessage(autoconfMessage));
       }
+      // PAC file is ready
+      this.owner.owner.initPAC = false;
       return true;
     },
 
     getProxyForURI: function(testURI, testHost) {
-        // Call the original function
-        try {
-          if (testURI == this.owner.url) {
-            dump("FoxyProxy: Preventing cyclical PAC error; using no proxy to load PAC file.\n");
-            return "direct";
-          }
-          return this.sandbox.FindProxyForURL(testURI, testHost);
-        } catch (e) {
-            dump("FoxyProxy: getProxyForURI(), " + e + " \n\n" + e.stack + "\n");
-            throw XPCSJSOWWrapper(e);
+      // Call the original function
+      try {
+        // Letting the PAC request through but only if we have not loaded the
+        // PAC yet. Otherwise there is no reason why the request should not use
+        // the proxy given back by the PAC.
+        if (testURI == this.owner.url && this.owner.owner.initPAC) {
+          dump("FoxyProxy: Preventing cyclical PAC error; using no proxy to " +
+            "load PAC file.\n");
+          return "direct";
         }
+        // This is only relevant for Gecko > 17 as the PAC logic is async now.
+        // If the PAC file is not loaded yet we return our custom error code
+        // (which is "queue" + the proxy id) to indicate that the request need
+        // to get queued in the hooked asyncOpen().
+        if (!fp.isGecko17 && this.owner.owner.initPAC) {
+          return "queue" + this.owner.owner.id;
+        }
+        return this.sandbox.FindProxyForURL(testURI, testHost);
+      } catch (e) {
+        dump("FoxyProxy: getProxyForURI(), " + e + " \n\n" + e.stack + "\n");
+        throw XPCSJSOWWrapper(e);
+      }
     }
 }
 
