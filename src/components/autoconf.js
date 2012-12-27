@@ -36,6 +36,7 @@ function AutoConf(owner, fpp) {
   fp = fpp || CC["@leahscape.org/foxyproxy/service;1"].
     getService().wrappedJSObject;
   this.timer = CC["@mozilla.org/timer;1"].createInstance(CI.nsITimer);
+  // That's our wrapper.
   this.ppp = CC["@mozilla.org/network/protocol-proxy-service;1"].
     getService().wrappedJSObject;
   this.owner = owner;
@@ -175,6 +176,8 @@ AutoConf.prototype = {
           autoconfMessage = "wpad.status.error";
         }
         that.badPAC(autoconfMessage, e);
+        // Either FoxyProxy got disabled or "direct" is used. Either way, emtpy
+        // our request queue as the proxy got "resolved".
         if (!fp.isGecko17) {
           that.emptyRequestQueue(that.owner);
         }
@@ -249,10 +252,10 @@ AutoConf.prototype = {
   emptyRequestQueue : function(proxy) {
     let uri = "";
     let queuedRequests = this.ppp.queuedRequests;
-    if (queuedRequests.length !== 0) {
+    if (queuedRequests.length != 0) {
       for (let pos = queuedRequests.length - 1; pos > -1; --pos) {
         if (queuedRequests[pos][2] != this.owner.id) {
-          // Now our business
+          // Not our business
           continue;
         }
         uri = queuedRequests[pos][1];
@@ -260,7 +263,7 @@ AutoConf.prototype = {
         queuedRequests[pos][0].onProxyAvailable(null, uri, pi, 0);
         // TODO: Can we be sure that there are no race conditions here? Can't it
         // be that two proxies are trying to dispatch requests in our queue
-        // almost simulateneously!?
+        // almost simultaneously!?
         queuedRequests.splice(pos, 1);
       }
     }
@@ -352,7 +355,7 @@ fpProxyAutoConfig.prototype = {
         }
         // This is only relevant for Gecko > 17 as the PAC logic is async now.
         // If the PAC file is not loaded yet we return our custom error code
-        // (which is "queue" + the proxy id) to indicate that the request need
+        // (which is "queue" + the proxy id) to indicate that the request needs
         // to get queued in the hooked asyncOpen().
         if (!fp.isGecko17 && this.owner.owner.initPAC) {
           return "queue" + this.owner.owner.id;
