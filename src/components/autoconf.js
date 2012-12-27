@@ -253,6 +253,9 @@ AutoConf.prototype = {
     let uri = "";
     let queuedRequests = this.ppp.queuedRequests;
     if (queuedRequests.length != 0) {
+      // We are looping backwards in order to avoid issues with the index if
+      // other proxies add new entries to the queue while a proxy is dispatching
+      // all the requests belonging to it.
       for (let pos = queuedRequests.length - 1; pos > -1; --pos) {
         if (queuedRequests[pos][2] != this.owner.id) {
           // Not our business
