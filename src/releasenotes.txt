@@ -1,2 +1,3 @@
+* fixed broken Java network traffic
 * fixed a bug in internal IP address patterns
 * updated locales
