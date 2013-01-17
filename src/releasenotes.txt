@@ -1,3 +1,4 @@
 * fixed broken Java network traffic
+* enhanced the protocol proxy wrapper (thanks to Kris Maglione)
 * fixed a bug in internal IP address patterns
-* updated locales
+* bumped copyright date in license header to "2013"
