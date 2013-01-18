@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   FoxyProxy
-  Copyright (C) 2006-2012 Eric H. Jung and FoxyProxy, Inc.
+  Copyright (C) 2006-2013 Eric H. Jung and FoxyProxy, Inc.
   http://getfoxyproxy.org/
   eric.jung@yahoo.com
   
@@ -87,7 +87,7 @@
 
   <target name="build-foxyproxy-basic" depends="init">
     <property name="edition" value="basic" />
-    <property name="version" value="3.1.1" />
+    <property name="version" value="3.1.2" />
     <property name="src-path" value="${temp-path}"/>
     <antcall>
       <target name="copy"/>
