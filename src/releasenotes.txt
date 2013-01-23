@@ -1,5 +1,2 @@
-* fixed broken Java network traffic (see:
-  http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=808&start=20#p2071)
-* enhanced the protocol proxy wrapper (thanks to Kris Maglione)
-* fixed a bug in internal IP address patterns
-* bumped copyright date in license header to "2013"
+* fixed a bug in internal IP address patterns (only the first pattern was used
+  see: http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=811&p=2091)
