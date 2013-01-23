@@ -1,2 +1,4 @@
 * fixed a bug in internal IP address patterns (only the first pattern was used
   see: http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=811&p=2091)
+* fixed broken Test-PAC functionality
+  (see: http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=812)
