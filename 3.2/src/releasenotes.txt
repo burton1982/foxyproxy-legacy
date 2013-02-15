@@ -9,4 +9,3 @@
 * advice to consult the log tree on proxy errors is not shown anymore
 * fixed possible null pointer in API code
 * code clean-up
-* updated locales
