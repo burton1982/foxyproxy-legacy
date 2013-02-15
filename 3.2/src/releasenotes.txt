@@ -6,6 +6,7 @@
   http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=820)
 * fixed broken FoxyProxy on older Windows/Firefox 3.6.* systems which was caused
   by our new PAC handling code (thanks to Joe Greenman for his debugging help)
+* advice to consult the log tree on proxy errors is not shown anymore
 * fixed possible null pointer in API code
 * code clean-up
 * updated locales
