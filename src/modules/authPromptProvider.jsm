@@ -122,12 +122,15 @@ AuthPromptProvider.prototype = {
   },
 
   _getCredentials : function(channel, level, authInfo) {
-    var proxy = this.fp.applyMode(channel.URI.spec).proxy;
+    let proxy = this.fp.applyMode(channel.URI.spec).proxy;
+    dump("username is: " + proxy.manualconf.username + " and password is " +
+      proxy.manualconf.password + "\n");
     if (!proxy || !proxy.manualconf.username || !proxy.manualconf.password) {
+      dump("no proxy!\n");
       if (!this.fpc)
         this.fpc = CC["@leahscape.org/foxyproxy/common;1"].getService().
           wrappedJSObject;
-      var ps = CC["@mozilla.org/embedcomp/prompt-service;1"].
+      let ps = CC["@mozilla.org/embedcomp/prompt-service;1"].
         getService(CI.nsIPromptService2);
 
       // Pre-populate the prompt with username, if we have one
@@ -136,6 +139,25 @@ AuthPromptProvider.prototype = {
       // Pre-populate the prompt with password, if we have one
       if (proxy.manualconf.password)
         authInfo.password = proxy.manualconf.password;
+      // TODO: Why don't we check and populate the domain value here?
+
+      // If we had no luck with prepopulating the auth dialog try finding some
+      // credentials from the login manager.
+      let proxyLogins;
+      if (!authInfo.username || !authInfo.password) {
+        let loginManager = CC["@mozilla.org/login-manager;1"].getService(CI.
+          nsILoginManager);
+        // Does the user have saved something of interest at all?
+        proxyLogins = loginManager.countLogins("", null, authInfo.realm);
+        // We don't know what to do if there is more than one entry. Thus we
+        // only handle the case with |proxyLogins| === 1. TODO: What is Firefox
+        // doing in this case?
+        if (proxyLogins === 1) {
+          login = loginManager.findLogins({}, "", null, authInfo.realm);
+          authInfo.username = login[0].username;
+          authInfo.password = login[0].password;
+        }
+      }
       if (ps.promptAuth(this.fpc.getMostRecentWindow(), channel, level,
           authInfo, null, {value:null})) {
         // Save in our settings so user doesn't have to enter again
@@ -145,11 +167,10 @@ AuthPromptProvider.prototype = {
           proxy.manualconf.domain = authInfo.domain;
           this.fp.writeSettingsAsync();
         }
-      }
-      else
+      } else
         return null;
-    }
-    else {
+    } else {
+      dump("proxy\n");
       authInfo.username = proxy.manualconf.username;
       authInfo.password = proxy.manualconf.password;
       authInfo.domain = proxy.manualconf.domain;
