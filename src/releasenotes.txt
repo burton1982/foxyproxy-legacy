@@ -8,4 +8,3 @@
   by our new PAC handling code (thanks to Joe Greenman for his debugging help)
 * fixed possible null pointer in API code
 * code clean-up
-* updated locales
