@@ -114,6 +114,11 @@ AuthPromptProvider.prototype = {
     // GetCredentialsForChallenge()) for details.
     this.fp.authCounter++;
     if (this.fp.authCounter < 3) {
+      // TODO: When we recognize that the credentials are wrong (i.e. the
+      // counter is > 1) we should contact the user and ask her whether she
+      // wants to change them now ([Now] [Not now] buttons). If so, we could
+      // open the proper proxy and after the dialog got closed retry the
+      // authentication. Note: We need to raise the max value of the counter.
       return this._getCredentials(channel, level, authInfo);
     } else {
       this.fp.authCounter = 0;
@@ -140,29 +145,45 @@ AuthPromptProvider.prototype = {
       // If we had no luck with prepopulating the auth dialog try finding some
       // credentials from the login manager. We only consult it if we neither
       // found a username nor a password as we do not know what the user wants
-      // if one is available.
+      // if only one is available.
       if (!(authInfo.username || authInfo.password)) {
         let proxyLogins;
         let loginManager = CC["@mozilla.org/login-manager;1"].getService(CI.
           nsILoginManager);
         // Does the user have saved something of interest at all?
         proxyLogins = loginManager.countLogins("", null, authInfo.realm);
-        // We don't know what to do if there is more than one entry. Thus we
-        // only handle the case with |proxyLogins| === 1. TODO: What is Firefox
-        // doing in this case?
-        if (proxyLogins === 1) {
-          login = loginManager.findLogins({}, "", null, authInfo.realm);
-          authInfo.username = login[0].username;
-          authInfo.password = login[0].password;
-          authInfo.domain = login[0].domain;
-          // Save our settings so the user doesn't have to enter again
-          if (proxy) {
-            proxy.manualconf.username = authInfo.username;
-            proxy.manualconf.password = authInfo.password;
-            proxy.manualconf.domain = authInfo.domain;
-            this.fp.writeSettingsAsync();
+        if (proxyLogins > 0) {
+          // At least one entry that could be interesting. Let's look closer.
+          if (channel instanceof CI.nsIProxiedChannel && channel.proxyInfo) {
+            // See: |_getAuthTarget()| in https://mxr.mozilla.org/
+            // mozilla-central/source/toolkit/components/passwordmgr/
+            // nsLoginManagerPrompter.js#1383 
+            let idnService = CC["@mozilla.org/network/idn-service;1"].
+              getService(CI.nsIIDNService);
+            let hostname = "moz-proxy://" + idnService.
+              convertUTF8toACE(channel.proxyInfo.host) + ":" + channel.
+              proxyInfo.port;
+            let login = loginManager.findLogins({}, hostname, null,
+              authInfo.realm);
+            // We don't know what to do if there is more than one entry for a
+            // particular hostname + realm. Thus, we only handle the case with
+            // |login.length| === 1. Firefox just uses the first one, which
+            // seems less than ideal:
+            // https://bugzilla.mozilla.org/show_bug.cgi?id=227632
+            if (login.length === 1) {
+              authInfo.username = login[0].username;
+              authInfo.password = login[0].password;
+              authInfo.domain = login[0].domain;
+              // Save our settings so the user doesn't have to enter again
+              if (proxy) {
+                proxy.manualconf.username = authInfo.username;
+                proxy.manualconf.password = authInfo.password;
+                proxy.manualconf.domain = authInfo.domain;
+                this.fp.writeSettingsAsync();
+              }
+              return authInfo;
+            }
           }
-          return authInfo;
         }
       }
       if (ps.promptAuth(this.fpc.getMostRecentWindow(), channel, level,
