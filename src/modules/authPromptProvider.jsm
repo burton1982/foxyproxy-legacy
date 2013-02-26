@@ -112,7 +112,6 @@ AuthPromptProvider.prototype = {
     // See: http://mxr.mozilla.org/mozilla-central/source/netwerk/protocol/http/
     // nsHttpChannelAuthProvider.cpp (PromptForIdentiy() and
     // GetCredentialsForChallenge()) for details.
-                 dump("We are in promptAuth\n");
     this.fp.authCounter++;
     if (this.fp.authCounter < 3) {
       return this._getCredentials(channel, level, authInfo);
@@ -123,10 +122,8 @@ AuthPromptProvider.prototype = {
   },
 
   _getCredentials : function(channel, level, authInfo) {
-    dump("_getCredentials\n");
     var proxy = this.fp.applyMode(channel.URI.spec).proxy;
     if (!proxy || !proxy.manualconf.username || !proxy.manualconf.password) {
-      dump("Proxy is: " + proxy + "\n");
       if (!this.fpc)
         this.fpc = CC["@leahscape.org/foxyproxy/common;1"].getService().
           wrappedJSObject;
@@ -139,7 +136,6 @@ AuthPromptProvider.prototype = {
       // Pre-populate the prompt with password, if we have one
       if (proxy.manualconf.password)
         authInfo.password = proxy.manualconf.password;
-      dump("Before prompt\n!");
       if (ps.promptAuth(this.fpc.getMostRecentWindow(), channel, level,
           authInfo, null, {value:null})) {
         // Save in our settings so user doesn't have to enter again
