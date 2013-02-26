@@ -1,2 +1,3 @@
 * auto-populate authentication dialog if credentials are saved
+* call own authentication code only if Foxyproxy is enabled
 * fixed small typo in CSS property
