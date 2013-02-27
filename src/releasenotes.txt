@@ -1,3 +1,6 @@
 * auto-populate authentication dialog if credentials are saved
 * call own authentication code only if Foxyproxy is enabled
+* fixed null pointers that cause requests to fail in Gecko <= 17 if FoxyProxy is
+  disabled
 * fixed small typo in CSS property
+* code clean-up
