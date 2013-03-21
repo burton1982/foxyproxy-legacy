@@ -1863,7 +1863,9 @@ foxyproxy.prototype = {
           try {
             httpChannel.notificationCallbacks = new gFP.AuthPromptProvider(gFP,
               httpChannel.notificationCallbacks);
-          } catch (e) {}
+          } catch (e) {
+            dump("Got an exception while loading: " + httpChannel.URI.spec + "\n");
+          }
         }
       }
     }
