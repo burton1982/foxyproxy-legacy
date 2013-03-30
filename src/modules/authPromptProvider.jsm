@@ -16,6 +16,8 @@ let CC = Components.classes, CI = Components.interfaces, CR = Components.
 
 function AuthPromptProvider(fp, originalNotificationCallbacks) {
   this.fp = fp;
+  this.fpc = CC["@leahscape.org/foxyproxy/common;1"].getService().
+    wrappedJSObject;
   this.originalNotificationCallbacks = originalNotificationCallbacks;
 }
 
@@ -104,34 +106,50 @@ AuthPromptProvider.prototype = {
   },
 
   promptAuth : function(channel, level, authInfo) {
+    let proxyInUse = this.fp.applyMode(channel.URI.spec).proxy;
     // We need this hack here as we have to avoid an infinite loop if wrong
     // credentials got entered. The loop occurs as Mozilla is trying to show
     // a dialog after wrong credentials are sent in order to allow the user
     // to enter the correct ones. But we suppress this dialog and (if entered
     // once) rather send the wrong credentials again (and again, and again...).
-    // See: http://mxr.mozilla.org/mozilla-central/source/netwerk/protocol/http/
-    // nsHttpChannelAuthProvider.cpp (PromptForIdentiy() and
+    // See: https://mxr.mozilla.org/mozilla-central/source/netwerk/protocol/
+    // http/nsHttpChannelAuthProvider.cpp (PromptForIdentiy() and
     // GetCredentialsForChallenge()) for details.
+    // TODO: We have per channel notification callbacks but just one general
+    // authCounter?? Hrmm...
     this.fp.authCounter++;
     if (this.fp.authCounter < 3) {
-      // TODO: When we recognize that the credentials are wrong (i.e. the
-      // counter is > 1) we should contact the user and ask her whether she
-      // wants to change them now ([Now] [Not now] buttons). If so, we could
-      // open the proper proxy and after the dialog got closed retry the
-      // authentication. Note: We need to raise the max value of the counter.
-      return this._getCredentials(channel, level, authInfo);
+      // If we recognize that the credentials are wrong (i.e. the counter is
+      // > 1) we contact the user and ask her whether she wants to change them
+      // now.
+      if (this.fp.authCounter === 2) {
+        try {
+          let win = this.fpc.getMostRecentWindow(null); 
+          if (proxyInUse && !this.fp.warnings.showWarningIfDesired(win,
+              ["authentication.credentials.retry"], "retryAuthCredentials",
+              true)) {
+            let params = {inn: {proxy: proxyInUse}, out: null};
+            win.
+              openDialog("chrome://foxyproxy/content/addeditproxy.xul", "",
+                "chrome, dialog, modal, resizable=yes", params).focus();
+            this.fp.writeSettingsAsync();
+          } else {
+            this.fp.authCounter = 0;
+            return null;
+          }
+        } catch (e) {
+          dump("Error while trying to get the proxy window: " + e + "\n");
+        }
+      }
+      return this._getCredentials(channel, level, authInfo, proxyInUse);
     } else {
       this.fp.authCounter = 0;
       return null;
     }
   },
 
-  _getCredentials : function(channel, level, authInfo) {
-    let proxy = this.fp.applyMode(channel.URI.spec).proxy;
+  _getCredentials : function(channel, level, authInfo, proxy) {
     if (!proxy || !proxy.manualconf.username || !proxy.manualconf.password) {
-      if (!this.fpc)
-        this.fpc = CC["@leahscape.org/foxyproxy/common;1"].getService().
-          wrappedJSObject;
       let ps = CC["@mozilla.org/embedcomp/prompt-service;1"].
         getService(CI.nsIPromptService2);
 
@@ -215,7 +233,7 @@ AuthPromptProvider.prototype = {
 
   getInterface : function(aIID) {
     // (06:56:39 PM) bz: ericjung: how about just returning the original
-    //              notificationCallbacks?
+    //               notificationCallbacks?
     // (06:56:51 PM) bz: ericjung: if asked for an nsIBadCertListener/2? 
     if (aIID.equals(CI.nsIBadCertListener2) && this.
         originalNotificationCallbacks) {

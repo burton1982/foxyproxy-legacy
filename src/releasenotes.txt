@@ -1,4 +1,6 @@
 * auto-populate authentication dialog if credentials are saved
+* allow users to correct wrong authentication credentials easily while they are
+  requesting a website
 * call own authentication code only if Foxyproxy is enabled
 * fixed null pointers that cause requests to fail in Gecko <= 17 if FoxyProxy is
   disabled
