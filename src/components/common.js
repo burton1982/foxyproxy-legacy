@@ -27,9 +27,8 @@ function Common() {
   // We need that to handle bug 769764 properly.
   fp.isGecko17 = this.vc.compare(this.appInfo.platformVersion, "18.0a1") < 0;
   // We only need to add the foxyproxy service to our wrapper if we are about
-  // to use it. But that only happens on Gecko >= 18. Adding it in older
-  // versions may result in serious bugs (reproducible on Win7 with Firefox
-  // 3.6.28).
+  // to is it. But that only happens on Gecko >= 18. Adding it in older versions
+  // may result in serious bugs (reproducible on Win7 with Firefox 3.6.28).
   if (!fp.isGecko17) {
     // Making this service available to our protocol proxy service wrapper.
     CC["@mozilla.org/network/protocol-proxy-service;1"].getService().
@@ -124,13 +123,13 @@ Common.prototype = {
         return false;
       }
     }
-    else if (p.indexOf("*") == -1 && p.indexOf("?") == -1 &&
-        !fp.warnings.showWarningIfDesired(win, ["no.wildcard.characters", p], "wildcards"))
+    else if (p.indexOf("*") == -1 && p.indexOf("?") == -1 && !fp.warnings.
+             showWarningIfDesired(win, ["no.wildcard.characters", p],
+             "wildcards"))
       return false;
     // Check for parenthesis without backslash
-    if (new RegExp("[^\\\\]\\(|[^\\\\]\\)", "g").test(p) &&
-        !fp.warnings.showWarningIfDesired(win, ["no.parentheses2"],
-          "parentheses")) {
+    if (new RegExp("[^\\\\]\\(|[^\\\\]\\)", "g").test(p) && !fp.warnings.
+        showWarningIfDesired(win, ["no.parentheses3"], "parentheses")) {
       return false;
     }
     return p;
@@ -279,7 +278,16 @@ Common.prototype = {
       getCellProperties: function(row, col, props) {
         if (col.id == "colorCol") {
           var i = proxies.item(row);
-          var atom = CC["@mozilla.org/atom-service;1"].getService(CI.nsIAtomService).getAtom(i.colorString);
+          // Starting with 22.0a1 there is no |props| available anymore. See:
+          // https://bugzilla.mozilla.org/show_bug.cgi?id=407956. Looking at the
+          // patch the following seems to work, though.
+          if (!props) {
+            let newProps = "";
+            newProps += i.colorString;
+            return newProps;
+          }
+          var atom = CC["@mozilla.org/atom-service;1"].getService(CI.
+            nsIAtomService).getAtom(i.colorString);
           props.AppendElement(atom);
         }
       },
