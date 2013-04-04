@@ -1765,15 +1765,28 @@ foxyproxy.prototype = {
      *
      * Third arg is the name under which to store whether or not this |msg| should be
      * displayed in the future.
+     *
+     * The fourth argument indicates whether "No" should be selected by
+     * default.
      */
-    showWarningIfDesired : function(win, msg, name) {
+    showWarningIfDesired : function(win, msg, name, noDefault) {
       if (this._warnings[name] == undefined || this._warnings[name]) {
-        var l10nMessage = gFP.getMessage(msg[0], msg.slice(1)),
-          cb = {}, ret =
-          CC["@mozilla.org/embedcomp/prompt-service;1"].getService(CI.nsIPromptService)
-            .confirmCheck(win, gFP.getMessage("foxyproxy"), l10nMessage,
-                gFP.getMessage("message.stop"), cb);
-        this._warnings[name] = !cb.value; /* note we save the inverse of user's selection because the way the question is phrased */
+        let l10nMessage = gFP.getMessage(msg[0], msg.slice(1)),
+          cb = {}, prompts = CC["@mozilla.org/embedcomp/prompt-service;1"].
+          getService(CI.nsIPromptService);
+        let flags = prompts.BUTTON_TITLE_IS_STRING * prompts.BUTTON_POS_0 +
+          prompts.BUTTON_TITLE_IS_STRING * prompts.BUTTON_POS_1;
+        if (noDefault) {
+          flags = flags + prompts.BUTTON_POS_1_DEFAULT;
+        }
+        // 0 means the "Yes" button got clicked
+        let ret = prompts.confirmEx(win, gFP.getMessage("foxyproxy"),
+                                    l10nMessage, flags, gFP.getMessage("yes"),
+                                    gFP.getMessage("no"), null,
+                                    gFP.getMessage("message.stop"), cb) === 0;
+        // Note: We save the inverse of user's selection because the way the
+        // question is phrased.
+        this._warnings[name] = !cb.value;
         gFP.writeSettingsAsync();
         return ret;
       }

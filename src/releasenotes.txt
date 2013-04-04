@@ -4,9 +4,11 @@
 * call own authentication code only if Foxyproxy is enabled
 * fixed null pointers that cause requests to fail in Gecko <= 17 if FoxyProxy is
   disabled
+* changed pre-selected buttons on dialogs to safe defaults
 * fixed broken no internal IPs patterns
 * adapted FoxyProxy to changes due to
   https://bugzilla.mozilla.org/show_bug.cgi?id=407956 (no proxy color was shown
   in the trees anymore)
 * fixed small typo in CSS property
 * code clean-up
+* updated locales
