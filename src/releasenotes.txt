@@ -6,6 +6,8 @@
   disabled
 * changed pre-selected buttons on dialogs to safe defaults
 * fixed broken no internal IPs patterns
+* fixed bug regarding PAC file loading, see:
+  http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=816
 * fixed compatibility issue with Lightning (thanks to Fallen for the kind help)
 * adapted FoxyProxy to changes due to
   https://bugzilla.mozilla.org/show_bug.cgi?id=407956 (no proxy color was shown
