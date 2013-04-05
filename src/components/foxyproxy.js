@@ -134,6 +134,7 @@ foxyproxy.prototype = {
   _proxyForVersionCheck : "",
   // That gets set in the Common() constructor.
   isGecko17 : false,
+  fpc : null,
 
   broadcast : function(subj, topic, data) {
     gBroadcast(subj, topic, data);
@@ -155,6 +156,8 @@ foxyproxy.prototype = {
   observe: function(subj, topic, data) {
       switch(topic) {
         case "profile-after-change":
+          this.fpc = CC["@leahscape.org/foxyproxy/common;1"].getService().
+            wrappedJSObject;
           gObsSvc.addObserver(this, "quit-application", false);
           gObsSvc.addObserver(this, "domwindowclosed", false);
           gObsSvc.addObserver(this, "domwindowopened", false);
@@ -174,11 +177,12 @@ foxyproxy.prototype = {
           }
         break;
       case "domwindowclosed":
-        // Did the last browser window close? It could be that the DOM inspector, JS console,
-        // or the non-last browser window just closed. In that case, don't close FoxyProxy.
-        var wm = CC["@mozilla.org/appshell/window-mediator;1"].getService(CI.nsIWindowMediator);
-        var win = wm.getMostRecentWindow("navigator:browser") || wm.getMostRecentWindow("Songbird:Main");
-        if (!win) {
+        // Did the last browser window close? It could be that the DOM
+        // Inspector, JS console, or the non-last browser window just closed.
+        // In that case, don't close FoxyProxy.
+        let wm = CC["@mozilla.org/appshell/window-mediator;1"].getService(CI.
+          nsIWindowMediator);
+        if (!this.fpc.getMostRecentWindow(wm)) {
           this.closeAppWindows("foxyproxy", wm);
           this.closeAppWindows("foxyproxy-superadd", wm);
           this.closeAppWindows("foxyproxy-options", wm);
@@ -1496,55 +1500,64 @@ foxyproxy.prototype = {
     _queue : [],
     alerts : function() {
       try {
-        return CC["@mozilla.org/alerts-service;1"].getService(CI.nsIAlertsService);
+        return CC["@mozilla.org/alerts-service;1"].getService(CI.
+          nsIAlertsService);
+      } catch(e) {
+        return null;
       }
-      catch(e) {return null;}
     }(),
 
     alert : function(title, text, noQueue) {
       if (!title) title = gFP.getMessage("foxyproxy");
       if (this.alerts) {
-        // With all the checks to ensure we don't use nsIAlertsService on unsupported platforms,
-        // it would appear it can still happen (http://foxyproxy.mozdev.org/drupal/content/component-returned-failure-code-error-firefox-launch)
-        // So we use a try/catch just in case.
+        // With all the checks to ensure we don't use nsIAlertsService on
+        // unsupported platforms, it would appear it can still happen
+        // (http://foxyproxy.mozdev.org/drupal/content/component-returned-
+        // failure-code-error-firefox-launch). So we use a try/catch just in
+        // case.
         try {
-          this.alerts.showAlertNotification("chrome://foxyproxy/content/images/foxyproxy-nocopy.gif", title, text, true, "",
-              {observe: function() {/*no-op; just permits the window to close sooner*/}}, "FoxyProxy");
-        }
-        catch(e) {
-          this.alerts = null; // now future notifications are now automatically displayed with simpleNotify()
+          this.alerts.showAlertNotification("chrome://foxyproxy/content/" +
+            "images/foxyproxy-nocopy.gif", title, text, true, "", {observe:
+            function() {/*no-op; just permits the window to close sooner*/}},
+            "FoxyProxy");
+        } catch(e) {
+           // now future notifications are now automatically displayed with
+           // simpleNotify()
+          this.alerts = null;
           simpleNotify(this);
         }
-      }
-      else
+      } else {
         simpleNotify(this);
+      }
+
       function simpleNotify(self) {
-        (!self.timer && (self.timer = CC["@mozilla.org/timer;1"].createInstance(CI.nsITimer)));
+        (!self.timer && (self.timer = CC["@mozilla.org/timer;1"].
+                         createInstance(CI.nsITimer)));
         self.timer.cancel();
-        var wm = CC["@mozilla.org/appshell/window-mediator;1"].getService(CI.nsIWindowMediator);
-        var win = wm.getMostRecentWindow("navigator:browser") || wm.getMostRecentWindow("Songbird:Main");
+        let win = gFP.fpc.getMostRecentWindow();
         try {
-          var doc = win.parent.document;
+          let doc = win.parent.document;
           self.tooltip = doc.getElementById("foxyproxy-popup");
           self._removeChildren(self.tooltip);
-          var grid = doc.createElement("grid");
+          let grid = doc.createElement("grid");
           grid.setAttribute("flex", "1");
           self.tooltip.appendChild(grid);
 
-          var columns = doc.createElement("columns");
+          let columns = doc.createElement("columns");
           columns.appendChild(doc.createElement("column"));
           grid.appendChild(columns);
 
-           var rows = doc.createElement("rows");
+           let rows = doc.createElement("rows");
            grid.appendChild(rows);
            self._makeHeaderRow(doc, title, rows);
            self._makeRow(doc, "", rows);
            self._makeRow(doc, text, rows);
-           self.tooltip.showPopup(doc.getElementById("status-bar"), -1, -1, "tooltip", "topright","bottomright");
+           self.tooltip.showPopup(doc.getElementById("status-bar"), -1, -1,
+             "tooltip", "topright","bottomright");
            self.timer.initWithCallback(self, 5000, CI.nsITimer.TYPE_ONE_SHOT);
-        }
-        catch (e) {
-          /* in case win, win.parent, win.parent.document, tooltip, etc. don't exist */
+        } catch (e) {
+          // In case win, win.parent, win.parent.document, tooltip, etc. don't
+          // exist...
           dump("Window not available for user message: " + text + "\n");
           if (!noQueue) {
             dump("Queuing message\n");
@@ -1568,7 +1581,8 @@ foxyproxy.prototype = {
     _makeHeaderRow : function(doc, col, gridRows) {
       var label = doc.createElement("label");
       label.setAttribute("value", col);
-      label.setAttribute("style", "font-weight: bold; text-decoration: underline; color: blue;");
+      label.setAttribute("style",
+        "font-weight: bold; text-decoration: underline; color: blue;");
       gridRows.appendChild(label);
     },
 
@@ -1752,19 +1766,20 @@ foxyproxy.prototype = {
     _warnings : [],
 
     /**
-     * Displays a message to the user with "Cancel" and "OK" buttons
-     * and a "Do not display the message again" checkbox. The latter is maintained
-     * internally. Function returns false if user clicks "Cancel", true if "OK".
+     * Displays a message to the user with "No" and "Yes" buttons
+     * and a "Do not display the message again" checkbox. The latter is
+     * maintained internally. Function returns false if user clicks "No", true
+     * if "Yes".
      * 
-     * If no message is to be displayed because the user previously disabled them,
-     * true is returned.
+     * If no message is to be displayed because the user previously disabled
+     * them, true is returned.
      *
-     * First arg is the owning/parent window. Second arg is an array whose first
-     * element is the key of the message to display. Subsequent array args are
-     * substitution parameters for the message key, if any.
+     * First arg is the owning/parent window. Second arg is an array whose
+     * first element is the key of the message to display. Subsequent array
+     * args are substitution parameters for the message key, if any.
      *
-     * Third arg is the name under which to store whether or not this |msg| should be
-     * displayed in the future.
+     * Third arg is the name under which to store whether or not this |msg|
+     * should be displayed in the future.
      *
      * The fourth argument indicates whether "No" should be selected by
      * default.
@@ -1875,9 +1890,11 @@ foxyproxy.prototype = {
           // after installing FP. This happened at least with FF 18.0a1
           // although it was not reproducible with FF 15.0.1, FF 16.0 and
           // FF 17.0a2.
+          // We need the |prePath| to guarantee compatibility with Lightning
+          // as it gets otherwise broken by FoxyProxy.
           try {
             httpChannel.notificationCallbacks = new gFP.AuthPromptProvider(gFP,
-              httpChannel.notificationCallbacks);
+              httpChannel.notificationCallbacks, httpChannel.URI.prePath);
           } catch (e) {}
         }
       }
