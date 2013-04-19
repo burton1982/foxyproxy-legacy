@@ -551,8 +551,6 @@ function toggleMode(mode) {
       "true");
     document.getElementById("disabled-broadcaster").setAttribute("disabled",
       "true");
-    document.getElementById("authentication-broadcaster").
-      setAttribute("disabled", "true");
     document.getElementById("direct-broadcaster").removeAttribute("disabled");
     document.getElementById("proxyDNS").hidden = false;
     // We need that here to trigger the broadcaster related code in the wpad
@@ -574,8 +572,6 @@ function toggleMode(mode) {
       "true");
     document.getElementById("socks-broadcaster").setAttribute("disabled",
       "true");
-    document.getElementById("authentication-broadcaster").
-      setAttribute("disabled", "true");
     if (mode == "direct") {
       document.getElementById("proxyDNS").hidden = true;
       document.getElementById("direct-broadcaster").setAttribute("disabled",
@@ -615,13 +611,9 @@ function toggleMode(mode) {
       "true");
     if (document.getElementById("isSocks").checked) {
       document.getElementById("socks-broadcaster").removeAttribute("disabled");
-      document.getElementById("authentication-broadcaster").
-        setAttribute("disabled", "true");
     } else {
       document.getElementById("socks-broadcaster").setAttribute("disabled",
         "true");
-      document.getElementById("authentication-broadcaster").
-        removeAttribute("disabled");
     }
     document.getElementById("direct-broadcaster").removeAttribute("disabled");
     document.getElementById("proxyDNS").hidden = false;
