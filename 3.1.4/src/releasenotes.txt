@@ -1,13 +1,13 @@
-Fixes which were already released in FoxyProxy 4.2
---------------------------------------------------
+Fixes which were already released in FoxyProxy Basic 3.2
+--------------------------------------------------------
 
-* error messages are showing up in FoxyProxy's log tree
 * added FoxyProxy icons and functionality to SeaMonkey's messenger window
 * PAC help icon is hidden if WPAD mode is selected
 * fixed broken plugin handling if FoxyProxy is disabled (see:
   http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=820)
 * fixed broken FoxyProxy on older Windows/Firefox 3.6.* systems which was caused
   by our new PAC handling code (thanks to Joe Greenman for his debugging help)
+* advice to consult the log tree on proxy errors is not shown anymore
 * fixed possible null pointer in API code
 
 New fixes
@@ -16,14 +16,12 @@ New fixes
 * fixed null pointers that cause requests to fail in Gecko <= 17 if FoxyProxy is
   disabled
 * changed pre-selected buttons on dialogs to safe defaults
-* fixed broken no internal IPs patterns
 * fixed bug regarding PAC file loading, see:
   http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=816
 * adapted FoxyProxy to changes due to
   https://bugzilla.mozilla.org/show_bug.cgi?id=407956 (no proxy color was shown
   in the trees anymore)
-* changed URLs to websites where proxy and pattern subscription can be shared
-* made link style in pattern dialog uniform
+* changed URL to website where proxy subscriptions can be shared
 * fixed small typo in CSS property
 * bumped maxVersion of Songbird support
 * code clean-up
