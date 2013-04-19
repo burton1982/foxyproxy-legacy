@@ -1,5 +1,5 @@
-Fixes which were already released in FoxyProxy 4.2
---------------------------------------------------
+Fixes which were already released in FoxyProxy Standard 4.2
+-----------------------------------------------------------
 
 * error messages are showing up in FoxyProxy's log tree
 * added FoxyProxy icons and functionality to SeaMonkey's messenger window
