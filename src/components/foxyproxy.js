@@ -300,6 +300,7 @@ foxyproxy.prototype = {
     }
 
     if (this.isGecko17) {
+      dump("Check whether we call toogleFilter() with |false| or |true|\n");
       this.toggleFilter(this._mode != "disabled");
     }
     // This line must come before the next one -- gBroadcast(...) Otherwise,
@@ -417,6 +418,7 @@ foxyproxy.prototype = {
         this.setMode("disabled", true);
     }
     else if (this._mode == "disabled") {
+      dump("cycleMode() disabled check\n");
       this.setMode(this.isFoxyProxySimple() || gFP.excludePatternsFromCycling ?
           /* FP Simple has no "patterns" mode, so skip to next one */_getNextAfterPatterns() : "patterns", true);
     }
