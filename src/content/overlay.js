@@ -64,11 +64,15 @@ var foxyproxy = {
       // Probably not necessary, but does not hurt
       this.timer = null;
       var fpc = Components.classes["@leahscape.org/foxyproxy/common;1"].getService().wrappedJSObject;
-      if (this.first)
-        x(foxyproxy.fp.isFoxyProxySimple() ? "http://getfoxyproxy.org/basic/help.html" : "http://getfoxyproxy.org/help.html");
-      else
-        x(foxyproxy.fp.isFoxyProxySimple() ? "http://getfoxyproxy.org/basic/releasenotes.html" :
-          "http://getfoxyproxy.org/releasenotes.html");
+      if (this.first) {
+        x(foxyproxy.fp.isFoxyProxySimple() ?
+            "http://getfoxyproxy.org/mozilla/basic/install.html" :
+            "http://getfoxyproxy.org/mozilla/standard/install.html");
+      } else {
+        x(foxyproxy.fp.isFoxyProxySimple() ?
+            "http://getfoxyproxy.org/mozilla/basic/update.html" :
+            "http://getfoxyproxy.org/mozilla/standard/update.html");
+      }
       function x(url) {
         fpc.openAndReuseOneTabPerURL(url);
         // Do this last so we try again next time if we failed to display now
@@ -172,7 +176,7 @@ var foxyproxy = {
     this.setMode(this.fp.mode);
     this.updateCheck.check();
     // if os/x add label to FoxyProxy Tools menu.
-    if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULRuntime).OS == "Darwin") {
+    if (this.fpc.xulRuntime.OS == "Darwin") {
 /*! begin-foxyproxy-simple
       document.getElementById("foxyproxyMenu").setAttribute("label", this.fp.getMessage("foxyproxy.basic.label"));
 end-foxyproxy-simple !*/
@@ -576,7 +580,7 @@ end-foxyproxy-simple !*/
         prompts.BUTTON_TITLE_IS_STRING * prompts.BUTTON_POS_0 +
         prompts.BUTTON_TITLE_IS_STRING * prompts.BUTTON_POS_1,
       btn1Text, btn2Text, null, null, {}) == 0; // 0 means first button ("yes") was pressed
-    else { 
+    else {
       // No longer displays in proper order and no longer returns proper values on FF 3.0.x. (and maybe above?)
       // Insists that 2nd displayed button (1-index) is BUTTON_POS_2 (0-indexed)
       /*var ret = prompts.confirmEx(parent, this.fp.getMessage("foxyproxy"), text,

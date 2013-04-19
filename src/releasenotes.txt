@@ -1,10 +1,30 @@
-* fixed broken Java network traffic (see:
-  http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=808&start=20#p2071)
-* enhanced the protocol proxy wrapper (thanks to Kris Maglione)
-* fixed a bug in internal IP address patterns' regular expressions
-* fixed a bug in internal IP address patterns (only the first pattern was used,
-  see: http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=811&p=2091)
-* fixed broken Test-PAC functionality
-  (see: http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=812)
-* bumped copyright date in license header to "2013"
+Fixes which were already released in FoxyProxy 4.2
+--------------------------------------------------
+
+* error messages are showing up in FoxyProxy's log tree
+* added FoxyProxy icons and functionality to SeaMonkey's messenger window
+* PAC help icon is hidden if WPAD mode is selected
+* fixed broken plugin handling if FoxyProxy is disabled (see:
+  http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=820)
+* fixed broken FoxyProxy on older Windows/Firefox 3.6.* systems which was caused
+  by our new PAC handling code (thanks to Joe Greenman for his debugging help)
+* fixed possible null pointer in API code
+
+New fixes
+---------
+
+* fixed null pointers that cause requests to fail in Gecko <= 17 if FoxyProxy is
+  disabled
+* changed pre-selected buttons on dialogs to safe defaults
+* fixed broken no internal IPs patterns
+* fixed bug regarding PAC file loading, see:
+  http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=816
+* adapted FoxyProxy to changes due to
+  https://bugzilla.mozilla.org/show_bug.cgi?id=407956 (no proxy color was shown
+  in the trees anymore)
+* changed URLs to websites where proxy and pattern subscription can be shared
+* made link style in pattern dialog uniform
+* fixed small typo in CSS property
+* bumped maxVersion of Songbird support
 * code clean-up
+* updated locales

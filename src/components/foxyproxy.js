@@ -132,6 +132,7 @@ foxyproxy.prototype = {
   _proxyForVersionCheck : "",
   // That gets set in the Common() constructor.
   isGecko17 : false,
+  fpc : null,
 
   broadcast : function(subj, topic, data) {
     gBroadcast(subj, topic, data);
@@ -153,11 +154,11 @@ foxyproxy.prototype = {
   observe: function(subj, topic, data) {
       switch(topic) {
         case "profile-after-change":
+          this.fpc = CC["@leahscape.org/foxyproxy/common;1"].getService().
+            wrappedJSObject;
           gObsSvc.addObserver(this, "quit-application", false);
           gObsSvc.addObserver(this, "domwindowclosed", false);
           gObsSvc.addObserver(this, "domwindowopened", false);
-          CC["@mozilla.org/network/protocol-proxy-service;1"].getService().
-            wrappedJSObject.fp = this;
           try {
             this.init();
             this.patternSubscriptions.init();
@@ -173,11 +174,12 @@ foxyproxy.prototype = {
           }
         break;
       case "domwindowclosed":
-        // Did the last browser window close? It could be that the DOM inspector, JS console,
-        // or the non-last browser window just closed. In that case, don't close FoxyProxy.
-        var wm = CC["@mozilla.org/appshell/window-mediator;1"].getService(CI.nsIWindowMediator);
-        var win = wm.getMostRecentWindow("navigator:browser") || wm.getMostRecentWindow("Songbird:Main");
-        if (!win) {
+        // Did the last browser window close? It could be that the DOM
+        // Inspector, JS console, or the non-last browser window just closed.
+        // In that case, don't close FoxyProxy.
+        let wm = CC["@mozilla.org/appshell/window-mediator;1"].getService(CI.
+          nsIWindowMediator);
+        if (!this.fpc.getMostRecentWindow(wm)) {
           this.closeAppWindows("foxyproxy", wm);
           this.closeAppWindows("foxyproxy-superadd", wm);
           this.closeAppWindows("foxyproxy-options", wm);
@@ -447,29 +449,29 @@ foxyproxy.prototype = {
   },
 
   mp : null,
-  applyFilter : function(ps, uri, proxy) {
-    function _err(fp, info, extInfo) {
-      var def = fp.proxies.item(fp.proxies.length-1);
-      this.mp = gLoggEntryFactory(def, null, spec, "err", extInfo?extInfo:info);
-      fp.notifier.alert(info, fp.getMessage("see.log"));
-      return def; // Failsafe: use lastresort proxy if nothing else was chosen
-    }
 
+  applyFilter : function(ps, uri, proxy) {
+    var spec = "";
     try {
       var s = uri.scheme;
-      if (s == "feed" || s == "sacore" || s == "dssrequest") return; /* feed schemes handled internally by browser. ignore Mcafee site advisor (http://foxyproxy.mozdev.org/drupal/content/foxyproxy-latest-mcafee-site-advisor) */
-      var spec = uri.spec, previousProxy = this.mp ? this.mp.proxy : null;
+      // feed schemes handled internally by browser. ignore Mcafee site advisor
+      // http://web.archive.org/web/20110625145438/http://foxyproxy.mozdev.org/
+      // drupal/content/foxyproxy-latest-mcafee-site-advisor
+      if (s == "feed" || s == "sacore" || s == "dssrequest") return;
+      spec = uri.spec;
+      var previousProxy = this.mp ? this.mp.proxy : null;
       this.mp = this.applyMode(spec);
       var ret = this.mp.proxy.getProxy(spec, uri.host, this.mp);
       if (ret) {
         this.handleCacheAndCookies(this.mp.proxy, previousProxy);
         return ret;
       }
-      return _err(this, this.getMessage("route.error"));
+      return this._err(spec, this.getMessage("route.error"));
     }
     catch (e) {
       dump("applyFilter: " + e + "\n" + e.stack + "\nwith url " + uri.spec + "\n");
-      return _err(this, this.getMessage("route.exception", [""]), this.getMessage("route.exception", [": " + e]));
+      return this._err(spec, this.getMessage("route.exception", [""]),
+        this.getMessage("route.exception", [": " + e]));
     }
     finally {
       // Our custom return value is a string in Gecko > 17 indicating that we
@@ -480,6 +482,17 @@ foxyproxy.prototype = {
         this.logg.add(this.mp);
       }
     }
+  },
+
+  _err : function(spec, info, extInfo) {
+    var def = this.proxies.item(this.proxies.length-1);
+    this.mp = gLoggEntryFactory(def, null, spec, "err", extInfo?extInfo:info);
+    // We don't have a logging tab in FoxyProxy Basic. Thus we don't show the
+    // advice to look there for further information in that case.
+    let message = this.isFoxyProxySimple() ? "" : this.getMessage("see.log");
+    this.notifier.alert(info, message);
+    // Failsafe: use lastresort proxy if nothing else was chosen
+    return def;
   },
 
   getPrefsService : function(str) {
@@ -1474,55 +1487,64 @@ foxyproxy.prototype = {
     _queue : [],
     alerts : function() {
       try {
-        return CC["@mozilla.org/alerts-service;1"].getService(CI.nsIAlertsService);
+        return CC["@mozilla.org/alerts-service;1"].getService(CI.
+          nsIAlertsService);
+      } catch(e) {
+        return null;
       }
-      catch(e) {return null;}
     }(),
 
     alert : function(title, text, noQueue) {
       if (!title) title = gFP.getMessage("foxyproxy");
       if (this.alerts) {
-        // With all the checks to ensure we don't use nsIAlertsService on unsupported platforms,
-        // it would appear it can still happen (http://foxyproxy.mozdev.org/drupal/content/component-returned-failure-code-error-firefox-launch)
-        // So we use a try/catch just in case.
+        // With all the checks to ensure we don't use nsIAlertsService on
+        // unsupported platforms, it would appear it can still happen
+        // (http://foxyproxy.mozdev.org/drupal/content/component-returned-
+        // failure-code-error-firefox-launch). So we use a try/catch just in
+        // case.
         try {
-          this.alerts.showAlertNotification("chrome://foxyproxy/content/images/foxyproxy-nocopy.gif", title, text, true, "",
-              {observe: function() {/*no-op; just permits the window to close sooner*/}}, "FoxyProxy");
-        }
-        catch(e) {
-          this.alerts = null; // now future notifications are now automatically displayed with simpleNotify()
+          this.alerts.showAlertNotification("chrome://foxyproxy/content/" +
+            "images/foxyproxy-nocopy.gif", title, text, true, "", {observe:
+            function() {/*no-op; just permits the window to close sooner*/}},
+            "FoxyProxy");
+        } catch(e) {
+           // now future notifications are now automatically displayed with
+           // simpleNotify()
+          this.alerts = null;
           simpleNotify(this);
         }
-      }
-      else
+      } else {
         simpleNotify(this);
+      }
+
       function simpleNotify(self) {
-        (!self.timer && (self.timer = CC["@mozilla.org/timer;1"].createInstance(CI.nsITimer)));
+        (!self.timer && (self.timer = CC["@mozilla.org/timer;1"].
+                         createInstance(CI.nsITimer)));
         self.timer.cancel();
-        var wm = CC["@mozilla.org/appshell/window-mediator;1"].getService(CI.nsIWindowMediator);
-        var win = wm.getMostRecentWindow("navigator:browser") || wm.getMostRecentWindow("Songbird:Main");
+        let win = gFP.fpc.getMostRecentWindow();
         try {
-          var doc = win.parent.document;
+          let doc = win.parent.document;
           self.tooltip = doc.getElementById("foxyproxy-popup");
           self._removeChildren(self.tooltip);
-          var grid = doc.createElement("grid");
+          let grid = doc.createElement("grid");
           grid.setAttribute("flex", "1");
           self.tooltip.appendChild(grid);
 
-          var columns = doc.createElement("columns");
+          let columns = doc.createElement("columns");
           columns.appendChild(doc.createElement("column"));
           grid.appendChild(columns);
 
-           var rows = doc.createElement("rows");
+           let rows = doc.createElement("rows");
            grid.appendChild(rows);
            self._makeHeaderRow(doc, title, rows);
            self._makeRow(doc, "", rows);
            self._makeRow(doc, text, rows);
-           self.tooltip.showPopup(doc.getElementById("status-bar"), -1, -1, "tooltip", "topright","bottomright");
+           self.tooltip.showPopup(doc.getElementById("status-bar"), -1, -1,
+             "tooltip", "topright","bottomright");
            self.timer.initWithCallback(self, 5000, CI.nsITimer.TYPE_ONE_SHOT);
-        }
-        catch (e) {
-          /* in case win, win.parent, win.parent.document, tooltip, etc. don't exist */
+        } catch (e) {
+          // In case win, win.parent, win.parent.document, tooltip, etc. don't
+          // exist...
           dump("Window not available for user message: " + text + "\n");
           if (!noQueue) {
             dump("Queuing message\n");
@@ -1546,7 +1568,8 @@ foxyproxy.prototype = {
     _makeHeaderRow : function(doc, col, gridRows) {
       var label = doc.createElement("label");
       label.setAttribute("value", col);
-      label.setAttribute("style", "font-weight: bold; text-decoration: underline; color: blue;");
+      label.setAttribute("style",
+        "font-weight: bold; text-decoration: underline; color: blue;");
       gridRows.appendChild(label);
     },
 
@@ -1730,28 +1753,42 @@ foxyproxy.prototype = {
     _warnings : [],
 
     /**
-     * Displays a message to the user with "Cancel" and "OK" buttons
-     * and a "Do not display the message again" checkbox. The latter is maintained
-     * internally. Function returns false if user clicks "Cancel", true if "OK".
-     * 
-     * If no message is to be displayed because the user previously disabled them,
-     * true is returned.
+     * Displays a message to the user with "No" and "Yes" buttons
+     * and a "Do not display the message again" checkbox. The latter is
+     * maintained internally. Function returns false if user clicks "No", true
+     * if "Yes".
      *
-     * First arg is the owning/parent window. Second arg is an array whose first
-     * element is the key of the message to display. Subsequent array args are
-     * substitution parameters for the message key, if any.
+     * If no message is to be displayed because the user previously disabled
+     * them, true is returned.
      *
-     * Third arg is the name under which to store whether or not this |msg| should be
-     * displayed in the future.
+     * First arg is the owning/parent window. Second arg is an array whose
+     * first element is the key of the message to display. Subsequent array
+     * args are substitution parameters for the message key, if any.
+     *
+     * Third arg is the name under which to store whether or not this |msg|
+     * should be displayed in the future.
+     *
+     * The fourth argument indicates whether "No" should be selected by
+     * default.
      */
-    showWarningIfDesired : function(win, msg, name) {
+    showWarningIfDesired : function(win, msg, name, noDefault) {
       if (this._warnings[name] == undefined || this._warnings[name]) {
-        var l10nMessage = gFP.getMessage(msg[0], msg.slice(1)),
-          cb = {}, ret =
-          CC["@mozilla.org/embedcomp/prompt-service;1"].getService(CI.nsIPromptService)
-            .confirmCheck(win, gFP.getMessage("foxyproxy"), l10nMessage,
-                gFP.getMessage("message.stop"), cb);
-        this._warnings[name] = !cb.value; /* note we save the inverse of user's selection because the way the question is phrased */
+        let l10nMessage = gFP.getMessage(msg[0], msg.slice(1)),
+          cb = {}, prompts = CC["@mozilla.org/embedcomp/prompt-service;1"].
+          getService(CI.nsIPromptService);
+        let flags = prompts.BUTTON_TITLE_IS_STRING * prompts.BUTTON_POS_0 +
+          prompts.BUTTON_TITLE_IS_STRING * prompts.BUTTON_POS_1;
+        if (noDefault) {
+          flags = flags + prompts.BUTTON_POS_1_DEFAULT;
+        }
+        // 0 means the "Yes" button got clicked
+        let ret = prompts.confirmEx(win, gFP.getMessage("foxyproxy"),
+                                    l10nMessage, flags, gFP.getMessage("yes"),
+                                    gFP.getMessage("no"), null,
+                                    gFP.getMessage("message.stop"), cb) === 0;
+        // Note: We save the inverse of user's selection because the way the
+        // question is phrased.
+        this._warnings[name] = !cb.value;
         gFP.writeSettingsAsync();
         return ret;
       }
@@ -1822,25 +1859,35 @@ function LoggEntry(proxy, aMatch, uriStr, type, errMsg) {
     this.timestamp = Date.now();
     this.uri = uriStr;
     this.proxy = proxy;
-    this.proxyName = proxy.name; // Make local copy so logg history doesn't change if user changes proxy
-    this.proxyNotes = proxy.notes;  // ""
+    // Make local copy so logg history doesn't change if user changes proxy
+    this.proxyName = proxy.name;
+    // See last comment
+    this.proxyNotes = proxy.notes;
     if (type == "pat") {
-      this.matchName = aMatch.name;  // Make local copy so logg history doesn't change if user changes proxy
-      this.matchPattern = aMatch.pattern; // ""
+      // See last comment
+      this.matchName = aMatch.name;
+      // See last comment
+      this.matchPattern = aMatch.pattern;
       this.matchType = aMatch.isRegEx ? this.regExMsg : this.wcMsg;
-      this.whiteBlack = aMatch.isBlackList ? this.blackMsg : this.whiteMsg; // ""
-      this.caseSensitive = aMatch.caseSensitive ? this.yes : this.no; // ""
+      // See last comment
+      this.whiteBlack = aMatch.isBlackList ? this.blackMsg : this.whiteMsg;
+      // See last comment
+      this.caseSensitive = aMatch.caseSensitive ? this.yes : this.no;
     }
     else if (type == "ded") {
-      this.caseSensitive = this.whiteBlack = this.matchName = this.matchPattern = this.matchType = this.allMsg;
+      this.caseSensitive = this.whiteBlack = this.matchName =
+        this.matchPattern = this.matchType = this.allMsg;
     }
     else if (type == "rand") {
-      this.matchName = this.matchPattern = this.matchType = this.whiteBlack = this.randomMsg;
+      this.matchName = this.matchPattern = this.matchType =
+        this.whiteBlack = this.randomMsg;
     }
     else if (type == "round") {
     }
     else if (type == "err") {
       this.errMsg = errMsg;
+      this.caseSensitive = this.whiteBlack = this.matchName =
+        this.matchPattern = this.matchType = "";
     }
     this.colorString = proxy.colorString;
 };

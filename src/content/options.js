@@ -173,7 +173,16 @@ function _updateLogView(keepSelection) {
     getCellProperties: function(row, col, props) {
       if (col.id == "colorCol") {
         var i = foxyproxy.logg.item(row);
-        var atom = CC["@mozilla.org/atom-service;1"].getService(CI.nsIAtomService).getAtom(i.colorString);
+        // Starting with 22.0a1 there is no |props| available anymore. See:
+        // https://bugzilla.mozilla.org/show_bug.cgi?id=407956. Looking at the
+        // patch the following seems to work, though.
+        if (!props) {
+          let newProps = "";
+          newProps += i.colorString;
+          return newProps;
+        }
+        var atom = CC["@mozilla.org/atom-service;1"].getService(CI.
+          nsIAtomService).getAtom(i.colorString);
         props.AppendElement(atom);
       }
     },
@@ -368,7 +377,8 @@ function onModeChanged(menu) {
 function onDeleteSelection() {
   if (_isDefaultProxySelected())
     overlay.alert(this, foxyproxy.getMessage("delete.proxy.default"));
-  else if (foxyproxy.warnings.showWarningIfDesired(window, ["delete.proxy.confirm"], "confirmDeleteProxy")) {
+  else if (foxyproxy.warnings.showWarningIfDesired(window,
+           ["delete.proxy.confirm"], "confirmDeleteProxy", true)) {
     // Store cur selections
     let sel = utils.getSelectedIndices(proxyTree);
     // We have to delete the proxy from the subscription as well. Otherwise
@@ -589,7 +599,7 @@ function deleteSubscriptions(type) {
   // plural. The same reasoning holds for the two following functions.
   let selectedSubscription = getSelectedSubscription(type);
   if (foxyproxy.warnings.showWarningIfDesired(window,
-      [type + "subscription.del.subscription"], type +"SubDelete")) {
+      [type + "subscription.del.subscription"], type + "SubDelete", true)) {
     if (selectedSubscription.timer) {
       selectedSubscription.timer.cancel();
     }
@@ -688,8 +698,14 @@ function onSubscriptionsAction(type) {
 }
 
 function openSubscriptionsURL(type) {
-  fpc.openAndReuseOneTabPerURL("http://getfoxyproxy.org/" + type +
-    "subscriptions/share.html");
+  let path = "subscriptions/";
+  if (type === "proxy") {
+    path = path + "proxies/";
+  } else if (type === "pattern") {
+    path = path + "patterns/"
+  }
+  fpc.openAndReuseOneTabPerURL("http://getfoxyproxy.org/" + path +
+    "share.html");
 }
 
 function onMaxSize() {
@@ -977,8 +993,9 @@ function openLogURLInNewTab() {
   let selectedIndices = utils.getSelectedIndices(logTree);
 
   // If more than 3 selected, ask user if he's sure he wants to open that many tabs
-  if (selectedIndices.length > 4 &&
-    !foxyproxy.warnings.showWarningIfDesired(window, ["reallyOpenXNewTabs",selectedIndices.length], "openXNewTabs"))
+  if (selectedIndices.length > 4 && !foxyproxy.warnings.
+      showWarningIfDesired(window, ["reallyOpenXNewTabs", selectedIndices.
+      length], "openXNewTabs", false))
   return;
 
   // Open 'em, ignoring entries whose URLs haven't been stored because user had enabled, "Do not store or displays URLs" (for privacy purposes)

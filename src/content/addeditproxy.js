@@ -17,12 +17,11 @@ var urlsTree, proxy, foxyproxy, autoconfUrl, overlay, isWindows, fpc,
 Components.utils.import("resource://foxyproxy/utils.jsm");
 
 function onLoad() {
-  isWindows = CC["@mozilla.org/xre/app-info;1"].
-    getService(CI.nsIXULRuntime).OS == "WINNT";
   fpc = CC["@leahscape.org/foxyproxy/common;1"].getService().wrappedJSObject;
-  overlay = fpc.getMostRecentWindow().foxyproxy;
   foxyproxy = CC["@leahscape.org/foxyproxy/service;1"].
-    getService().wrappedJSObject; 
+    getService().wrappedJSObject;
+  overlay = fpc.getMostRecentWindow().foxyproxy;
+  isWindows = fpc.xulRuntime.OS == "WINNT";
   autoconfUrl = document.getElementById("autoconfUrl");
   autoconfMode = document.getElementById("autoconfMode");
   reloadFreq = document.getElementById("autoConfReloadFreq");
@@ -119,7 +118,7 @@ function onCancel() {
   proxy.matches = [];
   for (let i = 0, length = oldMatches.length; i < length; i++) {
     proxy.matches.push(oldMatches[i]);
-  } 
+  }
   return true;
 }
 
@@ -133,7 +132,7 @@ function onOK() {
     name = trim(document.getElementById("proxyname").value);
   if (!name)
     name = host ? (host + ":" + port) : foxyproxy.getMessage("new.proxy");
-  var enabled = document.getElementById("proxyenabled").checked,    
+  var enabled = document.getElementById("proxyenabled").checked,
     url = trim(autoconfUrl.value);
   var mode = document.getElementById("mode").value;
   if (enabled) {
@@ -161,15 +160,15 @@ function onOK() {
     // Don't do this for FoxyProxy Basic
     if (!hasWhite() && !foxyproxy.warnings.showWarningIfDesired(window,
         [window.arguments[0].inn.torwiz ? "torwiz.nopatterns.3" :
-        "no.white.patterns.3", name], "white-patterns"))
+        "no.white.patterns.3", name], "white-patterns", false))
       return false;
   }
-  
+
   var isSocks = document.getElementById("isSocks").checked;
 
   if (fpc.isThunderbird() && !isSocks && mode == "manual" &&
       !foxyproxy.warnings.showWarningIfDesired(window, ["socksWarning"],
-      "socks"))
+      "socks", true))
     return false;
 
   let clearCache = document.getElementById("clearCacheBeforeUse").
@@ -190,13 +189,13 @@ function onOK() {
     proxy.autoconf.loadNotification = loadNotification.checked;
     proxy.autoconf.errorNotification = errorNotification.checked;
     proxy.autoconf.autoReload = autoReload.checked;
-    proxy.autoconf.reloadFreqMins = reloadFreq.value; 
+    proxy.autoconf.reloadFreqMins = reloadFreq.value;
   } else {
     proxy.autoconfMode = "wpad";
     proxy.wpad.loadNotification = loadNotification.checked;
     proxy.wpad.errorNotification = errorNotification.checked;
     proxy.wpad.autoReload = autoReload.checked;
-    proxy.wpad.reloadFreqMins = reloadFreq.value; 
+    proxy.wpad.reloadFreqMins = reloadFreq.value;
   }
   proxy.mode = mode; // set this first to control PAC loading
   proxy.enabled = enabled;
@@ -271,9 +270,9 @@ function _checkUri() {
 
 function noInternalIPs() {
   let noInternalIPsChecked;
-  let localhostRegEx = "^https?://(?:[^:@/]+(?::[^@/]+)?@)?(?:localhost|127\\.\\d+\\.\\d+\\.\\d+)(?::\\d+)?.*";
-  let localSubRegEx = "^https?://(?:[^:@/]+(?::[^@/]+)?@)?(?:192\\.168\\.\\d+\\.\\d+|10\\.\\d+\\.\\d+\\.\\d+|172\\.(?:1[6789]|2[0-9]|3[01])\\.\\d+\\.\\d+)(?::\\d+)?.*";
-  let localHostnameRegEx = "^https?://(?:[^:@/]+(?::[^@/]+)?@)?[\\w-]+(?::\\d+)?.*";
+  let localhostRegEx = "^https?://(?:[^:@/]+(?::[^@/]+)?@)?(?:localhost|127\\.\\d+\\.\\d+\\.\\d+)(?::\\d+)?(?:/.*)?$";
+  let localSubRegEx = "^https?://(?:[^:@/]+(?::[^@/]+)?@)?(?:192\\.168\\.\\d+\\.\\d+|10\\.\\d+\\.\\d+\\.\\d+|172\\.(?:1[6789]|2[0-9]|3[01])\\.\\d+\\.\\d+)(?::\\d+)?(?:/.*)?$";
+  let localHostnameRegEx = "^https?://(?:[^:@/]+(?::[^@/]+)?@)?[\\w-]+(?::\\d+)?(?:/.*)?$";
   if (window.arguments[0].inn.torwiz) {
     noInternalIPsChecked = document.getElementById("fpniip").checked;
   } else {
@@ -524,7 +523,7 @@ function onExportURLPattern() {
     // Maybe we have non-Ascii text in our JSON string. Therefore, we use the
     // ConverterOutputStream and UTF-8.
     let os = CC["@mozilla.org/intl/converter-output-stream;1"].
-      createInstance(CI.nsIConverterOutputStream);	
+      createInstance(CI.nsIConverterOutputStream);
     os.init(fos, "UTF-8", 0, 0);
     os.writeString(JSONString);
     os.close();
@@ -534,7 +533,7 @@ function onExportURLPattern() {
 function toggleSocks() {
   let socksBC = document.getElementById("socks-broadcaster");
   if (document.getElementById("isSocks").checked) {
-    socksBC.removeAttribute("disabled"); 
+    socksBC.removeAttribute("disabled");
   } else {
     socksBC.setAttribute("disabled", "true");
   }
@@ -552,6 +551,8 @@ function toggleMode(mode) {
       "true");
     document.getElementById("disabled-broadcaster").setAttribute("disabled",
       "true");
+    document.getElementById("authentication-broadcaster").
+      setAttribute("disabled", "true");
     document.getElementById("direct-broadcaster").removeAttribute("disabled");
     document.getElementById("proxyDNS").hidden = false;
     // We need that here to trigger the broadcaster related code in the wpad
@@ -559,7 +560,7 @@ function toggleMode(mode) {
     if (document.getElementById("autoconfMode").value === "wpad") {
       toggleMode("wpad");
     } else {
-      toggleMode("pac"); 
+      toggleMode("pac");
     }
     onAutoConfUrlInput();
   } else if (mode == "direct" || mode == "system") {
@@ -570,13 +571,15 @@ function toggleMode(mode) {
     document.getElementById("autoconf-broadcaster2").setAttribute("disabled",
       "true");
     document.getElementById("autoconf-broadcaster3").setAttribute("disabled",
-      "true"); 
+      "true");
     document.getElementById("socks-broadcaster").setAttribute("disabled",
-      "true"); 
+      "true");
+    document.getElementById("authentication-broadcaster").
+      setAttribute("disabled", "true");
     if (mode == "direct") {
       document.getElementById("proxyDNS").hidden = true;
       document.getElementById("direct-broadcaster").setAttribute("disabled",
-      "true"); 
+      "true");
     } else {
       document.getElementById("direct-broadcaster").removeAttribute("disabled");
     }
@@ -585,30 +588,40 @@ function toggleMode(mode) {
     autoconfUrl.setAttribute("readonly", true);
     // We always have a URL here, thus we can remove the attribute directly.
     document.getElementById("autoconf-broadcaster2").
-      removeAttribute("disabled"); 
+      removeAttribute("disabled");
     // We do not need the file picker either.
     document.getElementById("autoconf-broadcaster3").setAttribute("disabled",
-      "true"); 
+      "true");
+    // And no help icon.
+    document.getElementById("autoconf-broadcaster4").setAttribute("style",
+      "visibility: hidden");
   } else if (mode == "pac") {
     autoconfUrl.value = proxy.autoconf.url;
     autoconfUrl.removeAttribute("readonly");
     // If we clicked on WPAD first we have to enable the file picker again.
     document.getElementById("autoconf-broadcaster3").
-      removeAttribute("disabled"); 
+      removeAttribute("disabled");
+    // And the help icon.
+    document.getElementById("autoconf-broadcaster4").setAttribute("style",
+      "visibility: visible");
     onAutoConfUrlInput();
   } else {
     document.getElementById("disabled-broadcaster").removeAttribute("disabled");
     document.getElementById("autoconf-broadcaster1").setAttribute("disabled",
       "true");
     document.getElementById("autoconf-broadcaster2").setAttribute("disabled",
-      "true"); 
+      "true");
     document.getElementById("autoconf-broadcaster3").setAttribute("disabled",
-      "true"); 
+      "true");
     if (document.getElementById("isSocks").checked) {
       document.getElementById("socks-broadcaster").removeAttribute("disabled");
+      document.getElementById("authentication-broadcaster").
+        setAttribute("disabled", "true");
     } else {
       document.getElementById("socks-broadcaster").setAttribute("disabled",
-        "true"); 
+        "true");
+      document.getElementById("authentication-broadcaster").
+        removeAttribute("disabled");
     }
     document.getElementById("direct-broadcaster").removeAttribute("disabled");
     document.getElementById("proxyDNS").hidden = false;
@@ -647,7 +660,7 @@ function onTestAutoConf() {
         autoconfMessage = "autoconfurl.test.fail2";
       } else {
         autoconfMessage = "wpadurl.test.fail";
-      } 
+      }
       foxyproxy.alert(this, foxyproxy.getMessage(autoconfMessage, [e.message]));
     }
   }
