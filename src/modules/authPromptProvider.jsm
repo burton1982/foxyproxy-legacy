@@ -66,7 +66,7 @@ AuthPromptProvider.prototype = {
     (04:11:26 AM) bz: please file a bug as desired on improving the docs.  Best
                   with patch.  ;)
     (04:11:33 AM) ericjung: one sec....so after I populate authInfo in my
-                  asyncPromptAuth() impl, 
+                  asyncPromptAuth() impl,
     (04:11:41 AM) bz: yes?
     (04:11:59 AM) ericjung: i should call onAuth... on the nsIAuthPromptCallback
                   argument?
@@ -125,7 +125,7 @@ AuthPromptProvider.prototype = {
       // now.
       if (this.fp.authCounter === 2) {
         try {
-          let win = this.fpc.getMostRecentWindow(null); 
+          let win = this.fpc.getMostRecentWindow(null);
           if (proxyInUse && !this.fp.warnings.showWarningIfDesired(win,
               ["authentication.credentials.retry"], "retryAuthCredentials",
               true)) {
@@ -176,7 +176,7 @@ AuthPromptProvider.prototype = {
           if (channel instanceof CI.nsIProxiedChannel && channel.proxyInfo) {
             // See: |_getAuthTarget()| in https://mxr.mozilla.org/
             // mozilla-central/source/toolkit/components/passwordmgr/
-            // nsLoginManagerPrompter.js#1383 
+            // nsLoginManagerPrompter.js#1383
             let idnService = CC["@mozilla.org/network/idn-service;1"].
               getService(CI.nsIIDNService);
             let hostname = "moz-proxy://" + idnService.
@@ -253,11 +253,17 @@ AuthPromptProvider.prototype = {
   getInterface : function(aIID) {
     // (06:56:39 PM) bz: ericjung: how about just returning the original
     //               notificationCallbacks?
-    // (06:56:51 PM) bz: ericjung: if asked for an nsIBadCertListener/2? 
+    // (06:56:51 PM) bz: ericjung: if asked for an nsIBadCertListener/2?
+
+    // We need to throw NS_ERROR_NO_INTERFACE to avoid freezing the application
+    // to due bad redirects. For steps to reproduce this, see:
+    // https://bugzilla.mozilla.org/show_bug.cgi?id=878998
     if (aIID.equals(CI.nsIBadCertListener2) && this.
         originalNotificationCallbacks) {
       try {
         return this.originalNotificationCallbacks.getInterface(aIID);
+      } catch (e if e.name === "NS_NOINTERFACE") {
+        throw CR.NS_ERROR_NO_INTERFACE;
       } catch (e) {}
     }
     try {

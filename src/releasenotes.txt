@@ -2,6 +2,8 @@
   requesting a website
 * auto-populate authentication dialog if credentials are saved
 * call own authentication code only if Foxyproxy is enabled
+* fixed application freeze due to bad redirects (for some details and steps to
+    reproduce see: https://bugzilla.mozilla.org/show_bug.cgi?id=878998)
 * fixed null pointers that cause requests to fail in Gecko <= 17 if FoxyProxy is
   disabled
 * changed pre-selected buttons on dialogs to safe defaults
