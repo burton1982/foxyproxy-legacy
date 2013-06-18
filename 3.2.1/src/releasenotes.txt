@@ -7,15 +7,13 @@
 * fixed null pointers that cause requests to fail in Gecko <= 17 if FoxyProxy is
   disabled
 * changed pre-selected buttons on dialogs to safe defaults
-* fixed broken no internal IPs patterns
 * fixed bug regarding PAC file loading, see:
   http://forums.getfoxyproxy.org/viewtopic.php?f=4&t=816
 * fixed compatibility issue with Lightning (thanks to Fallen for the kind help)
 * adapted FoxyProxy to changes due to
   https://bugzilla.mozilla.org/show_bug.cgi?id=407956 (no proxy color was shown
   in the trees anymore)
-* changed URLs to websites where proxy and pattern subscription can be shared
-* made link style in pattern dialog uniform
+* changed URL to website where proxy subscription can be shared
 * fixed small typo in CSS property
 * bumped maxVersion of Songbird support
 * code clean-up
