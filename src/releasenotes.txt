@@ -2,3 +2,4 @@
   and removed logout() (in nsIDOMCrypto)
 * QuickAdd and AutoAdd patterns are properly converted to Regular Expressions
   if the user selected that format
+* updated copyright date
