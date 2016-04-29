@@ -10,3 +10,16 @@ function FindProxyForURL(url, host) {
   t1 = t2;
   return proxies[counter % proxies.length];
 }
+
+=================
+
+// Round robin
+
+var proxies = ["PROXY myproxy.foo.com:9050", "PROXY myproxy.bar.com:8080", "PROXY myproxy.baz.com:6667"];
+
+var counter = 0;
+function FindProxyForURL(url, host) {
+	if (counter > proxies.length)
+		counter = 0;
+	return proxies[counter++];
+}
