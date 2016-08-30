@@ -17,8 +17,7 @@ function onLoad() {
 
 function openLocationURL() {
   Components.classes["@leahscape.org/foxyproxy/common;1"].getService().
-    wrappedJSObject.openAndReuseOneTabPerURL("https://getfoxyproxy.org/" +
-    "proxyservice/");
+    wrappedJSObject.openAndReuseOneTabPerURL("https://getfoxyproxy.org/order/");
 }
 
 function onCancel() {
@@ -37,7 +36,7 @@ function onOK() {
   let proxyURI;
   let fp = Components.classes["@leahscape.org/foxyproxy/service;1"].getService().
     wrappedJSObject;
-  let url = "https://getfoxyproxy.org/proxyservice/get-details-fp.php?subscription="
+  let url = "https://getfoxyproxy.org/webservices/get-accounts.php?subscription="
   let subscriptionID = document.getElementById("subscriptionID").value;
   req = new XMLHttpRequest();
   req.onreadystatechange = function (oEvent) {

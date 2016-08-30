@@ -241,8 +241,8 @@ end-foxyproxy-simple !*/
       // parseFragment().
       let liText = "<li>" + foxyproxy.fp.getMessage("foxyproxy.proxyservice2",
         ["<a id=proxyService " +
-        'title="https://getfoxyproxy.org/proxyservice/2.0/" ' +
-        'href="https://getfoxyproxy.org/proxyservice/2.0/">FoxyProxy</a>',
+        'title="https://getfoxyproxy.org/order/" ' +
+        'href="https://getfoxyproxy.org/order/">FoxyProxy</a>',
         "<b>", "</b>"]) + "</li>";
       contDoc.getElementById("errorLongDesc").firstChild.nextSibling.
         appendChild(foxyproxy.parseHTML(contDoc, liText));
@@ -504,7 +504,7 @@ end-foxyproxy-simple !*/
     let firstOpen = foxyproxy.fp.getPrefsService("extensions.foxyproxy.").
       getBoolPref("firsttimeopeningoptionsdialog");
     if (firstOpen) {
-      this.fpc.openAndReuseOneTabPerURL("https://getfoxyproxy.org/proxyservice/2.0/?src=FoxyProxyForFirefox");
+      this.fpc.openAndReuseOneTabPerURL("https://getfoxyproxy.org/order/?src=FoxyProxyForFirefox");
       foxyproxy.fp.getPrefsService("extensions.foxyproxy.").
         setBoolPref("firsttimeopeningoptionsdialog", false);
     }

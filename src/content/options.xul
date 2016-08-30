@@ -1558,7 +1558,7 @@
            label="&foxyproxy.proxyservice.label;"
            accesskey="&foxyproxy.proxyservice.accesskey;"
            tooltiptext="&foxyproxy.proxyservice.tooltip;"
-           oncommand="fpc.openAndReuseOneTabPerURL('http://getfoxyproxy.org/proxyservice/');"/>
+           oncommand="fpc.openAndReuseOneTabPerURL('https://getfoxyproxy.org/order/');"/>
 
   <command id="fpChromeCmd"
            label="&foxyproxy.foxyproxychrome.label;"
