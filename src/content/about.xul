@@ -60,9 +60,6 @@
                 </g>
               </g>
             </svg>
-            <button image="images/abp.png"
-              onclick="fpc.openAndReuseOneTabPerURL('http://adblockplus.org/');"
-              tooltiptext="http://adblockplus.org"/>
           </vbox>
         </hbox>
         <vbox>
@@ -82,7 +79,7 @@
             </vbox>
           </hbox>
           <hbox style="margin-left: 1em;">
-            <label value="&foxyproxy.copyright; 2006-2015 FoxyProxy, Inc." />
+            <label value="&foxyproxy.copyright; 2006-2017 FoxyProxy" />
             <spacer />
           </hbox>
           <hbox style="margin-left: 1em;">
