@@ -175,7 +175,7 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "مکان ذخیره تنظیمات FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "زمان">
 <!ENTITY foxyproxy.tab.logging.url.label "نشانی">
-<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
+<!ENTITY foxyproxy.host.label.2 "سرور یا آی پی آدرس">
 <!ENTITY foxyproxy.host.accesskey "م">
 <!ENTITY foxyproxy.clear.label "پاک کردن">
 <!ENTITY foxyproxy.clear.accesskey "ک">
