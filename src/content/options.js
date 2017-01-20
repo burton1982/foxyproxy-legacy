@@ -898,8 +898,11 @@ function toggleEnabled() {
 }
 
 function _isDefaultProxySelected() {
-  for each (let i in utils.getSelectedIndices(proxyTree)) {
-    if (foxyproxy.proxies.item(i).lastresort)
+  // Old-fashioned array iteration for https://bugzilla.mozilla.org/show_bug.cgi?id=1322293.
+  // Could use newer-style but this works with all Firefox versions.
+  let tmp = utils.getSelectedIndices(proxyTree);
+  for (let i=0, sz=tmp.length; i<sz; i++) {
+    if (foxyproxy.proxies.item(tmp[i]).lastresort)
       return true;
   }
   return false;

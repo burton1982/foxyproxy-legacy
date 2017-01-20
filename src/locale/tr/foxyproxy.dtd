@@ -175,7 +175,7 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "FoxyProxy&apos;nin ayarlarının saklanacağı yer">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Tarih Bilgisi">
 <!ENTITY foxyproxy.tab.logging.url.label "URL">
-<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
+<!ENTITY foxyproxy.host.label.2 "Server or IP Address">
 <!ENTITY foxyproxy.host.accesskey "H">
 <!ENTITY foxyproxy.clear.label "Temizle">
 <!ENTITY foxyproxy.clear.accesskey "T">

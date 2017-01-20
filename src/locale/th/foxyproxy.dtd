@@ -175,7 +175,7 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "ตำแหน่งเก็บการตั้งค่า FoxyProxy">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Timestamp">
 <!ENTITY foxyproxy.tab.logging.url.label "ยูอาร์แอล">
-<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
+<!ENTITY foxyproxy.host.label.2 "Server or IP Address">
 <!ENTITY foxyproxy.host.accesskey "ฮ">
 <!ENTITY foxyproxy.clear.label "ล้าง">
 <!ENTITY foxyproxy.clear.accesskey "ล">

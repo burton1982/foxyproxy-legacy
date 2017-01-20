@@ -175,7 +175,7 @@
 <!ENTITY foxyproxy.storagelocation.tooltip "Location to store FoxyProxy's settings">
 <!ENTITY foxyproxy.tab.logging.timestamp.label "Timestamp">
 <!ENTITY foxyproxy.tab.logging.url.label "URL">
-<!ENTITY foxyproxy.host.label.2 "Host or IP Address">
+<!ENTITY foxyproxy.host.label.2 "Server or IP Address">
 <!ENTITY foxyproxy.host.accesskey "H">
 <!ENTITY foxyproxy.clear.label "Clear">
 <!ENTITY foxyproxy.clear.accesskey "C">
@@ -211,7 +211,7 @@
 <!ENTITY foxyproxy.autopacurl.label "Auto PAC URL">
 <!ENTITY foxyproxy.issocks.label "SOCKS proxy?">
 <!ENTITY foxyproxy.issocks.accesskey "S">
-<!ENTITY foxyproxy.issocks.tooltip "Is this a web proxy or SOCKS proxy?">
+<!ENTITY foxyproxy.issocks.tooltip "Is this a SOCKS proxy?">
 <!ENTITY foxyproxy.moveup.label "Move Up">
 <!ENTITY foxyproxy.moveup.tooltip "Increase priority of current selection">
 <!ENTITY foxyproxy.moveup.accesskey "U">

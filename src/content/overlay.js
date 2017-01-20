@@ -62,8 +62,10 @@ var foxyproxy = {
 
       // Probably not necessary, but does not hurt
       this.timer = null;
-      var fpc = Components.classes["@leahscape.org/foxyproxy/common;1"].getService().wrappedJSObject;
-      foxyproxy.fp.getPrefsService("extensions.foxyproxy.").setCharPref("last-version", fpc.getVersion());
+      var fpc = Components.classes["@leahscape.org/foxyproxy/common;1"].getService().wrappedJSObject,
+        ver = fpc.getVersion();
+      if (ver)
+        foxyproxy.fp.getPrefsService("extensions.foxyproxy.").setCharPref("last-version", ver);
     },
 
     observe : function(s, topic) {
@@ -225,27 +227,29 @@ end-foxyproxy-simple !*/
   },
 
   errorPageCheck : function() {
-    var contDoc = window.content.document;
-    if (contDoc.documentURI.indexOf("about:neterror?e=proxyConnectFailure") ===
-      0) {
-      // As we do not have a separate listener for each tab we check manually
-      // whether the list element got already injected. If so we do not need to
-      // add another one.
-      if (contDoc.getElementById("proxyService")) {
-        return;
+    if (window.content) {
+      var contDoc = window.content.document;
+      if (contDoc.documentURI.indexOf("about:neterror?e=proxyConnectFailure") ===
+        0) {
+        // As we do not have a separate listener for each tab we check manually
+        // whether the list element got already injected. If so we do not need to
+        // add another one.
+        if (contDoc.getElementById("proxyService")) {
+          return;
+        }
+        // Creating our additional list entry. We have to take this road here as
+        // creating the <li> element and assigning the content via innerHTML is
+        // not recommended. Furthermore, we cannot construct and append the <li>
+        // element ourselves properly due to i18n issues. Thus, we resort to
+        // parseFragment().
+        let liText = "<li>" + foxyproxy.fp.getMessage("foxyproxy.proxyservice2",
+          ["<a id=proxyService " +
+          'title="https://getfoxyproxy.org/order/" ' +
+          'href="https://getfoxyproxy.org/order/">FoxyProxy</a>',
+          "<b>", "</b>"]) + "</li>";
+        contDoc.getElementById("errorLongDesc").firstChild.nextSibling.
+          appendChild(foxyproxy.parseHTML(contDoc, liText));
       }
-      // Creating our additional list entry. We have to take this road here as
-      // creating the <li> element and assigning the content via innerHTML is
-      // not recommended. Furthermore, we cannot construct and append the <li>
-      // element ourselves properly due to i18n issues. Thus, we resort to
-      // parseFragment().
-      let liText = "<li>" + foxyproxy.fp.getMessage("foxyproxy.proxyservice2",
-        ["<a id=proxyService " +
-        'title="https://getfoxyproxy.org/order/" ' +
-        'href="https://getfoxyproxy.org/order/">FoxyProxy</a>',
-        "<b>", "</b>"]) + "</li>";
-      contDoc.getElementById("errorLongDesc").firstChild.nextSibling.
-        appendChild(foxyproxy.parseHTML(contDoc, liText));
     }
   },
 

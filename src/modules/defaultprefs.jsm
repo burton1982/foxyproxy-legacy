@@ -112,10 +112,13 @@ let defaultPrefs = {
   },
 
   addGeneralObservers : function() {
-    for each (let i in ["foxyproxy-mode-change", "foxyproxy-proxy-change",
-              "em-action-requested", "quit-application",
-              "addon-options-displayed"])
-      gObsSvc.addObserver(this, i, false);
+    // Old-fashioned array iteration for https://bugzilla.mozilla.org/show_bug.cgi?id=1322293.
+    // Could use newer-style but this works with all Firefox versions.
+    let tmp = ["foxyproxy-mode-change", "foxyproxy-proxy-change",
+                "em-action-requested", "quit-application",
+                "addon-options-displayed"];
+    for (let i=0, sz=tmp.length; i<sz; i++)
+      gObsSvc.addObserver(this, tmp[i], false);
   },
 
   removePrefsObservers : function() {
@@ -131,10 +134,11 @@ let defaultPrefs = {
   removeGeneralObservers : function() {
     // Getting the exception in case we already removed these observers
     try {
-      for each (let i in ["foxyproxy-mode-change", "foxyproxy-proxy-change",
-                "em-action-requested", "quit-application",
-                "addon-options-displayed"])
-        gObsSvc.removeObserver(this, i);
+      let tmp = ["foxyproxy-mode-change", "foxyproxy-proxy-change",
+                  "em-action-requested", "quit-application",
+                  "addon-options-displayed"];
+      for (let i=0, sz=tmp.length; i<sz; i++)
+        gObsSvc.removeObserver(this, tmp[i]);
     } catch(e) {}
   },
 

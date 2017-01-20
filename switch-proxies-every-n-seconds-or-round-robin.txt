@@ -1,3 +1,8 @@
+// Switch proxies after X seconds
+// Rotate through a list of proxies, switching every _secondsToSwitchAfter_,
+// one for each URL (not for each website -- but for each URL that is loaded)
+
+// Define proxy list first
 var proxies = ["PROXY myproxy.foo.com:9050", "PROXY myproxy.bar.com:8080",
 "PROXY myproxy.baz.com:6667"], t1 = new Date().getTime(), counter = 1;
 
@@ -14,7 +19,9 @@ function FindProxyForURL(url, host) {
 =================
 
 // Round robin
+// Rotate through a list of proxies, in order, one for each URL (not for each website -- but for each URL that is loaded)
 
+// Define proxy list first
 var proxies = ["PROXY myproxy.foo.com:9050", "PROXY myproxy.bar.com:8080", "PROXY myproxy.baz.com:6667"];
 
 var counter = 0;
@@ -22,4 +29,25 @@ function FindProxyForURL(url, host) {
 	if (counter > proxies.length)
 		counter = 0;
 	return proxies[counter++];
+}
+
+=================
+
+// Random
+// Randomly rotate through a list of proxies, one for each URL (not for each website -- but for each URL that is loaded)
+
+// Define proxy list first
+var proxies = ["PROXY myproxy.foo.com:9050", "PROXY myproxy.bar.com:8080", "PROXY myproxy.baz.com:6667"];
+
+/**
+ * Returns a random integer between min (inclusive) and max (inclusive)
+ * Using Math.round() will give you a non-uniform distribution!
+ * http://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
+ */
+function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function FindProxyForURL(url, host) {
+	return proxies[getRandomInt(0, proxies.length-1)];
 }

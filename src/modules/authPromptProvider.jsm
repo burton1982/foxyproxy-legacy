@@ -264,7 +264,8 @@ AuthPromptProvider.prototype = {
                       getService(Components.interfaces.nsIPromptFactory);
         var prompt = factory.getPrompt(win, Components.interfaces.nsIAuthPrompt2);
         if(prompt instanceof Components.interfaces.nsILoginManagerPrompter) {
-          prompt.setE10sData(win.gBrowser.selectedBrowser, null);
+          // https://bugzilla.mozilla.org/show_bug.cgi?id=1308817
+          prompt.setOpener(win);
         }
         return prompt;
       }

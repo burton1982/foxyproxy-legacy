@@ -1,4 +1,41 @@
+updated 2016-09-21
+
 How to setup a FoxyProxy development environment in Firefox on Windows/Unix/Linux:
+
+* Install Firefox Developer Edition.
+* On OS/X it gets installed into /Applications/FirefoxDeveloperEdition.app/Contents/MacOS/firefox
+* Profiles are in /Users/fidel/Library/Application Support/Firefox/Profiles. Create new one if necessary.
+
+* Open extensions.ini in the profile directory. Add:
+
+[ExtensionDirs]
+Extension0=/Users/fidel/dev/Plugin/src
+
+* Start firefox:
+
+/Applications/FirefoxDeveloperEdition.app/Contents/MacOS/firefox -console -profileManager -purgecaches -no-remote
+
+* Preferences:
+
+javascript.options.showInConsole = true
+nglayout.debug.disable_xul_cache = true (create)
+browser.dom.window.dump.enabled = true
+javascript.options.strict = true
+devtools.chrome.enabled = true
+devtools.debugger.remote-enabled = true
+devtools.debugger.prompt-connection = false
+extensions.logging.enabled = true
+nglayout.debug.disable_xul_fastload = true (create. possibly not needed anymore)
+dom.report_all_js_exceptions = true (create)
+devtools.errorconsole.deprecation_warnings = true (looks like it's already true in Firefox Developer Edition)
+
+
+* Test that at least XUL caching is off by editing something in about.xul. Must close and re-open the About
+  dialog to see if it took effect.
+
+
+
+OLD:
 
 For build instructions, see how-to-build.txt
 

@@ -1873,8 +1873,11 @@ foxyproxy.prototype = {
     installed : false,
     install : function() {
       if (this.installed) return;
-      for each (let i in ["foxyproxy-mode-change", "http-on-modify-request"])
-        gObsSvc.addObserver(this, i, false);
+      // Old-fashioned array iteration for https://bugzilla.mozilla.org/show_bug.cgi?id=1322293.
+      // Could use newer-style but this works with all Firefox versions.
+      let tmp = ["foxyproxy-mode-change", "http-on-modify-request"];
+      for (let i=0, sz=tmp.length; i<sz; i++)
+        gObsSvc.addObserver(this, tmp[i], false);
       this.installed = true;
     },
 
