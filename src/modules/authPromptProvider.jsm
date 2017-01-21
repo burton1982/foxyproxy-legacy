@@ -251,7 +251,7 @@ AuthPromptProvider.prototype = {
           // CalDAV request. Thanks to Fallen for the kind help.
           let that = this;
           let calDAVRequest = this.cal.getCalendarManager().getCalendars({}).
-            some(function(x) x.uri.prePath === that.prePath);
+            some(function(x) {x.uri.prePath === that.prePath});
           if (calDAVRequest) {
             return new this.cal.auth.Prompt();
           }
