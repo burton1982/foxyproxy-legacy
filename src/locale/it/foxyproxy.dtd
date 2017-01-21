@@ -209,6 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "I modelli non permessi hanno la precedenza su quelli permessi: se un indirizzo web corrisponde sia ad un modello permesso che non permesso per lo stesso proxy, verrà escluso dal caricamento attraverso quel proxy">
 <!ENTITY foxyproxy.socks.version.label "Versione SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "Indirizzo web auto PAC">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "Proxy SOCKS">
 <!ENTITY foxyproxy.issocks.accesskey "K">
 <!ENTITY foxyproxy.issocks.tooltip "Selezionare questa opzione in caso si utilizzi un proxy SOCKS">

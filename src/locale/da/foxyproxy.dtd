@@ -209,9 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "Sort liste (ekskluderede) mønstre har højere prioritet end hvid liste (inkluderede) mønstre: hvis en URL matcher både et hvidlistet mønster og et sortlistet mønster for samme proxy, ekskluderes URLen fra at blive indlæst gennem denne proxy.">
 <!ENTITY foxyproxy.socks.version.label "SOCKS-version">
 <!ENTITY foxyproxy.autopacurl.label "Auto PAC URL">
-<!ENTITY foxyproxy.ishttps.label "HTTPS/SSL proxy?">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
 <!ENTITY foxyproxy.ishttps.accesskey "Z">
-<!ENTITY foxyproxy.ishttps.tooltip "Is this an HTTPS/SSL proxy?">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "SOCKS proxy?">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "Er dette en web proxy eller SOCKS proxy?">

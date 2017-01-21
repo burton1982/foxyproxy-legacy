@@ -212,6 +212,9 @@
 <!ENTITY foxyproxy.ishttps.tooltip "Is this an HTTPS/SSL proxy?">
 <!ENTITY foxyproxy.socks.version.label "Έκδοση SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "Αυτόματο PAC URL">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "Διαμεσολαβητής SOCKS;">
 <!ENTITY foxyproxy.issocks.accesskey "σ">
 <!ENTITY foxyproxy.issocks.tooltip "Πρόκειται για διαμεσολαβητή δικτύου ή SOCKS;">

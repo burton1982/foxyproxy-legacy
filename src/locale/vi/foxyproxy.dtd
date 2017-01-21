@@ -209,6 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "Mẫu sổ đen (loại trừ) có ưu thế hơn mẫu sổ trắng (bao gồm): nếu một URL khớp cả mẫu sổ trắng và mẫu sổ đen, URL này sẽ không được nạp bởi proxy đó.">
 <!ENTITY foxyproxy.socks.version.label "Phiên bản SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "URL PAC Tự động">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "SOCKS proxy?">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "Đây là proxy web hay proxy SOCKS?">

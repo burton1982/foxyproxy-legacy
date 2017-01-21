@@ -209,6 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "Vzorci Črnega seznama (izključitve) imajo prednost pred Belim seznamom (vključitvami): če se URL ujema tako s Črnim seznamom kot z Belim za istega posrednika, le-ta ne bo naložil tega URL-ja.">
 <!ENTITY foxyproxy.socks.version.label "Različica SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "Samodejni URL PAC">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "Posrednik SOCKS?">
 <!ENTITY foxyproxy.issocks.accesskey "r">
 <!ENTITY foxyproxy.issocks.tooltip "Ali je to spletni posrednik ali posrednik SOCKS?">

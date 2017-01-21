@@ -209,6 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "黑名单中模板的优先级高于白名单中模板的优先级：如果一个 URL 同时匹配同一个代理服务器黑名单中的模板和白名单中的模板，这个 URL 将不使用该代理服务器加载。">
 <!ENTITY foxyproxy.socks.version.label "SOCKS 版本">
 <!ENTITY foxyproxy.autopacurl.label "自动 PAC URL">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "SOCKS代理?">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "这是一个Web代理或SOCKS代理?">

@@ -209,6 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "Чорний список (виключення) зразків має перевагу над Білим списком (включення) зразків: якщо URL-адреса відповідає обом зразкам з білого списку і зразкам з чорного списку  для такого проксі,URL-адреса виключається з початком завантаження цього проксі.">
 <!ENTITY foxyproxy.socks.version.label "Версія SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "Автоматична URL-адреса PAC ">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "SOCKS proxy?">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "Is this a web proxy or SOCKS proxy?">

@@ -209,6 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "Primjeri zabranjenog popisa (isključivanja) imaju prioritet nad primjerima dopuštenog popisa (uključivanja): ako web adresa odgovara primjeru i s dopuštenog i s zabranjenog popisa za isti proxy, web adresa je isključena od učitavanja od strane tog proxy-a.">
 <!ENTITY foxyproxy.socks.version.label "SOCKS inačica">
 <!ENTITY foxyproxy.autopacurl.label "Automatska PAC web adresa">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "SOCKS proxy?">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "Je li web proxy ili SOCKS proxy?">

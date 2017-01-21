@@ -209,6 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "黑名單比白名單有更高的優先權，如果同一網址同時符合黑/白名單的樣式，則『不』透過此代理伺服器存取這個網址。">
 <!ENTITY foxyproxy.socks.version.label "SOCKS 版本">
 <!ENTITY foxyproxy.autopacurl.label "自動組態指令碼（PAC）的檔案網址">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "SOCKS 代理伺服器？">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "這是 HTTP 還是 SOCKS 代理伺服器？">

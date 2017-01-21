@@ -209,6 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "Zwarte lijst (uitsluitings-) patronen hebben voorrang boven witte lijst (opname-) patronen: als een URL overeenkomt met een witte lijst-patroon en een zwarte lijst-patroon voor de zelfde proxy wordt deze niet geladen via die proxy.">
 <!ENTITY foxyproxy.socks.version.label "SOCKS-versie">
 <!ENTITY foxyproxy.autopacurl.label "Automatische PAC-URL">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "SOCKS-proxy?">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "Is dit een webproxy of een SOCKS-proxy?">

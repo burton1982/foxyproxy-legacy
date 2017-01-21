@@ -209,6 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "Svartlistade (exkluderande) mönster har företräde över vitlistade (inkluderande): Om en URL matchar mönster på både vit- och svartlistan för samma proxy, så kommer URL:en att blockeras från att läsas in via den proxyn.">
 <!ENTITY foxyproxy.socks.version.label "SOCKS-version">
 <!ENTITY foxyproxy.autopacurl.label "Auto-PAC-URL">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "SOCKS-proxy?">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "Är detta en proxy för webben eller SOCKS?">

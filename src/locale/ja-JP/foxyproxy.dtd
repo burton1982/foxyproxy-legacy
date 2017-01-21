@@ -209,6 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "ブラックリストパターンはホワイトリストパターンより優先されます: もし URL が同じプロキシのホワイトリストパターンとブラックリストパターン両方に一致した場合、URL はそのプロキシから読み込まれません。">
 <!ENTITY foxyproxy.socks.version.label "SOCKS バージョン">
 <!ENTITY foxyproxy.autopacurl.label "自動 PAC URL">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "SOCKS プロキシ?">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "これはウェブプロキシ? それとも SOCKS プロキシ?">

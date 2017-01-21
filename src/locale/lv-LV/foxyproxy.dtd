@@ -209,6 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "Melnā saraksta (izslēdzošajiem) šabloniem ir virsroka pār baltā saraksta (iekļaujošajiem) šabloniem: Ja kāda adrese atbilst gan kādam šablonam no abiem sarakstiem, tā netiks ielādēta caur šo starpniekserveri.">
 <!ENTITY foxyproxy.socks.version.label "SOCKS Versija">
 <!ENTITY foxyproxy.autopacurl.label "Automātisko PAC URL">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "SOCKS starpniekserveris?">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "Šis ir tīmekļa starpniekserveris vai SOCKS starpniekserveris?">

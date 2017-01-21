@@ -211,7 +211,7 @@
 <!ENTITY foxyproxy.autopacurl.label "Auto PAC URL">
 <!ENTITY foxyproxy.ishttps.label "SSL proxy?">
 <!ENTITY foxyproxy.ishttps.accesskey "Z">
-<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL proxy?">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "پروکسی SOCKS؟">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "آیا این یک پروکسی وب یا SOCKS است؟">

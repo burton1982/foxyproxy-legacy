@@ -209,6 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "แบบรูปรายชื่อสีดำ (โดดเดี่ยว) มีลำดับเหนือกว่าแบบรูปรายชื่อสีขาว (รวมอยู่): ถ้ายูอาร์แอลเข้าคู่ทั้งคู่กับพร็อกซีเดียวกัน ยูอาร์แอลจะถูกแยกออกจากการโหลดพร็อกซี">
 <!ENTITY foxyproxy.socks.version.label "รุ่นซอกส์">
 <!ENTITY foxyproxy.autopacurl.label "ยูอาร์แอล PAC อัตโนมัติ">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "พร็อกซีซอกส์?">
 <!ENTITY foxyproxy.issocks.accesskey "ซ">
 <!ENTITY foxyproxy.issocks.tooltip "นี่คือพร็อกซีเว็บหรือพร็อกซีซอกส์?">

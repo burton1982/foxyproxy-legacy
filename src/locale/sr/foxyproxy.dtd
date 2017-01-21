@@ -209,6 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "Шаблони црне листе имају предност над белом листом: ако URL задовољава оба шаблона, URL се нее учитавати кроз тај прокси.">
 <!ENTITY foxyproxy.socks.version.label "Верзија SOCKS-а">
 <!ENTITY foxyproxy.autopacurl.label "Auto PAC URL">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "SOCKS прокси?">
 <!ENTITY foxyproxy.issocks.accesskey "С">
 <!ENTITY foxyproxy.issocks.tooltip "Да ли је ово мрежни или SOCKS прокси?">

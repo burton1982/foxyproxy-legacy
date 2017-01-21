@@ -209,6 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "차단목록(제외) 패턴은 허용목록(포함) 패턴보다 우선합니다: 만약 동일 프록시에 대한 허용목록 패턴과 차단목록 패턴 둘 다 일치하는 경우, 그 URL은 프록시에 의해 불러오는 대상에서 대해 제외합니다.">
 <!ENTITY foxyproxy.socks.version.label "SOCKS 버전">
 <!ENTITY foxyproxy.autopacurl.label "자동 PAC URL">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "SOCKS proxy?">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "이 것은 웹 프록시 또는 SOCKS 입니까?">

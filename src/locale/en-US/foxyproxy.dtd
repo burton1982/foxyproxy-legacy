@@ -209,12 +209,12 @@
 <!ENTITY foxyproxy.whiteblack.description.label "Blacklist (exclusion) patterns have precedence over whitelist (inclusion) patterns: if a URL matches both a whitelisted pattern and a blacklisted pattern for the same proxy, the URL is excluded from being loaded by that proxy.">
 <!ENTITY foxyproxy.socks.version.label "SOCKS Version">
 <!ENTITY foxyproxy.autopacurl.label "Auto PAC URL">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "SOCKS proxy?">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "Is this a SOCKS proxy?">
-<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
-<!ENTITY foxyproxy.ishttps.accesskey "Z">
-<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL proxy?">
 <!ENTITY foxyproxy.moveup.label "Move Up">
 <!ENTITY foxyproxy.moveup.tooltip "Increase priority of current selection">
 <!ENTITY foxyproxy.moveup.accesskey "U">

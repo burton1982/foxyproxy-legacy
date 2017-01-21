@@ -209,6 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "Шаблоны из &quot;чёрного&quot; списка имеют более высокий приоритет по сравнению с шаблонами из &quot;белого&quot; списка. Т.е. если URL-адрес совпадает как с шаблоном из &quot;белого&quot; списка, так и с шаблоном из &quot;чёрного&quot; списка для того же прокси, тогда URL исключается из разрешённых к загрузке через данный прокси.">
 <!ENTITY foxyproxy.socks.version.label "Версия SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "Автоматически определять настройки прокси">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "SOCKS-прокси?">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "Это веб- или SOCKS-прокси?">

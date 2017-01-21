@@ -209,6 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "les motifs dans la liste noire (refusés) sont prioritaires par rapport aux motifs dans la liste blanche (autorisés) : Si une URL correspond à un motif contenu à la fois dans la liste blanche et la liste noire, elle Ne sera PAS chargée en utilisant ce proxy.">
 <!ENTITY foxyproxy.socks.version.label "Version SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "URL Auto PAC">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "Proxy SOCKS ?">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "Est-ce un proxy Web ou un proxy SOCKS ?">

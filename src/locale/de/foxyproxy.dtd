@@ -209,9 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "Muster der Blacklist (exklusiv) haben Vorrang vor Mustern der Whitelist (inklusiv): Falls eine URL sowohl von einem Muster der Whitelist als auch von einem Muster der Blacklist für denselben Proxy akzeptiert wird, wird die URL nicht über diesen Proxy geladen.">
 <!ENTITY foxyproxy.socks.version.label "SOCKS Version">
 <!ENTITY foxyproxy.autopacurl.label "Auto PAC URL">
-<!ENTITY foxyproxy.ishttps.label "HTTPS/SSL proxy?">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
 <!ENTITY foxyproxy.ishttps.accesskey "Z">
-<!ENTITY foxyproxy.ishttps.tooltip "Is this an HTTPS/SSL proxy?">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL (HTTPS) proxy?">
 <!ENTITY foxyproxy.issocks.label "SOCKS-Proxy?">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "Ist dies ein Web-Proxy oder ein SOCKS-Proxy?">
