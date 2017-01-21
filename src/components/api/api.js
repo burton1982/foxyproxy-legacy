@@ -262,7 +262,7 @@ api.prototype = {
 
   flags: CI.nsIClassInfo.SINGLETON|CI.nsIClassInfo.DOM_OBJECT,
   implementationLanguage: CI.nsIProgrammingLanguage.JAVASCRIPT,
-  getHelperForLanguage: function(l) null,
+  getHelperForLanguage: function() {return null;},
   getInterfaces: function(count) {
     let interfaces = [CI.foxyProxyApi];
     count.value = interfaces.length;

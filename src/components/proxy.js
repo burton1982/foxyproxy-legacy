@@ -391,7 +391,16 @@ Proxy.prototype = {
       nameValuePairs["isSocks"] = true;
       manualConfElem.setAttribute("isSocks", "true");
       manualConfElem.setAttribute("socksversion", parseInt(nameValuePairs["socksversion"]));
+      isSocks = true;
     }
+
+    if (!isSocks) {
+      if (nameValuePairs["isHttps"] == "true") {
+        nameValuePairs["isHttps"] = true;
+      manualConfElem.setAttribute("isHttps", "true");
+      }
+    }
+
     // If a URL was specified and either mode was specified as auto or no mode was specified,
     // then set mode to auto
     if (nameValuePairs["url"] && (nameValuePairs["mode"] == "auto" || !nameValuePairs["mode"])) {
@@ -669,6 +678,10 @@ Proxy.prototype = {
             proxies.push(proxyService.newProxyInfo("http", components[2],
               components[3], tmp, 0, null));
             break;
+          case "https":
+            proxies.push(proxyService.newProxyInfo("https", components[2],
+              components[3], tmp, 0, null));
+            break;
           case "socks":
           case "socks5":
             proxies.push(proxyService.newProxyInfo("socks", components[2],
@@ -747,7 +760,12 @@ Proxy.prototype = {
     if (proxyType === "PROXY") {
       return proxyService.newProxyInfo("http", proxyHost, proxyPort, 0, 0,
         null);
-    } else if (proxyType === "SOCKS" || proxyType === "SOCKS4" ||
+    }
+    else if (proxyType === "HTTPS") {
+      return proxyService.newProxyInfo("https", proxyHost, proxyPort, 0, 0,
+        null);
+    }
+    else if (proxyType === "SOCKS" || proxyType === "SOCKS4" ||
                proxyType === "SOCKS5") {
       let remoteResolve;
       if (this._proxyDNS) {
@@ -874,6 +892,7 @@ ManualConf.prototype = {
   _port: "",
   _socksversion: "5",
   _isSocks: false,
+  _isHttps: false,
   // No "null" assignment for username and password. Otherwise the auto import
   // via proxy:// URL won't work.
   username : "",
@@ -900,6 +919,8 @@ ManualConf.prototype = {
       n.getAttribute("gopher") ? false:
       n.getAttribute("socks") ? true : false; // new for 2.5
 
+    this._isHttps = n.hasAttribute("isHttps") ? n.getAttribute("isHttps") == "true" : false;
+
     this.username = gGetSafeAttr(n, "username", null);
     // TODO: Decrypt password
     this.password = gGetSafeAttr(n, "password", null);
@@ -912,6 +933,7 @@ ManualConf.prototype = {
     this._port = mc.port;
     this._socksversion = mc.socksVersion;
     this._isSocks = mc.socks;
+    this._isHttps = mc.https;
 
     // No "null" assignment for username and password. Otherwise the auto import
     // via proxy:// URL won't work.
@@ -928,6 +950,7 @@ ManualConf.prototype = {
     e.setAttribute("port", this._port);
     e.setAttribute("socksversion", this._socksversion);
     e.setAttribute("isSocks", this._isSocks);
+    e.setAttribute("isHttps", this._isHttps);
     this.username != null && e.setAttribute("username", this.username);
     // TODO: Encrypt password
     this.password != null && e.setAttribute("password", this.password);
@@ -938,9 +961,28 @@ ManualConf.prototype = {
   _makeProxy : function() {
     if (!this._host || !this._port)
       return;
-    this.proxy = this._isSocks ? proxyService.newProxyInfo(this._socksversion == "5"?"socks":"socks4", this._host, this._port,
-          this.owner._proxyDNS ? CI.nsIProxyInfo.TRANSPARENT_PROXY_RESOLVES_HOST : 0, 0, null): // never ignore, never failover
-          proxyService.newProxyInfo("http", this._host, this._port, 0, 0, null);
+
+    if (this._isSocks) {
+      // All of the following conditions must be true if we wants SOCKS with auth
+      // socksversion == "5" also includes SOCKS 4a.
+      if (this.username && this.password && this.fp.isGecko45 && this._socksversion == "5") {
+        this.proxy = proxyService.newProxyInfoWithAuth("socks", this._host, this._port, this.username, this.password,
+          this.owner._proxyDNS ? CI.nsIProxyInfo.TRANSPARENT_PROXY_RESOLVES_HOST : 0, 0, null); // never ignore, never failover
+      }
+      else {
+        this.proxy = proxyService.newProxyInfo("socks4", this._host, this._port,
+          this.owner._proxyDNS ? CI.nsIProxyInfo.TRANSPARENT_PROXY_RESOLVES_HOST : 0, 0, null); // never ignore, never failover
+      }
+    }
+    else {
+      if (this.username && this.password) {
+        this.proxy = proxyService.newProxyInfo(this._isHttps ? "https" : "http", this._host, this._port,
+          /*this.username, this.password, */ 0, 0, null);
+      }
+      else {
+        this.proxy = proxyService.newProxyInfo(this._isHttps ? "https" : "http", this._host, this._port, 0, 0, null);
+      }
+    }
   },
 
   get host() {return this._host;},
@@ -958,6 +1000,15 @@ ManualConf.prototype = {
   get isSocks() {return this._isSocks;},
   set isSocks(e) {
     this._isSocks = e;
+    // Do ** NOT ** uncomment the below code. I left it there for illustration. It's identical to the code
+    // in set isHttps(). If we include this safety check in isHttps and isSocks, then we cause problems
+    // when updating the values from the GUI. For example, suppose isHttps is true and isSocks false. Then the user
+    // swaps those in the GUI. The code there sets isSocks first, then isHttps (although the problem would simply be
+    // reversed if the GUI set the properties in the other order). In this case, isHttps is already true
+    // when isSocks is called. If we include the code below, then isSocks won't be set to true.
+
+    //if (e && !this._isHttps) this._isSocks = true; // Safety: can't be both socks and https
+    //else this._isSocks = false;
     this._makeProxy();
   },
 
@@ -965,5 +1016,12 @@ ManualConf.prototype = {
   set socksversion(e) {
     this._socksversion = e;
     this._makeProxy();
-  }
+  },
+
+  get isHttps() {return this._isHttps;},
+  set isHttps(e) {
+    if (e && !this._isSocks) this._isHttps = true; // Safety: can't be both socks and https
+    else this._isHttps = false;
+    this._makeProxy();
+  },
 };

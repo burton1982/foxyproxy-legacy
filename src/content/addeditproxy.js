@@ -73,6 +73,7 @@ function onLoad() {
   document.getElementById("port").value = proxy.manualconf.port;
   document.getElementById("isSocks").checked = proxy.manualconf.isSocks;
   document.getElementById("socksversion").value = proxy.manualconf.socksversion;
+  document.getElementById("isHttps").checked = proxy.manualconf.isHttps;
   document.getElementById("proxyDNS").checked = proxy.proxyDNS;
   autoconfMode.value = proxy.autoconfMode;
 
@@ -172,7 +173,8 @@ function onOK() {
       ["torwiz.nopatterns.3", name], "white-patterns", false))
     return false;
 
-  var isSocks = document.getElementById("isSocks").checked;
+  var isSocks = document.getElementById("isSocks").checked,
+    isHttps = document.getElementById("isHttps").checked;
 
   if (fpc.isThunderbird() && !isSocks && mode == "manual" &&
       !foxyproxy.warnings.showWarningIfDesired(window, ["socksWarning"],
@@ -210,6 +212,7 @@ function onOK() {
   proxy.manualconf.host = host;
   proxy.manualconf.port = port;
   proxy.manualconf.isSocks = isSocks;
+  proxy.manualconf.isHttps = isHttps; // safety check done in manualConf to prevent both socks & https
   proxy.manualconf.socksversion = document.getElementById("socksversion").value;
   proxy.manualconf.username = trim(document.getElementById("username").value);
   proxy.manualconf.password = document.getElementById("password").value;
@@ -544,15 +547,35 @@ function toggleSocks() {
   let socksBC = document.getElementById("socks-broadcaster");
   let authBC = document.getElementById("authentication-broadcaster");
   if (document.getElementById("isSocks").checked) {
+    document.getElementById("isHttps").checked = false; // can't be both socks and https
     socksBC.removeAttribute("disabled");
-    // We don't support SOCKS proxies with authentication, see:
-    // https://bugzilla.mozilla.org/show_bug.cgi?id=122752
-    authBC.setAttribute("disabled", "true");
+    if (!foxyproxy.isGecko45 || document.getElementById("socksversion").value == "4") {
+      // We don't support SOCKS proxies with authentication before Gecko45, see:
+      // https://bugzilla.mozilla.org/show_bug.cgi?id=122752
+      // Also, SOCKS4 does not support authentication.
+      authBC.setAttribute("disabled", "true");
+    }
+    else
+      authBC.removeAttribute("disabled");
   } else {
     socksBC.setAttribute("disabled", "true");
-    // We don't support SOCKS proxies with authentication, see:
-    // https://bugzilla.mozilla.org/show_bug.cgi?id=122752
     authBC.removeAttribute("disabled");
+  }
+}
+
+function toggleSocksVersion() {
+  let socksversion = document.getElementById("socksversion");
+  let authBC = document.getElementById("authentication-broadcaster");
+  if (socksversion.value == "5" && foxyproxy.isGecko45)
+    authBC.removeAttribute("disabled");
+  else
+    authBC.setAttribute("disabled", "true");
+}
+
+function toggleHttps() {
+  if (document.getElementById("isHttps").checked) {
+    document.getElementById("isSocks").checked = false; // can't be both socks and https
+    document.getElementById("authentication-broadcaster").removeAttribute("disabled");
   }
 }
 
@@ -632,8 +655,13 @@ function toggleMode(mode) {
       "true");
     if (document.getElementById("isSocks").checked) {
       document.getElementById("socks-broadcaster").removeAttribute("disabled");
-      document.getElementById("authentication-broadcaster").
-        setAttribute("disabled", "true");
+      if (!foxyproxy.isGecko45 || document.getElementById("socksversion").value == "4") {
+        document.getElementById("authentication-broadcaster").
+          setAttribute("disabled", "true");
+      } else {
+        document.getElementById("authentication-broadcaster").
+          removeAttribute("disabled");
+      }
     } else {
       document.getElementById("socks-broadcaster").setAttribute("disabled",
         "true");

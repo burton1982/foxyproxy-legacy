@@ -16,7 +16,7 @@ var foxyproxy = {
   notes: ["foxyproxy-toolbarIcon","foxyproxy-statusbar-icon",
     "foxyproxy-statusbar-text","foxyproxy-statusbar-width",
     "foxyproxy-toolsmenu","foxyproxy-contextmenu","foxyproxy-mode-change",
-    "foxyproxy-throb","foxyproxy-updateviews","foxyproxy-autoadd-toggle"],
+    "foxyproxy-throb","foxyproxy-updateviews","foxyproxy-autoadd-toggle", "foxyproxy-https-proxy-added"],
 
   alert : function(wnd, str) {
     Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
@@ -119,6 +119,9 @@ var foxyproxy = {
         break;
       case "foxyproxy-updateviews":
         this.updateViews(false, false);
+        break;
+      case "foxyproxy-https-proxy-added":
+        this.httpsProxyAdded(str);
         break;
       default:
         dump("Unknown observe case in overlay.js: " + topic + "\n");
@@ -1233,6 +1236,22 @@ end-foxyproxy-simple !*/
       if (q) {
         this.fp.logg.scrub();
         this.updateViews(false, true);
+      }
+    }
+  },
+
+  httpsProxyAdded : function(hostPort) {
+    // /security/manager/pki/resources/content/exceptionDialog.js
+    // Check if cert exception already exists for this host:port combination
+    let overrideService = Components.classes["@mozilla.org/security/certoverride;1"]
+      .getService(Components.interfaces.nsICertOverrideService);
+    let tmp = hostPort.split(":"), host = tmp[0], port = tmp.length > 1 ? tmp[1] : '';
+    if (!overrideService.getValidityOverride(host, parseInt(port), {}, {}, {}, {})) {
+      var owner = this._getOptionsDlg() || window;
+      var q = this.ask(owner, "If you don't add a certificate exception for " + hostPort + ", then you may not be able to use this SSL/HTTPS proxy server. Add exception now?");
+      if (q) {
+        let params = { exceptionAdded : false, sslStatus : null, prefetchCert: true, location : hostPort};    
+        owner.openDialog('chrome://pippki/content/exceptionDialog.xul', '', 'chrome,centerscreen,modal', params);
       }
     }
   }

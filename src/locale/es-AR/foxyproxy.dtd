@@ -209,6 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "Los patrones de Listas Negras (exclusiones) tienen precedencia sobre los patrones de Listas Blancas (inclusiones): si una URL coincide con ambas listas para el mismo proxy, la URL será excluída de ser cargada por éste proxy.">
 <!ENTITY foxyproxy.socks.version.label "Versión de SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "URL de Auto PAC">
+<!ENTITY foxyproxy.ishttps.label "HTTPS/SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an HTTPS/SSL proxy?">
 <!ENTITY foxyproxy.issocks.label "Proxy SOCKS?">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "Es éste un proxy HTTP o un proxy SOCKS?">

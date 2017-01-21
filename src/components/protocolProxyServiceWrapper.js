@@ -98,6 +98,10 @@ ProtocolProxyServiceWrapper.prototype = {
     return this.oldPPS.getFailoverForProxy.apply(this.oldPPS, arguments);
   },
 
+  newProxyInfoWithAuth : function(aType, aHost, aPort, aUser, aPass, aFlags, aFailoverTimeout, aFailoverProxy) {
+    return this.oldPPS.newProxyInfoWithAuth.apply(this.oldPPS, arguments);
+  },
+
   newProxyInfo : function(aType, aHost, aPort, aFlags, aFailoverTimeout,
                           aFailoverProxy) {
     return this.oldPPS.newProxyInfo.apply(this.oldPPS, arguments);

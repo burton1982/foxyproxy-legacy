@@ -92,7 +92,6 @@
           <hbox style="margin-left: 1em;">
             <label value="&foxyproxy.home;" class="text-link" onclick="fpc.openAndReuseOneTabPerURL('http://getfoxyproxy.org/');" tooltiptext="http://getfoxyproxy.org" />
             <label value="&foxyproxy.support;" class="text-link" onclick="fpc.openAndReuseOneTabPerURL('http://forums.getfoxyproxy.org/');" tooltiptext="forums.getfoxyproxy.org/" />
-            <label value="&foxyproxy.credits;" class="text-link" onclick="fpc.openAndReuseOneTabPerURL('http://getfoxyproxy.org/credits.html');" tooltiptext="http://getfoxyproxy.org/credits.html" />
           </hbox>
         </vbox>
       </hbox>

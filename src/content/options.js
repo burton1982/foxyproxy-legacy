@@ -389,9 +389,13 @@ function onDeleteSelection() {
     // Delete in reverse order so we don't mess up the index as we delete
     // multiple items.
     for (let i=sel.length-1; i>=0; i--) {
+      let proxy = foxyproxy.proxies.item(sel[i]);
       if (patternSubscriptions.subscriptionsList.length > 0) {
-        let proxyId = foxyproxy.proxies.item(sel[i]).id;
+        let proxyId = proxy.id;
         patternSubscriptions.removeDeletedProxies(proxyId);
+      }
+      if (proxy.mode == "manual" && proxy.manualconf.isHttps) {
+        // TODO: ask about removing cert exception if an exception exists
       }
       foxyproxy.proxies.remove(sel[i]);
     }
@@ -472,6 +476,9 @@ function onSettings(isNew) {
     if (selSub > -1) {
       patternSubscriptionsTree.view.selection.select(selSub);
     }
+    let mc = params.out.proxy.manualconf;
+    if (params.out.proxy.mode == "manual" && mc.isHttps)
+      utils.broadcast(true, "foxyproxy-https-proxy-added", mc.host + ":" + mc.port);
   }
 }
 
@@ -905,6 +912,7 @@ function _isDefaultProxySelected() {
     if (foxyproxy.proxies.item(tmp[i]).lastresort)
       return true;
   }
+
   return false;
 }
 

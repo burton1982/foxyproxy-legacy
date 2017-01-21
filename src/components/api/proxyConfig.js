@@ -393,7 +393,7 @@ ProxyConfig.prototype = {
 
   flags: CI.nsIClassInfo.DOM_OBJECT,
   implementationLanguage: CI.nsIProgrammingLanguage.JAVASCRIPT,
-  getHelperForLanguage: function(l) null,
+  getHelperForLanguage: function() {return null;},
   getInterfaces: function(count) {
     let interfaces = [CI.foxyProxyConfig];
     count.value = interfaces.length;

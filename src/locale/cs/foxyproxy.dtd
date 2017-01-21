@@ -209,6 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "Černá listina (vyloučení) vzorů má přednost před bílou listinou (zahrnutí) vzorů: pokud se URL nachází na bílé i černé listině pro shodnou proxy, tak URL nebude načítána pomocí té proxy.">
 <!ENTITY foxyproxy.socks.version.label "Verze SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "Auto PAC URL">
+<!ENTITY foxyproxy.ishttps.label "HTTPS/SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an HTTPS/SSL proxy?">
 <!ENTITY foxyproxy.issocks.label "SOCKS proxy server">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "Je toto webový anebo SOCKS proxy server?">

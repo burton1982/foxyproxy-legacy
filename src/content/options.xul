@@ -348,14 +348,6 @@
           </tree>
         </hbox>
         <hbox>
-          <!-- No hbox here as there will be a warning in the error console
-               about it due to the fact that hboxes won't work well with
-               inlined html tags -->
-          <description style="padding-top: 5px;">
-            <html:a class="link" onclick="openSubscriptionsURL('proxy');">
-              &foxyproxy.proxy.subscriptions.sharing.label;
-            </html:a>
-          </description>
           <spacer flex="1"/>
           <vbox>
             <menulist id="proxyActionList"
@@ -470,14 +462,6 @@
           </tree>
         </hbox>
         <hbox>
-          <!-- No hbox here as there will be a warning in the error console
-               about it due to the fact that hboxes won't work well with
-               inlined html tags -->
-          <description style="padding-top: 5px;">
-            <html:a class="link" onclick="openSubscriptionsURL('pattern');">
-              &foxyproxy.pattern.subscriptions.sharing.label;
-            </html:a>
-          </description>
           <spacer flex="1"/>
           <vbox>
             <menulist id="patternActionList"

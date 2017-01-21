@@ -1265,7 +1265,7 @@ foxyproxy.prototype = {
   logg : {
     owner : null,
     _maxSize : 500,
-    _elements : new Array(this._maxSize),
+    _elements : new Array(500),
     _end : 0,
     _start : 0,
     _full : false,

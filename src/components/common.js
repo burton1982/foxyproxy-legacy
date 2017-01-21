@@ -34,6 +34,10 @@ function Common() {
     CC["@mozilla.org/network/protocol-proxy-service;1"].getService().
       wrappedJSObject.fp = fp;
   }
+  // Gecko 45 and higher supports SOCKS proxies with authentication. Before that,
+  // SOCKS is supported but not with authentication.
+  fp.isGecko45 = this.vc.compare(this.appInfo.platformVersion, "45.0a1") >= 0;
+
   let uuid = fp.isFoxyProxySimple() ? "foxyproxy-basic@eric.h.jung" : "foxyproxy@eric.h.jung";
   // Get installed version
   if ("@mozilla.org/extensions/manager;1" in CC) {

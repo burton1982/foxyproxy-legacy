@@ -172,6 +172,10 @@
               <textbox id="port" size="5" observes="disabled-broadcaster"
                 oninput="if (/\D/.test(this.value)) this.value='';"
                 tooltiptext="&foxyproxy.port.tooltip;"/>
+              <checkbox id="isHttps" label="&foxyproxy.ishttps.label;"
+                accesskey="&foxyproxy.ishttps.accesskey;"
+                tooltiptext="&foxyproxy.ishttps.tooltip;"
+                oncommand="toggleHttps();" observes="disabled-broadcaster"/>
             </hbox>
             <hbox align="center" class="indent">
               <checkbox id="isSocks" label="&foxyproxy.issocks.label;"
@@ -180,9 +184,9 @@
                 oncommand="toggleSocks();" observes="disabled-broadcaster"/>
               <radiogroup id="socksversion" orient="horizontal">
                 <radio id="socks4" value="4" label="&foxyproxy.socks.v4;"
-                  accesskey="4" observes="socks-broadcaster"/>
+                  accesskey="4" oncommand="toggleSocksVersion();" observes="socks-broadcaster"/>
                 <radio id="socks5" value="5" label="&foxyproxy.socks.v5;"
-                  accesskey="5" observes="socks-broadcaster"/>
+                  accesskey="5" oncommand="toggleSocksVersion();" observes="socks-broadcaster"/>
               </radiogroup>
             </hbox>
             <hbox align="center" class="indent">

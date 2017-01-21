@@ -209,6 +209,9 @@
 <!ENTITY foxyproxy.whiteblack.description.label "لیست سیاه بر لیست سفید برتری دارد.به عنوان مثال اگر سایتی در هر دو لیست موجود باشد قرار داشتن آن در لیست سیاه مد نظر قرار می گیرد">
 <!ENTITY foxyproxy.socks.version.label "نسخه SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "Auto PAC URL">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL proxy?">
 <!ENTITY foxyproxy.issocks.label "پروکسی SOCKS؟">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "آیا این یک پروکسی وب یا SOCKS است؟">

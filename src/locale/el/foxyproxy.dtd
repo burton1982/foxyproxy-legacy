@@ -207,6 +207,9 @@
 <!ENTITY foxyproxy.blacklist.tooltip "Τα URL που συμφωνούν με αυτό το πρότυπο δεν θα φορτώνονται μέσω αυτού του διαμεσολαβητή">
 <!ENTITY foxyproxy.blacklist.description.label "Τα URL που συμφωνούν με αυτό το πρότυπο δεν θα φορτώνονται μέσω αυτού του διαμεσολαβητή">
 <!ENTITY foxyproxy.whiteblack.description.label "Τα πρότυπα της λίστας απαγορευμένων(απόρριψης) έχουν προτεραιότητα σε σχέση με αυτά της λίστας επιτρεπόμενων(συμπεριληπτικά): Αν ένα URL συμφωνεί και με τα δυο για τον ίδιο διαμεσολαβητή, το URL δεν θα επιτραπεί να φορτωθεί από αυτόν.">
+<!ENTITY foxyproxy.ishttps.label "HTTPS/SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an HTTPS/SSL proxy?">
 <!ENTITY foxyproxy.socks.version.label "Έκδοση SOCKS">
 <!ENTITY foxyproxy.autopacurl.label "Αυτόματο PAC URL">
 <!ENTITY foxyproxy.issocks.label "Διαμεσολαβητής SOCKS;">

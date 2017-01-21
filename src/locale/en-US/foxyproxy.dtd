@@ -212,6 +212,9 @@
 <!ENTITY foxyproxy.issocks.label "SOCKS proxy?">
 <!ENTITY foxyproxy.issocks.accesskey "S">
 <!ENTITY foxyproxy.issocks.tooltip "Is this a SOCKS proxy?">
+<!ENTITY foxyproxy.ishttps.label "SSL proxy?">
+<!ENTITY foxyproxy.ishttps.accesskey "Z">
+<!ENTITY foxyproxy.ishttps.tooltip "Is this an SSL proxy?">
 <!ENTITY foxyproxy.moveup.label "Move Up">
 <!ENTITY foxyproxy.moveup.tooltip "Increase priority of current selection">
 <!ENTITY foxyproxy.moveup.accesskey "U">
