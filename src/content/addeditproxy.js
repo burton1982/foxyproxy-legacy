@@ -142,6 +142,11 @@ function onOK() {
   var host = trim(document.getElementById("host").value),
     port = document.getElementById("port").value,
     name = trim(document.getElementById("proxyname").value);
+  if (host.startWith("http://"))
+    host = host.susbtring(7);
+  if (host.startWith("https://"))
+    host = host.susbtring(8);
+
   if (!name)
     name = host ? (host + ":" + port) : foxyproxy.getMessage("new.proxy");
   var enabled = document.getElementById("proxyenabled").checked,
