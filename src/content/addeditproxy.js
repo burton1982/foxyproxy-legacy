@@ -142,10 +142,10 @@ function onOK() {
   var host = trim(document.getElementById("host").value),
     port = document.getElementById("port").value,
     name = trim(document.getElementById("proxyname").value);
-  if (host.startWith("http://"))
-    host = host.susbtring(7);
-  if (host.startWith("https://"))
-    host = host.susbtring(8);
+  if (host.startsWith("http://"))
+    host = host.substring(7);
+  if (host.startsWith("https://"))
+    host = host.substring(8);
 
   if (!name)
     name = host ? (host + ":" + port) : foxyproxy.getMessage("new.proxy");
