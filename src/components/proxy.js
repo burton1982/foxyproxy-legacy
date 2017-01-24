@@ -959,9 +959,15 @@ ManualConf.prototype = {
   },
 
   _makeProxy : function() {
+
+/*
+-    this.proxy = this._isSocks ? proxyService.newProxyInfo(this._socksversion == "5"?"socks":"socks4", this._host, this._port,
+-          this.owner._proxyDNS ? CI.nsIProxyInfo.TRANSPARENT_PROXY_RESOLVES_HOST : 0, 0, null): // never ignore, never failover
+-          proxyService.newProxyInfo("http", this._host, this._port, 0, 0, null);
+
+*/
     if (!this._host || !this._port)
       return;
-
     if (this._isSocks) {
       // All of the following conditions must be true if we wants SOCKS with auth
       // socksversion == "5" also includes SOCKS 4a.
@@ -970,7 +976,7 @@ ManualConf.prototype = {
           this.owner._proxyDNS ? CI.nsIProxyInfo.TRANSPARENT_PROXY_RESOLVES_HOST : 0, 0, null); // never ignore, never failover
       }
       else {
-        this.proxy = proxyService.newProxyInfo("socks4", this._host, this._port,
+        this.proxy = proxyService.newProxyInfo(this._socksversion == "5" ? "socks" : "socks4", this._host, this._port,
           this.owner._proxyDNS ? CI.nsIProxyInfo.TRANSPARENT_PROXY_RESOLVES_HOST : 0, 0, null); // never ignore, never failover
       }
     }

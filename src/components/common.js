@@ -50,7 +50,10 @@ function Common() {
     // Post-Gecko 2.0
     Components.utils.import("resource://gre/modules/AddonManager.jsm");
     var self = this;
-    AddonManager.getAddonByID(uuid, function(addon) {self.version = addon.version;});
+    AddonManager.getAddonByID(uuid, function(addon) {
+      // addon is null when this code is running not packaged as XPI (i.e., debug/dev mode)
+      self.version = addon ? addon.version : "0.0";
+    });
   }
 }
 

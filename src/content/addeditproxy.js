@@ -139,6 +139,18 @@ function onOK() {
     return false;
   }
 
+  let fp = CC["@leahscape.org/foxyproxy/service;1"].getService().wrappedJSObject,
+    username = trim(document.getElementById("username").value),
+    password = document.getElementById("password").value,
+    isSocks = document.getElementById("isSocks").checked,
+    isHttps = document.getElementById("isHttps").checked;
+
+  if (!fp.isGecko45 && isSocks && username && password) {
+    // SOCKS with auth is only supported with Gecko 45+
+    // TODO: i18n
+    alert("Firefox 45 or above is required for SOCKS with username/password");
+    return false;
+  }
   var host = trim(document.getElementById("host").value),
     port = document.getElementById("port").value,
     name = trim(document.getElementById("proxyname").value);
@@ -178,9 +190,6 @@ function onOK() {
       ["torwiz.nopatterns.3", name], "white-patterns", false))
     return false;
 
-  var isSocks = document.getElementById("isSocks").checked,
-    isHttps = document.getElementById("isHttps").checked;
-
   if (fpc.isThunderbird() && !isSocks && mode == "manual" &&
       !foxyproxy.warnings.showWarningIfDesired(window, ["socksWarning"],
       "socks", true))
@@ -219,8 +228,8 @@ function onOK() {
   proxy.manualconf.isSocks = isSocks;
   proxy.manualconf.isHttps = isHttps; // safety check done in manualConf to prevent both socks & https
   proxy.manualconf.socksversion = document.getElementById("socksversion").value;
-  proxy.manualconf.username = trim(document.getElementById("username").value);
-  proxy.manualconf.password = document.getElementById("password").value;
+  proxy.manualconf.username = username;
+  proxy.manualconf.password = password;
   proxy.manualconf.domain = document.getElementById("domain").value;
   proxy.animatedIcons = document.getElementById("animatedIcons").checked;
   proxy.includeInCycle = document.getElementById("cycleEnabled").checked;

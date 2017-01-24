@@ -251,7 +251,7 @@ AuthPromptProvider.prototype = {
           // CalDAV request. Thanks to Fallen for the kind help.
           let that = this;
           let calDAVRequest = this.cal.getCalendarManager().getCalendars({}).
-            some(function(x) {x.uri.prePath === that.prePath});
+            some(function(x) x.uri.prePath === that.prePath);
           if (calDAVRequest) {
             return new this.cal.auth.Prompt();
           }
@@ -264,8 +264,7 @@ AuthPromptProvider.prototype = {
                       getService(Components.interfaces.nsIPromptFactory);
         var prompt = factory.getPrompt(win, Components.interfaces.nsIAuthPrompt2);
         if(prompt instanceof Components.interfaces.nsILoginManagerPrompter) {
-          // https://bugzilla.mozilla.org/show_bug.cgi?id=1308817
-          prompt.setOpener(win);
+          prompt.setE10sData(win.gBrowser.selectedBrowser, null);
         }
         return prompt;
       }
