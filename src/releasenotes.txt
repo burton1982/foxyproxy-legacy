@@ -1,2 +1,1 @@
-* Fixed bug in 4.6.1 that prevented connections to SOCKS (no auth) proxy servers
-* Error message when trying to use SOCKS (with auth) proxy servers on versions of Firefox before 45.
+* Fixed HTTP Basic Auth bug introduced in previous version: https://bugzilla.mozilla.org/show_bug.cgi?id=1308817
