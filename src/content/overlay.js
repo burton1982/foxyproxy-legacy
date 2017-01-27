@@ -19,6 +19,15 @@ var foxyproxy = {
     "foxyproxy-throb","foxyproxy-updateviews","foxyproxy-autoadd-toggle", "foxyproxy-https-proxy-added"],
 
   alert : function(wnd, str) {
+    try {
+      dump("QI'ing' PIDOMWindow\n");
+      wnd = wnd.QueryInterface(Components.interfaces.nsPIDOMWindow);
+      dump("QI'd PIDOMWindow\n");
+    }
+    catch (e) {
+      // Pre Gecko 45 or so
+      dump(e + '\n');
+    }
     Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
       .getService(Components.interfaces.nsIPromptService)
       .alert(wnd?wnd:null, this.fp.getMessage("foxyproxy"), str);
@@ -1248,7 +1257,7 @@ end-foxyproxy-simple !*/
     let tmp = hostPort.split(":"), host = tmp[0], port = tmp.length > 1 ? tmp[1] : '';
     if (!overrideService.getValidityOverride(host, parseInt(port), {}, {}, {}, {})) {
       var owner = this._getOptionsDlg() || window;
-      var q = this.ask(owner, "If you don't add a certificate exception for " + hostPort + ", then you may not be able to use this SSL/HTTPS proxy server. Add exception now?");
+      var q = this.ask(owner, "If you don't add a certificate exception for " + hostPort + ", then you may not be able to use this ssl/https proxy server. Add exception now?");
       if (q) {
         let params = { exceptionAdded : false, sslStatus : null, prefetchCert: true, location : hostPort};    
         owner.openDialog('chrome://pippki/content/exceptionDialog.xul', '', 'chrome,centerscreen,modal', params);

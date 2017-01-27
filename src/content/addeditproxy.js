@@ -135,7 +135,7 @@ function onOK() {
   var password1 = trim(document.getElementById("password").value),
     password2 = trim(document.getElementById("password2").value);
   if (password1 != password2) {
-    alert(document.getElementById("proxy.passwords.nomatch.label").value);
+    foxyproxy.alert(this, document.getElementById("proxy.passwords.nomatch.label").value);
     return false;
   }
 
@@ -148,7 +148,7 @@ function onOK() {
   if (!fp.isGecko45 && isSocks && username && password) {
     // SOCKS with auth is only supported with Gecko 45+
     // TODO: i18n
-    alert("Firefox 45 or above is required for SOCKS with username/password");
+    foxyproxy.alert(this, "Firefox 45 or above is required for SOCKS with username/password");
     return false;
   }
   var host = trim(document.getElementById("host").value),

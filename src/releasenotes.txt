@@ -1,1 +1,3 @@
-* Fixed HTTP Basic Auth bug, introduced by an earlier release, that breaks HTTP Basic Auth for Firefox 50 and earlier
+* Fixed import/export of settings
+* Fixed display of alert boxes to notify user of problems
+* Ensured alert boxes are titled as "FoxyProxy" and not the generic "Javascript" so that users know the origin of the alert
