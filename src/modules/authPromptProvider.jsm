@@ -264,10 +264,16 @@ AuthPromptProvider.prototype = {
                       getService(Components.interfaces.nsIPromptFactory);
         var prompt = factory.getPrompt(win, Components.interfaces.nsIAuthPrompt2);
         if(prompt instanceof Components.interfaces.nsILoginManagerPrompter) {
-          // https://bugzilla.mozilla.org/show_bug.cgi?id=1308817
-          // https://dxr.mozilla.org/mozilla-central/source/toolkit/components/passwordmgr/nsLoginManagerPrompter.js
-          prompt.init(win);
-          prompt.opener = win;
+          try {
+            // https://bugzilla.mozilla.org/show_bug.cgi?id=1308817
+            // https://dxr.mozilla.org/mozilla-central/source/toolkit/components/passwordmgr/nsLoginManagerPrompter.js
+            prompt.init(win);
+            prompt.opener = win;
+          }
+          catch (e) {
+            // Pre Gecko 51
+            prompt.setE10sData(win.gBrowser.selectedBrowser, null);
+          }
         }
         return prompt;
       }

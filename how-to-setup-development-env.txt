@@ -17,6 +17,7 @@ Extension0=/Users/fidel/dev/Plugin/src
 
 * Preferences:
 
+xpinstall.signatures.required = false
 javascript.options.showInConsole = true
 nglayout.debug.disable_xul_cache = true (create)
 browser.dom.window.dump.enabled = true

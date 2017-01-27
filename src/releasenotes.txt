@@ -1,1 +1,1 @@
-* Fixed HTTP Basic Auth bug introduced in previous version: https://bugzilla.mozilla.org/show_bug.cgi?id=1308817
+* Fixed HTTP Basic Auth bug, introduced by an earlier release, that breaks HTTP Basic Auth for Firefox 50 and earlier
